@@ -1,122 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Marla Harris Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Work+Sans&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Work Sans', sans-serif;
-      background-color: #fffaf5;
-      color: #111;
-      overflow-x: hidden;
-    }
-    h1, h2, h3 {
-      font-family: 'Playfair Display', serif;
-      letter-spacing: 1px;
-    }
-    .hero {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background: url('hero-image.jpg') center/cover no-repeat;
-      text-align: center;
-      color: white;
-      position: relative;
-    }
-    .hero::after {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.4);
-    }
-    .hero-content {
-      position: relative;
-      z-index: 1;
-    }
-    .hero h1 {
-      font-size: 4rem;
-      margin-bottom: 10px;
-    }
-    .hero p {
-      font-size: 1.5rem;
-      color: hotpink;
-    }
-    .section {
-      padding: 80px 10%;
-    }
-    .campaign {
-      display: flex;
-      align-items: center;
-      margin-bottom: 80px;
-    }
-    .campaign img {
-      width: 50%;
-      object-fit: cover;
-      margin-right: 40px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    }
-    .campaign:nth-child(even) {
-      flex-direction: row-reverse;
-    }
-    .campaign h2 {
-      font-size: 2.5rem;
-      color: hotpink;
-      margin-bottom: 15px;
-    }
-    .about {
-      background: #111;
-      color: white;
-      text-align: center;
-      padding: 60px 20px;
-    }
-    .about h2 {
-      color: hotpink;
-      margin-bottom: 20px;
-    }
-    .about p {
-      max-width: 700px;
-      margin: auto;
-      line-height: 1.6;
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Marla Harris Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Space Grotesk', sans-serif;
+    background: #fff;
+    color: #000;
+    line-height: 1.6;
+  }
+  header {
+    padding: 60px 5%;
+    text-align: center;
+    border-bottom: 4px solid hotpink;
+  }
+  header h1 {
+    font-size: 5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  nav {
+    margin-top: 10px;
+  }
+  nav a {
+    color: hotpink;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+  }
+  section {
+    width: 100%;
+    overflow: hidden;
+  }
+  .campaign {
+    position: relative;
+  }
+  .campaign img {
+    width: 100%;
+    display: block;
+  }
+  .caption {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    font-size: 3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: white;
+    background: rgba(0,0,0,0.7);
+    padding: 10px 20px;
+  }
+  .about {
+    padding: 80px 10%;
+    background: #fff;
+  }
+  .about blockquote {
+    font-size: 2rem;
+    font-weight: 700;
+    color: hotpink;
+    margin-bottom: 40px;
+  }
+  .about p {
+    max-width: 700px;
+    margin-bottom: 20px;
+  }
+  footer {
+    text-align: center;
+    padding: 40px;
+    background: #000;
+    color: white;
+    font-size: 0.8rem;
+  }
+</style>
 </head>
 <body>
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Marla Harris</h1>
-      <p>Portfolio — Under Construction</p>
-    </div>
-  </section>
+  <header>
+    <h1>Marla Harris</h1>
+    <nav>
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-  <section class="section">
+  <section id="work">
     <div class="campaign">
       <img src="campaign1.jpg" alt="Campaign 1">
-      <div>
-        <h2>Campaign One</h2>
-        <p>Description of your fashion-inspired email marketing campaign. Keep it short and impactful.</p>
-      </div>
+      <div class="caption">Campaign One</div>
     </div>
     <div class="campaign">
       <img src="campaign2.jpg" alt="Campaign 2">
-      <div>
-        <h2>Campaign Two</h2>
-        <p>Description of another campaign, results, and creative approach.</p>
-      </div>
+      <div class="caption">Campaign Two</div>
+    </div>
+    <div class="campaign">
+      <img src="campaign3.jpg" alt="Campaign 3">
+      <div class="caption">Campaign Three</div>
     </div>
   </section>
 
-  <section class="about">
-    <h2>About Me</h2>
-    <p>I’m Marla Harris, an email marketer blending strategy, design, and bold creativity to deliver high-fashion inspired campaigns. Hot pink is my signature accent — because marketing should never be boring.</p>
+  <section id="about" class="about">
+    <blockquote>Marketing should be bold, unapologetic, and unforgettable.</blockquote>
+    <p>I’m Marla Harris, an email marketer with a passion for high-fashion aesthetics and editorial storytelling. I fuse strategy, design, and compelling narratives to create campaigns that captivate and convert.</p>
+    <p>From welcome sequences to luxury product launches, my work combines clean design with striking visual identity.</p>
   </section>
+
+  <footer id="contact">
+    &copy; 2025 Marla Harris | <a href="mailto:you@example.com" style="color:hotpink; text-decoration:none;">Email Me</a>
+  </footer>
 </body>
 </html>
