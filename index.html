@@ -7,95 +7,83 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
     * {margin: 0; padding: 0; box-sizing: border-box;}
-    body {
-      font-family: 'Space Grotesk', sans-serif;
-      background-color: #fff;
-      color: #000;
-      overflow-x: hidden;
-    }
-    header {
-      position: fixed; top: 0; left: 0; width: 100%;
-      background: rgba(255,255,255,0.9);
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 20px 40px; z-index: 1000; border-bottom: 1px solid #eee;
-    }
-    header h1 {
-      font-size: 2rem; font-weight: 700; letter-spacing: 2px;
-    }
-    nav a {
-      margin-left: 20px; text-decoration: none; color: hotpink;
-      font-weight: 400; font-size: 0.9rem;
-    }
-    section {
-      min-height: 100vh; display: flex; align-items: center;
-      justify-content: center; position: relative; padding: 100px 20px;
-      flex-direction: column;
-    }
-    .hero {
-      background: url('https://source.unsplash.com/1600x900/?fashion,editorial') center/cover no-repeat;
-      color: #fff; text-align: center;
-    }
-    .hero h2 {
-      font-size: 6vw; font-weight: 700; text-transform: uppercase;
-      background: rgba(0,0,0,0.4); padding: 20px; display: inline-block;
-    }
-    .campaign img {
-      width: 100%; height: auto; margin-bottom: 20px; opacity: 0;
-      transform: translateY(50px); transition: all 0.8s ease;
-    }
-    .campaign-text {
-      font-size: 2rem; font-weight: 700; text-transform: uppercase;
-      opacity: 0; transform: translateY(50px); transition: all 0.8s ease;
-    }
-    .show {opacity: 1 !important; transform: translateY(0) !important;}
-    .metrics {
-      background: #000; color: #fff; text-align: center;
-    }
-    .metrics h2 {
-      color: hotpink; font-size: 3rem; margin-bottom: 40px;
-    }
+    :root { --accent: hotpink; }
+    body {font-family: 'Space Grotesk', sans-serif; background-color: #fff; color: #000; overflow-x: hidden;}
+    header {position: fixed; top: 0; left: 0; width: 100%; background: rgba(255,255,255,0.9);
+      display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; z-index: 1000;
+      border-bottom: 1px solid #eee; backdrop-filter: blur(4px);}
+    header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 2px; }
+    nav a {margin-left: 20px; text-decoration: none; color: var(--accent); font-weight: 400; font-size: 0.9rem;}
+    section {min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      position: relative; padding: 100px 20px; flex-direction: column;}
+    .hero {background: url('https://source.unsplash.com/1600x900/?fashion,editorial') center/cover no-repeat; color: #fff; text-align: center;}
+    .hero h2 {font-size: 6vw; font-weight: 700; text-transform: uppercase; background: rgba(0,0,0,0.4); padding: 20px; display: inline-block;}
+
+    /* Lookbook */
+    .lookbook { width: 100%; max-width: 1200px; }
+    .lb-viewport {position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; background: #000;}
+    .lb-track {display: flex; width: 100%; height: 100%; transition: transform 0.6s ease;}
+    .lb-slide {min-width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #000;}
+    .lb-slide img {max-width: 100%; max-height: 100%; object-fit: contain;}
+    .lb-caption {position: absolute; bottom: 16px; left: 16px; color: #fff; background: rgba(0,0,0,0.45);
+      padding: 8px 12px; text-transform: uppercase; font-weight: 700; letter-spacing: .5px;}
+    .lb-nav {position: absolute; top: 50%; width: 100%; display: flex; justify-content: space-between; transform: translateY(-50%); padding: 0 8px; pointer-events: none;}
+    .lb-btn {pointer-events: all; background: rgba(255,255,255,0.85); border: none; padding: 8px 12px; cursor: pointer; font-weight: 700;}
+    .lb-dots { display: flex; gap: 8px; margin-top: 16px; }
+    .lb-dot {width: 10px; height: 10px; border-radius: 50%; background: #bbb; cursor: pointer;}
+    .lb-dot.active { background: var(--accent); }
+
+    /* Metrics */
+    .metrics { background: #000; color: #fff; text-align: center; }
+    .metrics h2 { color: var(--accent); font-size: 3rem; margin-bottom: 40px; }
     .metrics .data {display: flex; flex-wrap: wrap; justify-content: center; gap: 40px;}
     .metrics .data div {font-size: 2rem; font-weight: 700;}
-    .subject-lines {margin-top: 40px; display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;}
-    .subject-lines span {
-      background: #fff; color: #000; padding: 10px 15px; transform: rotate(-2deg);
-      font-size: 1rem; font-weight: 700;
+
+    /* What I Wrote */
+    .wrote { max-width: 1200px; width: 100%; }
+    .wrote h2 { color: var(--accent); font-size: 2.5rem; margin-bottom: 24px; text-transform: uppercase; }
+    .wrote-wrap {display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;}
+    .snippet {border: 1px solid #000; padding: 16px; position: relative; background: #fff;}
+    .snippet:before {content: 'SUBJECT'; position: absolute; top: -12px; left: 12px; background: #fff; padding: 2px 6px; font-size: .7rem; color: #000;}
+    .snippet.cta:before { content: 'CTA'; }
+    .snippet.preview:before { content: 'PREVIEW'; }
+    .snippet p { font-weight: 700; }
+    .snippet small { display: block; margin-top: 6px; opacity: .7; font-weight: 400; }
+
+    /* Brands Marquee - dual staggered rows */
+    .brands {width: 100%; background: #111; padding: 24px 0;}
+    .brands h3 {color: var(--accent); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 12px; font-size: 0.9rem;}
+    .marquee {
+      white-space: nowrap; overflow: hidden; position: relative; width: 100%;
+      border-top: 1px solid #222; border-bottom: 1px solid #222;
     }
-    .brands-marquee {
-      white-space: nowrap; overflow: hidden; background: #111; padding: 20px 0;
+    .track {
+      display: inline-block; padding: 10px 0; will-change: transform;
+      animation: marqueeA 18s linear infinite;
+      font-size: 1.6rem; font-weight: 700; text-transform: uppercase;
     }
-    .brands-track {
-      display: inline-block; animation: marquee 15s linear infinite;
+    .track.alt {
+      animation: marqueeB 22s linear infinite; opacity: 0.9; font-size: 1.3rem; letter-spacing: .02em;
     }
-    .brands-track img {
-      height: 50px; margin: 0 40px; filter: grayscale(100%);
-      transition: filter 0.3s ease;
-    }
-    .brands-track img:hover {filter: grayscale(0%) brightness(1.2) saturate(2) hue-rotate(-20deg);}
-    @keyframes marquee {
-      from {transform: translateX(0);}
-      to {transform: translateX(-50%);}
-    }
-    .community {
-      background: url('https://source.unsplash.com/1600x900/?community,volunteer') center/cover no-repeat;
-      color: #fff; text-align: center;
-    }
-    .community h2 {
-      background: rgba(0,0,0,0.5); padding: 20px; font-size: 3rem; text-transform: uppercase;
-    }
-    .social-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;
-    }
-    .social-grid a {
-      display: block; background-size: cover; background-position: center;
-      height: 200px; filter: grayscale(100%); transition: all 0.3s ease;
-    }
-    .social-grid a:hover {filter: grayscale(0%) brightness(1.2) saturate(2) hue-rotate(-20deg);}
-    .work-history {max-width: 800px; margin: auto;}
-    .work-item {display: flex; justify-content: space-between; border-bottom: 1px solid #ccc; padding: 20px 0;}
-    .about {max-width: 900px; margin: auto; text-align: left; column-count: 2; column-gap: 40px;}
+    .brand {margin: 0 40px; color: #fff; transition: color .2s;}
+    .brand:hover {color: var(--accent);}
+    @keyframes marqueeA { from {transform: translateX(0);} to {transform: translateX(-50%);} }
+    @keyframes marqueeB { from {transform: translateX(-25%);} to {transform: translateX(-75%);} }
+
+    /* Community */
+    .community {background: url('https://source.unsplash.com/1600x900/?community,volunteer') center/cover no-repeat; color: #fff; text-align: center;}
+    .community h2 {background: rgba(0,0,0,0.5); padding: 20px; font-size: 3rem; text-transform: uppercase;}
+
+    /* About + Work */
+    .aboutwork { max-width: 1200px; width: 100%; }
+    .aboutwork h2 { color: var(--accent); margin-bottom: 20px; text-transform: uppercase; font-size: 2rem; }
+    .about-grid {display: grid; grid-template-columns: 1.2fr .8fr; gap: 40px;}
+    .about-grid p { line-height: 1.7; }
+    .work-item {display: flex; justify-content: space-between; border-bottom: 1px solid #ccc; padding: 16px 0;}
+    @media (max-width: 900px) {.about-grid { grid-template-columns: 1fr; } .brand {margin: 0 20px;}}
+
     footer {background: #000; color: #fff; text-align: center; padding: 20px;}
-    footer a {color: hotpink; text-decoration: none;}
+    footer a {color: var(--accent); text-decoration: none;}
   </style>
 </head>
 <body>
@@ -103,35 +91,33 @@
 <header>
   <h1>MARLA HARRIS</h1>
   <nav>
-    <a href="#campaign1">Campaign 1</a>
-    <a href="#campaign2">Campaign 2</a>
-    <a href="#campaign3">Campaign 3</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#lookbook">Campaigns</a>
     <a href="#metrics">Metrics</a>
-    <a href="#brands">Brands</a>
+    <a href="#wrote">What I Wrote</a>
+    <a href="#brands">Featured Brands</a>
     <a href="#community">Community</a>
-    <a href="#social">Social</a>
-    <a href="#work">Work</a>
-    <a href="#about">About</a>
+    <a href="#aboutwork">About + Work</a>
   </nav>
 </header>
 
-<section class="hero">
-  <h2>Coming Soon</h2>
-</section>
+<section id="portfolio" class="hero"><h2>Portfolio</h2></section>
 
-<section id="campaign1" class="campaign">
-  <img src="https://source.unsplash.com/1600x900/?fashion,model" alt="Campaign 1">
-  <div class="campaign-text">Campaign 1</div>
-</section>
-
-<section id="campaign2" class="campaign">
-  <img src="https://source.unsplash.com/1600x900/?runway,style" alt="Campaign 2">
-  <div class="campaign-text">Campaign 2</div>
-</section>
-
-<section id="campaign3" class="campaign">
-  <img src="https://source.unsplash.com/1600x900/?streetstyle,model" alt="Campaign 3">
-  <div class="campaign-text">Campaign 3</div>
+<section id="lookbook" class="lookbook">
+  <h2 style="color: var(--accent); text-transform: uppercase; margin-bottom: 16px;">Lookbook</h2>
+  <div class="lb-viewport">
+    <div class="lb-track" id="lbTrack">
+      <div class="lb-slide"><img src="https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif" alt="Campaign GIF 1"></div>
+      <div class="lb-slide"><img src="https://media.giphy.com/media/l0HlBO7eyXzSZkJri/giphy.gif" alt="Campaign GIF 2"></div>
+      <div class="lb-slide"><img src="https://media.giphy.com/media/3o6Zt8zb1P4I5nZ8vS/giphy.gif" alt="Campaign GIF 3"></div>
+    </div>
+    <div class="lb-caption" id="lbCaption">Campaign 1</div>
+    <div class="lb-nav">
+      <button class="lb-btn" id="prevBtn">‹</button>
+      <button class="lb-btn" id="nextBtn">›</button>
+    </div>
+  </div>
+  <div class="lb-dots" id="lbDots"></div>
 </section>
 
 <section id="metrics" class="metrics">
@@ -141,62 +127,88 @@
     <div>18% Click Rate</div>
     <div>+25% Conversions</div>
   </div>
-  <div class="subject-lines">
-    <span>This is not a drill.</span>
-    <span>The bag everyone’s talking about.</span>
-    <span>You forgot something…</span>
+</section>
+
+<section id="wrote" class="wrote">
+  <h2>What I Wrote</h2>
+  <div class="wrote-wrap">
+    <div class="snippet"><p>“This is not a drill.”</p><small>Subject line – Product Drop</small></div>
+    <div class="snippet preview"><p>“Limited run. Your size is still in stock (for now).”</p><small>Preview text – Launch Email</small></div>
+    <div class="snippet cta"><p>“Claim your spot”</p><small>CTA – Waitlist</small></div>
+    <div class="snippet"><p>“The bag everyone’s talking about.”</p><small>Subject line – Social proof</small></div>
+    <div class="snippet preview"><p>“We saved your cart. Want us to hold it?”</p><small>Preview text – Abandon cart</small></div>
+    <div class="snippet cta"><p>“Open the envelope”</p><small>CTA – Announcement</small></div>
   </div>
 </section>
 
-<section id="brands" class="brands-marquee">
-  <div class="brands-track">
-    <img src="https://via.placeholder.com/150x50?text=Brand+1" alt="Brand 1">
-    <img src="https://via.placeholder.com/150x50?text=Brand+2" alt="Brand 2">
-    <img src="https://via.placeholder.com/150x50?text=Brand+3" alt="Brand 3">
-    <img src="https://via.placeholder.com/150x50?text=Brand+4" alt="Brand 4">
-    <img src="https://via.placeholder.com/150x50?text=Brand+5" alt="Brand 5">
-    <img src="https://via.placeholder.com/150x50?text=Brand+6" alt="Brand 6">
+<section id="brands" class="brands">
+  <h3>Brands I’ve Worked With</h3>
+  <div class="marquee" aria-label="Brands marquee row 1">
+    <div class="track">
+      <span class="brand">GE</span><span class="brand">Samsung</span><span class="brand">LG</span><span class="brand">Sub-Zero Wolf</span>
+      <span class="brand">SMEG</span><span class="brand">Rolling Stone</span><span class="brand">WWD</span><span class="brand">Billboard</span><span class="brand">Sportico</span>
+      <span class="brand">GE</span><span class="brand">Samsung</span><span class="brand">LG</span><span class="brand">Sub-Zero Wolf</span>
+      <span class="brand">SMEG</span><span class="brand">Rolling Stone</span><span class="brand">WWD</span><span class="brand">Billboard</span><span class="brand">Sportico</span>
+    </div>
+  </div>
+  <div class="marquee" aria-label="Brands marquee row 2">
+    <div class="track alt">
+      <span class="brand">GE</span><span class="brand">Samsung</span><span class="brand">LG</span><span class="brand">Sub-Zero Wolf</span>
+      <span class="brand">SMEG</span><span class="brand">Rolling Stone</span><span class="brand">WWD</span><span class="brand">Billboard</span><span class="brand">Sportico</span>
+      <span class="brand">GE</span><span class="brand">Samsung</span><span class="brand">LG</span><span class="brand">Sub-Zero Wolf</span>
+      <span class="brand">SMEG</span><span class="brand">Rolling Stone</span><span class="brand">WWD</span><span class="brand">Billboard</span><span class="brand">Sportico</span>
+    </div>
   </div>
 </section>
 
-<section id="community" class="community">
-  <h2>Community Fridge Project</h2>
-</section>
+<section id="community" class="community"><h2>The Community Fridge Project</h2></section>
 
-<section id="social">
-  <h2 style="margin-bottom:20px; text-transform:uppercase;">Social Media & Other Projects</h2>
-  <div class="social-grid">
-    <a href="#" style="background-image:url('https://source.unsplash.com/400x400/?instagram');"></a>
-    <a href="#" style="background-image:url('https://source.unsplash.com/400x400/?linkedin');"></a>
-    <a href="#" style="background-image:url('https://source.unsplash.com/400x400/?newsletter');"></a>
-    <a href="#" style="background-image:url('https://source.unsplash.com/400x400/?socialmedia');"></a>
+<section id="aboutwork" class="aboutwork">
+  <h2>About + Work</h2>
+  <div class="about-grid">
+    <div>
+      <p>I’m an email marketer focused on conversion, retention, and brand storytelling. I design welcome series, launches, and lifecycle flows that move revenue and feel editorial — not transactional. My process blends research, testing, and iterative creative so each campaign earns its place in the inbox.</p>
+      <p>Tools: Klaviyo, Mailchimp, HubSpot, Figma, basic HTML/CSS, GA4. Industries: fashion, beauty, CPG, and community projects.</p>
+    </div>
+    <div>
+      <div class="work-item"><span>2023–2025</span><span>Email Marketing Manager — Company A</span></div>
+      <div class="work-item"><span>2021–2023</span><span>Marketing Specialist — Company B</span></div>
+      <div class="work-item"><span>2019–2021</span><span>Content Coordinator — Company C</span></div>
+    </div>
   </div>
 </section>
 
-<section id="work" class="work-history">
-  <h2 style="color:hotpink; margin-bottom:20px;">Work History</h2>
-  <div class="work-item"><span>2023–2025</span><span>Subscriptions, Email Marketing Manager – Penske Media Corporation A</span></div>
-  <div class="work-item"><span>2021–2023</span><span>Marketing Operations Manager - AjMadison</span></div>
-  <div class="work-item"><span>2019–2021</span><span>Ecommerce Manager – Issey Miyake</span></div>
-</section>
-
-<section id="about" class="about">
-  <h2 style="color:hotpink; column-span:all;">About Me</h2>
-  <p>I am an email marketer with a passion for blending design, strategy, and storytelling to boost engagement and conversions. My work spans multiple industries and includes high-performing campaigns for both major brands and grassroots initiatives. I believe in the power of clear communication, bold visuals, and data-driven decision making — and I bring this philosophy to every project.</p>
-</section>
-
-<footer>
-  <p>© 2025 Marla Harris | <a href="mailto:you@example.com">Contact</a></p>
-</footer>
+<footer><p>© 2025 Marla Harris | <a href="mailto:you@example.com">Contact</a></p></footer>
 
 <script>
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('show');
-    });
-  }, { threshold: 0.2 });
-
-  document.querySelectorAll('.campaign img, .campaign-text').forEach(el => observer.observe(el));
+  // Lookbook controls
+  const track = document.getElementById('lbTrack');
+  const caption = document.getElementById('lbCaption');
+  const slides = Array.from(track.children);
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const dotsWrap = document.getElementById('lbDots');
+  const captions = ['Campaign 1', 'Campaign 2', 'Campaign 3'];
+  let index = 0;
+  const go = (i) => {
+    index = (i + slides.length) % slides.length;
+    track.style.transform = 'translateX(' + (-100 * index) + '%)';
+    caption.textContent = captions[index] || ('Slide ' + (index+1));
+    Array.from(dotsWrap.children).forEach((d, di) => d.classList.toggle('active', di === index));
+  };
+  slides.forEach((_, i) => {
+    const dot = document.createElement('div');
+    dot.className = 'lb-dot' + (i===0 ? ' active' : '');
+    dot.addEventListener('click', () => go(i));
+    dotsWrap.appendChild(dot);
+  });
+  prevBtn.addEventListener('click', () => go(index - 1));
+  nextBtn.addEventListener('click', () => go(index + 1));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') go(index - 1);
+    if (e.key === 'ArrowRight') go(index + 1);
+  });
+  go(0);
 </script>
 
 </body>
