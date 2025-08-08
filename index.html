@@ -39,16 +39,34 @@
     .metrics .data {display: flex; flex-wrap: wrap; justify-content: center; gap: 40px;}
     .metrics .data div {font-size: 2rem; font-weight: 700;}
 
-    /* What I Wrote */
-    .wrote { max-width: 1200px; width: 100%; }
-    .wrote h2 { color: var(--accent); font-size: 2.5rem; margin-bottom: 24px; text-transform: uppercase; }
-    .wrote-wrap {display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;}
-    .snippet {border: 1px solid #000; padding: 16px; position: relative; background: #fff;}
-    .snippet:before {content: 'SUBJECT'; position: absolute; top: -12px; left: 12px; background: #fff; padding: 2px 6px; font-size: .7rem; color: #000;}
-    .snippet.cta:before { content: 'CTA'; }
-    .snippet.preview:before { content: 'PREVIEW'; }
-    .snippet p { font-weight: 700; }
-    .snippet small { display: block; margin-top: 6px; opacity: .7; font-weight: 400; }
+    /* ----- Subject Lines (Zine style) ----- */
+    .subject-zine{
+      background:#fff; color:#000; padding:120px 20px;
+      display:flex; flex-direction:column; align-items:center;
+    }
+    .subject-zine h2{
+      text-transform:uppercase;
+      font-size: clamp(22px, 2.6vw, 40px);
+      letter-spacing:.06em; margin-bottom: 28px; color: var(--accent);
+    }
+    .subject-zine .line{
+      width: min(1100px, 92vw);
+      font-weight: 700;
+      text-transform: uppercase;
+      line-height: 1.05;
+      letter-spacing: .02em;
+      font-size: clamp(28px, 6vw, 96px);
+      margin: 22px 0;
+      transform: rotate(-1deg);
+      transform-origin: left center;
+      transition: color .18s ease, transform .18s ease;
+    }
+    .subject-zine .line:nth-child(odd){ transform: rotate(1deg); }
+    .subject-zine .line:hover{ color: var(--accent); transform: rotate(0deg); }
+    @media (max-width: 700px){
+      .subject-zine{ padding: 80px 16px; }
+      .subject-zine .line{ margin: 16px 0; }
+    }
 
     /* Brands Marquee - dual staggered rows */
     .brands {width: 100%; background: #111; padding: 24px 0;}
@@ -120,16 +138,15 @@
   </div>
 </section>
 
-<section id="wrote" class="wrote">
+<!-- REPLACED: What I Wrote grid -> Zine-style Subject Lines -->
+<section id="wrote" class="subject-zine">
   <h2>What I Wrote</h2>
-  <div class="wrote-wrap">
-    <div class="snippet"><p>“This is not a drill.”</p><small>Subject line – Product Drop</small></div>
-    <div class="snippet preview"><p>“Limited run. Your size is still in stock (for now).”</p><small>Preview text – Launch Email</small></div>
-    <div class="snippet cta"><p>“Claim your spot”</p><small>CTA – Waitlist</small></div>
-    <div class="snippet"><p>“The bag everyone’s talking about.”</p><small>Subject line – Social proof</small></div>
-    <div class="snippet preview"><p>“We saved your cart. Want us to hold it?”</p><small>Preview text – Abandon cart</small></div>
-    <div class="snippet cta"><p>“Open the envelope”</p><small>CTA – Announcement</small></div>
-  </div>
+  <div class="line">THIS IS NOT A DRILL.</div>
+  <div class="line">THE BAG EVERYONE’S TALKING ABOUT</div>
+  <div class="line">YOU FORGOT SOMETHING…</div>
+  <div class="line">TONIGHT ONLY. NO REALLY.</div>
+  <div class="line">LIMITED RUN — YOUR SIZE IS STILL IN STOCK</div>
+  <div class="line">OPEN THE ENVELOPE</div>
 </section>
 
 <section id="brands" class="brands">
@@ -169,7 +186,12 @@
   </div>
 </section>
 
-<footer><p>© 2025 Marla Harris | <a href="mailto:mharris3182@gmail.com">Contact</a></p></footer>
+<footer>
+  <p>© 2025 Marla Harris |
+     <a href="mailto:mharris3182@gmail.com">Contact</a> |
+     <a href="https://instagram.com/marlavharris" target="_blank" rel="noopener">Instagram</a>
+  </p>
+</footer>
 
 <script>
   // Lookbook controls (fixed: use double-quoted strings to avoid apostrophe bug)
