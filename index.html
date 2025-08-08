@@ -1,80 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Marla Harris Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;700&display=swap" rel="stylesheet">
-<style>
-* {margin: 0; padding: 0; box-sizing: border-box;}
-:root { --accent: hotpink; }
-body {font-family: 'Space Grotesk', sans-serif; background-color: #fff; color: #000; overflow-x: hidden;}
-header {position: fixed; top: 0; left: 0; width: 100%; background: rgba(255,255,255,0.9);
-  display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; z-index: 1000;
-  border-bottom: 1px solid #eee; backdrop-filter: blur(4px);}
-header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 2px; }
-nav a {margin-left: 20px; text-decoration: none; color: var(--accent); font-weight: 400; font-size: 0.9rem;}
-section {min-height: 100vh; display: flex; align-items: center; justify-content: center;
-  position: relative; padding: 100px 20px; flex-direction: column;}
-.hero {background: url('https://source.unsplash.com/1600x900/?fashion,editorial') center/cover no-repeat; color: #fff; text-align: center;}
-.hero h2 {font-size: 6vw; font-weight: 700; text-transform: uppercase; background: rgba(0,0,0,0.4); padding: 20px; display: inline-block;}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marla Harris Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+    :root { --accent: hotpink; }
+    body {font-family: 'Space Grotesk', sans-serif; background-color: #fff; color: #000; overflow-x: hidden;}
+    header {position: fixed; top: 0; left: 0; width: 100%; background: rgba(255,255,255,0.9);
+      display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; z-index: 1000;
+      border-bottom: 1px solid #eee; backdrop-filter: blur(4px);}
+    header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 2px; }
+    nav a {margin-left: 20px; text-decoration: none; color: var(--accent); font-weight: 400; font-size: 0.9rem;}
+    section {min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      position: relative; padding: 100px 20px; flex-direction: column;}
+    .hero {background: url('https://source.unsplash.com/1600x900/?fashion,editorial') center/cover no-repeat; color: #fff; text-align: center;}
+    .hero h2 {font-size: 6vw; font-weight: 700; text-transform: uppercase; background: rgba(0,0,0,0.4); padding: 20px; display: inline-block;}
 
-/* DAZED-style features */
-.features {width: 100%; max-width: 1100px; margin: 0 auto; padding: 100px 20px;}
-.features-title {width: 100%; text-transform: uppercase; color: var(--accent);
-  font-size: clamp(22px, 2.6vw, 40px); letter-spacing: .06em; margin-bottom: 24px;}
-.feature-card {margin-bottom: 40px; border-top: 1px solid #111; padding-top: 24px;}
-.feature-card a {display:block; text-decoration:none; color: inherit;}
-.feature-media {width: 100%; aspect-ratio: 4 / 5; background-size: cover; background-position: center;
-  filter: grayscale(100%); transition: filter .25s ease, transform .25s ease;}
-.feature-meta {display:flex; justify-content: space-between; align-items:flex-start; gap: 20px; margin-top: 12px;}
-.kicker {font-size: .9rem; text-transform: uppercase; letter-spacing: .08em; opacity:.8;}
-.hed {font-size: clamp(24px, 4.5vw, 56px); line-height: 1; text-transform: uppercase; letter-spacing: .01em; font-weight: 700; text-align: right; flex: 1;}
-.feature-card:hover .feature-media {filter: grayscale(0%); transform: scale(1.01);}
-@media (max-width: 700px) {.feature-meta {flex-direction: column; align-items: flex-start;} .hed {text-align:left;}}
+    /* Lookbook */
+    .lookbook { width: 100%; max-width: 1200px; }
+    .lb-viewport {position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; background: #000;}
+    .lb-track {display: flex; width: 100%; height: 100%; transition: transform 0.6s ease;}
+    .lb-slide {min-width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #000;}
+    .lb-slide img {max-width: 100%; max-height: 100%; object-fit: contain;}
+    .lb-caption {position: absolute; bottom: 16px; left: 16px; color: #fff; background: rgba(0,0,0,0.45);
+      padding: 8px 12px; text-transform: uppercase; font-weight: 700; letter-spacing: .5px;}
+    .lb-nav {position: absolute; top: 50%; width: 100%; display: flex; justify-content: space-between; transform: translateY(-50%); padding: 0 8px; pointer-events: none;}
+    .lb-btn {pointer-events: all; background: rgba(255,255,255,0.85); border: none; padding: 8px 12px; cursor: pointer; font-weight: 700;}
+    .lb-dots { display: flex; gap: 8px; margin-top: 16px; }
+    .lb-dot {width: 10px; height: 10px; border-radius: 50%; background: #bbb; cursor: pointer;}
+    .lb-dot.active { background: var(--accent); }
 
-/* Metrics */
-.metrics { background: #000; color: #fff; text-align: center; }
-.metrics h2 { color: var(--accent); font-size: 3rem; margin-bottom: 40px; }
-.metrics .data {display: flex; flex-wrap: wrap; justify-content: center; gap: 40px;}
-.metrics .data div {font-size: 2rem; font-weight: 700;}
+    /* Metrics */
+    .metrics { background: #000; color: #fff; text-align: center; }
+    .metrics h2 { color: var(--accent); font-size: 3rem; margin-bottom: 40px; }
+    .metrics .data {display: flex; flex-wrap: wrap; justify-content: center; gap: 40px;}
+    .metrics .data div {font-size: 2rem; font-weight: 700;}
 
-/* Subject Lines (Zine style) */
-.subject-zine{background:#fff; color:#000; padding:120px 20px; display:flex; flex-direction:column; align-items:center;}
-.subject-zine h2{text-transform:uppercase; font-size: clamp(22px, 2.6vw, 40px); letter-spacing:.06em; margin-bottom: 28px; color: var(--accent);}
-.subject-zine .line{width: min(1100px, 92vw); font-weight: 700; text-transform: uppercase; line-height: 1.05;
-  letter-spacing: .02em; font-size: clamp(28px, 6vw, 96px); margin: 22px 0; transform: rotate(-1deg); transform-origin: left center;
-  transition: color .18s ease, transform .18s ease;}
-.subject-zine .line:nth-child(odd){ transform: rotate(1deg); }
-.subject-zine .line:hover{ color: var(--accent); transform: rotate(0deg); }
-@media (max-width: 700px){.subject-zine{ padding: 80px 16px; } .subject-zine .line{ margin: 16px 0; }}
+    /* What I Wrote */
+    .wrote { max-width: 1200px; width: 100%; }
+    .wrote h2 { color: var(--accent); font-size: 2.5rem; margin-bottom: 24px; text-transform: uppercase; }
+    .wrote-wrap {display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;}
+    .snippet {border: 1px solid #000; padding: 16px; position: relative; background: #fff;}
+    .snippet:before {content: 'SUBJECT'; position: absolute; top: -12px; left: 12px; background: #fff; padding: 2px 6px; font-size: .7rem; color: #000;}
+    .snippet.cta:before { content: 'CTA'; }
+    .snippet.preview:before { content: 'PREVIEW'; }
+    .snippet p { font-weight: 700; }
+    .snippet small { display: block; margin-top: 6px; opacity: .7; font-weight: 400; }
 
-/* Brands Marquee */
-.brands {width: 100%; background: #111; padding: 24px 0;}
-.brands h3 {color: var(--accent); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 12px; font-size: 0.9rem;}
-.marquee {white-space: nowrap; overflow: hidden; position: relative; width: 100%; border-top: 1px solid #222; border-bottom: 1px solid #222;}
-.track {display: inline-block; padding: 10px 0; will-change: transform; animation: marqueeA 18s linear infinite; font-size: 1.6rem; font-weight: 700; text-transform: uppercase;}
-.track.alt {animation: marqueeB 22s linear infinite; opacity: 0.9; font-size: 1.3rem; letter-spacing: .02em;}
-.brand {margin: 0 40px; color: #fff; transition: color .2s;}
-.brand:hover {color: var(--accent);}
-@keyframes marqueeA { from {transform: translateX(0);} to {transform: translateX(-50%);} }
-@keyframes marqueeB { from {transform: translateX(-25%);} to {transform: translateX(-75%);} }
+    /* Brands Marquee - dual staggered rows */
+    .brands {width: 100%; background: #111; padding: 24px 0;}
+    .brands h3 {color: var(--accent); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 12px; font-size: 0.9rem;}
+    .marquee {white-space: nowrap; overflow: hidden; position: relative; width: 100%; border-top: 1px solid #222; border-bottom: 1px solid #222;}
+    .track {display: inline-block; padding: 10px 0; will-change: transform; animation: marqueeA 18s linear infinite; font-size: 1.6rem; font-weight: 700; text-transform: uppercase;}
+    .track.alt {animation: marqueeB 22s linear infinite; opacity: 0.9; font-size: 1.3rem; letter-spacing: .02em;}
+    .brand {margin: 0 40px; color: #fff; transition: color .2s;}
+    .brand:hover {color: var(--accent);}
+    @keyframes marqueeA { from {transform: translateX(0);} to {transform: translateX(-50%);} }
+    @keyframes marqueeB { from {transform: translateX(-25%);} to {transform: translateX(-75%);} }
 
-/* Community */
-.community {background: url('https://source.unsplash.com/1600x900/?community,volunteer') center/cover no-repeat; color: #fff; text-align: center;}
-.community h2 {background: rgba(0,0,0,0.5); padding: 20px; font-size: 3rem; text-transform: uppercase;}
+    /* Community */
+    .community {background: url('https://source.unsplash.com/1600x900/?community,volunteer') center/cover no-repeat; color: #fff; text-align: center;}
+    .community h2 {background: rgba(0,0,0,0.5); padding: 20px; font-size: 3rem; text-transform: uppercase;}
 
-/* About + Work */
-.aboutwork { max-width: 1200px; width: 100%; }
-.aboutwork h2 { color: var(--accent); margin-bottom: 20px; text-transform: uppercase; font-size: 2rem; }
-.about-grid {display: grid; grid-template-columns: 1.2fr .8fr; gap: 40px;}
-.about-grid p { line-height: 1.7; }
-.work-item {display: flex; justify-content: space-between; border-bottom: 1px solid #ccc; padding: 16px 0;}
-@media (max-width: 900px) {.about-grid { grid-template-columns: 1fr; } .brand {margin: 0 20px;}}
+    /* About + Work */
+    .aboutwork { max-width: 1200px; width: 100%; }
+    .aboutwork h2 { color: var(--accent); margin-bottom: 20px; text-transform: uppercase; font-size: 2rem; }
+    .about-grid {display: grid; grid-template-columns: 1.2fr .8fr; gap: 40px;}
+    .about-grid p { line-height: 1.7; }
+    .work-item {display: flex; justify-content: space-between; border-bottom: 1px solid #ccc; padding: 16px 0;}
+    @media (max-width: 900px) {.about-grid { grid-template-columns: 1fr; } .brand {margin: 0 20px;}}
 
-footer {background: #000; color: #fff; text-align: center; padding: 20px;}
-footer a {color: var(--accent); text-decoration: none;}
-</style>
+    footer {background: #000; color: #fff; text-align: center; padding: 20px;}
+    footer a {color: var(--accent); text-decoration: none;}
+  </style>
 </head>
 <body>
 
@@ -93,38 +94,21 @@ footer a {color: var(--accent); text-decoration: none;}
 
 <section id="portfolio" class="hero"><h2>Portfolio | Coming Soon </h2></section>
 
-<section id="lookbook" class="features">
-  <h2 class="features-title">Marketing Campaigns</h2>
-
-  <article class="feature-card">
-    <a href="https://marlavharris.github.io/zine-portfolio/5.4%20-%20ENDS%20SOON%20-%20Country%20Campaign%202.gif" target="_blank" rel="noopener">
-      <div class="feature-media" style="background-image:url('https://marlavharris.github.io/zine-portfolio/5.4%20-%20ENDS%20SOON%20-%20Country%20Campaign%202.gif');"></div>
-      <div class="feature-meta">
-        <span class="kicker">Billboard Pro</span>
-        <h3 class="hed">ENDS SOON — COUNTRY CAMPAIGN</h3>
-      </div>
-    </a>
-  </article>
-
-  <article class="feature-card">
-    <a href="https://marlavharris.github.io/zine-portfolio/WWD%20-%20CYBER%20MONDAY%20-%20FINAL%20HOURS%20-%20update%20(1).gif" target="_blank" rel="noopener">
-      <div class="feature-media" style="background-image:url('https://marlavharris.github.io/zine-portfolio/WWD%20-%20CYBER%20MONDAY%20-%20FINAL%20HOURS%20-%20update%20(1).gif');"></div>
-      <div class="feature-meta">
-        <span class="kicker">WWD</span>
-        <h3 class="hed">CYBER MONDAY — FINAL HOURS</h3>
-      </div>
-    </a>
-  </article>
-
-  <article class="feature-card">
-    <a href="https://marlavharris.github.io/zine-portfolio/4.14%20Ends%20Tomorrow%20-%20Big%20boi%20JID%20-%20V2%20(1)%20(2).gif" target="_blank" rel="noopener">
-      <div class="feature-media" style="background-image:url('https://marlavharris.github.io/zine-portfolio/4.14%20Ends%20Tomorrow%20-%20Big%20boi%20JID%20-%20V2%20(1)%20(2).gif');"></div>
-      <div class="feature-meta">
-        <span class="kicker">Rolling Stone</span>
-        <h3 class="hed">ENDS TOMORROW — BIG BOI / JID</h3>
-      </div>
-    </a>
-  </article>
+<section id="lookbook" class="lookbook">
+  <h2 style="color: var(--accent); text-transform: uppercase; margin-bottom: 16px;">Marketing Campaigns</h2>
+  <div class="lb-viewport">
+    <div class="lb-track" id="lbTrack">
+      <div class="lb-slide"><img src="https://marlavharris.github.io/zine-portfolio/5.4%20-%20ENDS%20SOON%20-%20Country%20Campaign%202.gif" alt="Billboard Pro"></div>
+      <div class="lb-slide"><img src="https://marlavharris.github.io/zine-portfolio/WWD%20-%20CYBER%20MONDAY%20-%20FINAL%20HOURS%20-%20update%20(1).gif" alt="Women's Wear Daily"></div>
+      <div class="lb-slide"><img src="https://marlavharris.github.io/zine-portfolio/4.14%20Ends%20Tomorrow%20-%20Big%20boi%20JID%20-%20V2%20(1)%20(2).gif" alt="Rolling Stone"></div>
+    </div>
+    <div class="lb-caption" id="lbCaption">Billboard Pro</div>
+    <div class="lb-nav">
+      <button class="lb-btn" id="prevBtn">‹</button>
+      <button class="lb-btn" id="nextBtn">›</button>
+    </div>
+  </div>
+  <div class="lb-dots" id="lbDots"></div>
 </section>
 
 <section id="metrics" class="metrics">
@@ -136,31 +120,36 @@ footer a {color: var(--accent); text-decoration: none;}
   </div>
 </section>
 
-<section id="wrote" class="subject-zine">
+<section id="wrote" class="wrote">
   <h2>What I Wrote</h2>
-  <div class="line">THIS IS NOT A DRILL.</div>
-  <div class="line">THE BAG EVERYONE’S TALKING ABOUT.</div>
-  <div class="line">YOU FORGOT SOMETHING…</div>
-  <div class="line">LIMITED RUN — YOUR SIZE IS STILL IN STOCK (FOR NOW).</div>
-  <div class="line">CLAIM YOUR SPOT.</div>
-  <div class="line">OPEN THE ENVELOPE.</div>
-  <div class="line">WE SAVED YOUR CART. WANT US TO HOLD IT?</div>
+  <div class="wrote-wrap">
+    <div class="snippet"><p>“This is not a drill.”</p><small>Subject line – Product Drop</small></div>
+    <div class="snippet preview"><p>“Limited run. Your size is still in stock (for now).”</p><small>Preview text – Launch Email</small></div>
+    <div class="snippet cta"><p>“Claim your spot”</p><small>CTA – Waitlist</small></div>
+    <div class="snippet"><p>“The bag everyone’s talking about.”</p><small>Subject line – Social proof</small></div>
+    <div class="snippet preview"><p>“We saved your cart. Want us to hold it?”</p><small>Preview text – Abandon cart</small></div>
+    <div class="snippet cta"><p>“Open the envelope”</p><small>CTA – Announcement</small></div>
+  </div>
 </section>
 
 <section id="brands" class="brands">
   <h3>Brands I’ve Worked With</h3>
-  <div class="marquee"><div class="track">
-    <span class="brand">GE</span><span class="brand">Samsung</span><span class="brand">LG</span><span class="brand">Sub-Zero Wolf</span>
-    <span class="brand">SMEG</span><span class="brand">Rolling Stone</span><span class="brand">WWD</span><span class="brand">Billboard</span><span class="brand">Sportico</span>
-    <span class="brand">GE</span><span class="brand">Samsung</span><span class="brand">LG</span><span class="brand">Sub-Zero Wolf</span>
-    <span class="brand">SMEG</span><span class="brand">Rolling Stone</span><span class="brand">WWD</span><span class="brand">Billboard</span><span class="brand">Sportico</span>
-  </div></div>
-  <div class="marquee"><div class="track alt">
-    <span class="brand">GE</span><span class="brand">Samsung</span><span class="brand">LG</span><span class="brand">Sub-Zero Wolf</span>
-    <span class="brand">SMEG</span><span class="brand">Rolling Stone</span><span class="brand">WWD</span><span class="brand">Billboard</span><span class="brand">Sportico</span>
-    <span class="brand">GE</span><span class="brand">Samsung</span><span class="brand">LG</span><span class="brand">Sub-Zero Wolf</span>
-    <span class="brand">SMEG</span><span class="brand">Rolling Stone</span><span class="brand">WWD</span><span class="brand">Billboard</span><span class="brand">Sportico</span>
-  </div></div>
+  <div class="marquee" aria-label="Brands marquee row 1">
+    <div class="track">
+      <span class="brand">GE</span><span class="brand">Samsung</span><span class="brand">LG</span><span class="brand">Sub-Zero Wolf</span>
+      <span class="brand">SMEG</span><span class="brand">Rolling Stone</span><span class="brand">WWD</span><span class="brand">Billboard</span><span class="brand">Sportico</span>
+      <span class="brand">GE</span><span class="brand">Samsung</span><span class="brand">LG</span><span class="brand">Sub-Zero Wolf</span>
+      <span class="brand">SMEG</span><span class="brand">Rolling Stone</span><span class="brand">WWD</span><span class="brand">Billboard</span><span class="brand">Sportico</span>
+    </div>
+  </div>
+  <div class="marquee" aria-label="Brands marquee row 2">
+    <div class="track alt">
+      <span class="brand">GE</span><span class="brand">Samsung</span><span class="brand">LG</span><span class="brand">Sub-Zero Wolf</span>
+      <span class="brand">SMEG</span><span class="brand">Rolling Stone</span><span class="brand">WWD</span><span class="brand">Billboard</span><span class="brand">Sportico</span>
+      <span class="brand">GE</span><span class="brand">Samsung</span><span class="brand">LG</span><span class="brand">Sub-Zero Wolf</span>
+      <span class="brand">SMEG</span><span class="brand">Rolling Stone</span><span class="brand">WWD</span><span class="brand">Billboard</span><span class="brand">Sportico</span>
+    </div>
+  </div>
 </section>
 
 <section id="community" class="community"><h2>The Community Fridge Project</h2></section>
@@ -180,12 +169,38 @@ footer a {color: var(--accent); text-decoration: none;}
   </div>
 </section>
 
-<footer>
-  <p>© 2025 Marla Harris |
-     <a href="mailto:mharris3182@gmail.com">Contact</a> |
-     <a href="https://instagram.com/marlavharris" target="_blank" rel="noopener">Instagram</a>
-  </p>
-</footer>
+<footer><p>© 2025 Marla Harris | <a href="mailto:mharris3182@gmail.com">Contact</a></p></footer>
+
+<script>
+  // Lookbook controls (fixed: use double-quoted strings to avoid apostrophe bug)
+  const track = document.getElementById("lbTrack");
+  const caption = document.getElementById("lbCaption");
+  const slides = Array.from(track.children);
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+  const dotsWrap = document.getElementById("lbDots");
+  const captions = ["Billboard Pro", "Women's Wear Daily", "Rolling Stone"];
+  let index = 0;
+  const go = (i) => {
+    index = (i + slides.length) % slides.length;
+    track.style.transform = "translateX(" + (-100 * index) + "%)";
+    caption.textContent = captions[index] || ("Slide " + (index+1));
+    Array.from(dotsWrap.children).forEach((d, di) => d.classList.toggle("active", di === index));
+  };
+  slides.forEach((_, i) => {
+    const dot = document.createElement("div");
+    dot.className = "lb-dot" + (i===0 ? " active" : "");
+    dot.addEventListener("click", () => go(i));
+    dotsWrap.appendChild(dot);
+  });
+  prevBtn.addEventListener("click", () => go(index - 1));
+  nextBtn.addEventListener("click", () => go(index + 1));
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft") go(index - 1);
+    if (e.key === "ArrowRight") go(index + 1);
+  });
+  go(0);
+</script>
 
 </body>
 </html>
