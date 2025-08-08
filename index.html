@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+  <title>Marla Harris Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Work+Sans&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -11,103 +12,111 @@
       box-sizing: border-box;
     }
     body {
-      font-family: 'Special Elite', monospace;
-      background: #f4f1ea;
-      color: #222;
-      line-height: 1.6;
+      font-family: 'Work Sans', sans-serif;
+      background-color: #fffaf5;
+      color: #111;
       overflow-x: hidden;
     }
-    .page {
-      width: 100vw;
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      letter-spacing: 1px;
+    }
+    .hero {
       height: 100vh;
-      padding: 40px;
-      border-bottom: 3px dashed #222;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      scroll-snap-align: start;
-    }
-    .zine-container {
-      scroll-snap-type: y mandatory;
-      overflow-y: scroll;
-      height: 100vh;
-    }
-    h1, h2, h3 {
-      margin-bottom: 20px;
-    }
-    .cover {
-      background: #ffe;
+      align-items: center;
+      background: url('hero-image.jpg') center/cover no-repeat;
       text-align: center;
+      color: white;
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.4);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+    .hero h1 {
+      font-size: 4rem;
+      margin-bottom: 10px;
+    }
+    .hero p {
+      font-size: 1.5rem;
+      color: hotpink;
+    }
+    .section {
+      padding: 80px 10%;
     }
     .campaign {
-      background: #fffef7;
+      display: flex;
+      align-items: center;
+      margin-bottom: 80px;
     }
     .campaign img {
-      max-width: 100%;
-      margin-top: 20px;
+      width: 50%;
+      object-fit: cover;
+      margin-right: 40px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     }
-    .tools, .about {
-      background: #f7f3eb;
+    .campaign:nth-child(even) {
+      flex-direction: row-reverse;
     }
-    .nav {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: #fff;
-      padding: 10px;
-      border: 1px solid #222;
-      z-index: 100;
+    .campaign h2 {
+      font-size: 2.5rem;
+      color: hotpink;
+      margin-bottom: 15px;
     }
-    .nav a {
-      text-decoration: none;
-      color: #222;
-      margin-left: 10px;
-      font-weight: bold;
+    .about {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .about h2 {
+      color: hotpink;
+      margin-bottom: 20px;
+    }
+    .about p {
+      max-width: 700px;
+      margin: auto;
+      line-height: 1.6;
     }
   </style>
 </head>
 <body>
-  <div class="nav">
-    <a href="#cover">Cover</a>
-    <a href="#campaign1">Campaign 1</a>
-    <a href="#campaign2">Campaign 2</a>
-    <a href="#tools">Tools</a>
-    <a href="#about">About</a>
-  </div>
-  <div class="zine-container">
-    <section id="cover" class="page cover">
-        <h1>Marla Harris Portfolio</h1>
-        <p><em>Under Construction</em></p>
-    </section>
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Marla Harris</h1>
+      <p>Portfolio — Under Construction</p>
+    </div>
+  </section>
 
-    <section id="campaign1" class="page campaign">
-      <h2>Campaign #1: Welcome Series</h2>
-      <p>Overview of the campaign. What was the goal? What did you write/design? Include screenshots and outcomes.</p>
-      <img src="your-campaign-image1.jpg" alt="Welcome Email Screenshot" />
-    </section>
+  <section class="section">
+    <div class="campaign">
+      <img src="campaign1.jpg" alt="Campaign 1">
+      <div>
+        <h2>Campaign One</h2>
+        <p>Description of your fashion-inspired email marketing campaign. Keep it short and impactful.</p>
+      </div>
+    </div>
+    <div class="campaign">
+      <img src="campaign2.jpg" alt="Campaign 2">
+      <div>
+        <h2>Campaign Two</h2>
+        <p>Description of another campaign, results, and creative approach.</p>
+      </div>
+    </div>
+  </section>
 
-    <section id="campaign2" class="page campaign">
-      <h2>Campaign #2: Abandoned Cart Recovery</h2>
-      <p>What was the challenge? How did you solve it? What were the results?</p>
-      <img src="your-campaign-image2.jpg" alt="Cart Email Screenshot" />
-    </section>
-
-    <section id="tools" class="page tools">
-      <h2>Tools I Use</h2>
-      <ul>
-        <li>Klaviyo</li>
-        <li>Mailchimp</li>
-        <li>HubSpot</li>
-        <li>Figma</li>
-        <li>HTML/CSS</li>
-      </ul>
-    </section>
-
-    <section id="about" class="page about">
-      <h2>About Me</h2>
-      <p>I’m an email marketer who blends design, strategy, and storytelling to boost conversions and engagement. Reach out to work together!</p>
-      <p><strong>Email:</strong> you@example.com</p>
-    </section>
-  </div>
+  <section class="about">
+    <h2>About Me</h2>
+    <p>I’m Marla Harris, an email marketer blending strategy, design, and bold creativity to deliver high-fashion inspired campaigns. Hot pink is my signature accent — because marketing should never be boring.</p>
+  </section>
 </body>
 </html>
