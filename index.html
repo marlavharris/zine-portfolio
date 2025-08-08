@@ -1,121 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Marla Harris Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
-<style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  body {
-    font-family: 'Space Grotesk', sans-serif;
-    background: #fff;
-    color: #000;
-    line-height: 1.6;
-  }
-  header {
-    padding: 60px 5%;
-    text-align: center;
-    border-bottom: 4px solid hotpink;
-  }
-  header h1 {
-    font-size: 5rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-  }
-  nav {
-    margin-top: 10px;
-  }
-  nav a {
-    color: hotpink;
-    text-decoration: none;
-    margin: 0 10px;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-  }
-  section {
-    width: 100%;
-    overflow: hidden;
-  }
-  .campaign {
-    position: relative;
-  }
-  .campaign img {
-    width: 100%;
-    display: block;
-  }
-  .caption {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    font-size: 3rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: white;
-    background: rgba(0,0,0,0.7);
-    padding: 10px 20px;
-  }
-  .about {
-    padding: 80px 10%;
-    background: #fff;
-  }
-  .about blockquote {
-    font-size: 2rem;
-    font-weight: 700;
-    color: hotpink;
-    margin-bottom: 40px;
-  }
-  .about p {
-    max-width: 700px;
-    margin-bottom: 20px;
-  }
-  footer {
-    text-align: center;
-    padding: 40px;
-    background: #000;
-    color: white;
-    font-size: 0.8rem;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marla Harris Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background-color: #fff;
+      color: #000;
+      overflow-x: hidden;
+    }
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(255,255,255,0.9);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      z-index: 1000;
+      border-bottom: 1px solid #eee;
+    }
+    header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: hotpink;
+      font-weight: 400;
+      font-size: 0.9rem;
+    }
+    section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 100px 20px;
+    }
+    .hero {
+      background: url('https://source.unsplash.com/1600x900/?fashion,editorial') center/cover no-repeat;
+      color: #fff;
+      text-align: center;
+    }
+    .hero h2 {
+      font-size: 6vw;
+      font-weight: 700;
+      text-transform: uppercase;
+      background: rgba(0,0,0,0.4);
+      padding: 20px;
+      display: inline-block;
+    }
+    .campaign {
+      flex-direction: column;
+    }
+    .campaign img {
+      width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease;
+    }
+    .campaign-text {
+      font-size: 2rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease;
+    }
+    .show {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+    .about {
+      background: #fff;
+      color: #000;
+      flex-direction: column;
+      text-align: center;
+    }
+    .about blockquote {
+      font-size: 3rem;
+      color: hotpink;
+      font-weight: 700;
+      margin-bottom: 40px;
+    }
+    footer {
+      background: #000;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+    footer a {
+      color: hotpink;
+      text-decoration: none;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>Marla Harris</h1>
-    <nav>
-      <a href="#work">Work</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
 
-  <section id="work">
-    <div class="campaign">
-      <img src="campaign1.jpg" alt="Campaign 1">
-      <div class="caption">Campaign One</div>
-    </div>
-    <div class="campaign">
-      <img src="campaign2.jpg" alt="Campaign 2">
-      <div class="caption">Campaign Two</div>
-    </div>
-    <div class="campaign">
-      <img src="campaign3.jpg" alt="Campaign 3">
-      <div class="caption">Campaign Three</div>
-    </div>
-  </section>
+<header>
+  <h1>MARLA HARRIS</h1>
+  <nav>
+    <a href="#campaign1">Campaign 1</a>
+    <a href="#campaign2">Campaign 2</a>
+    <a href="#campaign3">Campaign 3</a>
+    <a href="#about">About</a>
+  </nav>
+</header>
 
-  <section id="about" class="about">
-    <blockquote>Marketing should be bold, unapologetic, and unforgettable.</blockquote>
-    <p>I’m Marla Harris, an email marketer with a passion for high-fashion aesthetics and editorial storytelling. I fuse strategy, design, and compelling narratives to create campaigns that captivate and convert.</p>
-    <p>From welcome sequences to luxury product launches, my work combines clean design with striking visual identity.</p>
-  </section>
+<section class="hero">
+  <h2>Portfolio</h2>
+</section>
 
-  <footer id="contact">
-    &copy; 2025 Marla Harris | <a href="mailto:you@example.com" style="color:hotpink; text-decoration:none;">Email Me</a>
-  </footer>
+<section id="campaign1" class="campaign">
+  <img src="https://source.unsplash.com/1600x900/?fashion,model" alt="Campaign 1">
+  <div class="campaign-text">Editorial Campaign One</div>
+</section>
+
+<section id="campaign2" class="campaign">
+  <img src="https://source.unsplash.com/1600x900/?runway,style" alt="Campaign 2">
+  <div class="campaign-text">Runway Feature Spread</div>
+</section>
+
+<section id="campaign3" class="campaign">
+  <img src="https://source.unsplash.com/1600x900/?streetstyle,model" alt="Campaign 3">
+  <div class="campaign-text">Street Style Story</div>
+</section>
+
+<section id="about" class="about">
+  <blockquote>"Fashion is the armor to survive the reality of everyday life."</blockquote>
+  <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
+</section>
+
+<footer>
+  <p>© 2025 Marla Harris | <a href="mailto:you@example.com">Contact</a></p>
+</footer>
+
+<script>
+  // Fade-in on scroll
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll('.campaign img, .campaign-text').forEach(el => {
+    observer.observe(el);
+  });
+</script>
+
 </body>
 </html>
