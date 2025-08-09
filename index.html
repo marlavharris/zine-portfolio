@@ -8,9 +8,9 @@
   <!-- Type -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Tailwind + React (single-file setup) -->
+  <!-- Tailwind (load FIRST) -->
+  <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    tailwind = tailwind || {};
     tailwind.config = {
       theme: {
         extend: {
@@ -29,7 +29,8 @@
       }
     }
   </script>
-  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- React + Babel -->
   <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -38,29 +39,22 @@
     html, body { background:#ffffff; }
     .bar { width: 84px; height: 5px; background:#ff2e8b; border-radius:999px; }
     .bar-sm { width: 60px; height: 4px; background:#ff2e8b; border-radius:999px; }
-
     .marquee { white-space:nowrap; overflow:hidden; position:relative; background:#fff0f7; border-top:1px solid #ffe3ef; border-bottom:1px solid #ffe3ef; color:#a30855; }
     .marquee span { display:inline-block; padding-left:100%; animation: marquee 18s linear infinite; }
     .marquee:hover span { animation-play-state: paused; }
     @keyframes marquee { 0% { transform: translateX(0);} 100% { transform: translateX(-100%);} }
-
     .dropcap:first-letter { float:left; font-size:3rem; line-height:1; padding-right:.35rem; margin-top:.2rem; font-family:'Playfair Display',serif; }
     .rule { height:1px; background:linear-gradient(to right, transparent, #ff2e8b66, transparent); }
-
     .lookbook::-webkit-scrollbar { height:8px; }
     .lookbook::-webkit-scrollbar-thumb { background:#ffd1e6; border-radius:999px; }
-
     .contact-pill { position:fixed; right:18px; bottom:18px; z-index:50; }
-
     .btn { display:inline-flex; align-items:center; justify-content:center; padding:.45rem .7rem; border:1px solid #e5e7eb; border-radius:999px; font-size:12px; }
     .btn:hover { border-color:#ff2e8b; color:#ff2e8b; }
-
     .chev { position:absolute; top:50%; transform:translateY(-50%); z-index:30; }
     .chev button { width:44px; height:44px; border-radius:999px; background:#ffffff; border:1px solid #ffd1e6; box-shadow:0 8px 20px rgba(0,0,0,.08); }
     .chev button:hover { border-color:#ff2e8b; color:#ff2e8b; }
     .chev.left { left:-6px; }
     .chev.right{ right:-6px; }
-
     .frame { background:#f6f6f6; }
   </style>
 </head>
@@ -68,7 +62,6 @@
 <div id="root"></div>
 
 <script type="text/babel">
-/* ---------- UI Helpers ---------- */
 function SectionHeader({title}) {
   return (
     <div className="max-w-6xl mx-auto px-6 md:px-10 lg:px-16 pt-14 md:pt-20">
@@ -93,7 +86,6 @@ function ZineBlock({children, id}) {
   );
 }
 
-/* ---------- Assets ---------- */
 const GIFS = {
   milan: "https://raw.githubusercontent.com/marlavharris/zine-portfolio/main/Ends%20Friday%20-%20(Milan)%20Your%20Global%20Fashion%20Passport%20(percentsale1)%20(1).gif",
   halsey: "https://raw.githubusercontent.com/marlavharris/zine-portfolio/main/HALSEY%20-%20BB%20BAU%20(2)%20(2).gif",
@@ -106,7 +98,6 @@ const FRIDGE = [
   "https://raw.githubusercontent.com/marlavharris/zine-portfolio/main/IMG_4876.jpg"
 ];
 
-/* ---------- Bits ---------- */
 function Stat({k, v}) {
   return (
     <div className="p-5 rounded-2xl bg-white border border-neutral-200 shadow-sm">
@@ -116,7 +107,6 @@ function Stat({k, v}) {
   );
 }
 
-/* Reusable horizontal slider (4:5 frames, object-contain) */
 function Lookbook({items}) {
   const scrollerRef = React.useRef(null);
   const scrollByCard = (dir)=>{
@@ -136,7 +126,6 @@ function Lookbook({items}) {
   },[]);
   return (
     <div className="relative">
-      {/* Chevrons visible on mobile + desktop */}
       <div className="chev left"><button onClick={()=>scrollByCard(-1)} aria-label="Previous">‹</button></div>
       <div className="chev right"><button onClick={()=>scrollByCard(1)} aria-label="Next">›</button></div>
 
@@ -154,7 +143,6 @@ function Lookbook({items}) {
   );
 }
 
-/* Small text slider cards */
 function SliderCard({title, items}) {
   const [i, setI] = React.useState(0);
   const prev = () => setI((i - 1 + items.length) % items.length);
@@ -176,7 +164,6 @@ function SliderCard({title, items}) {
   );
 }
 
-/* ---------- Page ---------- */
 function App(){
   return (
     <div>
@@ -210,7 +197,6 @@ function App(){
       {/* MARKETING */}
       <SectionHeader title="Marketing" />
       <ZineBlock id="marketing">
-        {/* Brands header + Marquee (brands only, pause on hover) */}
         <div className="mb-2">
           <div className="flex items-end justify-between">
             <h3 className="font-serif text-ink text-[26px] md:text-[32px] leading-none">Brands I’ve Worked With</h3>
@@ -221,7 +207,6 @@ function App(){
           <span>Penske Media • Rolling Stone • Billboard • WWD • Issey Miyake • AjMadison • GE • Samsung • LG • Sub‑Zero/Wolf/Cove</span>
         </div>
 
-        {/* Performance Metrics */}
         <div className="mb-8">
           <SubHeader label="Performance Metrics" />
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
@@ -232,7 +217,6 @@ function App(){
           </div>
         </div>
 
-        {/* Campaigns — Lookbook */}
         <div className="mb-8">
           <SubHeader label="Campaigns — Lookbook" />
           <div className="mt-4">
@@ -244,7 +228,6 @@ function App(){
           </div>
         </div>
 
-        {/* Things I Wrote */}
         <div className="mb-2">
           <SubHeader label="Things I Wrote" />
           <div className="grid md:grid-cols-3 gap-6 mt-4">
@@ -309,7 +292,6 @@ function App(){
       <SectionHeader title="Academic" />
       <ZineBlock id="academic">
         <div className="space-y-10">
-          <!-- Essays -->
           <div>
             <SubHeader label="Essays I’ve Written" />
             <div className="grid md:grid-cols-2 gap-8 mt-4">
@@ -335,7 +317,6 @@ function App(){
             </div>
           </div>
 
-          <!-- Relevant Coursework -->
           <div>
             <SubHeader label="Relevant Coursework" />
             <ul className="list-disc ml-5 text-neutral-700 mt-3">
@@ -360,7 +341,7 @@ function App(){
               <a href="#academic" className="block group">
                 <div className="text-xs uppercase tracking-[.18em] text-neutral-600">2024–Present</div>
                 <div className="font-serif text-lg text-ink group-hover:text-accent">MPA — Baruch College</div>
-                <div className="text-neutral-700 text-sm">Media, policy, and markets • <span class="text-accent">Dean’s List (Spring 2025)</span></div>
+                <div className="text-neutral-700 text-sm">Media, policy, and markets • <span className="text-accent">Dean’s List (Spring 2025)</span></div>
               </a>
               <a href="#marketing" className="block group">
                 <div className="text-xs uppercase tracking-[.18em] text-neutral-600">2022–2024</div>
@@ -430,7 +411,6 @@ function App(){
         </div>
       </footer>
 
-      {/* Sticky contact pill */}
       <div className="contact-pill">
         <a href="#contact" className="px-4 py-2 rounded-full bg-accent text-white shadow-lg text-sm">Contact</a>
       </div>
