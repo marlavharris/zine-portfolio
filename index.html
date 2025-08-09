@@ -288,6 +288,7 @@ function App(){
       <SectionHeader title="Academic" />
       <ZineBlock id="academic" tight>
         <div className="space-y-7">
+          {/* Essays block now has two entries */}
           <div>
             <SubHeader label="Essays I’ve Written" />
             <div className="grid md:grid-cols-2 gap-6 mt-3">
@@ -301,12 +302,45 @@ function App(){
                 </p>
                 <p className="text-[10px] tracking-[.2em] uppercase text-accent">Platform protest → luxury perception & geopolitics</p>
               </article>
+
+              <article className="space-y-3">
+                <h3 className="font-serif text-2xl text-ink">The Horror of the Other: Lovecraft’s Fear and Jones’s Reclamation</h3>
+                <p className="text-neutral-700">
+                  Literary critique comparing Lovecraft’s racial anxieties and eugenic worldview with Stephen Graham Jones’s reclamation of horror to confront colonial violence and internalized narratives.
+                </p>
+                <p className="text-neutral-700">
+                  Where Lovecraft weaponizes “the unknown” to police purity, Jones uses horror to expose how oppression persists through culture, language, and genre — shifting fear into a tool for critique and repair.
+                </p>
+                <p className="text-[10px] tracking-[.2em] uppercase text-accent">Genre lineage → decolonizing horror</p>
+              </article>
             </div>
           </div>
 
+          {/* New Policy Memos block */}
+          <div>
+            <SubHeader label="Policy Memos" />
+            <div className="grid md:grid-cols-2 gap-6 mt-3">
+              <article className="space-y-3 p-0">
+                <h3 className="font-serif text-2xl text-ink">Reducing the Environmental Impact of Fast Fashion</h3>
+                <p className="text-neutral-700">
+                  Recommends a U.S. framework for textile waste and sustainability: EPR mandates, tax incentives for closed‑loop production, clear labeling standards, and consumer education — piloted via an EPA task force and state rollouts.
+                </p>
+                <p className="text-[10px] tracking-[.2em] uppercase text-accent">Standards + incentives → measurable waste reduction</p>
+              </article>
+
+              <article className="space-y-3 p-0">
+                <h3 className="font-serif text-2xl text-ink">Reestablish the Global Engagement Center</h3>
+                <p className="text-neutral-700">
+                  Proposes restoring a modernized GEC to monitor cross‑platform narrative shifts (including lifestyle content), explain U.S. digital policy in real time, and coordinate media literacy — closing the gap left by its closure.
+                </p>
+                <p className="text-[10px] tracking-[.2em] uppercase text-accent">Narrative defense → transparency & literacy</p>
+              </article>
+            </div>
+          </div>
+
+          {/* Relevant Coursework as cards (unchanged style) */}
           <div>
             <SubHeader label="Relevant Coursework" />
-            {/* Cards styled like Press */}
             <div className="grid md:grid-cols-3 gap-5 mt-3">
               <div className="p-5 rounded-2xl bg-white border border-neutral-200 shadow-sm">
                 <div className="text-sm font-serif text-ink">U.S.–China Relations</div>
