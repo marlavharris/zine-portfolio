@@ -61,10 +61,7 @@
     .chev.left { left:-6px; }
     .chev.right{ right:-6px; }
 
-    /* ensure images fully visible inside frames */
-    .frame {
-      background: var(--frame, #f6f6f6);
-    }
+    .frame { background:#f6f6f6; }
   </style>
 </head>
 <body class="text-ink bg-paper antialiased">
@@ -146,7 +143,7 @@ function Lookbook({items}) {
       <div ref={scrollerRef} className="lookbook flex gap-6 overflow-x-auto snap-x snap-mandatory pb-3 pr-2">
         {items.map((item, idx)=>(
           <div className="card min-w-[260px] md:min-w-[360px] snap-start" key={idx}>
-            <div className="rounded-2xl overflow-hidden border border-neutral-200 bg-frame aspect-[4/5] flex items-center justify-center">
+            <div className="rounded-2xl overflow-hidden border border-neutral-200 frame aspect-[4/5] flex items-center justify-center">
               <img src={item.src} alt={item.t || 'slide'} className="max-w-full max-h-full object-contain object-center" />
             </div>
             {item.t && <div className="mt-2 font-serif text-ink">{item.t}</div>}
@@ -311,26 +308,42 @@ function App(){
       {/* ACADEMIC */}
       <SectionHeader title="Academic" />
       <ZineBlock id="academic">
-        <div className="grid md:grid-cols-2 gap-8">
-          <article className="space-y-4">
-            <h3 className="font-serif text-2xl text-ink">Red Note: Social Media as Strategy</h3>
-            <p className="text-neutral-700">
-              A protest migration from TikTok to a China‑based platform reshaped how U.S. users viewed Chinese manufacturing and daily life — advancing state‑aligned narratives about innovation, quality, and openness while collecting richer behavioral data.
-            </p>
-            <p className="text-neutral-700">
-              The result: luxury “craft” reframed as branding, rising skepticism toward Western markups, and a subtle recalibration of what “Made in China” signals to younger consumers.
-            </p>
-            <p className="text-[10px] tracking-[.2em] uppercase text-accent">Platform protest → luxury perception & geopolitics</p>
-          </article>
-          <article className="space-y-4">
-            <h3 className="font-serif text-2xl text-ink">Policy × Brand Strategy</h3>
-            <p className="text-neutral-700">
-              Translating governance and market signals into nonprofit and global brand playbooks; data storytelling for action.
-            </p>
-            <div className="rounded-2xl overflow-hidden border border-neutral-200 bg-white aspect-[4/5] flex items-center justify-center">
-              <div className="text-sm text-neutral-500">Data Story — Coming Soon</div>
+        <div className="space-y-10">
+          <!-- Essays -->
+          <div>
+            <SubHeader label="Essays I’ve Written" />
+            <div className="grid md:grid-cols-2 gap-8 mt-4">
+              <article className="space-y-4">
+                <h3 className="font-serif text-2xl text-ink">Red Note: Social Media as Strategy</h3>
+                <p className="text-neutral-700">
+                  A protest migration from TikTok to a China‑based platform reshaped how U.S. users viewed Chinese manufacturing and daily life — advancing state‑aligned narratives about innovation, quality, and openness while collecting richer behavioral data.
+                </p>
+                <p className="text-neutral-700">
+                  The result: luxury “craft” reframed as branding, rising skepticism toward Western markups, and a subtle recalibration of what “Made in China” signals to younger consumers.
+                </p>
+                <p className="text-[10px] tracking-[.2em] uppercase text-accent">Platform protest → luxury perception & geopolitics</p>
+              </article>
+              <article className="space-y-4">
+                <h3 className="font-serif text-2xl text-ink">Policy × Brand Strategy</h3>
+                <p className="text-neutral-700">
+                  Translating governance and market signals into nonprofit and global brand playbooks; data storytelling for action.
+                </p>
+                <div className="rounded-2xl overflow-hidden border border-neutral-200 bg-white aspect-[4/5] flex items-center justify-center">
+                  <div className="text-sm text-neutral-500">Data Story — Coming Soon</div>
+                </div>
+              </article>
             </div>
-          </article>
+          </div>
+
+          <!-- Relevant Coursework -->
+          <div>
+            <SubHeader label="Relevant Coursework" />
+            <ul className="list-disc ml-5 text-neutral-700 mt-3">
+              <li>U.S.–China Relations</li>
+              <li>Marketing for Nonprofits</li>
+              <li>Communication Strategy</li>
+            </ul>
+          </div>
         </div>
       </ZineBlock>
 
