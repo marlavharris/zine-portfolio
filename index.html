@@ -3,204 +3,430 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Marla Harris Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;700&display=swap" rel="stylesheet">
+  <title>Marla V. Harris — Portfolio</title>
+
+  <!-- Type -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind + React (single-file setup) -->
+  <script>
+    tailwind = tailwind || {};
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['Playfair Display','ui-serif','Georgia','serif'],
+            sans: ['Inter','ui-sans-serif','system-ui','sans-serif']
+          },
+          colors: {
+            ink: '#0b0b0b',
+            paper: '#ffffff',
+            accent: '#ff2e8b',
+            frame: '#f6f6f6'
+          },
+          letterSpacing: { zine: '.12em' }
+        }
+      }
+    }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
   <style>
-    * {margin: 0; padding: 0; box-sizing: border-box;}
-    :root { --accent: hotpink; }
-    body {font-family: 'Space Grotesk', sans-serif; background-color: #fff; color: #000; overflow-x: hidden;}
-    header {position: fixed; top: 0; left: 0; width: 100%; background: rgba(255,255,255,0.9);
-      display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; z-index: 1000;
-      border-bottom: 1px solid #eee; backdrop-filter: blur(4px);}
-    header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 2px; }
-    nav a {margin-left: 20px; text-decoration: none; color: var(--accent); font-weight: 400; font-size: 0.9rem;}
-    section {min-height: 100vh; display: flex; align-items: center; justify-content: center;
-      position: relative; padding: 100px 20px; flex-direction: column;}
-    .hero {background: url('https://source.unsplash.com/1600x900/?fashion,editorial') center/cover no-repeat; color: #fff; text-align: center;}
-    .hero h2 {font-size: 6vw; font-weight: 700; text-transform: uppercase; background: rgba(0,0,0,0.4); padding: 20px; display: inline-block;}
+    html, body { background:#ffffff; }
+    .bar { width: 84px; height: 5px; background:#ff2e8b; border-radius:999px; }
+    .bar-sm { width: 60px; height: 4px; background:#ff2e8b; border-radius:999px; }
 
-    /* Lookbook */
-    .lookbook { width: 100%; max-width: 1200px; }
-    .lb-viewport {position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; background: #000;}
-    .lb-track {display: flex; width: 100%; height: 100%; transition: transform 0.6s ease;}
-    .lb-slide {min-width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #000;}
-    .lb-slide img {max-width: 100%; max-height: 100%; object-fit: contain;}
-    .lb-caption {position: absolute; bottom: 16px; left: 16px; color: #fff; background: rgba(0,0,0,0.45);
-      padding: 8px 12px; text-transform: uppercase; font-weight: 700; letter-spacing: .5px;}
-    .lb-nav {position: absolute; top: 50%; width: 100%; display: flex; justify-content: space-between; transform: translateY(-50%); padding: 0 8px; pointer-events: none;}
-    .lb-btn {pointer-events: all; background: rgba(255,255,255,0.85); border: none; padding: 8px 12px; cursor: pointer; font-weight: 700;}
-    .lb-dots { display: flex; gap: 8px; margin-top: 16px; }
-    .lb-dot {width: 10px; height: 10px; border-radius: 50%; background: #bbb; cursor: pointer;}
-    .lb-dot.active { background: var(--accent); }
+    .marquee { white-space:nowrap; overflow:hidden; position:relative; background:#fff0f7; border-top:1px solid #ffe3ef; border-bottom:1px solid #ffe3ef; color:#a30855; }
+    .marquee span { display:inline-block; padding-left:100%; animation: marquee 18s linear infinite; }
+    .marquee:hover span { animation-play-state: paused; }
+    @keyframes marquee { 0% { transform: translateX(0);} 100% { transform: translateX(-100%);} }
 
-    /* Metrics */
-    .metrics { background: #000; color: #fff; text-align: center; }
-    .metrics h2 { color: var(--accent); font-size: 3rem; margin-bottom: 40px; }
-    .metrics .data {display: flex; flex-wrap: wrap; justify-content: center; gap: 40px;}
-    .metrics .data div {font-size: 2rem; font-weight: 700;}
+    .dropcap:first-letter { float:left; font-size:3rem; line-height:1; padding-right:.35rem; margin-top:.2rem; font-family:'Playfair Display',serif; }
+    .rule { height:1px; background:linear-gradient(to right, transparent, #ff2e8b66, transparent); }
 
-    /* What I Wrote */
-    .wrote { max-width: 1200px; width: 100%; }
-    .wrote h2 { color: var(--accent); font-size: 2.5rem; margin-bottom: 24px; text-transform: uppercase; }
-    .wrote-wrap {display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;}
-    .snippet {border: 1px solid #000; padding: 16px; position: relative; background: #fff;}
-    .snippet:before {content: 'SUBJECT'; position: absolute; top: -12px; left: 12px; background: #fff; padding: 2px 6px; font-size: .7rem; color: #000;}
-    .snippet.cta:before { content: 'CTA'; }
-    .snippet.preview:before { content: 'PREVIEW'; }
-    .snippet p { font-weight: 700; }
-    .snippet small { display: block; margin-top: 6px; opacity: .7; font-weight: 400; }
+    .lookbook::-webkit-scrollbar { height:8px; }
+    .lookbook::-webkit-scrollbar-thumb { background:#ffd1e6; border-radius:999px; }
 
-    /* Brands Marquee - dual staggered rows */
-    .brands {width: 100%; background: #111; padding: 24px 0;}
-    .brands h3 {color: var(--accent); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 12px; font-size: 0.9rem;}
-    .marquee {white-space: nowrap; overflow: hidden; position: relative; width: 100%; border-top: 1px solid #222; border-bottom: 1px solid #222;}
-    .track {display: inline-block; padding: 10px 0; will-change: transform; animation: marqueeA 18s linear infinite; font-size: 1.6rem; font-weight: 700; text-transform: uppercase;}
-    .track.alt {animation: marqueeB 22s linear infinite; opacity: 0.9; font-size: 1.3rem; letter-spacing: .02em;}
-    .brand {margin: 0 40px; color: #fff; transition: color .2s;}
-    .brand:hover {color: var(--accent);}
-    @keyframes marqueeA { from {transform: translateX(0);} to {transform: translateX(-50%);} }
-    @keyframes marqueeB { from {transform: translateX(-25%);} to {transform: translateX(-75%);} }
+    .contact-pill { position:fixed; right:18px; bottom:18px; z-index:50; }
 
-    /* Community */
-    .community {background: url('https://source.unsplash.com/1600x900/?community,volunteer') center/cover no-repeat; color: #fff; text-align: center;}
-    .community h2 {background: rgba(0,0,0,0.5); padding: 20px; font-size: 3rem; text-transform: uppercase;}
+    .btn { display:inline-flex; align-items:center; justify-content:center; padding:.45rem .7rem; border:1px solid #e5e7eb; border-radius:999px; font-size:12px; }
+    .btn:hover { border-color:#ff2e8b; color:#ff2e8b; }
 
-    /* About + Work */
-    .aboutwork { max-width: 1200px; width: 100%; }
-    .aboutwork h2 { color: var(--accent); margin-bottom: 20px; text-transform: uppercase; font-size: 2rem; }
-    .about-grid {display: grid; grid-template-columns: 1.2fr .8fr; gap: 40px;}
-    .about-grid p { line-height: 1.7; }
-    .work-item {display: flex; justify-content: space-between; border-bottom: 1px solid #ccc; padding: 16px 0;}
-    @media (max-width: 900px) {.about-grid { grid-template-columns: 1fr; } .brand {margin: 0 20px;}}
+    .chev { position:absolute; top:50%; transform:translateY(-50%); z-index:30; }
+    .chev button { width:44px; height:44px; border-radius:999px; background:#ffffff; border:1px solid #ffd1e6; box-shadow:0 8px 20px rgba(0,0,0,.08); }
+    .chev button:hover { border-color:#ff2e8b; color:#ff2e8b; }
+    .chev.left { left:-6px; }
+    .chev.right{ right:-6px; }
 
-    footer {background: #000; color: #fff; text-align: center; padding: 20px;}
-    footer a {color: var(--accent); text-decoration: none;}
+    /* ensure images fully visible inside frames */
+    .frame {
+      background: var(--frame, #f6f6f6);
+    }
   </style>
 </head>
-<body>
+<body class="text-ink bg-paper antialiased">
+<div id="root"></div>
 
-<header>
-  <h1>MARLA HARRIS</h1>
-  <nav>
-    <a href="#portfolio">Portfolio</a>
-    <a href="#lookbook">Campaigns</a>
-    <a href="#metrics">Metrics</a>
-    <a href="#wrote">What I Wrote</a>
-    <a href="#brands">Featured Brands</a>
-    <a href="#community">Community</a>
-    <a href="#aboutwork">About + Work</a>
-  </nav>
-</header>
-
-<section id="portfolio" class="hero"><h2>Portfolio | Coming Soon </h2></section>
-
-<section id="lookbook" class="lookbook">
-  <h2 style="color: var(--accent); text-transform: uppercase; margin-bottom: 16px;">Marketing Campaigns</h2>
-  <div class="lb-viewport">
-    <div class="lb-track" id="lbTrack">
-      <div class="lb-slide"><img src="https://marlavharris.github.io/zine-portfolio/5.4%20-%20ENDS%20SOON%20-%20Country%20Campaign%202.gif" alt="Billboard Pro"></div>
-      <div class="lb-slide"><img src="https://marlavharris.github.io/zine-portfolio/WWD%20-%20CYBER%20MONDAY%20-%20FINAL%20HOURS%20-%20update%20(1).gif" alt="Women's Wear Daily"></div>
-      <div class="lb-slide"><img src="https://marlavharris.github.io/zine-portfolio/4.14%20Ends%20Tomorrow%20-%20Big%20boi%20JID%20-%20V2%20(1)%20(2).gif" alt="Rolling Stone"></div>
+<script type="text/babel">
+/* ---------- UI Helpers ---------- */
+function SectionHeader({title}) {
+  return (
+    <div className="max-w-6xl mx-auto px-6 md:px-10 lg:px-16 pt-14 md:pt-20">
+      <h2 className="font-serif text-ink text-[clamp(36px,6.2vw,72px)] leading-[1.02]">{title}</h2>
+      <div className="bar mt-3"></div>
     </div>
-    <div class="lb-caption" id="lbCaption">Billboard Pro</div>
-    <div class="lb-nav">
-      <button class="lb-btn" id="prevBtn">‹</button>
-      <button class="lb-btn" id="nextBtn">›</button>
+  );
+}
+function SubHeader({label}) {
+  return (
+    <div className="flex items-center justify-between">
+      <div className="text-xs uppercase tracking-[.2em] text-neutral-700 font-semibold">{label}</div>
+      <div className="bar-sm"></div>
     </div>
-  </div>
-  <div class="lb-dots" id="lbDots"></div>
-</section>
+  );
+}
+function ZineBlock({children, id}) {
+  return (
+    <section id={id} className="max-w-6xl mx-auto px-6 md:px-10 lg:px-16 py-10">
+      {children}
+    </section>
+  );
+}
 
-<section id="metrics" class="metrics">
-  <h2>Performance Metrics</h2>
-  <div class="data">
-    <div>72% Open Rate</div>
-    <div>18% Click Rate</div>
-    <div>+25% Conversions</div>
-  </div>
-</section>
+/* ---------- Assets ---------- */
+const GIFS = {
+  milan: "https://raw.githubusercontent.com/marlavharris/zine-portfolio/main/Ends%20Friday%20-%20(Milan)%20Your%20Global%20Fashion%20Passport%20(percentsale1)%20(1).gif",
+  halsey: "https://raw.githubusercontent.com/marlavharris/zine-portfolio/main/HALSEY%20-%20BB%20BAU%20(2)%20(2).gif",
+  saba: "https://raw.githubusercontent.com/marlavharris/zine-portfolio/main/2.29%20BAU%20(SABA)%20(1).gif"
+};
+const FRIDGE = [
+  "https://raw.githubusercontent.com/marlavharris/zine-portfolio/main/Image_from_iOS_6.jpg",
+  "https://raw.githubusercontent.com/marlavharris/zine-portfolio/main/20201019_153347_copy.jpg.webp",
+  "https://raw.githubusercontent.com/marlavharris/zine-portfolio/main/20201019_154551-scaled.jpg",
+  "https://raw.githubusercontent.com/marlavharris/zine-portfolio/main/IMG_4876.jpg"
+];
 
-<section id="wrote" class="wrote">
-  <h2>What I Wrote</h2>
-  <div class="wrote-wrap">
-    <div class="snippet"><p>“This is not a drill.”</p><small>Subject line – Product Drop</small></div>
-    <div class="snippet preview"><p>“Limited run. Your size is still in stock (for now).”</p><small>Preview text – Launch Email</small></div>
-    <div class="snippet cta"><p>“Claim your spot”</p><small>CTA – Waitlist</small></div>
-    <div class="snippet"><p>“The bag everyone’s talking about.”</p><small>Subject line – Social proof</small></div>
-    <div class="snippet preview"><p>“We saved your cart. Want us to hold it?”</p><small>Preview text – Abandon cart</small></div>
-    <div class="snippet cta"><p>“Open the envelope”</p><small>CTA – Announcement</small></div>
-  </div>
-</section>
-
-<section id="brands" class="brands">
-  <h3>Brands I’ve Worked With</h3>
-  <div class="marquee" aria-label="Brands marquee row 1">
-    <div class="track">
-      <span class="brand">GE</span><span class="brand">Samsung</span><span class="brand">LG</span><span class="brand">Sub-Zero Wolf</span>
-      <span class="brand">SMEG</span><span class="brand">Rolling Stone</span><span class="brand">WWD</span><span class="brand">Billboard</span><span class="brand">Sportico</span>
-      <span class="brand">GE</span><span class="brand">Samsung</span><span class="brand">LG</span><span class="brand">Sub-Zero Wolf</span>
-      <span class="brand">SMEG</span><span class="brand">Rolling Stone</span><span class="brand">WWD</span><span class="brand">Billboard</span><span class="brand">Sportico</span>
+/* ---------- Bits ---------- */
+function Stat({k, v}) {
+  return (
+    <div className="p-5 rounded-2xl bg-white border border-neutral-200 shadow-sm">
+      <div className="text-3xl md:text-4xl font-serif">{v}</div>
+      <div className="text-[10px] tracking-[.18em] uppercase text-neutral-600 mt-2">{k}</div>
     </div>
-  </div>
-  <div class="marquee" aria-label="Brands marquee row 2">
-    <div class="track alt">
-      <span class="brand">GE</span><span class="brand">Samsung</span><span class="brand">LG</span><span class="brand">Sub-Zero Wolf</span>
-      <span class="brand">SMEG</span><span class="brand">Rolling Stone</span><span class="brand">WWD</span><span class="brand">Billboard</span><span class="brand">Sportico</span>
-      <span class="brand">GE</span><span class="brand">Samsung</span><span class="brand">LG</span><span class="brand">Sub-Zero Wolf</span>
-      <span class="brand">SMEG</span><span class="brand">Rolling Stone</span><span class="brand">WWD</span><span class="brand">Billboard</span><span class="brand">Sportico</span>
-    </div>
-  </div>
-</section>
+  );
+}
 
-<section id="community" class="community"><h2>The Community Fridge Project</h2></section>
-
-<section id="aboutwork" class="aboutwork">
-  <h2>About + Work</h2>
-  <div class="about-grid">
-    <div>
-      <p>I’m an email marketer focused on conversion, retention, and brand storytelling. I design welcome series, launches, and lifecycle flows that move revenue and feel editorial — not transactional. My process blends research, testing, and iterative creative so each campaign earns its place in the inbox.</p>
-      <p>Tools: Klaviyo, Mailchimp, HubSpot, basic HTML/CSS, GA4. Industries: fashion, beauty, CPG, media and community projects.</p>
-    </div>
-    <div>
-      <div class="work-item"><span>2023–2025</span><span>Email Marketing Manager — Penske Media Corporation</span></div>
-      <div class="work-item"><span>2021–2023</span><span> Marketing Operations Manager — AjMadison</span></div>
-      <div class="work-item"><span>2019–2021</span><span>Ecommerce Manager — Issey Miyake</span></div>
-    </div>
-  </div>
-</section>
-
-<footer><p>© 2025 Marla Harris | <a href="mailto:mharris3182@gmail.com">Contact</a></p></footer>
-
-<script>
-  // Lookbook controls (fixed: use double-quoted strings to avoid apostrophe bug)
-  const track = document.getElementById("lbTrack");
-  const caption = document.getElementById("lbCaption");
-  const slides = Array.from(track.children);
-  const prevBtn = document.getElementById("prevBtn");
-  const nextBtn = document.getElementById("nextBtn");
-  const dotsWrap = document.getElementById("lbDots");
-  const captions = ["Billboard Pro", "Women's Wear Daily", "Rolling Stone"];
-  let index = 0;
-  const go = (i) => {
-    index = (i + slides.length) % slides.length;
-    track.style.transform = "translateX(" + (-100 * index) + "%)";
-    caption.textContent = captions[index] || ("Slide " + (index+1));
-    Array.from(dotsWrap.children).forEach((d, di) => d.classList.toggle("active", di === index));
+/* Reusable horizontal slider (4:5 frames, object-contain) */
+function Lookbook({items}) {
+  const scrollerRef = React.useRef(null);
+  const scrollByCard = (dir)=>{
+    const el = scrollerRef.current;
+    if(!el) return;
+    const card = el.querySelector('.card');
+    const delta = card ? card.getBoundingClientRect().width + 24 : 320;
+    el.scrollBy({ left: dir * delta, behavior: 'smooth' });
   };
-  slides.forEach((_, i) => {
-    const dot = document.createElement("div");
-    dot.className = "lb-dot" + (i===0 ? " active" : "");
-    dot.addEventListener("click", () => go(i));
-    dotsWrap.appendChild(dot);
-  });
-  prevBtn.addEventListener("click", () => go(index - 1));
-  nextBtn.addEventListener("click", () => go(index + 1));
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowLeft") go(index - 1);
-    if (e.key === "ArrowRight") go(index + 1);
-  });
-  go(0);
-</script>
+  React.useEffect(()=>{
+    const onKey = (e)=>{
+      if(e.key === 'ArrowRight') scrollByCard(1);
+      if(e.key === 'ArrowLeft') scrollByCard(-1);
+    };
+    window.addEventListener('keydown', onKey);
+    return ()=> window.removeEventListener('keydown', onKey);
+  },[]);
+  return (
+    <div className="relative">
+      {/* Chevrons visible on mobile + desktop */}
+      <div className="chev left"><button onClick={()=>scrollByCard(-1)} aria-label="Previous">‹</button></div>
+      <div className="chev right"><button onClick={()=>scrollByCard(1)} aria-label="Next">›</button></div>
 
+      <div ref={scrollerRef} className="lookbook flex gap-6 overflow-x-auto snap-x snap-mandatory pb-3 pr-2">
+        {items.map((item, idx)=>(
+          <div className="card min-w-[260px] md:min-w-[360px] snap-start" key={idx}>
+            <div className="rounded-2xl overflow-hidden border border-neutral-200 bg-frame aspect-[4/5] flex items-center justify-center">
+              <img src={item.src} alt={item.t || 'slide'} className="max-w-full max-h-full object-contain object-center" />
+            </div>
+            {item.t && <div className="mt-2 font-serif text-ink">{item.t}</div>}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/* Small text slider cards */
+function SliderCard({title, items}) {
+  const [i, setI] = React.useState(0);
+  const prev = () => setI((i - 1 + items.length) % items.length);
+  const next = () => setI((i + 1) % items.length);
+  return (
+    <div className="p-4 rounded-2xl bg-white border border-neutral-200 shadow-sm">
+      <div className="flex items-center justify-between">
+        <h4 className="font-serif text-[18px] text-ink">{title}</h4>
+        <div className="flex gap-2">
+          <button className="btn" onClick={prev} aria-label="Previous">‹</button>
+          <button className="btn" onClick={next} aria-label="Next">›</button>
+        </div>
+      </div>
+      <div className="mt-3 h-[96px] md:h-[110px] overflow-hidden">
+        <div className="text-neutral-800 leading-snug font-serif">{items[i]}</div>
+      </div>
+      <div className="mt-2 text-[11px] tracking-[.2em] uppercase text-neutral-400">{i+1}/{items.length}</div>
+    </div>
+  );
+}
+
+/* ---------- Page ---------- */
+function App(){
+  return (
+    <div>
+      {/* Header / Nav */}
+      <header className="relative overflow-hidden">
+        <nav className="max-w-6xl mx-auto px-6 md:px-10 lg:px-16 h-16 flex items-center justify-between border-b border-neutral-200 bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/60 sticky top-0 z-40">
+          <a href="#" className="font-serif text-lg md:text-xl text-ink">Marla V. Harris</a>
+          <div className="hidden md:flex gap-6 text-[11px] tracking-[.2em] uppercase text-neutral-700 font-semibold">
+            <a href="#marketing" className="hover:text-ink">Marketing</a>
+            <a href="#community" className="hover:text-ink">Community</a>
+            <a href="#academic" className="hover:text-ink">Academic</a>
+            <a href="#about" className="hover:text-ink">About</a>
+            <a href="#press" className="hover:text-ink">Press</a>
+            <a href="#contact" className="hover:text-ink text-accent">Contact</a>
+          </div>
+        </nav>
+
+        {/* Hero */}
+        <div className="max-w-6xl mx-auto px-6 md:px-10 lg:px-16 pt-8 md:pt-10">
+          <div className="text-[11px] tracking-zine uppercase text-neutral-600 font-semibold">Creative Strategy • Lifecycle • Ecommerce</div>
+          <h1 className="mt-3 font-serif text-ink text-[clamp(36px,6.2vw,72px)] leading-[1.05]">
+            I make connections others <span className="italic text-accent">wouldn’t even consider</span> —
+            <span className="block text-neutral-800 font-normal">between industries, audiences, and ideas.</span>
+          </h1>
+          <p className="mt-5 text-neutral-900 max-w-2xl text-[17px] md:text-[19px] dropcap">
+            Full‑stack marketer across luxury, media, and B2B/B2C. I translate cultural signals and data into systems, campaigns, and community impact.
+          </p>
+        </div>
+      </header>
+
+      {/* MARKETING */}
+      <SectionHeader title="Marketing" />
+      <ZineBlock id="marketing">
+        {/* Brands header + Marquee (brands only, pause on hover) */}
+        <div className="mb-2">
+          <div className="flex items-end justify-between">
+            <h3 className="font-serif text-ink text-[26px] md:text-[32px] leading-none">Brands I’ve Worked With</h3>
+            <div className="bar"></div>
+          </div>
+        </div>
+        <div className="marquee py-3 text-[12px] tracking-[.32em] uppercase font-semibold mb-8">
+          <span>Penske Media • Rolling Stone • Billboard • WWD • Issey Miyake • AjMadison • GE • Samsung • LG • Sub‑Zero/Wolf/Cove</span>
+        </div>
+
+        {/* Performance Metrics */}
+        <div className="mb-8">
+          <SubHeader label="Performance Metrics" />
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
+            <Stat k="Open Rate" v="30%" />
+            <Stat k="CTOR" v="9.7%" />
+            <Stat k="E‑commerce Lift" v="14%" />
+            <Stat k="Budget Managed" v="$1M" />
+          </div>
+        </div>
+
+        {/* Campaigns — Lookbook */}
+        <div className="mb-8">
+          <SubHeader label="Campaigns — Lookbook" />
+          <div className="mt-4">
+            <Lookbook items={[
+              {src: GIFS.milan, t: "Milan — Global Fashion Passport"},
+              {src: GIFS.halsey, t: "PMC — Halsey"},
+              {src: GIFS.saba,  t: "SABA"}
+            ]}/>
+          </div>
+        </div>
+
+        {/* Things I Wrote */}
+        <div className="mb-2">
+          <SubHeader label="Things I Wrote" />
+          <div className="grid md:grid-cols-3 gap-6 mt-4">
+            <SliderCard
+              title="Subject Lines"
+              items={[
+                "You're invited! Unlock discounted access to WWD’s Pitti Uomo coverage.",
+                "Behind on the latest fashion week news?",
+                "From Pitti to Paris, find out what mattered at fashion weeks."
+              ]}
+            />
+            <SliderCard
+              title="Headlines"
+              items={[
+                "Every Red Carpet, Every Look, Every Moment.",
+                "Fashion's leading journalists, all in one place.",
+                "Unlock access to WWD's fashion week recaps."
+              ]}
+            />
+            <SliderCard
+              title="Body Copy"
+              items={[
+                "Authority-forward coverage that reads like your favorite editor’s briefing — distilled, timely, and actually actionable.",
+                "We bring the front row to your inbox — context, clips, and the why behind the looks.",
+                "When timing matters, we trade gimmicks for clarity — clean offers, clean UX, better results."
+              ]}
+            />
+          </div>
+        </div>
+      </ZineBlock>
+
+      {/* COMMUNITY */}
+      <SectionHeader title="Community" />
+      <ZineBlock id="community">
+        <div className="space-y-8">
+          <article className="space-y-4">
+            <h3 className="font-serif text-2xl text-ink">Community Fridge Initiative</h3>
+            <p className="text-neutral-700">
+              Donating 100+ scratch‑and‑dent fridges to grassroots groups nationwide. Partnerships with nonprofits, artists, and restaurants; reduced waste and addressed food insecurity; coverage in NYT & partner media.
+            </p>
+            <p className="text-[10px] tracking-[.2em] uppercase text-accent">Retail waste → food security & sustainability</p>
+          </article>
+
+          <div>
+            <SubHeader label="Gallery" />
+            <div className="mt-4">
+              <Lookbook items={FRIDGE.map(src=>({src, t: ""}))}/>
+            </div>
+          </div>
+
+          <article className="space-y-4">
+            <h4 className="font-serif text-xl text-ink">Press & Partners</h4>
+            <ul className="list-disc ml-5 text-neutral-700">
+              <li><a className="text-accent underline decoration-accent/40 hover:decoration-accent" target="_blank" rel="noreferrer" href="https://true-residential.com/the-art-of-cold/true-manufacturing-in-partnership-with-aj-madison-donates-commercial-refrigerator-to-community-free-food-fridge-project/">True Residential × AjMadison</a></li>
+              <li><a className="text-accent underline decoration-accent/40 hover:decoration-accent" target="_blank" rel="noreferrer" href="https://www.modernluxury.com/community-fridge-ajmadison/">Modern Luxury — Community Fridge</a></li>
+            </ul>
+          </article>
+        </div>
+      </ZineBlock>
+
+      {/* ACADEMIC */}
+      <SectionHeader title="Academic" />
+      <ZineBlock id="academic">
+        <div className="grid md:grid-cols-2 gap-8">
+          <article className="space-y-4">
+            <h3 className="font-serif text-2xl text-ink">Red Note: Social Media as Strategy</h3>
+            <p className="text-neutral-700">
+              A protest migration from TikTok to a China‑based platform reshaped how U.S. users viewed Chinese manufacturing and daily life — advancing state‑aligned narratives about innovation, quality, and openness while collecting richer behavioral data.
+            </p>
+            <p className="text-neutral-700">
+              The result: luxury “craft” reframed as branding, rising skepticism toward Western markups, and a subtle recalibration of what “Made in China” signals to younger consumers.
+            </p>
+            <p className="text-[10px] tracking-[.2em] uppercase text-accent">Platform protest → luxury perception & geopolitics</p>
+          </article>
+          <article className="space-y-4">
+            <h3 className="font-serif text-2xl text-ink">Policy × Brand Strategy</h3>
+            <p className="text-neutral-700">
+              Translating governance and market signals into nonprofit and global brand playbooks; data storytelling for action.
+            </p>
+            <div className="rounded-2xl overflow-hidden border border-neutral-200 bg-white aspect-[4/5] flex items-center justify-center">
+              <div className="text-sm text-neutral-500">Data Story — Coming Soon</div>
+            </div>
+          </article>
+        </div>
+      </ZineBlock>
+
+      {/* ABOUT */}
+      <SectionHeader title="About" />
+      <ZineBlock id="about">
+        <div className="grid md:grid-cols-5 gap-10">
+          <div className="md:col-span-3 space-y-4 text-neutral-800 text-base md:text-lg">
+            <p>I build marketing systems that connect dots others wouldn’t even consider — from luxury ecommerce and media subscriptions to community initiatives and public‑sector research.</p>
+            <p>Currently an MPA candidate at Baruch, I study how policy, platforms, and culture shape markets — and how brands can act with both creativity and accountability.</p>
+          </div>
+          <div className="md:col-span-2">
+            <div className="space-y-4 border-l border-neutral-200 pl-5">
+              <a href="#academic" className="block group">
+                <div className="text-xs uppercase tracking-[.18em] text-neutral-600">2024–Present</div>
+                <div className="font-serif text-lg text-ink group-hover:text-accent">MPA — Baruch College</div>
+                <div className="text-neutral-700 text-sm">Media, policy, and markets • <span class="text-accent">Dean’s List (Spring 2025)</span></div>
+              </a>
+              <a href="#marketing" className="block group">
+                <div className="text-xs uppercase tracking-[.18em] text-neutral-600">2022–2024</div>
+                <div className="font-serif text-lg text-ink group-hover:text-accent">Email & Subscriptions — PMC (Rolling Stone, Billboard, WWD)</div>
+                <div className="text-neutral-700 text-sm">30% open rate • 9.7% CTOR</div>
+              </a>
+              <a href="#community" className="block group">
+                <div className="text-xs uppercase tracking-[.18em] text-neutral-600">2018–2022</div>
+                <div className="font-serif text-lg text-ink group-hover:text-accent">Marketing Ops — AjMadison</div>
+                <div className="text-neutral-700 text-sm">Founded Community Fridge Initiative</div>
+              </a>
+              <a href="#marketing" className="block group">
+                <div className="text-xs uppercase tracking-[.18em] text-neutral-600">2015–2017</div>
+                <div className="font-serif text-lg text-ink group-hover:text-accent">E‑Commerce Manager — Issey Miyake</div>
+                <div className="text-neutral-700 text-sm">UX + paid media → +14% revenue</div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </ZineBlock>
+
+      {/* PRESS */}
+      <SectionHeader title="Press" />
+      <ZineBlock id="press">
+        <div className="grid md:grid-cols-3 gap-6">
+          <div className="p-6 rounded-2xl bg-white border border-neutral-200 shadow-sm">
+            <div className="text-sm font-serif text-ink">Modern Luxury DC</div>
+            <div className="text-xs text-neutral-600">Feature on AjMadison Community Fridge — Mar 31, 2022</div>
+            <a className="mt-3 inline-block text-accent underline decoration-accent/40 hover:decoration-accent" href="https://dc.capitolfile.com/community-fridge-ajmadison" target="_blank" rel="noreferrer">Read article</a>
+          </div>
+          <div className="p-6 rounded-2xl bg-white border border-neutral-200 shadow-sm">
+            <div className="text-sm font-serif text-ink">The New York Times</div>
+            <div className="text-xs text-neutral-600">Coverage of Community Fridge Initiative</div>
+            <span className="mt-3 inline-block text-neutral-500">Link coming soon</span>
+          </div>
+          <div className="p-6 rounded-2xl bg-white border border-neutral-200 shadow-sm">
+            <div className="text-sm font-serif text-ink">Dean’s List — Baruch</div>
+            <div className="text-xs text-neutral-600">Spring 2025</div>
+          </div>
+        </div>
+      </ZineBlock>
+
+      {/* CONTACT */}
+      <SectionHeader title="Contact" />
+      <ZineBlock id="contact">
+        <div className="rounded-3xl border border-neutral-200 p-8 md:p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 bg-white">
+          <div>
+            <div className="text-xs uppercase tracking-[.2em] text-neutral-700 font-semibold">Let’s build something unexpected</div>
+            <h3 className="font-serif text-2xl text-ink mt-2">Get in touch</h3>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <a href="mailto:mharris3182@gmail.com" className="px-5 py-3 rounded-full border border-accent text-accent hover:bg-accent hover:text-white transition">Email</a>
+            <a href="https://linkedin.com/in/marlaharris" target="_blank" rel="noreferrer" className="px-5 py-3 rounded-full border border-accent text-accent hover:bg-accent hover:text-white transition">LinkedIn</a>
+            <a href="https://instagram.com/marla_v_harris" target="_blank" rel="noreferrer" className="px-5 py-3 rounded-full border border-accent text-accent hover:bg-accent hover:text-white transition">Instagram</a>
+          </div>
+        </div>
+      </ZineBlock>
+
+      <footer className="mt-6 border-t border-neutral-200">
+        <div className="max-w-6xl mx-auto px-6 md:px-10 lg:px-16 py-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div className="text-[10px] tracking-[.25em] uppercase text-neutral-600">© {new Date().getFullYear()} Marla V. Harris</div>
+          <div className="flex gap-6 text-sm">
+            <a href="mailto:mharris3182@gmail.com" className="text-ink hover:text-accent">Email</a>
+            <a href="https://linkedin.com/in/marlaharris" target="_blank" rel="noreferrer" className="text-ink hover:text-accent">LinkedIn</a>
+            <a href="https://instagram.com/marla_v_harris" target="_blank" rel="noreferrer" className="text-ink hover:text-accent">Instagram</a>
+          </div>
+        </div>
+      </footer>
+
+      {/* Sticky contact pill */}
+      <div className="contact-pill">
+        <a href="#contact" className="px-4 py-2 rounded-full bg-accent text-white shadow-lg text-sm">Contact</a>
+      </div>
+    </div>
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
+</script>
 </body>
 </html>
