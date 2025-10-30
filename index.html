@@ -46,6 +46,28 @@ tailwind.config = {
   .nav-link::after { content:""; position:absolute; left:0; right:0; bottom:-6px; height:2px; background:#9e0059; transform:scaleX(0); transform-origin:right; transition:transform .2s ease; }
   .nav-link:hover::after { transform:scaleX(1); transform-origin:left; }
   button:focus-visible, a:focus-visible { outline: 2px solid #9e0059; outline-offset: 2px; }
+
+  /* Marquee */
+  .marquee {
+    overflow: hidden;
+    position: relative;
+    white-space: nowrap;
+    background: rgba(158,0,89,0.05);
+    border-top: 1px solid #f8d4e8;
+    border-bottom: 1px solid #f8d4e8;
+  }
+  .marquee span {
+    display: inline-block;
+    padding-left: 100%;
+    animation: marquee 20s linear infinite;
+  }
+  .marquee:hover span {
+    animation-play-state: paused;
+  }
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+  }
 </style>
 </head>
 <body class="text-ink bg-paper antialiased">
@@ -67,7 +89,7 @@ tailwind.config = {
   <main id="main">
     <div class="max-w-6xl mx-auto px-6 md:px-10 lg:px-16 py-16 md:py-24">
       <div class="text-[11px] tracking-zine uppercase text-neutral-700 font-semibold mb-4">Creative Strategy • Lifecycle • Ecommerce</div>
-      <h1 class="font-serif text-ink text-4xl md:text-6xl lg:text-7xl leading-[1.05] max-w-4xl">
+      <h1 class="font-serif text-4xl md:text-6xl lg:text-7xl leading-[1.05] max-w-4xl">
         Connecting the <span class="italic text-accent" style="color: #9e0059;">unexpected</span> — across industries, audiences, and ideas.
       </h1>
       <div class="bar mt-6 mb-8" aria-hidden="true"></div>
@@ -75,7 +97,7 @@ tailwind.config = {
         Full‑stack marketer translating cultural signals into systems, campaigns, and community impact.
       </p>
       <div class="flex gap-4 mt-8">
-        <!-- Primary Solid Button -->
+        <!-- Solid Buttons -->
         <a href="#marketing" class="px-6 py-3 rounded-full bg-accent text-white font-semibold text-sm hover:bg-accent-light focus:bg-accent-light transition focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2">View Work</a>
         <a href="#contact" class="px-6 py-3 rounded-full bg-accent text-white font-semibold text-sm hover:bg-accent-light focus:bg-accent-light transition focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2">Get in Touch</a>
       </div>
@@ -83,6 +105,16 @@ tailwind.config = {
   </main>
 </header>
 
+<!-- Brands Marquee -->
+<section class="py-6 bg-accent-lighter">
+  <div class="marquee py-2">
+    <span class="inline-flex gap-16 text-neutral-800 font-semibold">
+      Samsung &nbsp; GE &nbsp; LG &nbsp; Sub Zero &nbsp; Wolf &nbsp; Cove &nbsp; Bosch &nbsp; Rolling Stone Magazine &nbsp; Billboard Pro Magazine &nbsp; Women’s Wear Daily &nbsp; Issey Miyake &nbsp; Bao Bao Issey Miyake
+    </span>
+  </div>
+</section>
+
+<!-- Marketing Section -->
 <section id="marketing" class="py-16 bg-white" aria-labelledby="marketing-heading">
   <div class="max-w-6xl mx-auto px-6 md:px-10 lg:px-16">
     <h2 id="marketing-heading" class="font-serif text-4xl md:text-5xl mb-2">Marketing</h2>
@@ -188,11 +220,9 @@ tailwind.config = {
       <h2 id="contact-heading" class="font-serif text-3xl md:text-4xl mb-4">Let's build something unexpected</h2>
       <p class="text-neutral-700 mb-8 max-w-xl mx-auto">Currently open for strategic roles at the intersection of marketing, research, and social impact.</p>
       <div class="flex flex-wrap gap-4 justify-center">
-        <!-- Primary Solid Button -->
         <a href="mailto:mharris3182@gmail.com" class="px-6 py-3 rounded-full bg-accent text-white font-semibold text-sm hover:bg-accent-light focus:bg-accent-light transition focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2">Email Me</a>
-        <!-- Secondary Outlined Buttons -->
-        <a href="https://www.linkedin.com/in/marla-harris-047b2946" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-full border border-accent text-ink font-semibold text-sm hover:bg-accent hover:text-white focus:bg-accent focus:text-white transition focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2">LinkedIn</a>
-        <a href="#about" class="px-6 py-3 rounded-full border border-accent text-ink font-semibold text-sm hover:bg-accent hover:text-white focus:bg-accent focus:text-white transition focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2">My Story</a>
+        <a href="https://www.linkedin.com/in/marla-harris-047b2946" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-full bg-accent text-white font-semibold text-sm hover:bg-accent-light focus:bg-accent-light transition focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2">LinkedIn</a>
+        <a href="#about" class="px-6 py-3 rounded-full bg-accent text-white font-semibold text-sm hover:bg-accent-light focus:bg-accent-light transition focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2">My Story</a>
       </div>
     </div>
   </div>
