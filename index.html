@@ -8,7 +8,7 @@
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-<!-- Tailwind (load first) -->
+<!-- Tailwind -->
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
 tailwind.config = {
@@ -21,7 +21,7 @@ tailwind.config = {
       colors: {
         ink: '#0b0b0b',
         paper: '#ffffff',
-        accent: '#ff2e8b',
+        accent: '#d10068', // Darker for better contrast
         frame: '#f6f6f6'
       },
       letterSpacing: { zine: '.12em' }
@@ -30,443 +30,181 @@ tailwind.config = {
 }
 </script>
 
-<!-- React + Babel -->
-<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-
 <style>
-  html, body { background:#ffffff; }
-  .bar { width: 84px; height: 5px; background:#ff2e8b; border-radius:999px; }
-  .bar-sm { width: 60px; height: 4px; background:#ff2e8b; border-radius:999px; }
-  .marquee { white-space:nowrap; overflow:hidden; position:relative; background: rgba(255,46,139,.03); border-top:1px solid #ffe8f1; border-bottom:1px solid #ffe8f1; color:#a30855; }
+  .bar { width: 84px; height: 5px; background:#d10068; border-radius:999px; }
+  .bar-sm { width: 60px; height: 4px; background:#d10068; border-radius:999px; }
+  .marquee { white-space:nowrap; overflow:hidden; position:relative; background: rgba(209,0,104,.03); border-top:1px solid #ffe8f1; border-bottom:1px solid #ffe8f1; color:#8a0056; }
   .marquee span { display:inline-block; padding-left:100%; animation: marquee 18s linear infinite; }
   .marquee:hover span { animation-play-state: paused; }
   @keyframes marquee { 0% { transform: translateX(0);} 100% { transform: translateX(-100%);} }
-  .dropcap:first-letter { float:left; font-size:3rem; line-height:1; padding-right:.35rem; margin-top:.2rem; font-family:'Playfair Display',serif; }
-  .lookbook::-webkit-scrollbar { height:8px; }
-  .lookbook::-webkit-scrollbar-thumb { background:#ffd1e6; border-radius:999px; }
-  .contact-pill { position:fixed; right:18px; bottom:18px; z-index:50; }
-  .btn { display:inline-flex; align-items:center; justify-content:center; padding:.45rem .7rem; border:1px solid #e5e7eb; border-radius:999px; font-size:12px; }
-  .btn:hover { border-color:#ff2e8b; color:#ff2e8b; }
-  .chev { position:absolute; top:50%; transform:translateY(-50%); z-index:30; }
-  .chev button { width:36px; height:36px; border-radius:999px; background:#ffffff; border:1px solid #ffd1e6; box-shadow:0 6px 14px rgba(0,0,0,.06); }
-  .chev button:hover { border-color:#ff2e8b; color:#ff2e8b; }
-  .chev.left { left:-6px; }
-  .chev.right{ right:-6px; }
-  .frame { background:#f6f6f6; }
+  .hero-gradient { background: linear-gradient(135deg, #fff 0%, #fefafc 100%); }
+  .impact-card { transition: all 0.3s ease; }
+  .impact-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
   .nav-link { position:relative; }
-  .nav-link::after { content:""; position:absolute; left:0; right:0; bottom:-6px; height:2px; background:#ff2e8b; transform:scaleX(0); transform-origin:right; transition:transform .2s ease; }
+  .nav-link::after { content:""; position:absolute; left:0; right:0; bottom:-6px; height:2px; background:#d10068; transform:scaleX(0); transform-origin:right; transition:transform .2s ease; }
   .nav-link:hover::after { transform:scaleX(1); transform-origin:left; }
-  .tight-section { padding-top:2.25rem !important; padding-bottom:2.25rem !important; }
 </style>
 </head>
 <body class="text-ink bg-paper antialiased">
-<div id="root"></div>
 
-<script type="text/babel">
-/* Helpers */
-function SectionHeader({title}) {
-  return (
-    <div className="max-w-6xl mx-auto px-6 md:px-10 lg:px-16 pt-10 md:pt-12">
-      <h2 className="font-serif text-ink text-[clamp(36px,6.2vw,72px)] leading-[1.02]">{title}</h2>
-      <div className="bar mt-3"></div>
+<!-- Header -->
+<header class="hero-gradient border-b border-neutral-100">
+  <nav class="max-w-6xl mx-auto px-6 md:px-10 lg:px-16 h-16 flex items-center justify-between">
+    <a href="#" class="font-serif text-lg md:text-xl text-ink">Marla V. Harris</a>
+    <div class="hidden md:flex gap-6 text-[11px] tracking-[.2em] uppercase text-neutral-700 font-semibold">
+      <a href="#marketing" class="nav-link hover:text-ink">Marketing</a>
+      <a href="#community" class="nav-link hover:text-ink">Community</a>
+      <a href="#research" class="nav-link hover:text-ink">Research</a>
+      <a href="#about" class="nav-link hover:text-ink">About</a>
+      <a href="#press" class="nav-link hover:text-ink">Press</a>
     </div>
-  );
-}
-function SubHeader({label}) {
-  return (
-    <div className="flex items-center justify-between">
-      <div className="text-xs uppercase tracking-[.2em] text-neutral-700 font-semibold">{label}</div>
-      <div className="bar-sm"></div>
+  </nav>
+
+  <!-- Hero - SIMPLIFIED -->
+  <div class="max-w-6xl mx-auto px-6 md:px-10 lg:px-16 py-16 md:py-24">
+    <div class="text-[11px] tracking-zine uppercase text-neutral-600 font-semibold mb-4">Creative Strategy • Lifecycle • Ecommerce</div>
+    <h1 class="font-serif text-ink text-4xl md:text-6xl lg:text-7xl leading-[1.05] max-w-4xl">
+      Connecting the <span class="italic text-accent">unexpected</span> — across industries, audiences, and ideas.
+    </h1>
+    <div class="bar mt-6 mb-8"></div>
+    <p class="text-neutral-800 max-w-2xl text-lg md:text-xl leading-relaxed">
+      Full‑stack marketer translating cultural signals into systems, campaigns, and community impact.
+    </p>
+    <div class="flex gap-4 mt-8">
+      <a href="#marketing" class="px-6 py-3 rounded-full bg-accent text-white font-semibold text-sm hover:bg-[#b3005a] transition">View Work</a>
+      <a href="#contact" class="px-6 py-3 rounded-full border border-neutral-300 text-ink font-semibold text-sm hover:border-accent transition">Get in Touch</a>
     </div>
-  );
-}
-function ZineBlock({children, id, tight=false}) {
-  return (
-    <section id={id} className={"max-w-6xl mx-auto px-6 md:px-10 lg:px-16 py-8 " + (tight ? "tight-section" : "")}>
-      {children}
-    </section>
-  );
-}
+  </div>
+</header>
 
-/* Assets */
-const GIFS = {
-  milan: "https://raw.githubusercontent.com/marlavharris/zine-portfolio/main/Ends%20Friday%20-%20(Milan)%20Your%20Global%20Fashion%20Passport%20(percentsale1)%20(1).gif",
-  halsey: "https://raw.githubusercontent.com/marlavharris/zine-portfolio/main/HALSEY%20-%20BB%20BAU%20(2)%20(2).gif",
-  saba: "https://raw.githubusercontent.com/marlavharris/zine-portfolio/main/2.29%20BAU%20(SABA)%20(1).gif"
-};
-const FRIDGE = [
-  "https://raw.githubusercontent.com/marlavharris/zine-portfolio/main/Image_from_iOS_6.jpg",
-  "https://raw.githubusercontent.com/marlavharris/zine-portfolio/main/20201019_153347_copy.jpg.webp",
-  "https://raw.githubusercontent.com/marlavharris/zine-portfolio/main/20201019_154551-scaled.jpg",
-  "https://raw.githubusercontent.com/marlavharris/zine-portfolio/main/IMG_4876.jpg"
-];
-
-/* Bits */
-function Stat({k, v}) {
-  return (
-    <div className="p-5 rounded-2xl bg-white border border-neutral-200 shadow-sm">
-      <div className="text-3xl md:text-4xl font-serif">{v}</div>
-      <div className="text-[10px] tracking-[.18em] uppercase text-neutral-600 mt-2">{k}</div>
-    </div>
-  );
-}
-
-/* Reusable Lookbook with per-section sizing */
-function Lookbook({ items, aspectClass = 'aspect-[4/5]', imgClass = 'h-full w-auto', frameBg = 'frame' }) {
-  const scrollerRef = React.useRef(null);
-  const scrollByCard = (dir)=>{
-    const el = scrollerRef.current;
-    if(!el) return;
-    const card = el.querySelector('.card');
-    const delta = card ? card.getBoundingClientRect().width + 24 : 320;
-    el.scrollBy({ left: dir * delta, behavior: 'smooth' });
-  };
-  React.useEffect(()=>{
-    const onKey = (e)=>{
-      if(e.key === 'ArrowRight') scrollByCard(1);
-      if(e.key === 'ArrowLeft') scrollByCard(-1);
-    };
-    window.addEventListener('keydown', onKey);
-    return ()=> window.removeEventListener('keydown', onKey);
-  },[]);
-  return (
-    <div className="relative">
-      <div className="chev left"><button onClick={()=>scrollByCard(-1)} aria-label="Previous">‹</button></div>
-      <div className="chev right"><button onClick={()=>scrollByCard(1)} aria-label="Next">›</button></div>
-      <div ref={scrollerRef} className="lookbook flex gap-6 overflow-x-auto snap-x snap-mandatory pb-3 pr-2">
-        {items.map((item, idx)=>(
-          <div className="card min-w-[260px] md:min-w-[360px] snap-start" key={idx}>
-            <div className={`rounded-2xl overflow-hidden border border-neutral-200 ${frameBg} ${aspectClass} flex items-center justify-center`}>
-              <img src={item.src} alt={item.t || 'slide'} className={imgClass} />
-            </div>
-            {item.t && <div className="mt-2 font-serif text-[18px] md:text-[20px] font-semibold text-ink">{item.t}</div>}
-          </div>
-        ))}
+<!-- Marketing Section -->
+<section id="marketing" class="py-16 bg-white">
+  <div class="max-w-6xl mx-auto px-6 md:px-10 lg:px-16">
+    <h2 class="font-serif text-ink text-4xl md:text-5xl mb-2">Marketing</h2>
+    <div class="bar mb-8"></div>
+    
+    <!-- Contextual Metrics -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+      <div class="p-5 rounded-2xl bg-white border border-neutral-200 shadow-sm impact-card">
+        <div class="text-3xl md:text-4xl font-serif">30%</div>
+        <div class="text-[10px] tracking-[.18em] uppercase text-neutral-600 mt-2">Open Rate</div>
+        <div class="text-[10px] text-accent mt-1">+25% above industry avg</div>
+      </div>
+      <div class="p-5 rounded-2xl bg-white border border-neutral-200 shadow-sm impact-card">
+        <div class="text-3xl md:text-4xl font-serif">9.7%</div>
+        <div class="text-[10px] tracking-[.18em] uppercase text-neutral-600 mt-2">CTOR</div>
+        <div class="text-[10px] text-accent mt-1">3x benchmark</div>
+      </div>
+      <div class="p-5 rounded-2xl bg-white border border-neutral-200 shadow-sm impact-card">
+        <div class="text-3xl md:text-4xl font-serif">14%</div>
+        <div class="text-[10px] tracking-[.18em] uppercase text-neutral-600 mt-2">Revenue Lift</div>
+        <div class="text-[10px] text-accent mt-1">Q4 campaign, YoY</div>
+      </div>
+      <div class="p-5 rounded-2xl bg-white border border-neutral-200 shadow-sm impact-card">
+        <div class="text-3xl md:text-4xl font-serif">$1M+</div>
+        <div class="text-[10px] tracking-[.18em] uppercase text-neutral-600 mt-2">Budget Managed</div>
+        <div class="text-[10px] text-accent mt-1">ROI-focused</div>
       </div>
     </div>
-  );
-}
 
-/* Page */
-function App(){
-  return (
-    <div>
-      {/* Header / Nav */}
-      <header className="relative overflow-hidden">
-        <nav className="max-w-6xl mx-auto px-6 md:px-10 lg:px-16 h-16 flex items-center justify-between border-b border-neutral-200 bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/60 sticky top-0 z-40">
-          <a href="#" className="font-serif text-lg md:text-xl text-ink">Marla V. Harris</a>
-          <div className="hidden md:flex gap-6 text-[11px] tracking-[.2em] uppercase text-neutral-700 font-semibold">
-            <a href="#marketing" className="nav-link hover:text-ink">Marketing</a>
-            <a href="#community" className="nav-link hover:text-ink">Community</a>
-            <a href="#academic" className="nav-link hover:text-ink">Academic</a>
-            <a href="#about" className="nav-link hover:text-ink">About</a>
-            <a href="#press" className="nav-link hover:text-ink">Press</a>
-            <a href="#contact" className="nav-link hover:text-ink text-accent">Contact</a>
-          </div>
-        </nav>
-
-        {/* Hero */}
-        <div className="max-w-6xl mx-auto px-6 md:px-10 lg:px-16 pt-7 md:pt-9">
-          <div className="text-[11px] tracking-zine uppercase text-neutral-600 font-semibold">Creative Strategy • Lifecycle • Ecommerce</div>
-          <h1 className="mt-2 font-serif text-ink text-[clamp(36px,6.2vw,72px)] leading-[1.05]">
-            I make connections others <span className="italic text-accent">wouldn’t think to consider</span> —
-            <span className="block text-neutral-800 font-normal">bridging industries, audiences, and ideas.</span>
-          </h1>
-          <p className="mt-4 text-neutral-900 max-w-2xl text-[17px] md:text-[19px] dropcap">
-            Full‑stack marketer across luxury, media, and B2B/B2C. I translate cultural signals and data into systems, campaigns, and community impact.
-          </p>
-        </div>
-      </header>
-
-      {/* MARKETING */}
-      <SectionHeader title="Marketing" />
-      <ZineBlock id="marketing" tight>
-        <div className="mb-2">
-          <div className="flex items-end justify-between">
-            <h3 className="font-serif text-ink text-[26px] md:text-[32px] leading-none">Brands I’ve Worked With</h3>
-            <div className="bar"></div>
-          </div>
-        </div>
-        <div className="marquee py-2.5 text-[12px] tracking-[.32em] uppercase font-semibold mb-7">
-          <span>Penske Media Corp • Rolling Stone Magazine • Billboard Magazine • Women's Wear Daily • Issey Miyake • AjMadison • GE • Samsung • LG • Sub‑Zero/Wolf/Cove • SMEG • Viking • Cheap Old Houses</span>
-        </div>
-
-        <div className="mb-6">
-          <SubHeader label="Performance Metrics" />
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-3">
-            <Stat k="Open Rate" v="30%" />
-            <Stat k="CTOR" v="9.7%" />
-            <Stat k="E‑commerce Lift" v="14%" />
-            <Stat k="Budget Managed" v="$1M" />
-          </div>
-        </div>
-
-        <div className="mb-6">
-          <SubHeader label="Campaigns — Lookbook" />
-          <div className="mt-3">
-            <Lookbook
-              items={[
-                {src: GIFS.milan, t: "Milan — Global Fashion Passport"},
-                {src: GIFS.halsey, t: "PMC — Halsey"},
-                {src: GIFS.saba,  t: "SABA"}
-              ]}
-              aspectClass="aspect-[4/5]"
-              imgClass="max-w-full max-h-full object-contain object-center"
-              frameBg="frame"
-            />
-          </div>
-        </div>
-
-        <div className="mb-2">
-          <SubHeader label="Things I Wrote" />
-          <div className="grid md:grid-cols-3 gap-5 mt-3">
-            <SliderCard
-              title="Subject Lines"
-              items={[
-                "You're invited! Unlock discounted access to WWD’s Pitti Uomo coverage.",
-                "Behind on the latest fashion week news?",
-                "From Pitti to Paris, find out what mattered at fashion weeks."
-              ]}
-            />
-            <SliderCard
-              title="Headlines"
-              items={[
-                "Every Red Carpet, Every Look, Every Moment.",
-                "Fashion's leading journalists, all in one place.",
-                "Unlock access to WWD's fashion week recaps."
-              ]}
-            />
-            <SliderCard
-              title="Body Copy"
-              items={[
-                "Authority-forward coverage that reads like your favorite editor’s briefing — distilled, timely, and actually actionable.",
-                "We bring the front row to your inbox — context, clips, and the why behind the looks.",
-                "When timing matters, we trade gimmicks for clarity — clean offers, clean UX, better results."
-              ]}
-            />
-          </div>
-        </div>
-      </ZineBlock>
-
-      {/* COMMUNITY */}
-      <SectionHeader title="Community" />
-      <ZineBlock id="community" tight>
-        <div className="space-y-6">
-          <article className="space-y-3">
-            <h3 className="font-serif text-2xl text-ink">Community Fridge Initiative</h3>
-            <p className="text-neutral-700">
-              Donating 100+ scratch‑and‑dent fridges to grassroots groups nationwide. Partnerships with nonprofits, artists, and restaurants; reduced waste and addressed food insecurity; coverage in NYT & partner media.
-            </p>
-            <p className="text-[10px] tracking-[.2em] uppercase text-accent">Retail waste → food security & sustainability</p>
-          </article>
-
-          <div>
-            <SubHeader label="Gallery" />
-            <div className="mt-3">
-              <Lookbook
-                items={FRIDGE.map(src=>({src, t: ""}))}
-                aspectClass="aspect-[4/5]"
-                imgClass="h-full w-auto"
-                frameBg="frame"
-              />
+    <!-- Clean Campaign Showcase -->
+    <div class="bg-frame rounded-3xl p-8 mb-12">
+      <h3 class="font-serif text-2xl mb-6">Campaign Work</h3>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-2xl p-6 border border-neutral-200 impact-card">
+          <div class="aspect-video bg-neutral-100 rounded-xl mb-4 flex items-center justify-center">
+            <div class="text-center">
+              <div class="text-4xl mb-2">✈️</div>
+              <div class="text-xs text-neutral-600">Milan Campaign</div>
             </div>
           </div>
-
-          <article className="space-y-3">
-            <h4 className="font-serif text-xl text-ink">Press & Partners</h4>
-            <ul className="list-disc ml-5 text-neutral-700">
-              <li><a className="text-accent underline decoration-accent/40 hover:decoration-accent" target="_blank" rel="noreferrer" href="https://true-residential.com/the-art-of-cold/true-manufacturing-in-partnership-with-aj-madison-donates-commercial-refrigerator-to-community-free-food-fridge-project/">True Residential × AjMadison</a></li>
-              <li><a className="text-accent underline decoration-accent/40 hover:decoration-accent" target="_blank" rel="noreferrer" href="https://www.modernluxury.com/community-fridge-ajmadison/">Modern Luxury — Community Fridge</a></li>
-            </ul>
-          </article>
+          <h4 class="font-serif text-lg mb-2">Global Fashion Passport</h4>
+          <p class="text-sm text-neutral-700">Driving subscription growth through exclusive fashion week coverage.</p>
         </div>
-      </ZineBlock>
-
-      {/* ACADEMIC */}
-      <SectionHeader title="Academic" />
-      <ZineBlock id="academic" tight>
-        <div className="space-y-7">
-          {/* Essays block now has two entries */}
-          <div>
-            <SubHeader label="Essays I’ve Written" />
-            <div className="grid md:grid-cols-2 gap-6 mt-3">
-              <article className="space-y-3">
-                <h3 className="font-serif text-2xl text-ink">Red Note: Social Media as Strategy</h3>
-                <p className="text-neutral-700">
-                  A protest migration from TikTok to a China‑based platform reshaped how U.S. users viewed Chinese manufacturing and daily life — advancing state‑aligned narratives about innovation, quality, and openness while collecting richer behavioral data.
-                </p>
-                <p className="text-neutral-700">
-                  The result: luxury “craft” reframed as branding, rising skepticism toward Western markups, and a subtle recalibration of what “Made in China” signals to younger consumers.
-                </p>
-                <p className="text-[10px] tracking-[.2em] uppercase text-accent">Platform protest → luxury perception & geopolitics</p>
-              </article>
-
-              <article className="space-y-3">
-                <h3 className="font-serif text-2xl text-ink">The Horror of the Other: Lovecraft’s Fear</h3>
-                <p className="text-neutral-700">
-                  Literary critique comparing Lovecraft’s racial anxieties and eugenic worldview with Stephen Graham Jones’s reclamation of horror to confront colonial violence and internalized narratives.
-                </p>
-                <p className="text-neutral-700">
-                  Where Lovecraft weaponizes “the unknown” to police purity, Jones uses horror to expose how oppression persists through culture, language, and genre — shifting fear into a tool for critique and repair.
-                </p>
-                <p className="text-[10px] tracking-[.2em] uppercase text-accent">Genre lineage → decolonizing horror</p>
-              </article>
+        <div class="bg-white rounded-2xl p-6 border border-neutral-200 impact-card">
+          <div class="aspect-video bg-neutral-100 rounded-xl mb-4 flex items-center justify-center">
+            <div class="text-center">
+              <div class="text-4xl mb-2">🎤</div>
+              <div class="text-xs text-neutral-600">Halsey Feature</div>
             </div>
           </div>
-
-          {/* New Policy Memos block */}
-          <div>
-            <SubHeader label="Policy Memos" />
-            <div className="grid md:grid-cols-2 gap-6 mt-3">
-              <article className="space-y-3 p-0">
-                <h3 className="font-serif text-2xl text-ink">The Environmental Impact of Fast Fashion</h3>
-                <p className="text-neutral-700">
-                  Recommends a U.S. framework for textile waste and sustainability: EPR mandates, tax incentives for closed‑loop production, clear labeling standards, and consumer education — piloted via an EPA task force and state rollouts.
-                </p>
-                <p className="text-[10px] tracking-[.2em] uppercase text-accent">Standards + incentives → measurable waste reduction</p>
-              </article>
-
-              <article className="space-y-3 p-0">
-                <h3 className="font-serif text-2xl text-ink">Reestablish the Global Engagement Center</h3>
-                <p className="text-neutral-700">
-                  Proposes restoring a modernized GEC to monitor cross‑platform narrative shifts (including lifestyle content), explain U.S. digital policy in real time, and coordinate media literacy — closing the gap left by its closure.
-                </p>
-                <p className="text-[10px] tracking-[.2em] uppercase text-accent">Narrative defense → transparency & literacy</p>
-              </article>
+          <h4 class="font-serif text-lg mb-2">Artist Spotlight Series</h4>
+          <p class="text-sm text-neutral-700">Cross-platform launch driving 2M+ impressions.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 border border-neutral-200 impact-card">
+          <div class="aspect-video bg-neutral-100 rounded-xl mb-4 flex items-center justify-center">
+            <div class="text-center">
+              <div class="text-4xl mb-2">👗</div>
+              <div class="text-xs text-neutral-600">SABA Launch</div>
             </div>
           </div>
-
-          {/* Relevant Coursework as cards (unchanged style) */}
-          <div>
-            <SubHeader label="Relevant Coursework" />
-            <div className="grid md:grid-cols-3 gap-5 mt-3">
-              <div className="p-5 rounded-2xl bg-white border border-neutral-200 shadow-sm">
-                <div className="text-sm font-serif text-ink">U.S.–China Relations</div>
-                <div className="text-xs text-neutral-600 mt-1">Geopolitics, platforms, perception</div>
-              </div>
-              <div className="p-5 rounded-2xl bg-white border border-neutral-200 shadow-sm">
-                <div className="text-sm font-serif text-ink">Marketing for Nonprofits</div>
-                <div className="text-xs text-neutral-600 mt-1">Mission, measurement, retention</div>
-              </div>
-              <div className="p-5 rounded-2xl bg-white border border-neutral-200 shadow-sm">
-                <div className="text-sm font-serif text-ink">Communication Strategy</div>
-                <div className="text-xs text-neutral-600 mt-1">Narrative design, stakeholder comms</div>
-              </div>
-            </div>
-          </div>
+          <h4 class="font-serif text-lg mb-2">Brand Partnership</h4>
+          <p class="text-sm text-neutral-700">E-commerce strategy driving 14% revenue growth.</p>
         </div>
-      </ZineBlock>
-
-      {/* ABOUT */}
-      <SectionHeader title="About" />
-      <ZineBlock id="about" tight>
-        <div className="grid md:grid-cols-5 gap-8">
-          <div className="md:col-span-3 space-y-3 text-neutral-800 text-base md:text-lg">
-            <p>I build marketing systems that connect dots others wouldn’t consider — from luxury ecommerce and media subscriptions to community initiatives and public‑sector research.</p>
-            <p>Currently an MPA candidate at Baruch, I study how policy, platforms, and culture shape markets — and how brands can act with both creativity and accountability.</p>
-          </div>
-          <div className="md:col-span-2">
-            <div className="space-y-3 border-l border-neutral-200 pl-5">
-              <a href="#academic" className="block group">
-                <div className="text-xs uppercase tracking-[.18em] text-neutral-600">2024–Present</div>
-                <div className="font-serif text-lg text-ink group-hover:text-accent">Master's of Public Administration — Baruch College</div>
-                <div className="text-neutral-700 text-sm">Media, policy, and markets • <span className="text-accent">Dean’s List (Spring 2025)</span></div>
-              </a>
-              <a href="#marketing" className="block group">
-                <div className="text-xs uppercase tracking-[.18em] text-neutral-600">2022–2024</div>
-                <div className="font-serif text-lg text-ink group-hover:text-accent"> Email Marketing, Subscriptions — Penske Media Corporation (Rolling Stone, Billboard, WWD, Sportico)</div>
-                <div className="text-neutral-700 text-sm">30% open rate • 9.7% CTOR</div>
-              </a>
-              <a href="#community" className="block group">
-                <div className="text-xs uppercase tracking-[.18em] text-neutral-600">2018–2022</div>
-                <div className="font-serif text-lg text-ink group-hover:text-accent">Marketing Ops — AjMadison</div>
-                <div className="text-neutral-700 text-sm">Founded Community Fridge Initiative</div>
-              </a>
-              <a href="#marketing" className="block group">
-                <div className="text-xs uppercase tracking-[.18em] text-neutral-600">2015–2017</div>
-                <div className="font-serif text-lg text-ink group-hover:text-accent">E‑Commerce Manager — Issey Miyake</div>
-                <div className="text-neutral-700 text-sm">UX + paid media + planning → +14% revenue</div>
-              </a>
-            </div>
-          </div>
-        </div>
-      </ZineBlock>
-
-      {/* PRESS */}
-      <SectionHeader title="Press" />
-      <ZineBlock id="press" tight>
-        <div className="grid md:grid-cols-3 gap-5">
-          <div className="p-5 rounded-2xl bg-white border border-neutral-200 shadow-sm">
-            <div className="text-sm font-serif text-ink">Modern Luxury DC</div>
-            <div className="text-xs text-neutral-600">Feature on AjMadison Community Fridge — Mar 31, 2022</div>
-            <a className="mt-2 inline-block text-accent underline decoration-accent/40 hover:decoration-accent" href="https://dc.capitolfile.com/community-fridge-ajmadison" target="_blank" rel="noreferrer">Read article</a>
-          </div>
-          <div className="p-5 rounded-2xl bg-white border border-neutral-200 shadow-sm">
-            <div className="text-sm font-serif text-ink">The New York Times</div>
-            <div className="text-xs text-neutral-600">Coverage of Community Fridge Initiative</div>
-            <span className="mt-2 inline-block text-neutral-500">Link coming soon</span>
-          </div>
-          <div className="p-5 rounded-2xl bg-white border border-neutral-200 shadow-sm">
-            <div className="text-sm font-serif text-ink">Dean’s List — Baruch</div>
-            <div className="text-xs text-neutral-600">Spring 2025</div>
-          </div>
-        </div>
-      </ZineBlock>
-
-      {/* CONTACT */}
-      <SectionHeader title="Contact" />
-      <ZineBlock id="contact" tight>
-        <div className="rounded-3xl border border-neutral-200 p-7 md:p-9 flex flex-col md:flex-row items-start md:items-center justify-between gap-5 bg-white">
-          <div>
-            <div className="text-xs uppercase tracking-[.2em] text-neutral-700 font-semibold">Let’s build something unexpected</div>
-            <h3 className="font-serif text-2xl text-ink mt-1.5">Get in touch</h3>
-          </div>
-          <div className="flex flex-wrap gap-3">
-            <a href="mailto:mharris3182@gmail.com" className="px-5 py-3 rounded-full border border-accent text-accent hover:bg-accent hover:text-white transition">Email</a>
-            <a href="https://www.linkedin.com/in/marla-harris-047b2946" target="_blank" rel="noreferrer" className="px-5 py-3 rounded-full border border-accent text-accent hover:bg-accent hover:text-white transition">LinkedIn</a>
-            <a href="https://instagram.com/marlavharris" target="_blank" rel="noreferrer" className="px-5 py-3 rounded-full border border-accent text-accent hover:bg-accent hover:text-white transition">Instagram</a>
-          </div>
-        </div>
-      </ZineBlock>
-
-      <footer className="mt-5 border-top border-neutral-200">
-        <div className="max-w-6xl mx-auto px-6 md:px-10 lg:px-16 py-7 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-          <div className="text-[10px] tracking-[.25em] uppercase text-neutral-600">© {new Date().getFullYear()} Marla V. Harris</div>
-        </div>
-      </footer>
-
-      <div className="contact-pill">
-        <a href="#contact" className="px-4 py-2 rounded-full bg-accent text-white shadow-lg text-sm">Contact</a>
       </div>
     </div>
-  );
-}
+  </div>
+</section>
 
-function SliderCard({title, items}) {
-  const [i, setI] = React.useState(0);
-  const prev = () => setI((i - 1 + items.length) % items.length);
-  const next = () => setI((i + 1) % items.length);
-  return (
-    <div className="p-4 rounded-2xl bg-white border border-neutral-200 shadow-sm">
-      <div className="flex items-center justify-between">
-        <h4 className="font-serif text-[18px] text-ink">{title}</h4>
-        <div className="flex gap-2">
-          <button className="btn" onClick={prev} aria-label="Previous">‹</button>
-          <button className="btn" onClick={next} aria-label="Next">›</button>
+<!-- Research Section (formerly Academic) -->
+<section id="research" class="py-16 bg-frame">
+  <div class="max-w-6xl mx-auto px-6 md:px-10 lg:px-16">
+    <h2 class="font-serif text-ink text-4xl md:text-5xl mb-2">Research & Strategy</h2>
+    <div class="bar mb-8"></div>
+    
+    <div class="grid md:grid-cols-2 gap-8">
+      <!-- Insight-led writing -->
+      <div class="space-y-6">
+        <div class="bg-white rounded-2xl p-6 border border-neutral-200 impact-card">
+          <h3 class="font-serif text-xl mb-3">How a TikTok Protest Reshaped 'Made in China'</h3>
+          <p class="text-neutral-700 text-sm mb-4">Platform migration reframed luxury perception and manufacturing narratives among U.S. consumers.</p>
+          <span class="text-[10px] tracking-[.2em] uppercase text-accent bg-pink-50 px-2 py-1 rounded">Platforms → Luxury Perception</span>
+        </div>
+        
+        <div class="bg-white rounded-2xl p-6 border border-neutral-200 impact-card">
+          <h3 class="font-serif text-xl mb-3">Fast Fashion Policy Framework</h3>
+          <p class="text-neutral-700 text-sm mb-4">EPR mandates and consumer education to reduce textile waste through federal policy.</p>
+          <span class="text-[10px] tracking-[.2em] uppercase text-accent bg-pink-50 px-2 py-1 rounded">Policy → Sustainability</span>
         </div>
       </div>
-      <div className="mt-2 h-[92px] md:h-[104px] overflow-hidden">
-        <div className="text-neutral-800 leading-snug font-serif">{items[i]}</div>
+      
+      <div class="space-y-6">
+        <div class="bg-white rounded-2xl p-6 border border-neutral-200 impact-card">
+          <h3 class="font-serif text-xl mb-3">Decolonizing Horror Literature</h3>
+          <p class="text-neutral-700 text-sm mb-4">Reclaiming genre to confront colonial violence versus Lovecraft's racial anxieties.</p>
+          <span class="text-[10px] tracking-[.2em] uppercase text-accent bg-pink-50 px-2 py-1 rounded">Culture → Narrative Change</span>
+        </div>
+        
+        <div class="bg-white rounded-2xl p-6 border border-neutral-200 impact-card">
+          <h3 class="font-serif text-xl mb-3">Digital Narrative Defense</h3>
+          <p class="text-neutral-700 text-sm mb-4">Modernized framework for cross-platform narrative monitoring and media literacy.</p>
+          <span class="text-[10px] tracking-[.2em] uppercase text-accent bg-pink-50 px-2 py-1 rounded">Strategy → Public Comms</span>
+        </div>
       </div>
-      <div className="mt-2 text-[11px] tracking-[.2em] uppercase text-neutral-400">{i+1}/{items.length}</div>
     </div>
-  );
-}
+  </div>
+</section>
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App />);
-</script>
+<!-- Contact -->
+<section id="contact" class="py-16 bg-white">
+  <div class="max-w-6xl mx-auto px-6 md:px-10 lg:px-16">
+    <div class="rounded-3xl border border-neutral-200 p-8 md:p-12 bg-frame text-center max-w-3xl mx-auto">
+      <h2 class="font-serif text-3xl md:text-4xl mb-4">Let's build something unexpected</h2>
+      <p class="text-neutral-700 mb-8 max-w-xl mx-auto">Currently open for strategic roles at the intersection of marketing, research, and social impact.</p>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a href="mailto:mharris3182@gmail.com" class="px-6 py-3 rounded-full bg-accent text-white font-semibold text-sm hover:bg-[#b3005a] transition">Email Me</a>
+        <a href="https://www.linkedin.com/in/marla-harris-047b2946" target="_blank" class="px-6 py-3 rounded-full border border-neutral-300 text-ink font-semibold text-sm hover:border-accent transition">LinkedIn</a>
+        <a href="#about" class="px-6 py-3 rounded-full border border-neutral-300 text-ink font-semibold text-sm hover:border-accent transition">My Story</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="py-8 border-t border-neutral-200 bg-white">
+  <div class="max-w-6xl mx-auto px-6 md:px-10 lg:px-16 text-center">
+    <div class="text-[10px] tracking-[.25em] uppercase text-neutral-600">© 2024 Marla V. Harris</div>
+  </div>
+</footer>
+
 </body>
 </html>
