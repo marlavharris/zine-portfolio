@@ -21,9 +21,9 @@ tailwind.config = {
       colors: {
         ink: '#0b0b0b',
         paper: '#ffffff',
-        accent: '#A10055',
-        'accent-light': '#C10070',
-        'accent-lighter': 'rgba(193,0,112,0.05)', /* more subtle, upscale pink */
+        accent: '#990049',
+        'accent-light': '#b2005f',
+        'accent-lighter': 'rgba(178,0,95,0.1)',
       }
     }
   }
@@ -31,32 +31,49 @@ tailwind.config = {
 </script>
 
 <style>
-  /* General Styling */
-  body { margin:0; font-family: 'Inter', sans-serif; }
-  .bar { width: 84px; height: 3px; background:#A10055; border-radius:999px; }
+  .bar { width: 84px; height: 3px; background:#990049; border-radius:999px; }
   .gradient-bg { background: linear-gradient(135deg, #fff 0%, #fefafc 100%); }
   .card-hover { transition: all 0.3s ease; }
-  .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(161, 0, 85, 0.15); }
+  .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(153, 0, 73, 0.15); }
+  
   .nav-link { position:relative; }
-  .nav-link::after { content:""; position:absolute; left:0; right:0; bottom:-6px; height:1.5px; background:#A10055; transform:scaleX(0); transform-origin:right; transition:transform .3s ease; }
+  .nav-link::after { 
+    content:""; 
+    position:absolute; 
+    left:0; right:0; bottom:-6px; height:1.5px; 
+    background:#990049; 
+    transform:scaleX(0); transform-origin:right; 
+    transition:transform .3s ease; 
+  }
   .nav-link:hover::after { transform:scaleX(1); transform-origin:left; }
-  .stat-number { font-family: 'Playfair Display', serif; background: linear-gradient(135deg, #A10055 0%, #C10070 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+  .stat-number { 
+    font-family: 'Playfair Display', serif;
+    background: linear-gradient(135deg, #990049 0%, #b2005f 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
   .brand-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; opacity: 0.7; transition: opacity 0.3s ease; }
   .brand-grid:hover { opacity: 1; }
   .brand-item { text-align: center; padding: 1.5rem; display: flex; flex-direction: column; align-items: center; justify-content: center; }
   .brand-logo { height: 40px; width: auto; margin-bottom: 0.5rem; filter: grayscale(100%); opacity: 0.7; transition: all 0.3s ease; }
   .brand-item:hover .brand-logo { filter: grayscale(0%); opacity: 1; }
   .brand-name { font-size: 0.75rem; font-weight: 600; color: #4b5563; letter-spacing: 0.05em; }
-  .publication-card { background: linear-gradient(135deg, #f8f6f2 0%, #ffffff 100%); border-left: 4px solid #A10055; }
+
+  .publication-card { background: linear-gradient(135deg, #f8f6f2 0%, #ffffff 100%); border-left: 4px solid #990049; }
   .image-hover { transition: all 0.3s ease; }
   .image-hover:hover { transform: scale(1.02); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+
   .hover-swap-container { position: relative; overflow: hidden; cursor: pointer; }
   .hover-swap-image { transition: opacity 0.5s ease; }
   .hover-swap-image.front { position: relative; z-index: 2; }
   .hover-swap-image.back { position: absolute; top: 0; left: 0; z-index: 1; opacity: 0; }
   .hover-swap-container:hover .hover-swap-image.front { opacity: 0; }
   .hover-swap-container:hover .hover-swap-image.back { opacity: 1; }
-  .mobile-menu { transform: translateX(100%); transition: transform 0.4s ease; background: linear-gradient(135deg, #A10055 0%, #C10070 100%); }
+
+  .mobile-menu { transform: translateX(100%); transition: transform 0.4s ease; background: linear-gradient(135deg, #990049 0%, #b2005f 100%); }
   .mobile-menu.open { transform: translateX(0); }
   .mobile-nav-link { color: white; font-size: 1.5rem; font-weight: 300; letter-spacing: 0.05em; padding: 1rem 0; position: relative; transition: all 0.3s ease; }
   .mobile-nav-link:hover { transform: translateX(10px); font-weight: 400; }
@@ -64,14 +81,38 @@ tailwind.config = {
   .mobile-nav-link:hover::after { width: 30px; }
   .menu-close-btn { color: white; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; }
   .menu-close-btn:hover { background: rgba(255,255,255,0.2); transform: rotate(90deg); }
-  button:focus, a:focus { outline: 2px solid #A10055; outline-offset: 2px; }
-  .testimonial-card { background: linear-gradient(135deg, #ffffff 0%, #fefafc 100%); border: 1px solid rgba(161, 0, 85, 0.1); }
+
+  button:focus, a:focus { outline: 2px solid #990049; outline-offset: 2px; }
+  .testimonial-card { background: linear-gradient(135deg, #ffffff 0%, #fefafc 100%); border: 1px solid rgba(153, 0, 73, 0.1); }
   .campaign-image { min-height: 200px; max-height: 300px; }
-  #passwordModal, #portfolioModal { position: fixed; inset:0; background: rgba(0,0,0,0.5); display:flex; align-items:center; justify-content:center; z-index:100; backdrop-filter: blur(4px); }
+
+  /* Password Modal */
+  #passwordModal, #portfolioModal { 
+    position: fixed; 
+    inset:0; 
+    background: rgba(0,0,0,0.5); 
+    display:flex; 
+    align-items:center; 
+    justify-content:center; 
+    z-index:100; 
+    backdrop-filter: blur(4px);
+  }
   #passwordModal.hidden, #portfolioModal.hidden { display: none; }
-  .password-input:focus { border-color: #A10055; ring: 2px solid rgba(161, 0, 85, 0.2); }
-  .copy-sample { background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); border-left: 4px solid #A10055; transition: all 0.3s ease; }
-  .copy-sample:hover { transform: translateX(8px); box-shadow: 0 10px 30px rgba(161, 0, 85, 0.2); }
+  .password-input:focus {
+    border-color: #990049;
+    ring: 2px solid rgba(153, 0, 73, 0.2);
+  }
+
+  /* Copywriting samples */
+  .copy-sample {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    border-left: 4px solid #990049;
+    transition: all 0.3s ease;
+  }
+  .copy-sample:hover {
+    transform: translateX(8px);
+    box-shadow: 0 10px 30px rgba(153, 0, 73, 0.2);
+  }
 </style>
 </head>
 <body class="text-ink bg-paper antialiased">
@@ -102,15 +143,13 @@ tailwind.config = {
     
     <div class="w-20 h-px bg-white/30 my-4"></div>
     
-    <p class="text-white/70 text-sm italic max-w-xs mx-auto">"If I can sell a $300 bra, I can sell anything."</p>
-
     <a href="mailto:va.mvharris@gmail.com" class="text-white/80 text-sm hover:text-white transition-colors">
       va.mvharris@gmail.com
     </a>
   </div>
 </div>
 
-<!-- Password Modals -->
+<!-- Academic Password Modal -->
 <div id="passwordModal" class="hidden">
   <div class="bg-white rounded-2xl p-8 max-w-sm w-full mx-4 text-center shadow-2xl">
     <h3 class="font-serif text-2xl mb-4 text-ink">Academic Portfolio Access</h3>
@@ -122,6 +161,7 @@ tailwind.config = {
   </div>
 </div>
 
+<!-- Portfolio Password Modal -->
 <div id="portfolioModal" class="hidden">
   <div class="bg-white rounded-2xl p-8 max-w-sm w-full mx-4 text-center shadow-2xl">
     <h3 class="font-serif text-2xl mb-4 text-ink">Full Portfolio Access</h3>
@@ -133,7 +173,7 @@ tailwind.config = {
   </div>
 </div>
 
-<!-- Header & Hero Section -->
+<!-- Header -->
 <header class="gradient-bg border-b border-neutral-100">
   <nav class="max-w-6xl mx-auto px-6 md:px-10 lg:px-16 h-20 flex items-center justify-between">
     <a href="#" class="font-serif text-xl text-ink tracking-tight">Marla V. Harris</a>
@@ -147,116 +187,503 @@ tailwind.config = {
       <a href="#contact" class="nav-link">Contact</a>
     </div>
   </nav>
+
+  <!-- Hero Section -->
+  <div class="max-w-6xl mx-auto px-6 md:px-10 lg:px-16 py-24 md:py-32">
+    <div class="text-[11px] tracking-[.2em] uppercase text-neutral-600 font-semibold mb-6">Strategic Marketing & Communications</div>
+    <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl leading-[1.02] max-w-5xl mb-8 font-light">
+      Where <span class="italic text-accent">Storytelling</span> Meets Systems.
+    </h1>
+    <div class="bar mb-10"></div>
+    <p class="text-neutral-800 text-xl md:text-2xl max-w-2xl leading-relaxed mb-10 font-light">
+      I translate <span class="font-semibold">complex data into human stories</span> that drive growth and build movements. A 9-year practice bridging technical fluency with narrative strategy for luxury, media, and global brands.
+    </p>
+    <div class="flex gap-4">
+      <a href="#marketing" class="px-8 py-4 rounded-full bg-accent text-white font-semibold text-sm tracking-wide hover:bg-accent-light transition-colors">View Signature Work</a>
+      <a href="#contact" class="px-8 py-4 rounded-full border border-neutral-300 text-ink font-semibold text-sm tracking-wide hover:border-neutral-400 transition-colors">Let's Talk</a>
+    </div>
+  </div>
 </header>
 
-<main class="max-w-6xl mx-auto px-6 md:px-10 lg:px-16 mt-12 space-y-32">
+<!-- Signature Quote Section -->
+<section class="py-20 bg-accent text-white">
+  <div class="max-w-4xl mx-auto px-6 md:px-10 lg:px-16 text-center">
+    <blockquote class="font-serif text-3xl md:text-5xl lg:text-6xl leading-tight italic mb-6">
+      "If I can sell a $300 bra, I can sell anything."
+    </blockquote>
+    <div class="w-20 h-1 bg-white/50 mx-auto mb-6"></div>
+    <p class="text-white/80 text-lg font-light">— Marla V. Harris</p>
+  </div>
+</section>
 
-  <section id="marketing" class="space-y-8">
-    <h2 class="font-serif text-4xl text-ink">Marketing</h2>
-    <p class="text-neutral-700 leading-relaxed">Marketing campaigns with measurable impact, from strategy to execution.</p>
-  </section>
+<!-- Brand Relationships -->
+<section class="py-16 bg-white border-y border-neutral-200">
+  <div class="max-w-6xl mx-auto px-6 md:px-10 lg:px-16">
+    <div class="text-center mb-12">
+      <h3 class="font-serif text-2xl md:text-3xl mb-4 text-ink">Selected Collaborations</h3>
+      <p class="text-neutral-600 text-sm max-w-md mx-auto">Building narratives across media, luxury, and technology</p>
+    </div>
+    
+    <div class="brand-grid">
+      <div class="brand-item">
+        <img src="logos/rolling-stone-logo.svg" alt="Rolling Stone" class="brand-logo">
+        <div class="brand-name">ROLLING STONE</div>
+      </div>
+      <div class="brand-item">
+        <img src="logos/billboard-logo.svg" alt="Billboard" class="brand-logo">
+        <div class="brand-name">BILLBOARD</div>
+      </div>
+      <div class="brand-item">
+        <img src="logos/wwd-logo.svg" alt="WWD" class="brand-logo">
+        <div class="brand-name">WWD</div>
+      </div>
+      <div class="brand-item">
+        <img src="logos/sportico-logo.svg" alt="Sportico" class="brand-logo">
+        <div class="brand-name">SPORTICO</div>
+      </div>
+      <div class="brand-item">
+        <img src="logos/issey-miyake-logo.svg" alt="Issey Miyake" class="brand-logo">
+        <div class="brand-name">ISSEY MIYAKE</div>
+      </div>
+      <div class="brand-item">
+        <img src="logos/aj-madison-logo.svg" alt="AJ Madison" class="brand-logo">
+        <div class="brand-name">AJ MADISON</div>
+      </div>
+      <div class="brand-item">
+        <img src="logos/samsung-logo.svg" alt="Samsung" class="brand-logo">
+        <div class="brand-name">SAMSUNG</div>
+      </div>
+      <div class="brand-item">
+        <img src="logos/ge-appliances-logo.svg" alt="GE Appliances" class="brand-logo">
+        <div class="brand-name">GE APPLIANCES</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <section id="copywriting" class="space-y-8">
-    <h2 class="font-serif text-4xl text-ink">Copywriting</h2>
-    <p class="text-neutral-700 leading-relaxed">Crafting persuasive messaging for brands that resonates and converts.</p>
-  </section>
+<!-- Marketing Section -->
+<section id="marketing" class="py-24 bg-white">
+  <div class="max-w-6xl mx-auto px-6 md:px-10 lg:px-16">
+    <h2 class="font-serif text-5xl md:text-6xl mb-6 font-light">Marketing Leadership</h2>
+    <p class="text-neutral-700 text-xl max-w-2xl mb-12 leading-relaxed">Driving growth through data-informed strategy and creative execution for premium brands and media companies.</p>
+    <div class="bar mb-16"></div>
 
-  <section id="community" class="space-y-8">
-    <h2 class="font-serif text-4xl text-ink">Community</h2>
-    <p class="text-neutral-700 leading-relaxed">Building authentic relationships with audiences and stakeholders.</p>
-  </section>
+    <!-- Performance Metrics -->
+    <div class="grid md:grid-cols-3 gap-8 mb-20">
+      <div class="text-center p-8 bg-white border border-neutral-200 rounded-2xl card-hover">
+        <div class="stat-number text-5xl md:text-6xl font-serif mb-3">17%</div>
+        <div class="text-sm text-neutral-600 font-semibold tracking-wide">Black Friday Conversion Lift</div>
+        <div class="text-xs text-accent mt-3 uppercase tracking-widest">YoY growth across Penske Media portfolio</div>
+      </div>
+      <div class="text-center p-8 bg-white border border-neutral-200 rounded-2xl card-hover">
+        <div class="stat-number text-5xl md:text-6xl font-serif mb-3">15%</div>
+        <div class="text-sm text-neutral-600 font-semibold tracking-wide">Cost Reduction</div>
+        <div class="text-xs text-accent mt-3 uppercase tracking-widest">Operational efficiencies, AJ Madison</div>
+      </div>
+      <div class="text-center p-8 bg-white border border-neutral-200 rounded-2xl card-hover">
+        <div class="stat-number text-5xl md:text-6xl font-serif mb-3">$2M+</div>
+        <div class="text-sm text-neutral-600 font-semibold tracking-wide">Budget Managed</div>
+        <div class="text-xs text-accent mt-3 uppercase tracking-widest">Partnership funds from LG, GE, Samsung</div>
+      </div>
+    </div>
 
-  <section id="expertise" class="space-y-8">
-    <h2 class="font-serif text-4xl text-ink">Expertise</h2>
-    <p class="text-neutral-700 leading-relaxed">Strategic insights across marketing, copywriting, and campaign management.</p>
-  </section>
+    <!-- Campaign Examples -->
+    <div class="bg-accent-lighter rounded-3xl p-10 md:p-14">
+      <h3 class="font-serif text-3xl md:text-4xl mb-12 font-light">Strategic Engagements</h3>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="space-y-6">
+          <div class="bg-white rounded-2xl p-8 card-hover border border-accent/20">
+            <h4 class="font-serif text-xl mb-3 text-accent">Penske Media: Black Friday Strategy</h4>
+            <p class="text-neutral-700 text-sm leading-relaxed">Architected cross-platform content journeys for <strong>Rolling Stone, Billboard, and WWD</strong>, blending editorial insight with data-driven segmentation to drive a <strong>17% YoY Black Friday conversion lift</strong> across the media portfolio.</p>
+            <div class="mt-4 bg-neutral-100 rounded-xl border border-neutral-200 overflow-hidden image-hover campaign-image">
+              <img src="WWD BF - DAY 3.gif" alt="Penske Media Black Friday Campaign" class="w-full h-full object-contain">
+            </div>
+          </div>
+          <div class="bg-white rounded-2xl p-8 card-hover border border-accent/20">
+            <h4 class="font-serif text-xl mb-3 text-accent">Luxury Product Launches</h4>
+            <p class="text-neutral-700 text-sm leading-relaxed">Bridged design, culture, and technology for <strong>Issey Miyake</strong>, increasing conversions 15% and reducing cost-per-conversion 30% through A/B testing and UX refinement.</p>
+            <div class="mt-4 bg-neutral-100 rounded-xl border border-neutral-200 overflow-hidden image-hover campaign-image">
+              <img src="issey-miyake-launch.jpg" alt="Issey Miyake Launch" class="w-full h-full object-contain">
+            </div>
+          </div>
+        </div>
+        <div class="space-y-6">
+          <div class="bg-white rounded-2xl p-8 card-hover border border-accent/20">
+            <h4 class="font-serif text-xl mb-3 text-accent">AJ Madison: Partnership Strategy</h4>
+            <p class="text-neutral-700 text-sm leading-relaxed">Secured <strong>7-figure annual partnerships with LG, GE, and Samsung</strong>, managing a <strong>$2M+ budget</strong> and achieving <strong>4.5x+ ROAS</strong> through premium creative that elevated the retail brand into a luxury destination.</p>
+            <div class="mt-4 bg-neutral-100 rounded-xl border border-neutral-200 overflow-hidden image-hover campaign-image">
+              <img src="aj-madison-partnerships.jpg" alt="AJ Madison Partnership Campaign" class="w-full h-full object-contain">
+            </div>
+          </div>
+          <div class="bg-white rounded-2xl p-8 card-hover border border-accent/20">
+            <h4 class="font-serif text-xl mb-3 text-accent">Technical Translation & Narrative</h4>
+            <p class="text-neutral-700 text-sm leading-relaxed">Translated complex technical specs into compelling consumer narratives—marketing induction cooking by illustrating its <strong>85% energy efficiency vs. ~35% for gas</strong>, driving both sales and sustainable brand positioning.</p>
+            <div class="mt-4 bg-neutral-100 rounded-xl border border-neutral-200 overflow-hidden image-hover campaign-image">
+              <img src="technical-narrative.jpg" alt="Technical Narrative Campaign" class="w-full h-full object-contain">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <section id="academic" class="space-y-8 hidden">
-    <h2 class="font-serif text-4xl text-ink">Academic Work</h2>
-    <p class="text-neutral-700 leading-relaxed">Selected academic publications, research, and case studies.</p>
-  </section>
+<!-- Copywriting & Narrative Section -->
+<section id="copywriting" class="py-24 bg-black text-white">
+  <div class="max-w-6xl mx-auto px-6 md:px-10 lg:px-16">
+    <h2 class="font-serif text-5xl md:text-6xl mb-6 font-light text-white">Copywriting & Narrative</h2>
+    <p class="text-neutral-300 text-xl max-w-2xl mb-12 leading-relaxed">Transforming technical complexity into compelling stories that drive engagement and conversion.</p>
+    <div class="bar mb-16"></div>
 
-  <section id="portfolio" class="space-y-8 hidden">
-    <h2 class="font-serif text-4xl text-ink">Full Portfolio</h2>
-    <p class="text-neutral-700 leading-relaxed">Complete marketing campaigns, copywriting samples, and strategic insights.</p>
-  </section>
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Block 1 -->
+      <div class="copy-sample rounded-2xl p-8">
+        <h4 class="font-serif text-xl mb-4 text-accent">Luxury Brand Voice</h4>
+        <p class="text-neutral-300 italic text-lg leading-relaxed mb-4">"Where heritage craftsmanship meets contemporary design—each piece tells a story of innovation rooted in tradition."</p>
+        <div class="text-[11px] tracking-[.2em] uppercase text-accent font-semibold">ISSEY MIYAKE • Premium Positioning</div>
+      </div>
 
-  <section id="contact" class="space-y-8">
-    <h2 class="font-serif text-4xl text-ink">Contact</h2>
-    <p class="text-neutral-700 leading-relaxed">va.mvharris@gmail.com</p>
-  </section>
+      <!-- Block 2 -->
+      <div class="copy-sample rounded-2xl p-8">
+        <h4 class="font-serif text-xl mb-4 text-accent">Technical Translation</h4>
+        <p class="text-neutral-300 italic text-lg leading-relaxed mb-4">"Experience 85% energy efficiency—cook with precision while reducing your environmental footprint. Induction technology delivers professional results with home-kitchen convenience."</p>
+        <div class="text-[11px] tracking-[.2em] uppercase text-accent font-semibold">AJ MADISON • Technical Product Marketing</div>
+      </div>
 
-</main>
+      <!-- Block 3 -->
+      <div class="copy-sample rounded-2xl p-8">
+        <h4 class="font-serif text-xl mb-4 text-accent">Editorial Leadership</h4>
+        <p class="text-neutral-300 italic text-lg leading-relaxed mb-4">"In an era of disposable content, we believe in creating narratives that endure—stories that bridge data and design to build lasting brand value."</p>
+        <div class="text-[11px] tracking-[.2em] uppercase text-accent font-semibold">AJ: THE APPLIANCE JOURNAL • Thought Leadership</div>
+      </div>
+    </div>
+
+    <!-- Copywriting Stats -->
+    <div class="grid md:grid-cols-3 gap-8 mt-16">
+      <div class="text-center p-8 bg-neutral-900 rounded-2xl card-hover border border-accent/20">
+        <div class="stat-number text-4xl md:text-5xl font-serif mb-3">300+</div>
+        <div class="text-sm text-neutral-300 font-semibold tracking-wide">Campaigns Written</div>
+        <div class="text-xs text-accent mt-2 uppercase tracking-widest">Email, social, editorial</div>
+      </div>
+      <div class="text-center p-8 bg-neutral-900 rounded-2xl card-hover border border-accent/20">
+        <div class="stat-number text-4xl md:text-5xl font-serif mb-3">4.5x</div>
+        <div class="text-sm text-neutral-300 font-semibold tracking-wide">Average ROAS</div>
+        <div class="text-xs text-accent mt-2 uppercase tracking-widest">Across written campaigns</div>
+      </div>
+      <div class="text-center p-8 bg-neutral-900 rounded-2xl card-hover border border-accent/20">
+        <div class="stat-number text-4xl md:text-5xl font-serif mb-3">17%</div>
+        <div class="text-sm text-neutral-300 font-semibold tracking-wide">Conversion Lift</div>
+        <div class="text-xs text-accent mt-2 uppercase tracking-widest">Attributed to copy optimization</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Community & Editorial Impact -->
+<section id="community" class="py-24 bg-white">
+  <div class="max-w-6xl mx-auto px-6 md:px-10 lg:px-16">
+    <h2 class="font-serif text-5xl md:text-6xl mb-6 font-light">Community & Editorial Impact</h2>
+    <p class="text-neutral-700 text-xl max-w-2xl mb-8 leading-relaxed">Building initiatives that create business value while driving social change.</p>
+    <div class="bar mb-12"></div>
+    
+    <!-- Community Fridge Project -->
+    <div class="grid md:grid-cols-2 gap-16 items-center mb-20">
+      <div>
+        <h3 class="font-serif text-3xl md:text-4xl mb-6 font-light">The Community Fridge Project</h3>
+        <p class="text-neutral-700 mb-6 leading-relaxed text-lg">
+          Conceived, pitched, and launched a national corporate social responsibility program from the ground up. Built partnerships with <span class="font-semibold text-accent">True Refrigeration</span> and grassroots organizations, donating <span class="font-semibold text-accent">100+ scratch-and-dent refrigerators</span> to address food insecurity while reducing retail waste.
+        </p>
+        <p class="text-neutral-700 mb-8 leading-relaxed text-lg">
+          The initiative cemented a belief that marketing's highest purpose is to mobilize resources and build community, earning national coverage in <span class="italic text-accent">The New York Times</span>.
+        </p>
+        
+        <!-- TESTIMONIAL ADDED -->
+        <div class="testimonial-card rounded-2xl p-6 mb-6">
+          <p class="text-neutral-700 italic mb-4">"The AjMadison team strives to be an integral part of their local communities – and beyond. AjMadison and True Residential donated NYC's 55th Community Refrigerator in Harlem. Marla Harris, Operations Manager at AjMadison, led the charge on the initiative. "The AjMadison Community Fridge Initiative seeks to bring more visibility to food insecurity and celebrate these grassroots groups' amazing work. The amount of support we have received from partner brands, activists, and influencers exceeded anything I could have imagined." Influencers @CheapOldHouses, @FareIsle, @Manscapers, and @Brownstone Boys agreed to spread the word, and every day the project gains more momentum and support."</p>
+          <div class="text-sm text-accent font-semibold">— Modern Luxury</div>
+        </div>
+        
+        <div class="text-[11px] tracking-[.2em] uppercase text-accent font-semibold">
+          Retail Sustainability → Social Impact → Brand Leadership
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-6">
+        <div class="aspect-square bg-white rounded-2xl border border-accent/20 overflow-hidden image-hover">
+          <img src="Image_from_iOS_6.jpg" alt="Community Fridge Project" class="w-full h-full object-cover">
+        </div>
+        <div class="aspect-square bg-white rounded-2xl border border-accent/20 overflow-hidden image-hover">
+          <img src="20201019_154551-scaled.jpg" alt="Community Fridge Installation" class="w-full h-full object-cover">
+        </div>
+        <div class="aspect-square bg-white rounded-2xl border border-accent/20 overflow-hidden image-hover">
+          <img src="community-fridge/ny-times-coverage.jpg" alt="NY Times Coverage" class="w-full h-full object-cover">
+        </div>
+        <div class="aspect-square bg-white rounded-2xl border border-accent/20 overflow-hidden image-hover">
+          <img src="community-fridge/partnership-event.jpg" alt="Partnership Event" class="w-full h-full object-cover">
+        </div>
+      </div>
+    </div>
+
+    <!-- Publication Credit -->
+    <div class="publication-card rounded-2xl p-8 md:p-10">
+      <div class="flex flex-col md:flex-row gap-8 items-start">
+        <div class="flex-1">
+          <h3 class="font-serif text-2xl md:text-3xl mb-4 text-ink">Editorial Operations</h3>
+          <p class="text-neutral-700 mb-4 leading-relaxed">
+            Served as <span class="font-semibold text-accent">Editorial Operations Manager</span> for <span class="italic">AJ: The Appliance Journal</span>, a professional publication produced in partnership with SANDOW Media. Managed the end-to-end production of the luxury design magazine, coordinating across editorial, creative, and manufacturing teams to deliver a polished, brand-elevating publication.
+          </p>
+          <div class="text-[11px] tracking-[.2em] uppercase text-accent font-semibold">
+            Print Production • Editorial Management • Luxury Brand Publishing
+          </div>
+        </div>
+        <!-- Hover-swap container for AJ Journal -->
+        <div class="bg-white rounded-xl p-6 border border-accent/20 min-w-[200px] text-center image-hover">
+          <div class="aspect-[3/4] bg-neutral-100 rounded-lg overflow-hidden mb-3 hover-swap-container">
+            <img src="aj-journal-cover.jpg" alt="AJ: The Appliance Journal Cover - Summer 2019" class="w-full h-full object-cover hover-swap-image front">
+            <img src="aj-journal-masthead.jpg" alt="Masthead with Marla Harris as Editorial Operations Manager" class="w-full h-full object-cover hover-swap-image back">
+          </div>
+          <div class="text-sm font-semibold text-accent mb-1">AJ: The Appliance Journal</div>
+          <div class="text-xs text-neutral-600">Published with SANDOW®</div>
+          <div class="text-xs text-accent mt-2 italic">Hover to see masthead</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Expertise -->
+<section id="expertise" class="py-24 bg-accent-lighter">
+  <div class="max-w-6xl mx-auto px-6 md:px-10 lg:px-16">
+    <h2 class="font-serif text-5xl md:text-6xl mb-6 font-light">Core Expertise</h2>
+    <p class="text-neutral-700 text-xl max-w-2xl mb-12 leading-relaxed">A hybrid skill set, bridging analytical depth and creative vision.</p>
+    <div class="bar mb-16"></div>
+    
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Column 1 -->
+      <div class="bg-white rounded-2xl p-8 card-hover border border-neutral-200">
+        <h3 class="font-serif text-xl mb-6 text-accent border-b border-neutral-200 pb-3">Content & Strategy</h3>
+        <ul class="text-neutral-700 text-sm space-y-3">
+          <li class="flex items-center"><span class="w-1.5 h-1.5 bg-accent rounded-full mr-3 flex-shrink-0"></span>Content Strategy</li>
+          <li class="flex items-center"><span class="w-1.5 h-1.5 bg-accent rounded-full mr-3 flex-shrink-0"></span>Audience Development</li>
+          <li class="flex items-center"><span class="w-1.5 h-1.5 bg-accent rounded-full mr-3 flex-shrink-0"></span>Brand Storytelling</li>
+          <li class="flex items-center"><span class="w-1.5 h-1.5 bg-accent rounded-full mr-3 flex-shrink-0"></span>Creative Briefing</li>
+          <li class="flex items-center"><span class="w-1.5 h-1.5 bg-accent rounded-full mr-3 flex-shrink-0"></span>Lifecycle Marketing</li>
+        </ul>
+      </div>
+      
+      <!-- Column 2 -->
+      <div class="bg-white rounded-2xl p-8 card-hover border border-neutral-200">
+        <h3 class="font-serif text-xl mb-6 text-accent border-b border-neutral-200 pb-3">Execution & Analysis</h3>
+        <ul class="text-neutral-700 text-sm space-y-3">
+          <li class="flex items-center"><span class="w-1.5 h-1.5 bg-accent rounded-full mr-3 flex-shrink-0"></span>CRM Strategy & Operations</li>
+          <li class="flex items-center"><span class="w-1.5 h-1.5 bg-accent rounded-full mr-3 flex-shrink-0"></span>Segmentation & Automation</li>
+          <li class="flex items-center"><span class="w-1.5 h-1.5 bg-accent rounded-full mr-3 flex-shrink-0"></span>Cross-Functional Leadership</li>
+          <li class="flex items-center"><span class="w-1.5 h-1.5 bg-accent rounded-full mr-3 flex-shrink-0"></span>Performance Analysis</li>
+          <li class="flex items-center"><span class="w-1.5 h-1.5 bg-accent rounded-full mr-3 flex-shrink-0"></span>Budget & Partnership Management</li>
+        </ul>
+      </div>
+
+      <!-- Column 3 -->
+      <div class="bg-white rounded-2xl p-8 card-hover border border-neutral-200">
+        <h3 class="font-serif text-xl mb-6 text-accent border-b border-neutral-200 pb-3">Platforms & Tools</h3>
+        <ul class="text-neutral-700 text-sm space-y-3">
+          <li class="flex items-center"><span class="w-1.5 h-1.5 bg-accent rounded-full mr-3 flex-shrink-0"></span>Salesforce Marketing Cloud</li>
+          <li class="flex items-center"><span class="w-1.5 h-1.5 bg-accent rounded-full mr-3 flex-shrink-0"></span>Klaviyo, Braze, Mailchimp</li>
+          <li class="flex items-center"><span class="w-1.5 h-1.5 bg-accent rounded-full mr-3 flex-shrink-0"></span>Google Analytics (GA4), Looker</li>
+          <li class="flex items-center"><span class="w-1.5 h-1.5 bg-accent rounded-full mr-3 flex-shrink-0"></span>Adobe Creative Suite</li>
+          <li class="flex items-center"><span class="w-1.5 h-1.5 bg-accent rounded-full mr-3 flex-shrink-0"></span>Shopify, WordPress, HTML/CSS</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Academic Work Section -->
+<section id="academic" class="py-24 bg-white hidden">
+  <div class="max-w-6xl mx-auto px-6 md:px-10 lg:px-16">
+    <h2 class="font-serif text-5xl md:text-6xl mb-6 font-light">Academic Research & Publications</h2>
+    <p class="text-neutral-700 text-xl max-w-2xl mb-12 leading-relaxed">Protected academic portfolio featuring research, publications, and scholarly work.</p>
+    <div class="bar mb-16"></div>
+    
+    <!-- Academic Content -->
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="bg-white rounded-2xl p-8 card-hover border border-accent/20">
+        <h3 class="font-serif text-2xl mb-4 text-accent">Research Thesis</h3>
+        <p class="text-neutral-700 mb-4">Strategic Branding in Cross-Channel Luxury Markets: A study of consumer perception and brand consistency across digital and physical touchpoints.</p>
+        <div class="text-[11px] tracking-[.2em] uppercase text-accent font-semibold">Quantitative Analysis • Brand Strategy • Consumer Behavior</div>
+      </div>
+      
+      <div class="bg-white rounded-2xl p-8 card-hover border border-accent/20">
+        <h3 class="font-serif text-2xl mb-4 text-accent">Published Papers</h3>
+        <p class="text-neutral-700 mb-4">Peer-reviewed publications on marketing strategy, consumer psychology, and the intersection of technology with traditional brand building.</p>
+        <div class="text-[11px] tracking-[.2em] uppercase text-accent font-semibold">Academic Journals • Conference Proceedings</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Full Portfolio Section -->
+<section id="portfolio" class="py-24 bg-accent-lighter hidden">
+  <div class="max-w-6xl mx-auto px-6 md:px-10 lg:px-16">
+    <h2 class="font-serif text-5xl md:text-6xl mb-6 font-light">Complete Campaign Portfolio</h2>
+    <p class="text-neutral-700 text-xl max-w-2xl mb-12 leading-relaxed">Comprehensive collection of marketing campaigns, strategic initiatives, and brand development work.</p>
+    <div class="bar mb-16"></div>
+    
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="bg-white rounded-2xl p-8 card-hover border border-accent/20">
+        <h3 class="font-serif text-2xl mb-4 text-accent">Digital Campaign Archive</h3>
+        <p class="text-neutral-700 mb-4">Complete collection of email campaigns, social media strategies, and digital advertising across all brand partnerships.</p>
+        <div class="text-[11px] tracking-[.2em] uppercase text-accent font-semibold">Email Marketing • Social Media • Digital Ads</div>
+      </div>
+      
+      <div class="bg-white rounded-2xl p-8 card-hover border border-accent/20">
+        <h3 class="font-serif text-2xl mb-4 text-accent">Brand Strategy Documents</h3>
+        <p class="text-neutral-700 mb-4">Comprehensive brand guidelines, market analysis reports, and strategic planning documents.</p>
+        <div class="text-[11px] tracking-[.2em] uppercase text-accent font-semibold">Brand Development • Market Research • Strategic Planning</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="py-24 bg-white">
+  <div class="max-w-6xl mx-auto px-6 md:px-10 lg:px-16 text-center">
+    <h2 class="font-serif text-5xl md:text-6xl mb-8 font-light">Let's build something unexpected.</h2>
+    <p class="text-neutral-700 text-xl mb-10 max-w-md mx-auto leading-relaxed">
+      I bring corporate-level strategy and storytelling to mission-driven work, helping organizations grow audiences and inspire real-world impact.
+    </p>
+    <div class="flex flex-wrap gap-4 justify-center">
+      <a href="mailto:va.mvharris@gmail.com" class="px-8 py-4 rounded-full bg-accent text-white font-semibold text-sm tracking-wide hover:bg-accent-light transition-colors">Email Me</a>
+      <a href="https://linkedin.com/in/marla-harris-047b2946" class="px-8 py-4 rounded-full border border-accent text-accent font-semibold text-sm tracking-wide hover:bg-accent hover:text-white transition-colors">LinkedIn</a>
+      <a href="#marketing" class="px-8 py-4 rounded-full border border-accent text-accent font-semibold text-sm tracking-wide hover:bg-accent hover:text-white transition-colors">View Work</a>
+    </div>
+  </div>
+</section>
+
+<footer class="py-10 border-t border-neutral-200 bg-white">
+  <div class="max-w-6xl mx-auto px-6 md:px-10 lg:px-16 text-center">
+    <div class="text-[10px] tracking-[.25em] uppercase text-neutral-600">© 2024 Marla V. Harris</div>
+  </div>
+</footer>
 
 <script>
-const mobileMenuButton = document.getElementById('mobileMenuButton');
-const mobileMenu = document.getElementById('mobileMenu');
-const closeMenu = document.getElementById('closeMenu');
+  // Mobile menu functionality
+  const mobileMenuButton = document.getElementById('mobileMenuButton');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const closeMenu = document.getElementById('closeMenu');
 
-mobileMenuButton.addEventListener('click', () => mobileMenu.classList.add('open'));
-closeMenu.addEventListener('click', () => mobileMenu.classList.remove('open'));
+  mobileMenuButton.addEventListener('click', () => {
+    mobileMenu.classList.add('open');
+  });
+  closeMenu.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+  });
+  document.querySelectorAll('#mobileMenu a').forEach(link => {
+    link.addEventListener('click', () => mobileMenu.classList.remove('open'));
+  });
 
-const passwordModal = document.getElementById('passwordModal');
-const passwordInput = document.getElementById('passwordInput');
-const passwordSubmit = document.getElementById('passwordSubmit');
-const passwordError = document.getElementById('passwordError');
-const closePasswordModal = document.getElementById('closePasswordModal');
-const academicSection = document.getElementById('academic');
+  // Academic Password functionality
+  const academicPassword = "Academic123"; 
+  const academicSection = document.getElementById('academic');
+  const passwordModal = document.getElementById('passwordModal');
+  const passwordInput = document.getElementById('passwordInput');
+  const passwordSubmit = document.getElementById('passwordSubmit');
+  const passwordError = document.getElementById('passwordError');
+  const closePasswordModal = document.getElementById('closePasswordModal');
 
-const portfolioModal = document.getElementById('portfolioModal');
-const portfolioPasswordInput = document.getElementById('portfolioPasswordInput');
-const portfolioPasswordSubmit = document.getElementById('portfolioPasswordSubmit');
-const portfolioPasswordError = document.getElementById('portfolioPasswordError');
-const closePortfolioModal = document.getElementById('closePortfolioModal');
-const portfolioSection = document.getElementById('portfolio');
+  // Portfolio Password functionality
+  const portfolioPassword = "Portfolio123"; 
+  const portfolioSection = document.getElementById('portfolio');
+  const portfolioModal = document.getElementById('portfolioModal');
+  const portfolioPasswordInput = document.getElementById('portfolioPasswordInput');
+  const portfolioPasswordSubmit = document.getElementById('portfolioPasswordSubmit');
+  const portfolioPasswordError = document.getElementById('portfolioPasswordError');
+  const closePortfolioModal = document.getElementById('closePortfolioModal');
 
-function checkPassword(inputEl, sectionEl, modalEl, passwordEl, errorEl){
-  if(passwordEl.value === 'marla2025'){
-    modalEl.classList.add('hidden');
-    sectionEl.classList.remove('hidden');
-    passwordEl.value = '';
-    errorEl.classList.add('hidden');
-  } else {
-    errorEl.classList.remove('hidden');
+  // Open academic password modal
+  document.getElementById('academicNav').addEventListener('click', e => {
+    e.preventDefault();
+    passwordModal.classList.remove('hidden');
+    passwordInput.focus();
+  });
+  
+  document.getElementById('academicMobileNav').addEventListener('click', e => {
+    e.preventDefault();
+    mobileMenu.classList.remove('open');
+    passwordModal.classList.remove('hidden');
+    passwordInput.focus();
+  });
+
+  // Open portfolio password modal
+  document.getElementById('portfolioNav').addEventListener('click', e => {
+    e.preventDefault();
+    portfolioModal.classList.remove('hidden');
+    portfolioPasswordInput.focus();
+  });
+  
+  document.getElementById('portfolioMobileNav').addEventListener('click', e => {
+    e.preventDefault();
+    mobileMenu.classList.remove('open');
+    portfolioModal.classList.remove('hidden');
+    portfolioPasswordInput.focus();
+  });
+
+  // Submit academic password
+  passwordSubmit.addEventListener('click', () => checkPassword(academicPassword, academicSection, passwordModal, passwordInput, passwordError));
+  passwordInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') checkPassword(academicPassword, academicSection, passwordModal, passwordInput, passwordError);
+  });
+
+  // Submit portfolio password
+  portfolioPasswordSubmit.addEventListener('click', () => checkPassword(portfolioPassword, portfolioSection, portfolioModal, portfolioPasswordInput, portfolioPasswordError));
+  portfolioPasswordInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') checkPassword(portfolioPassword, portfolioSection, portfolioModal, portfolioPasswordInput, portfolioPasswordError);
+  });
+
+  function checkPassword(correctPassword, section, modal, input, errorEl) {
+    if (input.value === correctPassword) {
+      section.classList.remove('hidden');
+      modal.classList.add('hidden');
+      input.value = "";
+      errorEl.classList.add('hidden');
+      setTimeout(() => {
+        section.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    } else {
+      errorEl.classList.remove('hidden');
+      input.value = "";
+      input.focus();
+    }
   }
-}
 
-if(passwordSubmit){
-  passwordSubmit.addEventListener('click', () => checkPassword(passwordInput, academicSection, passwordModal, passwordInput, passwordError));
-}
-if(closePasswordModal){
-  closePasswordModal.addEventListener('click', () => passwordModal.classList.add('hidden'));
-}
+  // Close modals
+  closePasswordModal.addEventListener('click', () => {
+    passwordModal.classList.add('hidden');
+    passwordInput.value = "";
+    passwordError.classList.add('hidden');
+  });
 
-if(portfolioPasswordSubmit){
-  portfolioPasswordSubmit.addEventListener('click', () => checkPassword(portfolioPasswordInput, portfolioSection, portfolioModal, portfolioPasswordInput, portfolioPasswordError));
-}
-if(closePortfolioModal){
-  closePortfolioModal.addEventListener('click', () => portfolioModal.classList.add('hidden'));
-}
+  closePortfolioModal.addEventListener('click', () => {
+    portfolioModal.classList.add('hidden');
+    portfolioPasswordInput.value = "";
+    portfolioPasswordError.classList.add('hidden');
+  });
 
-// Mobile nav triggers password modals
-document.getElementById('academicMobileNav')?.addEventListener('click', e => {
-  e.preventDefault();
-  passwordModal.classList.remove('hidden');
-  mobileMenu.classList.remove('open');
-});
+  // Close modals when clicking outside
+  passwordModal.addEventListener('click', (e) => {
+    if (e.target === passwordModal) {
+      passwordModal.classList.add('hidden');
+      passwordInput.value = "";
+      passwordError.classList.add('hidden');
+    }
+  });
 
-document.getElementById('portfolioMobileNav')?.addEventListener('click', e => {
-  e.preventDefault();
-  portfolioModal.classList.remove('hidden');
-  mobileMenu.classList.remove('open');
-});
-
-// Desktop nav triggers password modals
-document.getElementById('academicNav')?.addEventListener('click', e => {
-  e.preventDefault();
-  passwordModal.classList.remove('hidden');
-});
-document.getElementById('portfolioNav')?.addEventListener('click', e => {
-  e.preventDefault();
-  portfolioModal.classList.remove('hidden');
-});
+  portfolioModal.addEventListener('click', (e) => {
+    if (e.target === portfolioModal) {
+      portfolioModal.classList.add('hidden');
+      portfolioPasswordInput.value = "";
+      portfolioPasswordError.classList.add('hidden');
+    }
+  });
 </script>
 
 </body>
