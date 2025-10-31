@@ -207,6 +207,12 @@ tailwind.config = {
     background: linear-gradient(135deg, #ffffff 0%, #fefafc 100%);
     border: 1px solid rgba(158, 0, 89, 0.1);
   }
+
+  /* Campaign image container */
+  .campaign-image {
+    min-height: 200px;
+    max-height: 300px;
+  }
 </style>
 </head>
 <body class="text-ink bg-paper antialiased">
@@ -348,15 +354,15 @@ tailwind.config = {
           <div class="bg-white rounded-2xl p-8 card-hover border border-accent/20">
             <h4 class="font-serif text-xl mb-3 text-accent">Penske Media: Black Friday Strategy</h4>
             <p class="text-neutral-700 text-sm leading-relaxed">Architected cross-platform content journeys for <strong>Rolling Stone, Billboard, and WWD</strong>, blending editorial insight with data-driven segmentation to drive a <strong>17% YoY Black Friday conversion lift</strong> across the media portfolio.</p>
-            <div class="mt-4 aspect-video bg-neutral-100 rounded-xl border border-neutral-200 overflow-hidden image-hover">
-              <img src="WWD BF - DAY 3.gif" alt="Penske Media Black Friday Campaign" class="w-full h-full object-cover">
+            <div class="mt-4 bg-neutral-100 rounded-xl border border-neutral-200 overflow-hidden image-hover campaign-image">
+              <img src="WWD BF - DAY 3.gif" alt="Penske Media Black Friday Campaign" class="w-full h-full object-contain">
             </div>
           </div>
           <div class="bg-white rounded-2xl p-8 card-hover border border-accent/20">
             <h4 class="font-serif text-xl mb-3 text-accent">Luxury Product Launches</h4>
             <p class="text-neutral-700 text-sm leading-relaxed">Bridged design, culture, and technology for <strong>Issey Miyake</strong>, increasing conversions 15% and reducing cost-per-conversion 30% through A/B testing and UX refinement.</p>
-            <div class="mt-4 aspect-video bg-neutral-100 rounded-xl border border-neutral-200 overflow-hidden image-hover">
-              <img src="campaigns/issey-miyake-launch.jpg" alt="Issey Miyake Launch" class="w-full h-full object-cover">
+            <div class="mt-4 bg-neutral-100 rounded-xl border border-neutral-200 overflow-hidden image-hover campaign-image">
+              <img src="issey-miyake-launch.jpg" alt="Issey Miyake Launch" class="w-full h-full object-contain">
             </div>
           </div>
         </div>
@@ -364,15 +370,15 @@ tailwind.config = {
           <div class="bg-white rounded-2xl p-8 card-hover border border-accent/20">
             <h4 class="font-serif text-xl mb-3 text-accent">AJ Madison: Partnership Strategy</h4>
             <p class="text-neutral-700 text-sm leading-relaxed">Secured <strong>7-figure annual partnerships with LG, GE, and Samsung</strong>, managing a <strong>$2M+ budget</strong> and achieving <strong>4.5x+ ROAS</strong> through premium creative that elevated the retail brand into a luxury destination.</p>
-            <div class="mt-4 aspect-video bg-neutral-100 rounded-xl border border-neutral-200 overflow-hidden image-hover">
-              <img src="campaigns/aj-madison-partnerships.jpg" alt="AJ Madison Partnership Campaign" class="w-full h-full object-cover">
+            <div class="mt-4 bg-neutral-100 rounded-xl border border-neutral-200 overflow-hidden image-hover campaign-image">
+              <img src="aj-madison-partnerships.jpg" alt="AJ Madison Partnership Campaign" class="w-full h-full object-contain">
             </div>
           </div>
           <div class="bg-white rounded-2xl p-8 card-hover border border-accent/20">
             <h4 class="font-serif text-xl mb-3 text-accent">Technical Translation & Narrative</h4>
             <p class="text-neutral-700 text-sm leading-relaxed">Translated complex technical specs into compelling consumer narratives—marketing induction cooking by illustrating its <strong>85% energy efficiency vs. ~35% for gas</strong>, driving both sales and sustainable brand positioning.</p>
-            <div class="mt-4 aspect-video bg-neutral-100 rounded-xl border border-neutral-200 overflow-hidden image-hover">
-              <img src="campaigns/technical-narrative.jpg" alt="Technical Narrative Campaign" class="w-full h-full object-cover">
+            <div class="mt-4 bg-neutral-100 rounded-xl border border-neutral-200 overflow-hidden image-hover campaign-image">
+              <img src="technical-narrative.jpg" alt="Technical Narrative Campaign" class="w-full h-full object-contain">
             </div>
           </div>
         </div>
@@ -401,7 +407,7 @@ tailwind.config = {
         
         <!-- TESTIMONIAL ADDED -->
         <div class="testimonial-card rounded-2xl p-6 mb-6">
-          <p class="text-neutral-700 italic mb-4">"The AjMadison team strives to be an integral part of their local communities – and beyond. AjMadison and True Residential donated NYC's 55th Community Refrigerator in Harlem. Marla Harris, Operations Manager at AjMadison, led the charge on the initiative. "The AjMadison Community Fridge Initiative seeks to bring more visibility to food insecurity and celebrate these grassroots groups' amazing work. The amount of support we have received from partner brands, activists, and influencers exceeded anything I could have imagined." Influencers @CheapOldHouses, @FareIsle, @Manscapers, and @Brownstone Boys agreed to spread the word, and every day the project gains more momentum and support."</p>
+          <p class="text-neutral-700 italic mb-4">"Marla Harris, Operations Manager at AjMadison, led the charge on the initiative. "The AjMadison Community Fridge Initiative seeks to bring more visibility to food insecurity and celebrate these grassroots groups' amazing work. The amount of support we have received from partner brands, activists, and influencers exceeded anything I could have imagined." Influencers @CheapOldHouses, @FareIsle, @Manscapers, and @Brownstone Boys agreed to spread the word, and every day the project gains more momentum and support."</p>
           <div class="text-sm text-accent font-semibold">— Modern Luxury</div>
         </div>
         
@@ -440,8 +446,8 @@ tailwind.config = {
         <!-- Hover-swap container for AJ Journal -->
         <div class="bg-white rounded-xl p-6 border border-accent/20 min-w-[200px] text-center image-hover">
           <div class="aspect-[3/4] bg-neutral-100 rounded-lg overflow-hidden mb-3 hover-swap-container">
-            <img src="aj-journal/cover.jpg" alt="AJ: The Appliance Journal Cover" class="w-full h-full object-cover hover-swap-image front">
-            <img src="aj-journal/masthead.jpg" alt="Masthead with Marla Harris as Editorial Operations Manager" class="w-full h-full object-cover hover-swap-image back">
+            <img src="aj-journal-cover.jpg" alt="AJ: The Appliance Journal Cover - Summer 2019" class="w-full h-full object-cover hover-swap-image front">
+            <img src="aj-journal-masthead.jpg" alt="Masthead with Marla Harris as Editorial Operations Manager" class="w-full h-full object-cover hover-swap-image back">
           </div>
           <div class="text-sm font-semibold text-accent mb-1">AJ: The Appliance Journal</div>
           <div class="text-xs text-neutral-600">Published with SANDOW®</div>
@@ -451,13 +457,13 @@ tailwind.config = {
       <!-- Additional publication images -->
       <div class="grid grid-cols-3 gap-4 mt-6">
         <div class="aspect-[3/4] bg-neutral-100 rounded-lg overflow-hidden image-hover">
-          <img src="Screenshot 2025-10-30 202649.png" alt="Magazine Spread" class="w-full h-full object-cover">
+          <img src="aj-journal-spread1.jpg" alt="AJ Journal Spread - 20 Clever Kitchen Upgrades" class="w-full h-full object-cover">
         </div>
         <div class="aspect-[3/4] bg-neutral-100 rounded-lg overflow-hidden image-hover">
-          <img src="Screenshot 2025-10-30 202649.png" alt="Magazine Content" class="w-full h-full object-cover">
+          <img src="aj-journal-spread2.jpg" alt="AJ Journal Content - Designer Laundry Room" class="w-full h-full object-cover">
         </div>
         <div class="aspect-[3/4] bg-neutral-100 rounded-lg overflow-hidden image-hover">
-          <img src="Screenshot 2025-10-30 202649.png" alt="Editorial Team" class="w-full h-full object-cover">
+          <img src="aj-journal-spread3.jpg" alt="AJ Journal - Mix & Match Smart Appliances" class="w-full h-full object-cover">
         </div>
       </div>
     </div>
