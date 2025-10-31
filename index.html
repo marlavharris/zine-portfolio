@@ -70,11 +70,24 @@ tailwind.config = {
   .brand-item {
     text-align: center;
     padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
-  .brand-icon {
-    font-size: 2rem;
+  .brand-logo {
+    height: 40px;
+    width: auto;
     margin-bottom: 0.5rem;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+  }
+
+  .brand-item:hover .brand-logo {
+    filter: grayscale(0%);
+    opacity: 1;
   }
 
   .brand-name {
@@ -96,9 +109,131 @@ tailwind.config = {
     transform: scale(1.02);
     box-shadow: 0 20px 40px rgba(0,0,0,0.1);
   }
+
+  /* Hover image swap effect */
+  .hover-swap-container {
+    position: relative;
+    overflow: hidden;
+  }
+  .hover-swap-image {
+    transition: opacity 0.5s ease;
+  }
+  .hover-swap-image.front {
+    position: relative;
+    z-index: 2;
+  }
+  .hover-swap-image.back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    opacity: 0;
+  }
+  .hover-swap-container:hover .hover-swap-image.front {
+    opacity: 0;
+  }
+  .hover-swap-container:hover .hover-swap-image.back {
+    opacity: 1;
+  }
+
+  /* Mobile menu - Elegant Pink Version */
+  .mobile-menu {
+    transform: translateX(100%);
+    transition: transform 0.4s ease;
+    background: linear-gradient(135deg, #9e0059 0%, #c2006c 100%);
+  }
+  .mobile-menu.open {
+    transform: translateX(0);
+  }
+  
+  .mobile-nav-link {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    padding: 1rem 0;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  
+  .mobile-nav-link:hover {
+    transform: translateX(10px);
+    font-weight: 400;
+  }
+  
+  .mobile-nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0.5rem;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: white;
+    transition: width 0.3s ease;
+  }
+  
+  .mobile-nav-link:hover::after {
+    width: 30px;
+  }
+  
+  .menu-close-btn {
+    color: white;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+  
+  .menu-close-btn:hover {
+    background: rgba(255,255,255,0.2);
+    transform: rotate(90deg);
+  }
+
+  /* Focus styles for accessibility */
+  button:focus,
+  a:focus {
+    outline: 2px solid #9e0059;
+    outline-offset: 2px;
+  }
 </style>
 </head>
 <body class="text-ink bg-paper antialiased">
+
+<!-- Mobile Menu Button -->
+<button id="mobileMenuButton" class="md:hidden fixed top-6 right-6 z-50 bg-white p-3 rounded-full border border-neutral-200 shadow-lg">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+    <path d="M3 12h18M3 6h18M3 18h18"/>
+  </svg>
+</button>
+
+<!-- Mobile Menu -->
+<div id="mobileMenu" class="mobile-menu fixed inset-0 z-40 flex flex-col items-center justify-center space-y-8">
+  <button id="closeMenu" class="menu-close-btn absolute top-8 right-8">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M18 6L6 18M6 6l12 12"/>
+    </svg>
+  </button>
+  
+  <div class="flex flex-col items-center space-y-8 text-center">
+    <a href="#marketing" class="mobile-nav-link">Marketing</a>
+    <a href="#community" class="mobile-nav-link">Community</a>
+    <a href="#expertise" class="mobile-nav-link">Expertise</a>
+    <a href="#contact" class="mobile-nav-link">Contact</a>
+    
+    <!-- Optional: Add a cute divider -->
+    <div class="w-20 h-px bg-white/30 my-4"></div>
+    
+    <!-- Optional: Add social/email in mobile menu -->
+    <a href="mailto:va.mvharris@gmail.com" class="text-white/80 text-sm hover:text-white transition-colors">
+      va.mvharris@gmail.com
+    </a>
+  </div>
+</div>
 
 <!-- Header -->
 <header class="gradient-bg border-b border-neutral-100">
@@ -139,35 +274,35 @@ tailwind.config = {
     
     <div class="brand-grid">
       <div class="brand-item">
-        <div class="brand-icon">🎵</div>
+        <img src="logos/rolling-stone-logo.svg" alt="Rolling Stone" class="brand-logo">
         <div class="brand-name">ROLLING STONE</div>
       </div>
       <div class="brand-item">
-        <div class="brand-icon">📊</div>
+        <img src="logos/billboard-logo.svg" alt="Billboard" class="brand-logo">
         <div class="brand-name">BILLBOARD</div>
       </div>
       <div class="brand-item">
-        <div class="brand-icon">👗</div>
+        <img src="logos/wwd-logo.svg" alt="WWD" class="brand-logo">
         <div class="brand-name">WWD</div>
       </div>
       <div class="brand-item">
-        <div class="brand-icon">⚽</div>
+        <img src="logos/sportico-logo.svg" alt="Sportico" class="brand-logo">
         <div class="brand-name">SPORTICO</div>
       </div>
       <div class="brand-item">
-        <div class="brand-icon">🔬</div>
+        <img src="logos/issey-miyake-logo.svg" alt="Issey Miyake" class="brand-logo">
         <div class="brand-name">ISSEY MIYAKE</div>
       </div>
       <div class="brand-item">
-        <div class="brand-icon">🏠</div>
+        <img src="logos/aj-madison-logo.svg" alt="AJ Madison" class="brand-logo">
         <div class="brand-name">AJ MADISON</div>
       </div>
       <div class="brand-item">
-        <div class="brand-icon">📺</div>
+        <img src="logos/samsung-logo.svg" alt="Samsung" class="brand-logo">
         <div class="brand-name">SAMSUNG</div>
       </div>
       <div class="brand-item">
-        <div class="brand-icon">⚡</div>
+        <img src="logos/ge-appliances-logo.svg" alt="GE Appliances" class="brand-logo">
         <div class="brand-name">GE APPLIANCES</div>
       </div>
     </div>
@@ -185,18 +320,18 @@ tailwind.config = {
     <div class="grid md:grid-cols-3 gap-8 mb-20">
       <div class="text-center p-8 bg-white border border-neutral-200 rounded-2xl card-hover">
         <div class="stat-number text-5xl md:text-6xl font-serif mb-3">17%</div>
-        <div class="text-sm text-neutral-600 font-semibold tracking-wide">Subscriber Conversion</div>
-        <div class="text-xs text-accent mt-3 uppercase tracking-widest">YoY growth across portfolio</div>
+        <div class="text-sm text-neutral-600 font-semibold tracking-wide">Black Friday Conversion Lift</div>
+        <div class="text-xs text-accent mt-3 uppercase tracking-widest">YoY growth across Penske Media portfolio</div>
       </div>
       <div class="text-center p-8 bg-white border border-neutral-200 rounded-2xl card-hover">
         <div class="stat-number text-5xl md:text-6xl font-serif mb-3">15%</div>
         <div class="text-sm text-neutral-600 font-semibold tracking-wide">Cost Reduction</div>
-        <div class="text-xs text-accent mt-3 uppercase tracking-widest">Operational efficiencies, Planet Sale</div>
+        <div class="text-xs text-accent mt-3 uppercase tracking-widest">Operational efficiencies, AJ Madison</div>
       </div>
       <div class="text-center p-8 bg-white border border-neutral-200 rounded-2xl card-hover">
         <div class="stat-number text-5xl md:text-6xl font-serif mb-3">$2M+</div>
         <div class="text-sm text-neutral-600 font-semibold tracking-wide">Budget Managed</div>
-        <div class="text-xs text-accent mt-3 uppercase tracking-widest">ROI-focused execution</div>
+        <div class="text-xs text-accent mt-3 uppercase tracking-widest">Partnership funds from LG, GE, Samsung</div>
       </div>
     </div>
 
@@ -206,37 +341,33 @@ tailwind.config = {
       <div class="grid md:grid-cols-2 gap-8">
         <div class="space-y-6">
           <div class="bg-white rounded-2xl p-8 card-hover border border-accent/20">
-            <h4 class="font-serif text-xl mb-3 text-accent">Sportico Audience Growth</h4>
-            <p class="text-neutral-700 text-sm leading-relaxed">Architected cross-platform content journeys blending editorial insight with data-driven segmentation for the leading media brand covering the business of sports.</p>
-            <!-- REPLACE EMOJI WITH YOUR IMAGE -->
+            <h4 class="font-serif text-xl mb-3 text-accent">Penske Media: Black Friday Strategy</h4>
+            <p class="text-neutral-700 text-sm leading-relaxed">Architected cross-platform content journeys for <strong>Rolling Stone, Billboard, and WWD</strong>, blending editorial insight with data-driven segmentation to drive a <strong>17% YoY Black Friday conversion lift</strong> across the media portfolio.</p>
             <div class="mt-4 aspect-video bg-neutral-100 rounded-xl border border-neutral-200 overflow-hidden image-hover">
-              <img src="YOUR_SPORTICO_IMAGE.jpg" alt="Sportico Campaign" class="w-full h-full object-cover">
+              <img src="campaigns/penske-black-friday.jpg" alt="Penske Media Black Friday Campaign" class="w-full h-full object-cover">
             </div>
           </div>
           <div class="bg-white rounded-2xl p-8 card-hover border border-accent/20">
             <h4 class="font-serif text-xl mb-3 text-accent">Luxury Product Launches</h4>
-            <p class="text-neutral-700 text-sm leading-relaxed">Bridged design, culture, and technology for Issey Miyake, increasing conversions 15% and reducing cost-per-conversion 30% through A/B testing and UX refinement.</p>
-            <!-- REPLACE EMOJI WITH YOUR IMAGE -->
+            <p class="text-neutral-700 text-sm leading-relaxed">Bridged design, culture, and technology for <strong>Issey Miyake</strong>, increasing conversions 15% and reducing cost-per-conversion 30% through A/B testing and UX refinement.</p>
             <div class="mt-4 aspect-video bg-neutral-100 rounded-xl border border-neutral-200 overflow-hidden image-hover">
-              <img src="YOUR_ISSEY_MIYAKE_IMAGE.jpg" alt="Issey Miyake Launch" class="w-full h-full object-cover">
+              <img src="campaigns/issey-miyake-launch.jpg" alt="Issey Miyake Launch" class="w-full h-full object-cover">
             </div>
           </div>
         </div>
         <div class="space-y-6">
           <div class="bg-white rounded-2xl p-8 card-hover border border-accent/20">
-            <h4 class="font-serif text-xl mb-3 text-accent">Planet Sale & Lifecycle</h4>
-            <p class="text-neutral-700 text-sm leading-relaxed">Translated real-time sports business trends into compelling campaigns at Penske Media, aligning revenue with reader values and improving engagement 10%.</p>
-            <!-- REPLACE EMOJI WITH YOUR IMAGE -->
+            <h4 class="font-serif text-xl mb-3 text-accent">AJ Madison: Partnership Strategy</h4>
+            <p class="text-neutral-700 text-sm leading-relaxed">Secured <strong>7-figure annual partnerships with LG, GE, and Samsung</strong>, managing a <strong>$2M+ budget</strong> and achieving <strong>4.5x+ ROAS</strong> through premium creative that elevated the retail brand into a luxury destination.</p>
             <div class="mt-4 aspect-video bg-neutral-100 rounded-xl border border-neutral-200 overflow-hidden image-hover">
-              <img src="YOUR_PLANET_SALE_IMAGE.jpg" alt="Planet Sale Campaign" class="w-full h-full object-cover">
+              <img src="campaigns/aj-madison-partnerships.jpg" alt="AJ Madison Partnership Campaign" class="w-full h-full object-cover">
             </div>
           </div>
           <div class="bg-white rounded-2xl p-8 card-hover border border-accent/20">
-            <h4 class="font-serif text-xl mb-3 text-accent">Partnerships & Co-Branded Content</h4>
-            <p class="text-neutral-700 text-sm leading-relaxed">Built alliances with Samsung, GE, and LG; produced integrated campaigns featured in Architectural Digest and Modern Luxury.</p>
-            <!-- REPLACE EMOJI WITH YOUR IMAGE -->
+            <h4 class="font-serif text-xl mb-3 text-accent">Technical Translation & Narrative</h4>
+            <p class="text-neutral-700 text-sm leading-relaxed">Translated complex technical specs into compelling consumer narratives—marketing induction cooking by illustrating its <strong>85% energy efficiency vs. ~35% for gas</strong>, driving both sales and sustainable brand positioning.</p>
             <div class="mt-4 aspect-video bg-neutral-100 rounded-xl border border-neutral-200 overflow-hidden image-hover">
-              <img src="YOUR_PARTNERSHIP_IMAGE.jpg" alt="Partnership Campaign" class="w-full h-full object-cover">
+              <img src="campaigns/technical-narrative.jpg" alt="Technical Narrative Campaign" class="w-full h-full object-cover">
             </div>
           </div>
         </div>
@@ -267,18 +398,17 @@ tailwind.config = {
         </div>
       </div>
       <div class="grid grid-cols-2 gap-6">
-        <!-- REPLACE THESE EMOJIS WITH YOUR COMMUNITY FRIDGE IMAGES -->
         <div class="aspect-square bg-white rounded-2xl border border-accent/20 overflow-hidden image-hover">
-          <img src="20201019_153347_copy.jpg.webp" alt="Community Fridge Project" class="w-full h-full object-cover">
+          <img src="community-fridge/fridge-1.jpg" alt="Community Fridge Project" class="w-full h-full object-cover">
         </div>
         <div class="aspect-square bg-white rounded-2xl border border-accent/20 overflow-hidden image-hover">
-          <img src="YOUR_FRIDGE_IMAGE2.jpg" alt="Community Fridge Installation" class="w-full h-full object-cover">
+          <img src="community-fridge/fridge-2.jpg" alt="Community Fridge Installation" class="w-full h-full object-cover">
         </div>
         <div class="aspect-square bg-white rounded-2xl border border-accent/20 overflow-hidden image-hover">
-          <img src="YOUR_FRIDGE_IMAGE3.jpg" alt="NY Times Coverage" class="w-full h-full object-cover">
+          <img src="community-fridge/ny-times-coverage.jpg" alt="NY Times Coverage" class="w-full h-full object-cover">
         </div>
         <div class="aspect-square bg-white rounded-2xl border border-accent/20 overflow-hidden image-hover">
-          <img src="YOUR_FRIDGE_IMAGE4.jpg" alt="Partnership Event" class="w-full h-full object-cover">
+          <img src="community-fridge/partnership-event.jpg" alt="Partnership Event" class="w-full h-full object-cover">
         </div>
       </div>
     </div>
@@ -295,25 +425,27 @@ tailwind.config = {
             Print Production • Editorial Management • Luxury Brand Publishing
           </div>
         </div>
-        <!-- REPLACE THIS WITH YOUR ACTUAL PUBLICATION IMAGE -->
+        <!-- Hover-swap container for AJ Journal -->
         <div class="bg-white rounded-xl p-6 border border-accent/20 min-w-[200px] text-center image-hover">
-          <div class="aspect-[3/4] bg-neutral-100 rounded-lg overflow-hidden mb-3">
-            <img src="YOUR_PUBLICATION_COVER.jpg" alt="AJ: The Appliance Journal Cover" class="w-full h-full object-cover">
+          <div class="aspect-[3/4] bg-neutral-100 rounded-lg overflow-hidden mb-3 hover-swap-container">
+            <img src="aj-journal/cover.jpg" alt="AJ: The Appliance Journal Cover" class="w-full h-full object-cover hover-swap-image front">
+            <img src="aj-journal/masthead.jpg" alt="Masthead with Marla Harris" class="w-full h-full object-cover hover-swap-image back">
           </div>
           <div class="text-sm font-semibold text-accent mb-1">AJ: The Appliance Journal</div>
           <div class="text-xs text-neutral-600">Published with SANDOW®</div>
+          <div class="text-xs text-accent mt-2 italic">Hover to see masthead</div>
         </div>
       </div>
-      <!-- ADDITIONAL PUBLICATION IMAGES ROW -->
+      <!-- Additional publication images -->
       <div class="grid grid-cols-3 gap-4 mt-6">
         <div class="aspect-[3/4] bg-neutral-100 rounded-lg overflow-hidden image-hover">
-          <img src="YOUR_PUBLICATION_SPREAD1.jpg" alt="Magazine Spread" class="w-full h-full object-cover">
+          <img src="aj-journal/spread-1.jpg" alt="Magazine Spread" class="w-full h-full object-cover">
         </div>
         <div class="aspect-[3/4] bg-neutral-100 rounded-lg overflow-hidden image-hover">
-          <img src="YOUR_PUBLICATION_SPREAD2.jpg" alt="Magazine Content" class="w-full h-full object-cover">
+          <img src="aj-journal/spread-2.jpg" alt="Magazine Content" class="w-full h-full object-cover">
         </div>
         <div class="aspect-[3/4] bg-neutral-100 rounded-lg overflow-hidden image-hover">
-          <img src="YOUR_MASTHEAD_SCREENSHOT.jpg" alt="Masthead with Marla Harris" class="w-full h-full object-cover">
+          <img src="aj-journal/editorial-team.jpg" alt="Editorial Team" class="w-full h-full object-cover">
         </div>
       </div>
     </div>
@@ -387,6 +519,28 @@ tailwind.config = {
     <div class="text-[10px] tracking-[.25em] uppercase text-neutral-600">© 2024 Marla V. Harris</div>
   </div>
 </footer>
+
+<script>
+  // Simple mobile menu functionality
+  const mobileMenuButton = document.getElementById('mobileMenuButton');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const closeMenu = document.getElementById('closeMenu');
+
+  mobileMenuButton.addEventListener('click', () => {
+    mobileMenu.classList.add('open');
+  });
+
+  closeMenu.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+  });
+
+  // Close mobile menu when clicking on a link
+  document.querySelectorAll('#mobileMenu a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+    });
+  });
+</script>
 
 </body>
 </html>
