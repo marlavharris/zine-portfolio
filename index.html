@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Marla V. Harris — Strategic Marketing</title>
+  <title>Marla V. Harris — Strategic Marketing & Storytelling</title>
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <!-- Tailwind -->
@@ -18,10 +18,10 @@
           },
           colors: {
             ink: '#0b0b0b',
-            paper: '#ffffff',
+            paper: '#fefafc',
             accent: '#990049',
             'accent-light': '#b2005f',
-            'accent-lighter': 'rgba(178,0,95,0.1)',
+            'accent-lighter': 'rgba(178,0,95,0.08)',
           }
         }
       }
@@ -34,15 +34,12 @@
       background:#990049;
       border-radius:999px;
     }
-    .gradient-bg {
-      background: linear-gradient(135deg, #fff 0%, #fefafc 100%);
-    }
     .card-hover {
       transition: all 0.3s ease;
     }
     .card-hover:hover {
       transform: translateY(-4px);
-      box-shadow: 0 20px 40px rgba(153, 0, 73, 0.15);
+      box-shadow: 0 10px 25px rgba(153, 0, 73, 0.1);
     }
     .nav-link {
       position:relative;
@@ -62,544 +59,193 @@
     }
     .brand-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2rem;
-      opacity: 0.7;
-      transition: opacity 0.3s ease;
-    }
-    .brand-grid:hover {
-      opacity: 1;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1rem;
+      opacity: 0.6;
     }
     .brand-item {
       text-align: center;
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s ease;
-    }
-    .brand-item:hover {
-      transform: translateY(-5px);
-    }
-    .brand-name {
-      font-size: 1.1rem;
+      padding: 1rem;
       font-weight: 600;
       color: #0b0b0b;
       letter-spacing: 0.05em;
-      transition: all 0.3s ease;
-      position: relative;
-      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
     }
-    .brand-name::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: #f8f8f8;
-      border-radius: 8px;
-      z-index: -1;
-      transition: all 0.3s ease;
-    }
-    .brand-item:hover .brand-name {
-      color: #990049;
-    }
-    .brand-item:hover .brand-name::before {
-      background: rgba(153, 0, 73, 0.1);
-      transform: scale(1.05);
-    }
-    .publication-card {
-      background: linear-gradient(135deg, #f8f6f2 0%, #ffffff 100%);
-      border-left: 4px solid #990049;
-    }
-    .mobile-menu {
-      transform: translateX(100%);
-      transition: transform 0.4s ease;
-      background: linear-gradient(135deg, #990049 0%, #b2005f 100%);
-    }
-    .mobile-menu.open {
-      transform: translateX(0);
-    }
-    .mobile-nav-link {
-      color: white;
-      font-size: 1.5rem;
-      font-weight: 300;
-      letter-spacing: 0.05em;
-      padding: 1rem 0;
-      position: relative;
-      transition: all 0.3s ease;
-    }
-    .mobile-nav-link:hover {
-      transform: translateX(10px);
-      font-weight: 400;
-    }
-    .mobile-nav-link::after {
-      content: ''; position: absolute; bottom: 0.5rem; left: 0; width: 0; height: 1px; background: white; transition: width 0.3s ease;
-    }
-    .mobile-nav-link:hover::after {
-      width: 30px;
-    }
-    .menu-close-btn {
-      color: white; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;
-    }
-    .menu-close-btn:hover {
-      background: rgba(255,255,255,0.2); transform: rotate(90deg);
-    }
-    button:focus, a:focus {
-      outline: 2px solid #990049; outline-offset: 2px;
-    }
-    .testimonial-card {
-      background: linear-gradient(135deg, #ffffff 0%, #fefafc 100%);
-      border: 1px solid rgba(153, 0, 73, 0.1);
-    }
-    /* Simplified brand logos */
-    .brand-logo {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: #990049;
-      letter-spacing: 0.05em;
-      transition: all 0.3s ease;
-    }
-    .brand-item:hover .brand-logo {
-      color: #b2005f;
-      transform: scale(1.1);
-    }
-    .feature-icon {
-      width: 60px;
-      height: 60px;
-      border-radius: 12px;
-      background: rgba(153, 0, 73, 0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1.5rem;
-    }
-    .feature-icon svg {
-      width: 28px;
-      height: 28px;
-      color: #990049;
+    .brand-item:hover {
+      opacity: 1;
     }
   </style>
 </head>
-<body class="text-ink bg-paper antialiased">
-  <!-- Mobile Menu Button -->
-  <button id="mobileMenuButton" class="md:hidden fixed top-6 right-6 z-50 bg-white p-3 rounded-full border border-neutral-200 shadow-lg">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-      <path d="M3 12h18M3 6h18M3 18h18"/>
-    </svg>
-  </button>
+<body class="text-ink bg-paper antialiased font-sans">
 
-  <!-- Mobile Menu -->
-  <div id="mobileMenu" class="mobile-menu fixed inset-0 z-40 flex flex-col items-center justify-center space-y-8">
-    <button id="closeMenu" class="menu-close-btn absolute top-8 right-8">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M18 6L6 18M6 6l12 12"/>
-      </svg>
-    </button>
-    <div class="flex flex-col items-center space-y-8 text-center">
-      <a href="#about" class="mobile-nav-link">About</a>
-      <a href="#marketing" class="mobile-nav-link">Marketing</a>
-      <a href="#copywriting" class="mobile-nav-link">Copywriting</a>
-      <a href="#community" class="mobile-nav-link">Community</a>
-      <a href="#expertise" class="mobile-nav-link">Expertise</a>
-      <a href="#contact" class="mobile-nav-link">Contact</a>
-      <div class="w-20 h-px bg-white/30 my-4"></div>
-      <a href="mailto:va.mvharris@gmail.com" class="text-white/80 text-sm hover:text-white transition-colors">
-        va.mvharris@gmail.com
-      </a>
-    </div>
-  </div>
-
-  <!-- Header -->
-  <header class="gradient-bg border-b border-neutral-100">
-    <nav class="max-w-6xl mx-auto px-6 md:px-10 lg:px-16 h-20 flex items-center justify-between">
-      <a href="#" class="font-serif text-xl text-ink tracking-tight">Marla V. Harris</a>
-      <div class="hidden md:flex gap-8 text-[11px] tracking-[.2em] uppercase text-neutral-600 font-semibold">
+  <!-- Header & Navigation -->
+  <header class="border-b border-neutral-100 bg-paper sticky top-0 z-30">
+    <nav class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#" class="font-serif text-lg text-ink">Marla V. Harris</a>
+      <div class="hidden md:flex gap-6 text-xs tracking-widest uppercase text-neutral-600 font-medium">
         <a href="#about" class="nav-link">About</a>
-        <a href="#marketing" class="nav-link">Marketing</a>
-        <a href="#copywriting" class="nav-link">Copywriting</a>
-        <a href="#community" class="nav-link">Community</a>
         <a href="#expertise" class="nav-link">Expertise</a>
+        <a href="#work" class="nav-link">Work</a>
         <a href="#contact" class="nav-link">Contact</a>
       </div>
     </nav>
-
-    <!-- Hero Section -->
-    <div class="max-w-6xl mx-auto px-6 md:px-10 lg:px-16 py-24 md:py-32">
-      <div class="text-[11px] tracking-[.2em] uppercase text-neutral-600 font-semibold mb-6">Strategic Marketing & Communications</div>
-      <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl leading-[1.02] max-w-5xl mb-8 font-light">
-        Where <span class="italic text-accent">Storytelling</span> Meets Systems.
-      </h1>
-      <div class="bar mb-10"></div>
-      <p class="text-neutral-800 text-xl md:text-2xl max-w-2xl leading-relaxed mb-10 font-light">
-        I translate <span class="font-semibold">complex data into human stories</span> that drive growth and build movements. A 9-year practice bridging technical fluency with narrative strategy for luxury, media, and global brands.
-      </p>
-      <div class="flex gap-4">
-        <a href="#marketing" class="px-8 py-4 rounded-full bg-accent text-white font-semibold text-sm tracking-wide hover:bg-accent-light transition-colors">View Signature Work</a>
-        <a href="#contact" class="px-8 py-4 rounded-full border border-neutral-300 text-ink font-semibold text-sm tracking-wide hover:border-neutral-400 transition-colors">Let's Talk</a>
-      </div>
-    </div>
   </header>
 
-  <!-- Signature Quote Section -->
-  <section class="py-20 bg-accent text-white">
-    <div class="max-w-4xl mx-auto px-6 md:px-10 lg:px-16 text-center">
-      <a href="#about">
-        <blockquote class="font-serif text-3xl md:text-5xl lg:text-6xl leading-tight italic mb-6">
-          "If I can sell a $300 bra, I can sell anything."
-        </blockquote>
-      </a>
-      <p class="text-white/70 text-lg max-w-md mx-auto mt-6">
-        From luxury lingerie to global media brands—and now nonprofit impact. The lesson remains: people invest in what moves them, whether it's premium products or meaningful change.
-      </p>
-      <div class="w-20 h-1 bg-white/50 mx-auto my-6"></div>
-      <p class="text-white/80 text-lg font-light">— Marla V. Harris</p>
+  <!-- Hero Section -->
+  <section class="max-w-5xl mx-auto px-6 py-20 md:py-28 text-center">
+    <h1 class="font-serif text-5xl md:text-7xl leading-tight mb-6 font-light">
+      Where <span class="italic text-accent">Storytelling</span><br>Meets Systems.
+    </h1>
+    <div class="bar mx-auto mb-8"></div>
+    <p class="text-neutral-700 text-xl md:text-2xl max-w-2xl mx-auto leading-relaxed mb-10">
+      I translate <span class="font-semibold">complex data into human stories</span> that drive growth and build movements.
+    </p>
+    <div class="flex gap-4 justify-center">
+      <a href="#work" class="px-6 py-3 rounded-full bg-accent text-white font-semibold text-sm tracking-wide hover:bg-accent-light transition-colors">View Signature Work</a>
+      <a href="#contact" class="px-6 py-3 rounded-full border border-neutral-300 text-ink font-semibold text-sm tracking-wide hover:border-neutral-400 transition-colors">Let's Talk</a>
     </div>
   </section>
 
-  <!-- Brand Relationships - Simplified Style -->
-  <section class="py-16 bg-white border-y border-neutral-200">
-    <div class="max-w-6xl mx-auto px-6 md:px-10 lg:px-16">
-      <div class="text-center mb-12">
-        <h3 class="font-serif text-2xl md:text-3xl mb-4 text-ink">Selected Collaborations</h3>
-        <p class="text-neutral-600 text-sm max-w-md mx-auto">Building narratives across media, luxury, and technology</p>
-      </div>
-      <div class="brand-grid">
-        <div class="brand-item">
-          <div class="brand-logo mb-3">ROLLING STONE</div>
-        </div>
-        <div class="brand-item">
-          <div class="brand-logo mb-3">BILLBOARD</div>
-        </div>
-        <div class="brand-item">
-          <div class="brand-logo mb-3">WWD</div>
-        </div>
-        <div class="brand-item">
-          <div class="brand-logo mb-3">SPORTICO</div>
-        </div>
-        <div class="brand-item">
-          <div class="brand-logo mb-3">ISSEY MIYAKE</div>
-        </div>
-        <div class="brand-item">
-          <div class="brand-logo mb-3">AJ MADISON</div>
-        </div>
-        <div class="brand-item">
-          <div class="brand-logo mb-3">SAMSUNG</div>
-        </div>
-        <div class="brand-item">
-          <div class="brand-logo mb-3">GE APPLIANCES</div>
-        </div>
-      </div>
+  <!-- Brand Logos - Simplified -->
+  <section class="max-w-4xl mx-auto px-6 py-12 border-y border-neutral-200 bg-white/50">
+    <div class="brand-grid">
+      <div class="brand-item">ROLLING STONE</div>
+      <div class="brand-item">BILLBOARD</div>
+      <div class="brand-item">WWD</div>
+      <div class="brand-item">ISSEY MIYAKE</div>
+      <div class="brand-item">SAMSUNG</div>
+      <div class="brand-item">AJ MADISON</div>
     </div>
   </section>
 
-  <!-- Marketing Section -->
-  <section id="marketing" class="py-24 bg-white">
-    <div class="max-w-6xl mx-auto px-6 md:px-10 lg:px-16">
-      <h2 class="font-serif text-5xl md:text-6xl mb-6 font-light">Marketing Leadership</h2>
-      <p class="text-neutral-700 text-xl max-w-2xl mb-12 leading-relaxed">Driving growth through data-informed strategy and creative execution for premium brands and media companies.</p>
-      <div class="bar mb-16"></div>
-
-      <!-- Performance Metrics -->
-      <div class="grid md:grid-cols-3 gap-8 mb-20">
-        <div class="text-center p-8 bg-white border border-neutral-200 rounded-2xl card-hover">
-          <div class="stat-number text-5xl md:text-6xl font-serif mb-3">17%</div>
-          <div class="text-sm text-neutral-600 font-semibold tracking-wide">Black Friday Conversion Lift</div>
-          <div class="text-xs text-accent mt-3 uppercase tracking-widest">YoY growth across Penske Media portfolio</div>
-        </div>
-        <div class="text-center p-8 bg-white border border-neutral-200 rounded-2xl card-hover">
-          <div class="stat-number text-5xl md:text-6xl font-serif mb-3">15%</div>
-          <div class="text-sm text-neutral-600 font-semibold tracking-wide">Cost Reduction</div>
-          <div class="text-xs text-accent mt-3 uppercase tracking-widest">Operational efficiencies, AJ Madison</div>
-        </div>
-        <div class="text-center p-8 bg-white border border-neutral-200 rounded-2xl card-hover">
-          <div class="stat-number text-5xl md:text-6xl font-serif mb-3">$2M+</div>
-          <div class="text-sm text-neutral-600 font-semibold tracking-wide">Budget Managed</div>
-          <div class="text-xs text-accent mt-3 uppercase tracking-widest">Partnership funds from LG, GE, Samsung</div>
-        </div>
-      </div>
-
-      <!-- Campaign Examples -->
-      <div class="bg-accent-lighter rounded-3xl p-10 md:p-14">
-        <h3 class="font-serif text-3xl md:text-4xl mb-12 font-light">Strategic Engagements</h3>
-        <div class="grid md:grid-cols-2 gap-8">
-          <div class="space-y-6">
-            <div class="bg-white rounded-2xl p-8 card-hover border border-accent/20">
-              <div class="feature-icon">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                </svg>
-              </div>
-              <h4 class="font-serif text-xl mb-3 text-accent">Penske Media: Black Friday Strategy</h4>
-              <p class="text-neutral-700 text-sm leading-relaxed">Architected cross-platform content journeys for <strong>Rolling Stone, Billboard, and WWD</strong>, blending editorial insight with data-driven segmentation to drive a <strong>17% YoY Black Friday conversion lift</strong> across the media portfolio.</p>
-            </div>
-            <div class="bg-white rounded-2xl p-8 card-hover border border-accent/20">
-              <div class="feature-icon">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path>
-                </svg>
-              </div>
-              <h4 class="font-serif text-xl mb-3 text-accent">Luxury Product Launches</h4>
-              <p class="text-neutral-700 text-sm leading-relaxed">Bridged design, culture, and technology for <strong>Issey Miyake</strong>, increasing conversions 15% and reducing cost-per-conversion 30% through A/B testing and UX refinement.</p>
-            </div>
-          </div>
-          <div class="space-y-6">
-            <div class="bg-white rounded-2xl p-8 card-hover border border-accent/20">
-              <div class="feature-icon">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                </svg>
-              </div>
-              <h4 class="font-serif text-xl mb-3 text-accent">AJ Madison: Partnership Strategy</h4>
-              <p class="text-neutral-700 text-sm leading-relaxed">Secured <strong>7-figure annual partnerships with LG, GE, and Samsung</strong>, managing a <strong>$2M+ budget</strong> and achieving <strong>4.5x+ ROAS</strong> through premium creative that elevated the retail brand into a luxury destination.</p>
-            </div>
-            <div class="bg-white rounded-2xl p-8 card-hover border border-accent/20">
-              <div class="feature-icon">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-                </svg>
-              </div>
-              <h4 class="font-serif text-xl mb-3 text-accent">Technical Translation & Narrative</h4>
-              <p class="text-neutral-700 text-sm leading-relaxed">Translated complex technical specs into compelling consumer narratives—marketing induction cooking by illustrating its <strong>85% energy efficiency vs. ~35% for gas</strong>, driving both sales and sustainable brand positioning.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Copywriting & Narrative Section -->
-  <section id="copywriting" class="py-24 bg-black text-white">
-    <div class="max-w-6xl mx-auto px-6 md:px-10 lg:px-16">
-      <h2 class="font-serif text-5xl md:text-6xl mb-6 font-light text-white">Copywriting & Narrative</h2>
-      <p class="text-neutral-300 text-xl max-w-2xl mb-12 leading-relaxed">Transforming technical complexity into compelling stories that drive engagement and conversion.</p>
-      <div class="bar mb-16"></div>
-      <div class="grid md:grid-cols-3 gap-8">
-        <!-- Block 1 -->
-        <div class="copy-sample rounded-2xl p-8">
-          <h4 class="font-serif text-xl mb-4 text-accent">Luxury Brand Voice</h4>
-          <p class="text-neutral-300 italic text-lg leading-relaxed mb-4">"Where heritage craftsmanship meets contemporary design—each piece tells a story of innovation rooted in tradition."</p>
-          <div class="text-[11px] tracking-[.2em] uppercase text-accent font-semibold">ISSEY MIYAKE • Premium Positioning</div>
-        </div>
-        <!-- Block 2 -->
-        <div class="copy-sample rounded-2xl p-8">
-          <h4 class="font-serif text-xl mb-4 text-accent">Technical Translation</h4>
-          <p class="text-neutral-300 italic text-lg leading-relaxed mb-4">"Experience 85% energy efficiency—cook with precision while reducing your environmental footprint. Induction technology delivers professional results with home-kitchen convenience."</p>
-          <div class="text-[11px] tracking-[.2em] uppercase text-accent font-semibold">AJ MADISON • Technical Product Marketing</div>
-        </div>
-        <!-- Block 3 -->
-        <div class="copy-sample rounded-2xl p-8">
-          <h4 class="font-serif text-xl mb-4 text-accent">Editorial Leadership</h4>
-          <p class="text-neutral-300 italic text-lg leading-relaxed mb-4">"In an era of disposable content, we believe in creating narratives that endure—stories that bridge data and design to build lasting brand value."</p>
-          <div class="text-[11px] tracking-[.2em] uppercase text-accent font-semibold">AJ: THE APPLIANCE JOURNAL • Thought Leadership</div>
-        </div>
-      </div>
-
-      <!-- Copywriting Stats -->
-      <div class="grid md:grid-cols-3 gap-8 mt-16">
-        <div class="text-center p-8 bg-neutral-900 rounded-2xl card-hover border border-accent/20">
-          <div class="stat-number text-4xl md:text-5xl font-serif mb-3">300+</div>
-          <div class="text-sm text-neutral-300 font-semibold tracking-wide">Campaigns Written</div>
-          <div class="text-xs text-accent mt-2 uppercase tracking-widest">Email, social, editorial</div>
-        </div>
-        <div class="text-center p-8 bg-neutral-900 rounded-2xl card-hover border border-accent/20">
-          <div class="stat-number text-4xl md:text-5xl font-serif mb-3">4.5x</div>
-          <div class="text-sm text-neutral-300 font-semibold tracking-wide">Average ROAS</div>
-          <div class="text-xs text-accent mt-2 uppercase tracking-widest">Across written campaigns</div>
-        </div>
-        <div class="text-center p-8 bg-neutral-900 rounded-2xl card-hover border border-accent/20">
-          <div class="stat-number text-4xl md:text-5xl font-serif mb-3">17%</div>
-          <div class="text-sm text-neutral-300 font-semibold tracking-wide">Conversion Lift</div>
-          <div class="text-xs text-accent mt-2 uppercase tracking-widest">Attributed to copy optimization</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Community & Editorial Impact -->
-  <section id="community" class="py-24 bg-white">
-    <div class="max-w-6xl mx-auto px-6 md:px-10 lg:px-16">
-      <h2 class="font-serif text-5xl md:text-6xl mb-6 font-light">Community & Editorial Impact</h2>
-      <p class="text-neutral-700 text-xl max-w-2xl mb-8 leading-relaxed">Building initiatives that create business value while driving social change.</p>
-      <div class="bar mb-12"></div>
-
-      <!-- Community Fridge Project -->
-      <div class="mb-20">
-        <div class="grid md:grid-cols-2 gap-16 items-center">
-          <div>
-            <h3 class="font-serif text-3xl md:text-4xl mb-6 font-light">The Community Fridge Project</h3>
-            <p class="text-neutral-700 mb-6 leading-relaxed text-lg">
-              Conceived, pitched, and launched a national corporate social responsibility program from the ground up. Built partnerships with <span class="font-semibold text-accent">True Refrigeration</span> and grassroots organizations, donating <span class="font-semibold text-accent">100+ scratch-and-dent refrigerators</span> to address food insecurity while reducing retail waste.
-            </p>
-            <p class="text-neutral-700 mb-8 leading-relaxed text-lg">
-              The initiative cemented a belief that marketing's highest purpose is to mobilize resources and build community, earning national coverage in <span class="italic text-accent">The New York Times</span>.
-            </p>
-          </div>
-          <div class="bg-accent-lighter rounded-2xl p-8">
-            <div class="feature-icon mx-auto">
-              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path>
-              </svg>
-            </div>
-            <h4 class="font-serif text-xl text-center mb-4 text-accent">Community Impact</h4>
-            <p class="text-neutral-700 text-center">100+ refrigerators donated to address food insecurity nationwide.</p>
-          </div>
-        </div>
-
-        <!-- TESTIMONIAL -->
-        <div class="testimonial-card rounded-2xl p-6 mt-8">
-          <p class="text-neutral-700 italic mb-4">"The AjMadison team strives to be an integral part of their local communities – and beyond. AjMadison and True Residential donated NYC's 55th Community Refrigerator in Harlem. Marla Harris, Operations Manager at AjMadison, led the charge on the initiative. "The AjMadison Community Fridge Initiative seeks to bring more visibility to food insecurity and celebrate these grassroots groups' amazing work. The amount of support we have received from partner brands, activists, and influencers exceeded anything I could have imagined." Influencers @CheapOldHouses, @FareIsle, @Manscapers, and @Brownstone Boys agreed to spread the word, and every day the project gains more momentum and support."</p>
-          <div class="text-sm text-accent font-semibold">— Modern Luxury</div>
-        </div>
-      </div>
-
-      <!-- Publication Credit - Cleaned up version -->
-      <div class="publication-card rounded-2xl p-8 md:p-10">
-        <h3 class="font-serif text-2xl md:text-3xl mb-4 text-ink">Editorial Operations</h3>
-        <p class="text-neutral-700 mb-4 leading-relaxed">
-          Served as <span class="font-semibold text-accent">Editorial Operations Manager</span> for <span class="italic">AJ: The Appliance Journal</span>, a professional publication produced in partnership with SANDOW Media. Managed the end-to-end production of the luxury design magazine, coordinating across editorial, creative, and manufacturing teams to deliver a polished, brand-elevating publication.
+  <!-- About & Philosophy -->
+  <section id="about" class="max-w-5xl mx-auto px-6 py-20 md:py-28">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <h2 class="font-serif text-4xl md:text-5xl mb-6">The $300 Bra & The Art of Persuasion.</h2>
+        <div class="bar mb-8"></div>
+        <p class="text-neutral-700 text-lg mb-6">
+          Early in my career, I marketed a $300 bra. The lesson wasn't about lingerie; it was about value. <span class="font-semibold text-accent">People don't buy products; they buy better versions of themselves.</span>
         </p>
-        <div class="text-[11px] tracking-[.2em] uppercase text-accent font-semibold mt-6">PUBLISHED WITH SANDOW MEDIA</div>
+        <p class="text-neutral-700 text-lg">
+          This insight became my foundation: combining data-driven strategy with human-centered storytelling to create marketing that doesn't just sell, but <span class="italic">resonates</span>.
+        </p>
+      </div>
+      <div class="bg-white rounded-2xl p-8 border border-accent/20">
+        <blockquote class="font-serif text-2xl md:text-3xl italic text-accent mb-4 text-center">
+          “If I can sell a $300 bra, I can sell anything.”
+        </blockquote>
+        <p class="text-neutral-600 text-center text-sm">
+          — From luxury intimates to global media and nonprofit impact.
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- About Section -->
-  <section id="about" class="py-24 bg-accent-lighter">
-    <div class="max-w-6xl mx-auto px-6 md:px-10 lg:px-16">
-      <h2 class="font-serif text-5xl md:text-6xl mb-6 font-light">About Me</h2>
-      <p class="text-neutral-700 text-xl max-w-2xl mb-12 leading-relaxed">The story behind the $300 bra and what it taught me about marketing.</p>
-      <div class="bar mb-16"></div>
-      
-      <div class="grid md:grid-cols-2 gap-16 items-center">
-        <div>
-          <h3 class="font-serif text-3xl md:text-4xl mb-6 font-light">From Intimates to Global Brands</h3>
-          <p class="text-neutral-700 mb-6 leading-relaxed text-lg">
-            Early in my career, I worked with a luxury lingerie brand where I had to convince customers that a $300 bra was worth the investment. This wasn't just about selling underwear—it was about selling confidence, craftsmanship, and self-worth.
-          </p>
-          <p class="text-neutral-700 mb-6 leading-relaxed text-lg">
-            That experience taught me the fundamental truth of marketing: people don't buy products; they buy better versions of themselves. Whether it's a luxury bra, a media subscription, or a high-end appliance, the psychology remains the same.
-          </p>
-          <p class="text-neutral-700 mb-8 leading-relaxed text-lg">
-            This insight became the foundation of my approach—combining data-driven strategy with human-centered storytelling to create marketing that doesn't just sell, but resonates.
-          </p>
+  <!-- Core Expertise - Streamlined -->
+  <section id="expertise" class="bg-white py-20">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="font-serif text-4xl md:text-5xl mb-6 text-center">Core Expertise</h2>
+      <p class="text-neutral-700 text-xl max-w-xl mx-auto mb-12 text-center leading-relaxed">A hybrid skill set bridging analytical depth and creative vision.</p>
+      <div class="bar mx-auto mb-12"></div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="text-center p-6">
+          <h3 class="font-serif text-lg mb-4 text-accent">Strategy & Story</h3>
+          <p class="text-neutral-700 text-sm">Content Strategy, Brand Storytelling, Audience Development, Creative Briefing.</p>
         </div>
-        <div class="grid grid-cols-2 gap-6">
-          <div class="bg-white rounded-2xl p-6 border border-accent/20 flex flex-col items-center justify-center text-center">
-            <div class="feature-icon">
-              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-              </svg>
-            </div>
-            <h4 class="font-serif text-lg mb-2 text-accent">Marketing Philosophy</h4>
-            <p class="text-neutral-700 text-sm">People buy better versions of themselves, not just products.</p>
-          </div>
-          <div class="bg-white rounded-2xl p-6 border border-accent/20 flex flex-col items-center justify-center text-center">
-            <div class="feature-icon">
-              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-              </svg>
-            </div>
-            <h4 class="font-serif text-lg mb-2 text-accent">Strategic Approach</h4>
-            <p class="text-neutral-700 text-sm">Data-driven strategy meets human-centered storytelling.</p>
-          </div>
+        <div class="text-center p-6">
+          <h3 class="font-serif text-lg mb-4 text-accent">Execution & Analysis</h3>
+          <p class="text-neutral-700 text-sm">CRM & Lifecycle Marketing, Performance Analysis, Budget & Partnership Management.</p>
+        </div>
+        <div class="text-center p-6">
+          <h3 class="font-serif text-lg mb-4 text-accent">Technical Fluency</h3>
+          <p class="text-neutral-700 text-sm">SFMC, Klaviyo, GA4, Looker, Adobe Suite, HTML/CSS.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Expertise -->
-  <section id="expertise" class="py-24 bg-white">
-    <div class="max-w-6xl mx-auto px-6 md:px-10 lg:px-16">
-      <h2 class="font-serif text-5xl md:text-6xl mb-6 font-light">Core Expertise</h2>
-      <p class="text-neutral-700 text-xl max-w-2xl mb-12 leading-relaxed">A hybrid skill set, bridging analytical depth and creative vision.</p>
-      <div class="bar mb-16"></div>
-      <div class="grid md:grid-cols-3 gap-8">
-        <!-- Column 1 -->
-        <div class="bg-white rounded-2xl p-8 card-hover border border-neutral-200">
-          <h3 class="font-serif text-xl mb-6 text-accent border-b border-neutral-200 pb-3">Content & Strategy</h3>
-          <ul class="text-neutral-700 text-sm space-y-3">
-            <li class="flex items-center"><span class="w-1.5 h-1.5 bg-accent rounded-full mr-3 flex-shrink-0"></span>Content Strategy</li>
-            <li class="flex items-center"><span class="w-1.5 h-1.5 bg-accent rounded-full mr-3 flex-shrink-0"></span>Audience Development</li>
-            <li class="flex items-center"><span class="w-1.5 h-1.5 bg-accent rounded-full mr-3 flex-shrink-0"></span>Brand Storytelling</li>
-            <li class="flex items-center"><span class="w-1.5 h-1.5 bg-accent rounded-full mr-3 flex-shrink-0"></span>Creative Briefing</li>
-            <li class="flex items-center"><span class="w-1.5 h-1.5 bg-accent rounded-full mr-3 flex-shrink-0"></span>Lifecycle Marketing</li>
-          </ul>
+  <!-- Signature Work - Highlight Reel -->
+  <section id="work" class="max-w-5xl mx-auto px-6 py-20 md:py-28">
+    <h2 class="font-serif text-4xl md:text-5xl mb-6">Signature Work</h2>
+    <p class="text-neutral-700 text-xl mb-12 max-w-2xl">Driving growth through data-informed strategy and creative execution.</p>
+    <div class="bar mb-12"></div>
+
+    <!-- Performance Metrics -->
+    <div class="grid md:grid-cols-3 gap-8 mb-16">
+      <div class="text-center p-8 bg-white border border-neutral-200 rounded-2xl">
+        <div class="text-5xl md:text-6xl font-serif mb-3 text-accent">17%</div>
+        <div class="text-sm text-neutral-600 font-semibold">Sales growth</div>
+        <div class="text-xs text-accent mt-2">Year-over-year</div>
+      </div>
+      <div class="text-center p-8 bg-white border border-neutral-200 rounded-2xl">
+        <div class="text-5xl md:text-6xl font-serif mb-3 text-accent">15%</div>
+        <div class="text-sm text-neutral-600 font-semibold">Cost reduction</div>
+        <div class="text-xs text-accent mt-2">While maintaining results</div>
+      </div>
+      <div class="text-center p-8 bg-white border border-neutral-200 rounded-2xl">
+        <div class="text-5xl md:text-6xl font-serif mb-3 text-accent">4.5x</div>
+        <div class="text-sm text-neutral-600 font-semibold">Return on spend</div>
+        <div class="text-xs text-accent mt-2">For every dollar invested</div>
+      </div>
+    </div>
+
+    <div class="space-y-12">
+      <!-- Work 1 -->
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div class="bg-accent-lighter rounded-2xl p-8">
+          <div class="text-xs tracking-widest uppercase text-accent font-semibold mb-2">Penske Media</div>
+          <h3 class="font-serif text-2xl mb-4">Black Friday Portfolio Strategy</h3>
+          <p class="text-neutral-700 mb-4">Architected cross-platform content for Rolling Stone, Billboard, and WWD, driving a <span class="font-semibold text-accent">17% sales growth</span> across the media portfolio.</p>
         </div>
-        <!-- Column 2 -->
-        <div class="bg-white rounded-2xl p-8 card-hover border border-neutral-200">
-          <h3 class="font-serif text-xl mb-6 text-accent border-b border-neutral-200 pb-3">Execution & Analysis</h3>
-          <ul class="text-neutral-700 text-sm space-y-3">
-            <li class="flex items-center"><span class="w-1.5 h-1.5 bg-accent rounded-full mr-3 flex-shrink-0"></span>CRM Strategy & Operations</li>
-            <li class="flex items-center"><span class="w-1.5 h-1.5 bg-accent rounded-full mr-3 flex-shrink-0"></span>Segmentation & Automation</li>
-            <li class="flex items-center"><span class="w-1.5 h-1.5 bg-accent rounded-full mr-3 flex-shrink-0"></span>Cross-Functional Leadership</li>
-            <li class="flex items-center"><span class="w-1.5 h-1.5 bg-accent rounded-full mr-3 flex-shrink-0"></span>Performance Analysis</li>
-            <li class="flex items-center"><span class="w-1.5 h-1.5 bg-accent rounded-full mr-3 flex-shrink-0"></span>Budget & Partnership Management</li>
-          </ul>
+        <div class="text-center p-6">
+          <div class="stat-number text-6xl font-serif mb-2">17%</div>
+          <div class="text-sm text-neutral-600 font-semibold">Sales Growth</div>
         </div>
-        <!-- Column 3 -->
-        <div class="bg-white rounded-2xl p-8 card-hover border border-neutral-200">
-          <h3 class="font-serif text-xl mb-6 text-accent border-b border-neutral-200 pb-3">Platforms & Tools</h3>
-          <ul class="text-neutral-700 text-sm space-y-3">
-            <li class="flex items-center"><span class="w-1.5 h-1.5 bg-accent rounded-full mr-3 flex-shrink-0"></span>Salesforce Marketing Cloud</li>
-            <li class="flex items-center"><span class="w-1.5 h-1.5 bg-accent rounded-full mr-3 flex-shrink-0"></span>Klaviyo, Braze, Mailchimp</li>
-            <li class="flex items-center"><span class="w-1.5 h-1.5 bg-accent rounded-full mr-3 flex-shrink-0"></span>Google Analytics (GA4), Looker</li>
-            <li class="flex items-center"><span class="w-1.5 h-1.5 bg-accent rounded-full mr-3 flex-shrink-0"></span>Adobe Creative Suite</li>
-            <li class="flex items-center"><span class="w-1.5 h-1.5 bg-accent rounded-full mr-3 flex-shrink-0"></span>Shopify, WordPress, HTML/CSS</li>
-          </ul>
+      </div>
+
+      <!-- Work 2 -->
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div class="order-2 md:order-1 text-center p-6">
+          <div class="stat-number text-6xl font-serif mb-2">4.5x</div>
+          <div class="text-sm text-neutral-600 font-semibold">Return on Spend</div>
         </div>
+        <div class="order-1 md:order-2 bg-accent-lighter rounded-2xl p-8">
+          <div class="text-xs tracking-widest uppercase text-accent font-semibold mb-2">AJ Madison</div>
+          <h3 class="font-serif text-2xl mb-4">Partnership & Brand Elevation</h3>
+          <p class="text-neutral-700 mb-4">Secured seven-figure annual partnerships with LG, GE, and Samsung, achieving <span class="font-semibold text-accent">4.5x return</span> by translating technical specs into compelling luxury narratives.</p>
+        </div>
+      </div>
+
+      <!-- Work 3 - Community Fridge -->
+      <div class="bg-white border border-neutral-200 rounded-2xl p-8 text-center">
+        <div class="text-xs tracking-widest uppercase text-accent font-semibold mb-2">Social Impact</div>
+        <h3 class="font-serif text-2xl mb-4">The Community Fridge Project</h3>
+        <p class="text-neutral-700 mb-4 max-w-xl mx-auto">Conceived and launched a national CSR program, donating 100+ refrigerators to address food insecurity. Featured in <span class="italic">The New York Times</span>.</p>
+        <p class="text-neutral-600 text-sm italic">"The amount of support we have received... exceeded anything I could have imagined." — Modern Luxury</p>
       </div>
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="py-24 bg-white">
-    <div class="max-w-6xl mx-auto px-6 md:px-10 lg:px-16 text-center">
-      <h2 class="font-serif text-5xl md:text-6xl mb-8 font-light">Let's build something unexpected.</h2>
-      <p class="text-neutral-700 text-xl mb-10 max-w-md mx-auto leading-relaxed">
-        I bring corporate-level strategy and storytelling to mission-driven work, helping organizations grow audiences and inspire real-world impact.
+  <!-- Contact -->
+  <section id="contact" class="bg-white py-20 text-center">
+    <div class="max-w-2xl mx-auto px-6">
+      <h2 class="font-serif text-4xl md:text-5xl mb-6">Let's build something unexpected.</h2>
+      <p class="text-neutral-700 text-lg mb-8">
+        I bring corporate-level strategy and storytelling to mission-driven work.
       </p>
       <div class="flex flex-wrap gap-4 justify-center">
-        <a href="mailto:va.mvharris@gmail.com" class="px-8 py-4 rounded-full bg-accent text-white font-semibold text-sm tracking-wide hover:bg-accent-light transition-colors">Get in Touch</a>
-        <a href="#" class="px-8 py-4 rounded-full border border-neutral-300 text-ink font-semibold text-sm tracking-wide hover:border-neutral-400 transition-colors">Download Resume</a>
+        <a href="mailto:va.mvharris@gmail.com?subject=Project Inquiry&body=Hi Marla, I'm reaching out because I'm interested in collaborating on..." class="px-6 py-3 rounded-full bg-accent text-white font-semibold text-sm tracking-wide hover:bg-accent-light transition-colors">Get in Touch</a>
+        <a href="mailto:va.mvharris@gmail.com?subject=Over virtual coffee&body=Hi Marla, I've been exploring your portfolio and would love to chat about..." class="px-6 py-3 rounded-full border border-neutral-300 text-ink font-semibold text-sm tracking-wide hover:border-neutral-400 transition-colors">Share a Virtual Coffee</a>
       </div>
-      <div class="mt-16 pt-10 border-t border-neutral-200">
-        <div class="text-sm text-neutral-500">
-          <p class="mb-2">Marla V. Harris</p>
-          <p class="mb-2">Strategic Marketing & Communications</p>
-          <p class="mb-2">va.mvharris@gmail.com</p>
-          <p class="text-xs text-neutral-400 mt-4">© 2023 Marla V. Harris. All rights reserved.</p>
-        </div>
+      <div class="mt-16 pt-8 border-t border-neutral-200 text-sm text-neutral-500">
+        <p class="mb-1">Marla V. Harris</p>
+        <p class="mb-1">va.mvharris@gmail.com</p>
+        <p class="text-xs text-neutral-400 mt-2">© 2023 Marla V. Harris. All rights reserved.</p>
       </div>
     </div>
   </section>
 
-  <!-- Mobile Menu Script -->
-  <script>
-    const mobileMenuButton = document.getElementById('mobileMenuButton');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const closeMenu = document.getElementById('closeMenu');
-
-    mobileMenuButton.addEventListener('click', () => {
-      mobileMenu.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    });
-
-    closeMenu.addEventListener('click', () => {
-      mobileMenu.classList.remove('open');
-      document.body.style.overflow = 'auto';
-    });
-
-    // Close menu when clicking on a link
-    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.remove('open');
-        document.body.style.overflow = 'auto';
-      });
-    });
-  </script>
 </body>
 </html>
