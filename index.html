@@ -121,31 +121,6 @@
       transform: scale(1.02);
       box-shadow: 0 20px 40px rgba(0,0,0,0.1);
     }
-    .hover-swap-container {
-      position: relative;
-      overflow: hidden;
-      cursor: pointer;
-    }
-    .hover-swap-image {
-      transition: opacity 0.5s ease;
-    }
-    .hover-swap-image.front {
-      position: relative;
-      z-index: 2;
-    }
-    .hover-swap-image.back {
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 1;
-      opacity: 0;
-    }
-    .hover-swap-container:hover .hover-swap-image.front {
-      opacity: 0;
-    }
-    .hover-swap-container:hover .hover-swap-image.back {
-      opacity: 1;
-    }
     .mobile-menu {
       transform: translateX(100%);
       transition: transform 0.4s ease;
@@ -467,7 +442,6 @@
             <p class="text-neutral-700 italic mb-4">"The AjMadison team strives to be an integral part of their local communities – and beyond. AjMadison and True Residential donated NYC's 55th Community Refrigerator in Harlem. Marla Harris, Operations Manager at AjMadison, led the charge on the initiative. "The AjMadison Community Fridge Initiative seeks to bring more visibility to food insecurity and celebrate these grassroots groups' amazing work. The amount of support we have received from partner brands, activists, and influencers exceeded anything I could have imagined." Influencers @CheapOldHouses, @FareIsle, @Manscapers, and @Brownstone Boys agreed to spread the word, and every day the project gains more momentum and support."</p>
             <div class="text-sm text-accent font-semibold">— Modern Luxury</div>
           </div>
-          <div class="text-[11px] tracking-[.2em] uppercase text-accent font-semibold"> Retail Sustainability → Social Impact → Brand Leadership </div>
         </div>
         <div class="grid grid-cols-2 gap-6">
           <div class="aspect-square bg-white rounded-2xl border border-accent/20 overflow-hidden image-hover">
@@ -475,12 +449,6 @@
           </div>
           <div class="aspect-square bg-white rounded-2xl border border-accent/20 overflow-hidden image-hover">
             <div class="w-full h-full bg-neutral-100 flex items-center justify-center text-neutral-400">Community Fridge Installation</div>
-          </div>
-          <div class="aspect-square bg-white rounded-2xl border border-accent/20 overflow-hidden image-hover">
-            <div class="w-full h-full bg-neutral-100 flex items-center justify-center text-neutral-400">NY Times Coverage</div>
-          </div>
-          <div class="aspect-square bg-white rounded-2xl border border-accent/20 overflow-hidden image-hover">
-            <div class="w-full h-full bg-neutral-100 flex items-center justify-center text-neutral-400">Partnership Event</div>
           </div>
         </div>
       </div>
@@ -493,17 +461,13 @@
             <p class="text-neutral-700 mb-4 leading-relaxed">
               Served as <span class="font-semibold text-accent">Editorial Operations Manager</span> for <span class="italic">AJ: The Appliance Journal</span>, a professional publication produced in partnership with SANDOW Media. Managed the end-to-end production of the luxury design magazine, coordinating across editorial, creative, and manufacturing teams to deliver a polished, brand-elevating publication.
             </p>
-            <div class="text-[11px] tracking-[.2em] uppercase text-accent font-semibold"> Print Production • Editorial Management • Luxury Brand Publishing </div>
           </div>
-          <!-- Hover-swap container for AJ Journal -->
           <div class="bg-white rounded-xl p-6 border border-accent/20 min-w-[200px] text-center image-hover">
-            <div class="aspect-[3/4] bg-neutral-100 rounded-lg overflow-hidden mb-3 hover-swap-container">
-              <div class="w-full h-full bg-neutral-200 flex items-center justify-center text-neutral-500 hover-swap-image front">AJ Journal Cover</div>
-              <div class="w-full h-full bg-neutral-200 flex items-center justify-center text-neutral-500 hover-swap-image back">Masthead</div>
+            <div class="aspect-[3/4] bg-neutral-100 rounded-lg overflow-hidden mb-3">
+              <div class="w-full h-full bg-neutral-200 flex items-center justify-center text-neutral-500">AJ Journal Cover</div>
             </div>
             <div class="text-sm font-semibold text-accent mb-1">AJ: The Appliance Journal</div>
             <div class="text-xs text-neutral-600">Published with SANDOW®</div>
-            <div class="text-xs text-accent mt-2 italic">Hover to see masthead</div>
           </div>
         </div>
       </div>
@@ -529,7 +493,6 @@
           <p class="text-neutral-700 mb-8 leading-relaxed text-lg">
             This insight became the foundation of my approach—combining data-driven strategy with human-centered storytelling to create marketing that doesn't just sell, but resonates.
           </p>
-          <div class="text-[11px] tracking-[.2em] uppercase text-accent font-semibold">Psychology • Strategy • Storytelling</div>
         </div>
         <div class="grid grid-cols-2 gap-6">
           <div class="aspect-square bg-white rounded-2xl border border-accent/20 overflow-hidden image-hover">
@@ -537,12 +500,6 @@
           </div>
           <div class="aspect-square bg-white rounded-2xl border border-accent/20 overflow-hidden image-hover">
             <div class="w-full h-full bg-neutral-100 flex items-center justify-center text-neutral-400">Luxury Marketing</div>
-          </div>
-          <div class="aspect-square bg-white rounded-2xl border border-accent/20 overflow-hidden image-hover">
-            <div class="w-full h-full bg-neutral-100 flex items-center justify-center text-neutral-400">Brand Strategy</div>
-          </div>
-          <div class="aspect-square bg-white rounded-2xl border border-accent/20 overflow-hidden image-hover">
-            <div class="w-full h-full bg-neutral-100 flex items-center justify-center text-neutral-400">Consumer Psychology</div>
           </div>
         </div>
       </div>
