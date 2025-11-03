@@ -31,7 +31,88 @@ tailwind.config = {
 </script>
 
 <style>
-  /* all your existing styles remain unchanged */
+  .bar { width: 84px; height: 3px; background:#990049; border-radius:999px; }
+  .gradient-bg { background: linear-gradient(135deg, #fff 0%, #fefafc 100%); }
+  .card-hover { transition: all 0.3s ease; }
+  .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(153, 0, 73, 0.15); }
+  
+  .nav-link { position:relative; }
+  .nav-link::after { 
+    content:""; 
+    position:absolute; 
+    left:0; right:0; bottom:-6px; height:1.5px; 
+    background:#990049; 
+    transform:scaleX(0); transform-origin:right; 
+    transition:transform .3s ease; 
+  }
+  .nav-link:hover::after { transform:scaleX(1); transform-origin:left; }
+
+  .stat-number { 
+    font-family: 'Playfair Display', serif;
+    background: linear-gradient(135deg, #990049 0%, #b2005f 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .brand-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; opacity: 0.7; transition: opacity 0.3s ease; }
+  .brand-grid:hover { opacity: 1; }
+  .brand-item { text-align: center; padding: 1.5rem; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .brand-logo { height: 40px; width: auto; margin-bottom: 0.5rem; filter: grayscale(100%); opacity: 0.7; transition: all 0.3s ease; }
+  .brand-item:hover .brand-logo { filter: grayscale(0%); opacity: 1; }
+  .brand-name { font-size: 0.75rem; font-weight: 600; color: #4b5563; letter-spacing: 0.05em; }
+
+  .publication-card { background: linear-gradient(135deg, #f8f6f2 0%, #ffffff 100%); border-left: 4px solid #990049; }
+  .image-hover { transition: all 0.3s ease; }
+  .image-hover:hover { transform: scale(1.02); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+
+  .hover-swap-container { position: relative; overflow: hidden; cursor: pointer; }
+  .hover-swap-image { transition: opacity 0.5s ease; }
+  .hover-swap-image.front { position: relative; z-index: 2; }
+  .hover-swap-image.back { position: absolute; top: 0; left: 0; z-index: 1; opacity: 0; }
+  .hover-swap-container:hover .hover-swap-image.front { opacity: 0; }
+  .hover-swap-container:hover .hover-swap-image.back { opacity: 1; }
+
+  .mobile-menu { transform: translateX(100%); transition: transform 0.4s ease; background: linear-gradient(135deg, #990049 0%, #b2005f 100%); }
+  .mobile-menu.open { transform: translateX(0); }
+  .mobile-nav-link { color: white; font-size: 1.5rem; font-weight: 300; letter-spacing: 0.05em; padding: 1rem 0; position: relative; transition: all 0.3s ease; }
+  .mobile-nav-link:hover { transform: translateX(10px); font-weight: 400; }
+  .mobile-nav-link::after { content: ''; position: absolute; bottom: 0.5rem; left: 0; width: 0; height: 1px; background: white; transition: width 0.3s ease; }
+  .mobile-nav-link:hover::after { width: 30px; }
+  .menu-close-btn { color: white; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; }
+  .menu-close-btn:hover { background: rgba(255,255,255,0.2); transform: rotate(90deg); }
+
+  button:focus, a:focus { outline: 2px solid #990049; outline-offset: 2px; }
+  .testimonial-card { background: linear-gradient(135deg, #ffffff 0%, #fefafc 100%); border: 1px solid rgba(153, 0, 73, 0.1); }
+  .campaign-image { min-height: 200px; max-height: 300px; }
+
+  /* Password Modal */
+  #passwordModal, #portfolioModal { 
+    position: fixed; 
+    inset:0; 
+    background: rgba(0,0,0,0.5); 
+    display:flex; 
+    align-items:center; 
+    justify-content:center; 
+    z-index:100; 
+    backdrop-filter: blur(4px);
+  }
+  #passwordModal.hidden, #portfolioModal.hidden { display: none; }
+  .password-input:focus {
+    border-color: #990049;
+    ring: 2px solid rgba(153, 0, 73, 0.2);
+  }
+
+  /* Copywriting samples */
+  .copy-sample {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    border-left: 4px solid #990049;
+    transition: all 0.3s ease;
+  }
+  .copy-sample:hover {
+    transform: translateX(8px);
+    box-shadow: 0 10px 30px rgba(153, 0, 73, 0.2);
+  }
 </style>
 </head>
 <body class="text-ink bg-paper antialiased">
@@ -68,111 +149,45 @@ tailwind.config = {
   </div>
 </div>
 
-<!-- Header -->
-<header class="gradient-bg border-b border-neutral-100">
-  <nav class="max-w-6xl mx-auto px-6 md:px-10 lg:px-16 h-20 flex items-center justify-between">
-    <a href="#" class="font-serif text-xl text-ink tracking-tight">Marla V. Harris</a>
-    <div class="hidden md:flex gap-8 text-[11px] tracking-[.2em] uppercase text-neutral-600 font-semibold">
-      <a href="#marketing" class="nav-link">Marketing</a>
-      <a href="#copywriting" class="nav-link">Copywriting</a>
-      <a href="#community" class="nav-link">Community</a>
-      <a href="#expertise" class="nav-link">Expertise</a>
-      <a href="#academic" class="nav-link" id="academicNav">Academic Work</a>
-      <a href="#portfolio" class="nav-link" id="portfolioNav">Full Portfolio</a>
-      <a href="#contact" class="nav-link">Contact</a>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <div class="max-w-6xl mx-auto px-6 md:px-10 lg:px-16 py-24 md:py-32">
-    <div class="text-[11px] tracking-[.2em] uppercase text-neutral-600 font-semibold mb-6">Strategic Marketing & Communications</div>
-    <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl leading-[1.02] max-w-5xl mb-8 font-light">
-      Where <span class="italic text-accent">Storytelling</span> Meets Systems.
-    </h1>
-    <div class="bar mb-10"></div>
-    <p class="text-neutral-800 text-xl md:text-2xl max-w-2xl leading-relaxed mb-10 font-light">
-      I translate <span class="font-semibold">complex data into human stories</span> that drive growth and build movements. A 9-year practice bridging technical fluency with narrative strategy for luxury, media, and global brands.
-    </p>
-    <div class="flex gap-4">
-      <a href="#marketing" class="px-8 py-4 rounded-full bg-accent text-white font-semibold text-sm tracking-wide hover:bg-accent-light transition-colors">View Signature Work</a>
-      <a href="#contact" class="px-8 py-4 rounded-full border border-neutral-300 text-ink font-semibold text-sm tracking-wide hover:border-neutral-400 transition-colors">Let's Talk</a>
-    </div>
+<!-- Academic Password Modal -->
+<div id="passwordModal" class="hidden">
+  <div class="bg-white rounded-2xl p-8 max-w-sm w-full mx-4 text-center shadow-2xl">
+    <h3 class="font-serif text-2xl mb-4 text-ink">Academic Portfolio Access</h3>
+    <p class="text-neutral-600 text-sm mb-4">Enter password to view academic publications and research</p>
+    <input type="password" id="passwordInput" class="password-input border border-neutral-300 rounded-lg p-3 w-full mb-4 focus:outline-none focus:border-accent" placeholder="Enter password" autocomplete="off">
+    <button id="passwordSubmit" class="px-6 py-3 rounded-full bg-accent text-white font-semibold hover:bg-accent-light transition-colors w-full">Access Portfolio</button>
+    <p id="passwordError" class="text-red-500 text-sm mt-2 hidden">Incorrect password</p>
   </div>
-</header>
+</div>
 
-<!-- Core Competencies (moved up) -->
-<section id="expertise" class="py-24 bg-accent-lighter">
-  <div class="max-w-6xl mx-auto px-6 md:px-10 lg:px-16">
-    <h2 class="font-serif text-5xl md:text-6xl mb-6 font-light">Core Expertise</h2>
-    <p class="text-neutral-700 text-xl max-w-2xl mb-12 leading-relaxed">A hybrid skill set, bridging analytical depth and creative vision.</p>
-    <div class="bar mb-16"></div>
-    
-    <div class="grid md:grid-cols-3 gap-8">
-      <!-- Column 1 -->
-      <div class="bg-white rounded-2xl p-8 card-hover border border-neutral-200">
-        <h3 class="font-serif text-xl mb-6 text-accent border-b border-neutral-200 pb-3">Content & Strategy</h3>
-        <ul class="text-neutral-700 text-sm space-y-3">
-          <li class="flex items-center"><span class="w-1.5 h-1.5 bg-accent rounded-full mr-3 flex-shrink-0"></span>Content Strategy</li>
-          <li class="flex items-center"><span class="w-1.5 h-1.5 bg-accent rounded-full mr-3 flex-shrink-0"></span>Audience Development</li>
-          <li class="flex items-center"><span class="w-1.5 h-1.5 bg-accent rounded-full mr-3 flex-shrink-0"></span>Brand Storytelling</li>
-          <li class="flex items-center"><span class="w-1.5 h-1.5 bg-accent rounded-full mr-3 flex-shrink-0"></span>Creative Briefing</li>
-          <li class="flex items-center"><span class="w-1.5 h-1.5 bg-accent rounded-full mr-3 flex-shrink-0"></span>Lifecycle Marketing</li>
-        </ul>
-      </div>
-      
-      <!-- Column 2 -->
-      <div class="bg-white rounded-2xl p-8 card-hover border border-neutral-200">
-        <h3 class="font-serif text-xl mb-6 text-accent border-b border-neutral-200 pb-3">Execution & Analysis</h3>
-        <ul class="text-neutral-700 text-sm space-y-3">
-          <li class="flex items-center"><span class="w-1.5 h-1.5 bg-accent rounded-full mr-3 flex-shrink-0"></span>CRM Strategy & Operations</li>
-          <li class="flex items-center"><span class="w-1.5 h-1.5 bg-accent rounded-full mr-3 flex-shrink-0"></span>Segmentation & Automation</li>
-          <li class="flex items-center"><span class="w-1.5 h-1.5 bg-accent rounded-full mr-3 flex-shrink-0"></span>Cross-Functional Leadership</li>
-          <li class="flex items-center"><span class="w-1.5 h-1.5 bg-accent rounded-full mr-3 flex-shrink-0"></span>Performance Analysis</li>
-          <li class="flex items-center"><span class="w-1.5 h-1.5 bg-accent rounded-full mr-3 flex-shrink-0"></span>Budget & Partnership Management</li>
-        </ul>
-      </div>
-
-      <!-- Column 3 -->
-      <div class="bg-white rounded-2xl p-8 card-hover border border-neutral-200">
-        <h3 class="font-serif text-xl mb-6 text-accent border-b border-neutral-200 pb-3">Platforms & Tools</h3>
-        <ul class="text-neutral-700 text-sm space-y-3">
-          <li class="flex items-center"><span class="w-1.5 h-1.5 bg-accent rounded-full mr-3 flex-shrink-0"></span>Salesforce Marketing Cloud</li>
-          <li class="flex items-center"><span class="w-1.5 h-1.5 bg-accent rounded-full mr-3 flex-shrink-0"></span>Klaviyo, Braze, Mailchimp</li>
-          <li class="flex items-center"><span class="w-1.5 h-1.5 bg-accent rounded-full mr-3 flex-shrink-0"></span>Google Analytics (GA4), Looker</li>
-          <li class="flex items-center"><span class="w-1.5 h-1.5 bg-accent rounded-full mr-3 flex-shrink-0"></span>Adobe Creative Suite</li>
-          <li class="flex items-center"><span class="w-1.5 h-1.5 bg-accent rounded-full mr-3 flex-shrink-0"></span>Shopify, WordPress, HTML/CSS</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Selected Collaborations (text tiles instead of logos) -->
-<section class="py-16 bg-white border-y border-neutral-200">
-  <div class="max-w-6xl mx-auto px-6 md:px-10 lg:px-16">
-    <div class="text-center mb-12">
-      <h3 class="font-serif text-2xl md:text-3xl mb-4 text-ink">Selected Collaborations</h3>
-      <p class="text-neutral-600 text-sm max-w-md mx-auto">Building narratives across media, luxury, and technology</p>
-    </div>
-
-    <div class="grid md:grid-cols-4 gap-6 text-center">
-      <div class="p-6 bg-accent-lighter rounded-xl font-semibold text-neutral-800 hover:bg-accent-light hover:text-white transition-colors">Rolling Stone</div>
-      <div class="p-6 bg-accent-lighter rounded-xl font-semibold text-neutral-800 hover:bg-accent-light hover:text-white transition-colors">Billboard</div>
-      <div class="p-6 bg-accent-lighter rounded-xl font-semibold text-neutral-800 hover:bg-accent-light hover:text-white transition-colors">WWD</div>
-      <div class="p-6 bg-accent-lighter rounded-xl font-semibold text-neutral-800 hover:bg-accent-light hover:text-white transition-colors">Sportico</div>
-      <div class="p-6 bg-accent-lighter rounded-xl font-semibold text-neutral-800 hover:bg-accent-light hover:text-white transition-colors">Issey Miyake</div>
-      <div class="p-6 bg-accent-lighter rounded-xl font-semibold text-neutral-800 hover:bg-accent-light hover:text-white transition-colors">AJ Madison</div>
-      <div class="p-6 bg-accent-lighter rounded-xl font-semibold text-neutral-800 hover:bg-accent-light hover:text-white transition-colors">Samsung</div>
-      <div class="p-6 bg-accent-lighter rounded-xl font-semibold text-neutral-800 hover:bg-accent-light hover:text-white transition-colors">GE Appliances</div>
-    </div>
-  </div>
-</section>
-
-<!-- The rest of your portfolio sections (Marketing, Copywriting, Community, Academic, Portfolio, Contact, Footer) remain unchanged -->
-
+<!-- Scripts -->
 <script>
-  /* Your existing JS (mobile menu, password modals, etc.) remains unchanged */
-</script>
+  const mobileMenuButton = document.getElementById('mobileMenuButton');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const closeMenu = document.getElementById('closeMenu');
 
+  mobileMenuButton.addEventListener('click', () => mobileMenu.classList.add('open'));
+  closeMenu.addEventListener('click', () => mobileMenu.classList.remove('open'));
+
+  // Password Modal
+  const passwordModal = document.getElementById('passwordModal');
+  const passwordSubmit = document.getElementById('passwordSubmit');
+  const passwordInput = document.getElementById('passwordInput');
+  const passwordError = document.getElementById('passwordError');
+
+  document.getElementById('academicMobileNav').addEventListener('click', (e) => {
+    e.preventDefault();
+    passwordModal.classList.remove('hidden');
+  });
+
+  passwordSubmit.addEventListener('click', () => {
+    if(passwordInput.value === 'marla123') {
+      passwordModal.classList.add('hidden');
+      window.location.href = '#academic';
+    } else {
+      passwordError.classList.remove('hidden');
+    }
+  });
+</script>
 </body>
 </html>
