@@ -114,13 +114,6 @@
       background: linear-gradient(135deg, #f8f6f2 0%, #ffffff 100%);
       border-left: 4px solid #990049;
     }
-    .image-hover {
-      transition: all 0.3s ease;
-    }
-    .image-hover:hover {
-      transform: scale(1.02);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-    }
     .mobile-menu {
       transform: translateX(100%);
       transition: transform 0.4s ease;
@@ -161,45 +154,32 @@
       background: linear-gradient(135deg, #ffffff 0%, #fefafc 100%);
       border: 1px solid rgba(153, 0, 73, 0.1);
     }
-    .campaign-image {
-      min-height: 200px; max-height: 300px;
-    }
-    /* Clickable quote */
-    .clickable-quote {
-      cursor: pointer;
-      transition: all 0.3s ease;
-      position: relative;
-    }
-    .clickable-quote:hover {
-      transform: translateY(-3px);
-      text-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
-    }
-    .clickable-quote::after {
-      content: "Learn more";
-      position: absolute;
-      bottom: -30px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 0.8rem;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      color: rgba(255, 255, 255, 0.8);
-      font-family: 'Inter', sans-serif;
-      font-weight: 400;
-    }
-    .clickable-quote:hover::after {
-      opacity: 1;
-    }
-    /* Monogram logo styles */
-    .monogram-logo {
+    /* Simplified brand logos */
+    .brand-logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #990049;
+      letter-spacing: 0.05em;
       transition: all 0.3s ease;
     }
-    .brand-item:hover .monogram-logo {
-      background: #990049;
+    .brand-item:hover .brand-logo {
+      color: #b2005f;
       transform: scale(1.1);
     }
-    .brand-item:hover .monogram-logo div {
-      color: white;
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 12px;
+      background: rgba(153, 0, 73, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+    .feature-icon svg {
+      width: 28px;
+      height: 28px;
+      color: #990049;
     }
   </style>
 </head>
@@ -266,7 +246,7 @@
   <!-- Signature Quote Section -->
   <section class="py-20 bg-accent text-white">
     <div class="max-w-4xl mx-auto px-6 md:px-10 lg:px-16 text-center">
-      <a href="#about" class="clickable-quote">
+      <a href="#about">
         <blockquote class="font-serif text-3xl md:text-5xl lg:text-6xl leading-tight italic mb-6">
           "If I can sell a $300 bra, I can sell anything."
         </blockquote>
@@ -279,7 +259,7 @@
     </div>
   </section>
 
-  <!-- Brand Relationships - Using Monogram Style -->
+  <!-- Brand Relationships - Simplified Style -->
   <section class="py-16 bg-white border-y border-neutral-200">
     <div class="max-w-6xl mx-auto px-6 md:px-10 lg:px-16">
       <div class="text-center mb-12">
@@ -288,52 +268,28 @@
       </div>
       <div class="brand-grid">
         <div class="brand-item">
-          <div class="monogram-logo bg-accent-lighter rounded-xl p-4 mb-3">
-            <div class="text-accent font-serif text-2xl font-bold">RS</div>
-          </div>
-          <div class="brand-name text-sm">ROLLING STONE</div>
+          <div class="brand-logo mb-3">ROLLING STONE</div>
         </div>
         <div class="brand-item">
-          <div class="monogram-logo bg-accent-lighter rounded-xl p-4 mb-3">
-            <div class="text-accent font-serif text-2xl font-bold">BB</div>
-          </div>
-          <div class="brand-name text-sm">BILLBOARD</div>
+          <div class="brand-logo mb-3">BILLBOARD</div>
         </div>
         <div class="brand-item">
-          <div class="monogram-logo bg-accent-lighter rounded-xl p-4 mb-3">
-            <div class="text-accent font-serif text-2xl font-bold">WWD</div>
-          </div>
-          <div class="brand-name text-sm">WWD</div>
+          <div class="brand-logo mb-3">WWD</div>
         </div>
         <div class="brand-item">
-          <div class="monogram-logo bg-accent-lighter rounded-xl p-4 mb-3">
-            <div class="text-accent font-serif text-2xl font-bold">SP</div>
-          </div>
-          <div class="brand-name text-sm">SPORTICO</div>
+          <div class="brand-logo mb-3">SPORTICO</div>
         </div>
         <div class="brand-item">
-          <div class="monogram-logo bg-accent-lighter rounded-xl p-4 mb-3">
-            <div class="text-accent font-serif text-2xl font-bold">IM</div>
-          </div>
-          <div class="brand-name text-sm">ISSEY MIYAKE</div>
+          <div class="brand-logo mb-3">ISSEY MIYAKE</div>
         </div>
         <div class="brand-item">
-          <div class="monogram-logo bg-accent-lighter rounded-xl p-4 mb-3">
-            <div class="text-accent font-serif text-2xl font-bold">AJ</div>
-          </div>
-          <div class="brand-name text-sm">AJ MADISON</div>
+          <div class="brand-logo mb-3">AJ MADISON</div>
         </div>
         <div class="brand-item">
-          <div class="monogram-logo bg-accent-lighter rounded-xl p-4 mb-3">
-            <div class="text-accent font-serif text-2xl font-bold">SS</div>
-          </div>
-          <div class="brand-name text-sm">SAMSUNG</div>
+          <div class="brand-logo mb-3">SAMSUNG</div>
         </div>
         <div class="brand-item">
-          <div class="monogram-logo bg-accent-lighter rounded-xl p-4 mb-3">
-            <div class="text-accent font-serif text-2xl font-bold">GE</div>
-          </div>
-          <div class="brand-name text-sm">GE APPLIANCES</div>
+          <div class="brand-logo mb-3">GE APPLIANCES</div>
         </div>
       </div>
     </div>
@@ -371,34 +327,42 @@
         <div class="grid md:grid-cols-2 gap-8">
           <div class="space-y-6">
             <div class="bg-white rounded-2xl p-8 card-hover border border-accent/20">
+              <div class="feature-icon">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                </svg>
+              </div>
               <h4 class="font-serif text-xl mb-3 text-accent">Penske Media: Black Friday Strategy</h4>
               <p class="text-neutral-700 text-sm leading-relaxed">Architected cross-platform content journeys for <strong>Rolling Stone, Billboard, and WWD</strong>, blending editorial insight with data-driven segmentation to drive a <strong>17% YoY Black Friday conversion lift</strong> across the media portfolio.</p>
-              <div class="mt-4 bg-neutral-100 rounded-xl border border-neutral-200 overflow-hidden image-hover campaign-image">
-                <img src="https://images.unsplash.com/photo-1664575198263-269a022d6f14?w=600&h=300&fit=crop" alt="Penske Media Campaign" class="w-full h-full object-cover">
-              </div>
             </div>
             <div class="bg-white rounded-2xl p-8 card-hover border border-accent/20">
+              <div class="feature-icon">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path>
+                </svg>
+              </div>
               <h4 class="font-serif text-xl mb-3 text-accent">Luxury Product Launches</h4>
               <p class="text-neutral-700 text-sm leading-relaxed">Bridged design, culture, and technology for <strong>Issey Miyake</strong>, increasing conversions 15% and reducing cost-per-conversion 30% through A/B testing and UX refinement.</p>
-              <div class="mt-4 bg-neutral-100 rounded-xl border border-neutral-200 overflow-hidden image-hover campaign-image">
-                <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=300&fit=crop" alt="Issey Miyake Launch" class="w-full h-full object-cover">
-              </div>
             </div>
           </div>
           <div class="space-y-6">
             <div class="bg-white rounded-2xl p-8 card-hover border border-accent/20">
+              <div class="feature-icon">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                </svg>
+              </div>
               <h4 class="font-serif text-xl mb-3 text-accent">AJ Madison: Partnership Strategy</h4>
               <p class="text-neutral-700 text-sm leading-relaxed">Secured <strong>7-figure annual partnerships with LG, GE, and Samsung</strong>, managing a <strong>$2M+ budget</strong> and achieving <strong>4.5x+ ROAS</strong> through premium creative that elevated the retail brand into a luxury destination.</p>
-              <div class="mt-4 bg-neutral-100 rounded-xl border border-neutral-200 overflow-hidden image-hover campaign-image">
-                <img src="https://images.unsplash.com/photo-1563013541-3fad6f061cf4?w=600&h=300&fit=crop" alt="AJ Madison Partnership" class="w-full h-full object-cover">
-              </div>
             </div>
             <div class="bg-white rounded-2xl p-8 card-hover border border-accent/20">
+              <div class="feature-icon">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                </svg>
+              </div>
               <h4 class="font-serif text-xl mb-3 text-accent">Technical Translation & Narrative</h4>
               <p class="text-neutral-700 text-sm leading-relaxed">Translated complex technical specs into compelling consumer narratives—marketing induction cooking by illustrating its <strong>85% energy efficiency vs. ~35% for gas</strong>, driving both sales and sustainable brand positioning.</p>
-              <div class="mt-4 bg-neutral-100 rounded-xl border border-neutral-200 overflow-hidden image-hover campaign-image">
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=300&fit=crop" alt="Technical Campaign" class="w-full h-full object-cover">
-              </div>
             </div>
           </div>
         </div>
@@ -462,49 +426,42 @@
       <div class="bar mb-12"></div>
 
       <!-- Community Fridge Project -->
-      <div class="grid md:grid-cols-2 gap-16 items-center mb-20">
-        <div>
-          <h3 class="font-serif text-3xl md:text-4xl mb-6 font-light">The Community Fridge Project</h3>
-          <p class="text-neutral-700 mb-6 leading-relaxed text-lg">
-            Conceived, pitched, and launched a national corporate social responsibility program from the ground up. Built partnerships with <span class="font-semibold text-accent">True Refrigeration</span> and grassroots organizations, donating <span class="font-semibold text-accent">100+ scratch-and-dent refrigerators</span> to address food insecurity while reducing retail waste.
-          </p>
-          <p class="text-neutral-700 mb-8 leading-relaxed text-lg">
-            The initiative cemented a belief that marketing's highest purpose is to mobilize resources and build community, earning national coverage in <span class="italic text-accent">The New York Times</span>.
-          </p>
-
-          <!-- TESTIMONIAL ADDED -->
-          <div class="testimonial-card rounded-2xl p-6 mb-6">
-            <p class="text-neutral-700 italic mb-4">"The AjMadison team strives to be an integral part of their local communities – and beyond. AjMadison and True Residential donated NYC's 55th Community Refrigerator in Harlem. Marla Harris, Operations Manager at AjMadison, led the charge on the initiative. "The AjMadison Community Fridge Initiative seeks to bring more visibility to food insecurity and celebrate these grassroots groups' amazing work. The amount of support we have received from partner brands, activists, and influencers exceeded anything I could have imagined." Influencers @CheapOldHouses, @FareIsle, @Manscapers, and @Brownstone Boys agreed to spread the word, and every day the project gains more momentum and support."</p>
-            <div class="text-sm text-accent font-semibold">— Modern Luxury</div>
+      <div class="mb-20">
+        <div class="grid md:grid-cols-2 gap-16 items-center">
+          <div>
+            <h3 class="font-serif text-3xl md:text-4xl mb-6 font-light">The Community Fridge Project</h3>
+            <p class="text-neutral-700 mb-6 leading-relaxed text-lg">
+              Conceived, pitched, and launched a national corporate social responsibility program from the ground up. Built partnerships with <span class="font-semibold text-accent">True Refrigeration</span> and grassroots organizations, donating <span class="font-semibold text-accent">100+ scratch-and-dent refrigerators</span> to address food insecurity while reducing retail waste.
+            </p>
+            <p class="text-neutral-700 mb-8 leading-relaxed text-lg">
+              The initiative cemented a belief that marketing's highest purpose is to mobilize resources and build community, earning national coverage in <span class="italic text-accent">The New York Times</span>.
+            </p>
+          </div>
+          <div class="bg-accent-lighter rounded-2xl p-8">
+            <div class="feature-icon mx-auto">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path>
+              </svg>
+            </div>
+            <h4 class="font-serif text-xl text-center mb-4 text-accent">Community Impact</h4>
+            <p class="text-neutral-700 text-center">100+ refrigerators donated to address food insecurity nationwide.</p>
           </div>
         </div>
-        <div class="grid grid-cols-2 gap-6">
-          <div class="aspect-square bg-white rounded-2xl border border-accent/20 overflow-hidden image-hover">
-            <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=400&h=400&fit=crop" alt="Community Fridge Project" class="w-full h-full object-cover">
-          </div>
-          <div class="aspect-square bg-white rounded-2xl border border-accent/20 overflow-hidden image-hover">
-            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop" alt="Community Fridge Installation" class="w-full h-full object-cover">
-          </div>
+
+        <!-- TESTIMONIAL -->
+        <div class="testimonial-card rounded-2xl p-6 mt-8">
+          <p class="text-neutral-700 italic mb-4">"The AjMadison team strives to be an integral part of their local communities – and beyond. AjMadison and True Residential donated NYC's 55th Community Refrigerator in Harlem. Marla Harris, Operations Manager at AjMadison, led the charge on the initiative. "The AjMadison Community Fridge Initiative seeks to bring more visibility to food insecurity and celebrate these grassroots groups' amazing work. The amount of support we have received from partner brands, activists, and influencers exceeded anything I could have imagined." Influencers @CheapOldHouses, @FareIsle, @Manscapers, and @Brownstone Boys agreed to spread the word, and every day the project gains more momentum and support."</p>
+          <div class="text-sm text-accent font-semibold">— Modern Luxury</div>
         </div>
       </div>
 
-      <!-- Publication Credit -->
+      <!-- Publication Credit - Cleaned up version -->
       <div class="publication-card rounded-2xl p-8 md:p-10">
-        <div class="flex flex-col md:flex-row gap-8 items-start">
-          <div class="flex-1">
-            <h3 class="font-serif text-2xl md:text-3xl mb-4 text-ink">Editorial Operations</h3>
-            <p class="text-neutral-700 mb-4 leading-relaxed">
-              Served as <span class="font-semibold text-accent">Editorial Operations Manager</span> for <span class="italic">AJ: The Appliance Journal</span>, a professional publication produced in partnership with SANDOW Media. Managed the end-to-end production of the luxury design magazine, coordinating across editorial, creative, and manufacturing teams to deliver a polished, brand-elevating publication.
-            </p>
-          </div>
-          <div class="bg-white rounded-xl p-6 border border-accent/20 min-w-[200px] text-center image-hover">
-            <div class="aspect-[3/4] bg-neutral-100 rounded-lg overflow-hidden mb-3">
-              <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=200&h=267&fit=crop" alt="AJ Journal Cover" class="w-full h-full object-cover">
-            </div>
-            <div class="text-sm font-semibold text-accent mb-1">AJ: The Appliance Journal</div>
-            <div class="text-xs text-neutral-600">Published with SANDOW®</div>
-          </div>
-        </div>
+        <h3 class="font-serif text-2xl md:text-3xl mb-4 text-ink">Editorial Operations</h3>
+        <p class="text-neutral-700 mb-4 leading-relaxed">
+          Served as <span class="font-semibold text-accent">Editorial Operations Manager</span> for <span class="italic">AJ: The Appliance Journal</span>, a professional publication produced in partnership with SANDOW Media. Managed the end-to-end production of the luxury design magazine, coordinating across editorial, creative, and manufacturing teams to deliver a polished, brand-elevating publication.
+        </p>
+        <div class="text-[11px] tracking-[.2em] uppercase text-accent font-semibold mt-6">PUBLISHED WITH SANDOW MEDIA</div>
       </div>
     </div>
   </section>
@@ -530,11 +487,23 @@
           </p>
         </div>
         <div class="grid grid-cols-2 gap-6">
-          <div class="aspect-square bg-white rounded-2xl border border-accent/20 overflow-hidden image-hover">
-            <img src="https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=400&h=400&fit=crop" alt="Early Career" class="w-full h-full object-cover">
+          <div class="bg-white rounded-2xl p-6 border border-accent/20 flex flex-col items-center justify-center text-center">
+            <div class="feature-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+              </svg>
+            </div>
+            <h4 class="font-serif text-lg mb-2 text-accent">Marketing Philosophy</h4>
+            <p class="text-neutral-700 text-sm">People buy better versions of themselves, not just products.</p>
           </div>
-          <div class="aspect-square bg-white rounded-2xl border border-accent/20 overflow-hidden image-hover">
-            <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?w=400&h=400&fit=crop" alt="Luxury Marketing" class="w-full h-full object-cover">
+          <div class="bg-white rounded-2xl p-6 border border-accent/20 flex flex-col items-center justify-center text-center">
+            <div class="feature-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+            </div>
+            <h4 class="font-serif text-lg mb-2 text-accent">Strategic Approach</h4>
+            <p class="text-neutral-700 text-sm">Data-driven strategy meets human-centered storytelling.</p>
           </div>
         </div>
       </div>
@@ -593,32 +562,43 @@
         I bring corporate-level strategy and storytelling to mission-driven work, helping organizations grow audiences and inspire real-world impact.
       </p>
       <div class="flex flex-wrap gap-4 justify-center">
-        <a href="mailto:va.mvharris@gmail.com" class="px-8 py-4 rounded-full bg-accent text-white font-semibold text-sm tracking-wide hover:bg-accent-light transition-colors">Email Me</a>
-        <a href="https://linkedin.com/in/marla-harris-047b2946" class="px-8 py-4 rounded-full border border-accent text-accent font-semibold text-sm tracking-wide hover:bg-accent hover:text-white transition-colors">LinkedIn</a>
-        <a href="#marketing" class="px-8 py-4 rounded-full border border-accent text-accent font-semibold text-sm tracking-wide hover:bg-accent hover:text-white transition-colors">View Work</a>
+        <a href="mailto:va.mvharris@gmail.com" class="px-8 py-4 rounded-full bg-accent text-white font-semibold text-sm tracking-wide hover:bg-accent-light transition-colors">Get in Touch</a>
+        <a href="#" class="px-8 py-4 rounded-full border border-neutral-300 text-ink font-semibold text-sm tracking-wide hover:border-neutral-400 transition-colors">Download Resume</a>
+      </div>
+      <div class="mt-16 pt-10 border-t border-neutral-200">
+        <div class="text-sm text-neutral-500">
+          <p class="mb-2">Marla V. Harris</p>
+          <p class="mb-2">Strategic Marketing & Communications</p>
+          <p class="mb-2">va.mvharris@gmail.com</p>
+          <p class="text-xs text-neutral-400 mt-4">© 2023 Marla V. Harris. All rights reserved.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <footer class="py-10 border-t border-neutral-200 bg-white">
-    <div class="max-w-6xl mx-auto px-6 md:px-10 lg:px-16 text-center">
-      <div class="text-[10px] tracking-[.25em] uppercase text-neutral-600">© 2024 Marla V. Harris</div>
-    </div>
-  </footer>
-
+  <!-- Mobile Menu Script -->
   <script>
-    // Mobile menu functionality
     const mobileMenuButton = document.getElementById('mobileMenuButton');
     const mobileMenu = document.getElementById('mobileMenu');
     const closeMenu = document.getElementById('closeMenu');
+
     mobileMenuButton.addEventListener('click', () => {
       mobileMenu.classList.add('open');
+      document.body.style.overflow = 'hidden';
     });
+
     closeMenu.addEventListener('click', () => {
       mobileMenu.classList.remove('open');
+      document.body.style.overflow = 'auto';
     });
-    document.querySelectorAll('#mobileMenu a').forEach(link => {
-      link.addEventListener('click', () => mobileMenu.classList.remove('open'));
+
+    // Close menu when clicking on a link
+    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = 'auto';
+      });
     });
   </script>
 </body>
