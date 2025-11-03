@@ -59,7 +59,7 @@
     }
     .brand-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
       gap: 1rem;
       opacity: 0.6;
     }
@@ -106,20 +106,8 @@
     </div>
   </section>
 
-  <!-- Quote Banner - Full Width with original styling -->
-  <section class="w-full bg-accent-lighter py-16 md:py-20">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <blockquote class="font-serif text-3xl md:text-5xl lg:text-6xl leading-tight italic mb-6 text-accent">
-        “If I can sell a $300 bra, I can sell anything.”
-      </blockquote>
-      <p class="text-neutral-600 text-lg md:text-xl max-w-md mx-auto mt-6">
-        From luxury intimates to global media and nonprofit impact.
-      </p>
-    </div>
-  </section>
-
-  <!-- Brand Logos - 3x3 Grid -->
-  <section class="max-w-4xl mx-auto px-6 py-16 border-y border-neutral-200 bg-white/50">
+  <!-- Brand Logos - Simplified -->
+  <section class="max-w-4xl mx-auto px-6 py-12 border-y border-neutral-200 bg-white/50">
     <div class="brand-grid">
       <div class="brand-item">ROLLING STONE</div>
       <div class="brand-item">BILLBOARD</div>
@@ -144,8 +132,11 @@
         </p>
       </div>
       <div class="bg-white rounded-2xl p-8 border border-accent/20">
-        <p class="text-neutral-600 text-center text-lg">
-          The psychology remains the same whether it's luxury lingerie, media subscriptions, or high-end appliances.
+        <blockquote class="font-serif text-2xl md:text-3xl italic text-accent mb-4 text-center">
+          “If I can sell a $300 bra, I can sell anything.”
+        </blockquote>
+        <p class="text-neutral-600 text-center text-sm">
+          — From luxury intimates to global media and nonprofit impact.
         </p>
       </div>
     </div>
@@ -181,24 +172,22 @@
     <p class="text-neutral-700 text-xl mb-12 max-w-2xl">Driving growth through data-informed strategy and creative execution.</p>
     <div class="bar mb-12"></div>
 
-    <!-- Performance Metrics on Black Background -->
-    <div class="bg-black text-white rounded-2xl p-8 md:p-12 mb-16">
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="text-center p-6">
-          <div class="text-5xl md:text-6xl font-serif mb-3 text-white">17%</div>
-          <div class="text-sm text-neutral-300 font-semibold">Sales growth</div>
-          <div class="text-xs text-accent mt-2">Year-over-year</div>
-        </div>
-        <div class="text-center p-6">
-          <div class="text-5xl md:text-6xl font-serif mb-3 text-white">15%</div>
-          <div class="text-sm text-neutral-300 font-semibold">Cost reduction</div>
-          <div class="text-xs text-accent mt-2">While maintaining results</div>
-        </div>
-        <div class="text-center p-6">
-          <div class="text-5xl md:text-6xl font-serif mb-3 text-white">4.5x</div>
-          <div class="text-sm text-neutral-300 font-semibold">Return on spend</div>
-          <div class="text-xs text-accent mt-2">For every dollar invested</div>
-        </div>
+    <!-- Performance Metrics -->
+    <div class="grid md:grid-cols-3 gap-8 mb-16">
+      <div class="text-center p-8 bg-white border border-neutral-200 rounded-2xl">
+        <div class="text-5xl md:text-6xl font-serif mb-3 text-accent">17%</div>
+        <div class="text-sm text-neutral-600 font-semibold">Sales growth</div>
+        <div class="text-xs text-accent mt-2">Year-over-year</div>
+      </div>
+      <div class="text-center p-8 bg-white border border-neutral-200 rounded-2xl">
+        <div class="text-5xl md:text-6xl font-serif mb-3 text-accent">15%</div>
+        <div class="text-sm text-neutral-600 font-semibold">Cost reduction</div>
+        <div class="text-xs text-accent mt-2">While maintaining results</div>
+      </div>
+      <div class="text-center p-8 bg-white border border-neutral-200 rounded-2xl">
+        <div class="text-5xl md:text-6xl font-serif mb-3 text-accent">4.5x</div>
+        <div class="text-sm text-neutral-600 font-semibold">Return on spend</div>
+        <div class="text-xs text-accent mt-2">For every dollar invested</div>
       </div>
     </div>
 
@@ -208,7 +197,7 @@
         <div class="bg-accent-lighter rounded-2xl p-8">
           <div class="text-xs tracking-widest uppercase text-accent font-semibold mb-2">Penske Media</div>
           <h3 class="font-serif text-2xl mb-4">Black Friday Portfolio Strategy</h3>
-          <p class="text-neutral-700 text-xl mb-4 leading-relaxed">Architected cross-platform content for Rolling Stone, Billboard, and WWD, driving a <span class="font-semibold text-accent">17% sales growth</span> across the media portfolio.</p>
+          <p class="text-neutral-700 mb-4">Architected cross-platform content for Rolling Stone, Billboard, and WWD, driving a <span class="font-semibold text-accent">17% sales growth</span> across the media portfolio.</p>
         </div>
         <div class="text-center p-6">
           <div class="stat-number text-6xl font-serif mb-2">17%</div>
@@ -225,7 +214,7 @@
         <div class="order-1 md:order-2 bg-accent-lighter rounded-2xl p-8">
           <div class="text-xs tracking-widest uppercase text-accent font-semibold mb-2">AJ Madison</div>
           <h3 class="font-serif text-2xl mb-4">Partnership & Brand Elevation</h3>
-          <p class="text-neutral-700 text-xl mb-4 leading-relaxed">Secured seven-figure annual partnerships with LG, GE, and Samsung, achieving <span class="font-semibold text-accent">4.5x return</span> by translating technical specs into compelling luxury narratives.</p>
+          <p class="text-neutral-700 mb-4">Secured seven-figure annual partnerships with LG, GE, and Samsung, achieving <span class="font-semibold text-accent">4.5x return</span> by translating technical specs into compelling luxury narratives.</p>
         </div>
       </div>
 
@@ -233,8 +222,8 @@
       <div class="bg-white border border-neutral-200 rounded-2xl p-8 text-center">
         <div class="text-xs tracking-widest uppercase text-accent font-semibold mb-2">Social Impact</div>
         <h3 class="font-serif text-2xl mb-4">The Community Fridge Project</h3>
-        <p class="text-neutral-700 text-xl mb-4 max-w-xl mx-auto leading-relaxed">Conceived and launched a national CSR program, donating 100+ refrigerators to address food insecurity. Featured in <span class="italic">The New York Times</span>.</p>
-        <p class="text-neutral-600 text-lg italic">"The amount of support we have received... exceeded anything I could have imagined." — Modern Luxury</p>
+        <p class="text-neutral-700 mb-4 max-w-xl mx-auto">Conceived and launched a national CSR program, donating 100+ refrigerators to address food insecurity. Featured in <span class="italic">The New York Times</span>.</p>
+        <p class="text-neutral-600 text-sm italic">"The amount of support we have received... exceeded anything I could have imagined." — Modern Luxury</p>
       </div>
     </div>
   </section>
