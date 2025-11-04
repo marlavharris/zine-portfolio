@@ -31,7 +31,7 @@
       font-family: 'Inter', sans-serif;
       color: var(--ink);
       background: var(--paper);
-      line-height: 1.6;
+      line-height: 1.5;
     }
     
     .container {
@@ -51,7 +51,7 @@
       height: 3px;
       background: var(--accent);
       border-radius: 999px;
-      margin: 1.5rem 0;
+      margin: 1rem 0;
     }
     
     /* Header */
@@ -67,7 +67,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.5rem 0;
+      padding: 1rem 0;
     }
     
     .logo {
@@ -113,21 +113,20 @@
     /* Hero */
     .hero {
       text-align: center;
-      padding: 6rem 0;
+      padding: 4rem 0;
     }
     
     .hero h1 {
-      font-size: clamp(3rem, 8vw, 6rem);
-      margin-bottom: 2rem;
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      margin-bottom: 1.5rem;
       font-weight: 300;
     }
     
     .hero p {
-      font-size: 1.5rem;
+      font-size: 1.25rem;
       color: var(--neutral-700);
       max-width: 600px;
-      margin: 0 auto 3rem;
-      line-height: 1.6;
+      margin: 0 auto 2rem;
     }
     
     .btn-group {
@@ -138,7 +137,7 @@
     }
     
     .btn {
-      padding: 1rem 2rem;
+      padding: 0.875rem 1.75rem;
       border-radius: 999px;
       font-weight: 600;
       text-decoration: none;
@@ -167,22 +166,22 @@
     
     /* Services */
     .services {
-      padding: 5rem 0;
+      padding: 4rem 0;
       background: white;
     }
     
     .section-header {
       text-align: center;
-      margin-bottom: 4rem;
+      margin-bottom: 3rem;
     }
     
     .section-header h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1.5rem;
+      font-size: 2.25rem;
+      margin-bottom: 1rem;
     }
     
     .section-header p {
-      font-size: 1.25rem;
+      font-size: 1.125rem;
       color: var(--neutral-700);
       max-width: 500px;
       margin: 0 auto;
@@ -191,14 +190,14 @@
     .services-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
+      gap: 1.5rem;
     }
     
     .service-card {
       background: var(--paper);
       border: 1px solid var(--neutral-200);
-      border-radius: 1rem;
-      padding: 2.5rem;
+      border-radius: 0.75rem;
+      padding: 2rem;
       transition: all 0.3s ease;
       display: flex;
       flex-direction: column;
@@ -206,25 +205,26 @@
     }
     
     .service-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.05);
     }
     
     .service-icon {
-      font-size: 2.5rem;
-      margin-bottom: 1.5rem;
+      font-size: 2rem;
+      margin-bottom: 1rem;
       color: var(--accent);
     }
     
     .service-card h3 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
     }
     
     .service-card p {
       color: var(--neutral-700);
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.25rem;
       flex-grow: 1;
+      font-size: 0.95rem;
     }
     
     .service-features {
@@ -232,10 +232,11 @@
     }
     
     .service-features li {
-      padding: 0.5rem 0;
+      padding: 0.375rem 0;
       color: var(--neutral-700);
       position: relative;
-      padding-left: 1.5rem;
+      padding-left: 1.25rem;
+      font-size: 0.9rem;
     }
     
     .service-features li:before {
@@ -247,22 +248,22 @@
     
     /* Brand Grid */
     .brands {
-      padding: 5rem 0;
+      padding: 4rem 0;
     }
     
     .brand-grid {
       display: grid;
       grid-template-columns: repeat(6, 1fr);
-      gap: 1rem;
+      gap: 0.75rem;
       border-top: 1px solid var(--neutral-200);
       border-bottom: 1px solid var(--neutral-200);
-      padding: 4rem 0;
+      padding: 3rem 0;
       background: rgba(255,255,255,0.5);
     }
     
     .brand-item {
       text-align: center;
-      padding: 1.5rem 1rem;
+      padding: 1.25rem 0.75rem;
       font-weight: 600;
       color: var(--ink);
       letter-spacing: 0.05em;
@@ -271,7 +272,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      min-height: 90px;
+      min-height: 80px;
     }
     
     .brand-item:hover {
@@ -279,22 +280,22 @@
     }
     
     .brand-name {
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       line-height: 1.2;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.375rem;
     }
     
     .brand-metric {
       display: block;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       color: var(--accent);
       font-weight: 500;
-      line-height: 1.3;
+      line-height: 1.2;
     }
     
     /* About */
     .about {
-      padding: 6rem 0;
+      padding: 4rem 0;
     }
     
     .about-content {
@@ -303,15 +304,14 @@
     }
     
     .about h2 {
-      font-size: 3.5rem;
-      margin-bottom: 1.5rem;
+      font-size: 3rem;
+      margin-bottom: 1rem;
     }
     
     .about p {
-      font-size: 1.25rem;
+      font-size: 1.125rem;
       color: var(--neutral-700);
-      margin-bottom: 1.5rem;
-      line-height: 1.7;
+      margin-bottom: 1.25rem;
     }
     
     .highlight {
@@ -320,54 +320,53 @@
     }
     
     .quote-block {
-      margin-top: 3rem;
-      padding-top: 2rem;
+      margin-top: 2rem;
+      padding-top: 1.5rem;
       border-top: 1px solid var(--neutral-200);
     }
     
     blockquote {
       font-family: 'Playfair Display', serif;
-      font-size: 1.75rem;
+      font-size: 1.5rem;
       font-style: italic;
       text-align: center;
-      margin-bottom: 1rem;
-      line-height: 1.5;
+      margin-bottom: 0.75rem;
     }
     
     .quote-source {
       text-align: center;
       color: var(--neutral-600);
-      font-size: 1.125rem;
+      font-size: 1rem;
     }
     
     /* Work */
     .work {
-      padding: 6rem 0;
+      padding: 4rem 0;
       background: white;
     }
     
     .work h2 {
-      font-size: 3.5rem;
-      margin-bottom: 1rem;
+      font-size: 3rem;
+      margin-bottom: 0.75rem;
     }
     
     .work-subtitle {
-      font-size: 1.5rem;
+      font-size: 1.25rem;
       color: var(--neutral-700);
       max-width: 600px;
-      margin-bottom: 3rem;
+      margin-bottom: 2rem;
     }
     
     .work-grid {
       display: flex;
       flex-direction: column;
-      gap: 4rem;
+      gap: 3rem;
     }
     
     .work-item {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 3rem;
+      gap: 2rem;
       align-items: center;
     }
     
@@ -380,30 +379,29 @@
     }
     
     .work-category {
-      font-size: 0.875rem;
+      font-size: 0.8rem;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       color: var(--accent);
       font-weight: 600;
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
     }
     
     .work-item h3 {
-      font-size: 2.5rem;
-      margin-bottom: 1.5rem;
+      font-size: 2rem;
+      margin-bottom: 1rem;
     }
     
     .work-item p {
-      font-size: 1.125rem;
+      font-size: 1rem;
       color: var(--neutral-700);
-      margin-bottom: 2rem;
-      line-height: 1.7;
+      margin-bottom: 1.5rem;
     }
     
     .work-stats {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
+      gap: 1.5rem;
     }
     
     .stat {
@@ -412,19 +410,20 @@
     
     .stat-value {
       font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
+      font-size: 2rem;
       color: var(--accent);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.25rem;
     }
     
     .stat-label {
       color: var(--neutral-600);
+      font-size: 0.9rem;
     }
     
     .work-card {
       background: var(--accent-lighter);
-      border-radius: 1rem;
-      padding: 2.5rem;
+      border-radius: 0.75rem;
+      padding: 2rem;
       height: 100%;
       display: flex;
       flex-direction: column;
@@ -432,15 +431,15 @@
     }
     
     .work-card h4 {
-      font-size: 1rem;
+      font-size: 0.9rem;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       color: var(--accent);
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
     }
     
     .work-card p {
-      font-size: 1.125rem;
+      font-size: 1rem;
       color: var(--neutral-700);
       margin-bottom: 0;
     }
@@ -448,13 +447,13 @@
     .challenge-note {
       background: rgba(153, 0, 73, 0.05);
       border-left: 4px solid var(--accent);
-      padding: 1.5rem;
-      margin-top: 1.5rem;
-      border-radius: 0 8px 8px 0;
+      padding: 1.25rem;
+      margin-top: 1.25rem;
+      border-radius: 0 6px 6px 0;
     }
     
     .challenge-note p {
-      font-size: 1rem;
+      font-size: 0.9rem;
       color: var(--neutral-700);
       margin-bottom: 0;
       font-style: italic;
@@ -462,94 +461,94 @@
     
     /* Testimonials */
     .testimonials {
-      padding: 6rem 0;
+      padding: 4rem 0;
     }
     
     .testimonials h2 {
-      font-size: 3.5rem;
+      font-size: 3rem;
       text-align: center;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
     }
     
     .testimonial-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
-      margin-top: 4rem;
+      gap: 1.5rem;
+      margin-top: 3rem;
     }
     
     .testimonial-card {
       background: var(--accent-lighter);
-      border-radius: 1rem;
-      padding: 2.5rem;
+      border-radius: 0.75rem;
+      padding: 2rem;
       display: flex;
       flex-direction: column;
       height: 100%;
     }
     
     .testimonial-text {
-      font-size: 1.125rem;
+      font-size: 1rem;
       font-style: italic;
       color: var(--neutral-700);
-      margin-bottom: 2rem;
-      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
       flex-grow: 1;
     }
     
     .testimonial-author {
       border-top: 1px solid rgba(153, 0, 73, 0.2);
-      padding-top: 1.5rem;
+      padding-top: 1.25rem;
     }
     
     .author-name {
       font-weight: 600;
       color: var(--accent);
-      font-size: 1.125rem;
+      font-size: 1rem;
     }
     
     .author-role {
       color: var(--neutral-600);
+      font-size: 0.9rem;
     }
     
     /* Contact */
     .contact {
-      padding: 6rem 0;
+      padding: 4rem 0;
       text-align: center;
       background: white;
     }
     
     .contact h2 {
-      font-size: 3.5rem;
-      margin-bottom: 1.5rem;
+      font-size: 3rem;
+      margin-bottom: 1rem;
     }
     
     .contact p {
-      font-size: 1.5rem;
+      font-size: 1.25rem;
       color: var(--neutral-700);
       max-width: 600px;
-      margin: 0 auto 3rem;
-      line-height: 1.6;
+      margin: 0 auto 2rem;
     }
     
     .social-links {
       display: flex;
       justify-content: center;
-      gap: 1.5rem;
-      margin: 2rem 0;
+      gap: 1rem;
+      margin: 1.5rem 0;
     }
     
     .social-link {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 48px;
-      height: 48px;
+      width: 42px;
+      height: 42px;
       border-radius: 50%;
       background: var(--accent-lighter);
       color: var(--accent);
       text-decoration: none;
       transition: all 0.3s ease;
-      font-size: 1.25rem;
+      font-size: 1.1rem;
     }
     
     .social-link:hover {
@@ -559,15 +558,15 @@
     }
     
     .contact-info {
-      margin-top: 3rem;
-      padding-top: 2.5rem;
+      margin-top: 2.5rem;
+      padding-top: 2rem;
       border-top: 1px solid var(--neutral-200);
       color: var(--neutral-600);
     }
     
     .contact-info p {
-      margin-bottom: 0.5rem;
-      font-size: 1rem;
+      margin-bottom: 0.375rem;
+      font-size: 0.9rem;
     }
     
     .contact-link {
@@ -606,7 +605,7 @@
       }
       
       .hero {
-        padding: 4rem 0;
+        padding: 3rem 0;
       }
       
       .btn-group {
@@ -616,13 +615,13 @@
       
       .btn {
         width: 100%;
-        max-width: 250px;
+        max-width: 220px;
         text-align: center;
       }
       
       .work-item {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 1.5rem;
       }
       
       .work-item.reverse {
@@ -662,7 +661,11 @@
       }
       
       .brand-name {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
+      }
+      
+      .container {
+        padding: 0 1.5rem;
       }
     }
   </style>
@@ -688,7 +691,7 @@
   <section class="hero">
     <div class="container">
       <h1>Where <span style="font-style: italic; color: var(--accent);">Storytelling</span><br>Meets Systems.</h1>
-      <div class="bar" style="margin: 0 auto 2.5rem;"></div>
+      <div class="bar" style="margin: 0 auto 2rem;"></div>
       <p>Building marketing systems that drive measurable growth for 2M+ subscribers and $2M+ partnerships.</p>
       <div class="btn-group">
         <a href="#work" class="btn btn-primary">View Work</a>
@@ -794,8 +797,8 @@
           <p class="quote-source">From luxury intimates to global impact</p>
         </div>
 
-        <div style="margin-top: 3rem; text-align: center;">
-          <p style="font-size: 1.25rem; color: var(--neutral-600); font-style: italic;">
+        <div style="margin-top: 2rem; text-align: center;">
+          <p style="font-size: 1.125rem; color: var(--neutral-600); font-style: italic;">
             The psychology remains the same whether it's luxury lingerie, media subscriptions, or navigating complex platform regulations.
           </p>
         </div>
@@ -875,10 +878,10 @@
             <h3>Community Fridge Project</h3>
             <p>Founded and led a national circular-economy initiative, establishing the company's first CSR program. Featured in The New York Times and Architectural Digest.</p>
             <div class="work-card" style="background: transparent; padding: 0;">
-              <p style="font-style: italic; font-size: 1.25rem; color: var(--neutral-700);">
+              <p style="font-style: italic; font-size: 1.125rem; color: var(--neutral-700);">
                 "The amount of support exceeded anything I could have imagined."
               </p>
-              <p style="color: var(--accent); font-weight: 600; margin-top: 1.5rem;">— Modern Luxury</p>
+              <p style="color: var(--accent); font-weight: 600; margin-top: 1rem;">— Modern Luxury</p>
             </div>
           </div>
           <div class="work-card">
@@ -921,7 +924,7 @@
   <section id="testimonials" class="testimonials">
     <div class="container">
       <h2>Colleague Testimonials</h2>
-      <div class="bar" style="margin: 0 auto 4rem;"></div>
+      <div class="bar" style="margin: 0 auto 3rem;"></div>
 
       <div class="testimonial-grid">
         <!-- Testimonial 1 -->
