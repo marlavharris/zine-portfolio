@@ -648,20 +648,44 @@
       .brand-name {
         font-size: 0.8rem;
       }
+      
+      /* Mobile fixes */
+      .about h2 {
+        font-size: 2rem;
+        white-space: normal;
+      }
     }
     
     @media (max-width: 480px) {
       .brand-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
       }
       
-      .work-stats {
-        grid-template-columns: 1fr;
-        gap: 1rem;
+      .brand-item {
+        padding: 1rem 0.5rem;
+        min-height: 70px;
       }
       
       .brand-name {
-        font-size: 0.85rem;
+        font-size: 0.75rem;
+      }
+      
+      .brand-metric {
+        font-size: 0.65rem;
+      }
+      
+      .work-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+      
+      .stat-value {
+        font-size: 1.5rem;
+      }
+      
+      .btn-group {
+        align-items: stretch;
       }
       
       .container {
@@ -787,20 +811,13 @@
   <section id="about" class="about">
     <div class="container">
       <div class="about-content">
-        <h2>The $300 Bra</h2>
-        <div class="bar"></div>
-        <p>I started my career in retail, I sold lingerie, specifically, expensive lingerie. <span class="highlight"> I learned you can get anyone to spend $300 dollars on a bra, if you know how.</span></p>
-        <p>This insight became my foundation: data-driven strategy meets human-centered storytelling.</p>
+        <h2 style="font-size: 2.5rem; color: var(--accent); font-style: italic; line-height: 1.1; margin-bottom: 0.5rem; text-align: center;">"If I can sell a $300 bra,<br>I can sell anything."</h2>
+        <p style="text-align: center; color: var(--neutral-600); font-weight: 500; margin-bottom: 2rem; letter-spacing: 0.05em;">From luxury intimates to global impact</p>
+        <div class="bar" style="margin: 0 auto 2rem;"></div>
         
-          <div class="quote-block">
-            <blockquote style="color: var(--accent);">"If I can sell a $300 bra, I can sell anything."</blockquote>
-            <p class="quote-source" style="font-weight: 600;">From luxury intimates to global impact</p>
-          </div>
-
-        <div style="margin-top: 2rem; text-align: center;">
-          <p style="font-size: 1.125rem; color: var(--neutral-600); font-style: italic;">
-            The psychology remains the same whether it's luxury lingerie, media subscriptions, or navigating complex platform regulations.
-          </p>
+        <div style="max-width: 600px; margin: 0 auto;">
+          <h3 style="font-size: 1.1rem; margin-bottom: 1rem; color: var(--neutral-700); font-weight: 400; text-align: left; text-transform: uppercase; letter-spacing: 0.05em;">The $300 Bra</h3>
+          <p style="text-align: left; margin-bottom: 0;">I started my career in retail, selling expensive lingerie. <span class="highlight">I learned you can get anyone to spend $300 on a bra, if you know how.</span> This insight became my foundation: data-driven strategy meets human-centered storytelling.</p>
         </div>
       </div>
     </div>
@@ -818,11 +835,11 @@
         <div class="work-item">
           <div>
             <div class="work-category">Media Portfolio</div>
-            <h3>Penske Media</h3>
-            <p>Architected cross-platform lifecycle journeys across Salesforce for an audience of over 3 million subscribers across five global media brands.</p>
+            <h3>Global Media Corporation</h3>
+            <p>Architected cross-platform lifecycle journeys across enterprise marketing automation platforms for an audience of over 3 million subscribers across multiple global media brands.</p>
             <div class="work-stats">
               <div class="stat">
-                <div class="stat-value">17%</div>
+                <div class="stat-value">Double-Digit</div>
                 <div class="stat-label">Portfolio revenue lift</div>
               </div>
               <div class="stat">
@@ -830,14 +847,14 @@
                 <div class="stat-label">Subscribers</div>
               </div>
               <div class="stat">
-                <div class="stat-value">$50K</div>
+                <div class="stat-value">Significant</div>
                 <div class="stat-label">Annual savings</div>
               </div>
             </div>
           </div>
           <div class="work-card">
             <h4>Technical Impact</h4>
-            <p>Salesforce Marketing Cloud architecture with API & webhook integrations for real-time tracking. Streamlined campaign workflows saving $50K annually.</p>
+            <p>Enterprise marketing cloud architecture with API & webhook integrations for real-time tracking. Streamlined campaign workflows resulting in substantial annual operational savings.</p>
           </div>
         </div>
 
@@ -898,7 +915,7 @@
           </div>
         </div>
 
-        <!-- Work 4 - Community Fridge (FIXED) -->
+        <!-- Work 4 - Community Fridge -->
         <div class="work-item">
           <div>
             <div class="work-category">Social Impact</div>
