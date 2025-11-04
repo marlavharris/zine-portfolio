@@ -3,249 +3,991 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Marla V. Harris — Strategic Marketing & Storytelling</title>
+  <title>Marla V. Harris — Strategic Marketing & Systems Architecture</title>
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <!-- Tailwind -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            serif: ['Playfair Display','ui-serif','Georgia','serif'],
-            sans: ['Inter','ui-sans-serif','system-ui','sans-serif']
-          },
-          colors: {
-            ink: '#0b0b0b',
-            paper: '#fefafc',
-            accent: '#990049',
-            'accent-light': '#b2005f',
-            'accent-lighter': 'rgba(178,0,95,0.08)',
-          }
-        }
-      }
-    }
-  </script>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    :root {
+      --ink: #0b0b0b;
+      --paper: #fefafc;
+      --accent: #990049;
+      --accent-light: #b2005f;
+      --accent-lighter: rgba(178,0,95,0.08);
+      --neutral-100: #f5f5f5;
+      --neutral-200: #e5e5e5;
+      --neutral-600: #525252;
+      --neutral-700: #404040;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 400;
+      line-height: 1.2;
+    }
+    
     .bar {
       width: 84px;
       height: 3px;
-      background:#990049;
-      border-radius:999px;
+      background: var(--accent);
+      border-radius: 999px;
+      margin: 1.5rem 0;
     }
-    .card-hover {
+    
+    /* Header */
+    header {
+      border-bottom: 1px solid var(--neutral-200);
+      background: var(--paper);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 0;
+    }
+    
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+    
+    .nav-link {
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--neutral-600);
+      text-decoration: none;
+      position: relative;
+      font-weight: 500;
+    }
+    
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -6px;
+      height: 1.5px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform .3s ease;
+    }
+    
+    .nav-link:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+    
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 6rem 0;
+    }
+    
+    .hero h1 {
+      font-size: clamp(3rem, 8vw, 6rem);
+      margin-bottom: 2rem;
+      font-weight: 300;
+    }
+    
+    .hero p {
+      font-size: 1.5rem;
+      color: var(--neutral-700);
+      max-width: 600px;
+      margin: 0 auto 3rem;
+      line-height: 1.6;
+    }
+    
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .btn {
+      padding: 1rem 2rem;
+      border-radius: 999px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.875rem;
+      letter-spacing: 0.05em;
       transition: all 0.3s ease;
     }
-    .card-hover:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 25px rgba(153, 0, 73, 0.1);
+    
+    .btn-primary {
+      background: var(--accent);
+      color: white;
     }
-    .nav-link {
-      position:relative;
+    
+    .btn-primary:hover {
+      background: var(--accent-light);
     }
-    .nav-link::after {
-      content:""; position:absolute; left:0; right:0; bottom:-6px; height:1.5px; background:#990049; transform:scaleX(0); transform-origin:right; transition:transform .3s ease;
+    
+    .btn-secondary {
+      border: 1px solid var(--neutral-200);
+      color: var(--ink);
     }
-    .nav-link:hover::after {
-      transform:scaleX(1); transform-origin:left;
+    
+    .btn-secondary:hover {
+      border-color: var(--neutral-600);
     }
-    .stat-number {
-      font-family: 'Playfair Display', serif;
-      background: linear-gradient(135deg, #990049 0%, #b2005f 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+    
+    /* Services */
+    .services {
+      padding: 5rem 0;
+      background: white;
     }
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    
+    .section-header h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .section-header p {
+      font-size: 1.25rem;
+      color: var(--neutral-700);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    
+    .service-card {
+      background: var(--paper);
+      border: 1px solid var(--neutral-200);
+      border-radius: 1rem;
+      padding: 2.5rem;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+    
+    .service-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      color: var(--accent);
+    }
+    
+    .service-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .service-card p {
+      color: var(--neutral-700);
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+    
+    .service-features {
+      list-style: none;
+    }
+    
+    .service-features li {
+      padding: 0.5rem 0;
+      color: var(--neutral-700);
+      position: relative;
+      padding-left: 1.5rem;
+    }
+    
+    .service-features li:before {
+      content: "•";
+      color: var(--accent);
+      position: absolute;
+      left: 0;
+    }
+    
+    /* Brand Grid */
+    .brands {
+      padding: 5rem 0;
+    }
+    
     .brand-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      grid-template-columns: repeat(6, 1fr);
       gap: 1rem;
-      opacity: 0.6;
+      border-top: 1px solid var(--neutral-200);
+      border-bottom: 1px solid var(--neutral-200);
+      padding: 4rem 0;
+      background: rgba(255,255,255,0.5);
     }
+    
     .brand-item {
       text-align: center;
-      padding: 1rem;
+      padding: 1.5rem 1rem;
       font-weight: 600;
-      color: #0b0b0b;
+      color: var(--ink);
       letter-spacing: 0.05em;
-      font-size: 0.9rem;
+      opacity: 0.7;
+      transition: opacity 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 90px;
     }
+    
     .brand-item:hover {
       opacity: 1;
     }
+    
+    .brand-name {
+      font-size: 0.9rem;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+    
+    .brand-metric {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--accent);
+      font-weight: 500;
+      line-height: 1.3;
+    }
+    
+    /* About */
+    .about {
+      padding: 6rem 0;
+    }
+    
+    .about-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .about h2 {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .about p {
+      font-size: 1.25rem;
+      color: var(--neutral-700);
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+    
+    .highlight {
+      font-weight: 600;
+      color: var(--accent);
+    }
+    
+    .quote-block {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--neutral-200);
+    }
+    
+    blockquote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      font-style: italic;
+      text-align: center;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+    
+    .quote-source {
+      text-align: center;
+      color: var(--neutral-600);
+      font-size: 1.125rem;
+    }
+    
+    /* Work */
+    .work {
+      padding: 6rem 0;
+      background: white;
+    }
+    
+    .work h2 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .work-subtitle {
+      font-size: 1.5rem;
+      color: var(--neutral-700);
+      max-width: 600px;
+      margin-bottom: 3rem;
+    }
+    
+    .work-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+    }
+    
+    .work-item {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    
+    .work-item.reverse {
+      direction: rtl;
+    }
+    
+    .work-item.reverse > * {
+      direction: ltr;
+    }
+    
+    .work-category {
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    
+    .work-item h3 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .work-item p {
+      font-size: 1.125rem;
+      color: var(--neutral-700);
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+    
+    .work-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    
+    .stat {
+      text-align: center;
+    }
+    
+    .stat-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    
+    .stat-label {
+      color: var(--neutral-600);
+    }
+    
+    .work-card {
+      background: var(--accent-lighter);
+      border-radius: 1rem;
+      padding: 2.5rem;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .work-card h4 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    
+    .work-card p {
+      font-size: 1.125rem;
+      color: var(--neutral-700);
+      margin-bottom: 0;
+    }
+    
+    .challenge-note {
+      background: rgba(153, 0, 73, 0.05);
+      border-left: 4px solid var(--accent);
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+      border-radius: 0 8px 8px 0;
+    }
+    
+    .challenge-note p {
+      font-size: 1rem;
+      color: var(--neutral-700);
+      margin-bottom: 0;
+      font-style: italic;
+    }
+    
+    /* Testimonials */
+    .testimonials {
+      padding: 6rem 0;
+    }
+    
+    .testimonials h2 {
+      font-size: 3.5rem;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      margin-top: 4rem;
+    }
+    
+    .testimonial-card {
+      background: var(--accent-lighter);
+      border-radius: 1rem;
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    
+    .testimonial-text {
+      font-size: 1.125rem;
+      font-style: italic;
+      color: var(--neutral-700);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+    
+    .testimonial-author {
+      border-top: 1px solid rgba(153, 0, 73, 0.2);
+      padding-top: 1.5rem;
+    }
+    
+    .author-name {
+      font-weight: 600;
+      color: var(--accent);
+      font-size: 1.125rem;
+    }
+    
+    .author-role {
+      color: var(--neutral-600);
+    }
+    
+    /* Contact */
+    .contact {
+      padding: 6rem 0;
+      text-align: center;
+      background: white;
+    }
+    
+    .contact h2 {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .contact p {
+      font-size: 1.5rem;
+      color: var(--neutral-700);
+      max-width: 600px;
+      margin: 0 auto 3rem;
+      line-height: 1.6;
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--accent-lighter);
+      color: var(--accent);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 1.25rem;
+    }
+    
+    .social-link:hover {
+      background: var(--accent);
+      color: white;
+      transform: translateY(-2px);
+    }
+    
+    .contact-info {
+      margin-top: 3rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--neutral-200);
+      color: var(--neutral-600);
+    }
+    
+    .contact-info p {
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+    }
+    
+    .contact-link {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    
+    .contact-link:hover {
+      text-decoration: underline;
+    }
+    
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .services-grid .service-card:last-child {
+        grid-column: 1 / -1;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+      
+      .brand-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      
+      .testimonial-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      
+      .hero {
+        padding: 4rem 0;
+      }
+      
+      .btn-group {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .btn {
+        width: 100%;
+        max-width: 250px;
+        text-align: center;
+      }
+      
+      .work-item {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      
+      .work-item.reverse {
+        direction: ltr;
+      }
+      
+      .work-stats {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      
+      .brand-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .services-grid .service-card:last-child {
+        grid-column: auto;
+        max-width: none;
+      }
+      
+      .brand-name {
+        font-size: 0.8rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .brand-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .work-stats {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      
+      .brand-name {
+        font-size: 0.9rem;
+      }
+    }
   </style>
 </head>
-<body class="text-ink bg-paper antialiased font-sans">
-
+<body>
   <!-- Header & Navigation -->
-  <header class="border-b border-neutral-100 bg-paper sticky top-0 z-30">
-    <nav class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="#" class="font-serif text-lg text-ink">Marla V. Harris</a>
-      <div class="hidden md:flex gap-6 text-xs tracking-widest uppercase text-neutral-600 font-medium">
-        <a href="#about" class="nav-link">About</a>
-        <a href="#expertise" class="nav-link">Expertise</a>
-        <a href="#work" class="nav-link">Work</a>
-        <a href="#contact" class="nav-link">Contact</a>
-      </div>
-    </nav>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#" class="logo">Marla V. Harris</a>
+        <div class="nav-links">
+          <a href="#services" class="nav-link">Services</a>
+          <a href="#work" class="nav-link">Work</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#testimonials" class="nav-link">Testimonials</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </div>
+      </nav>
+    </div>
   </header>
 
   <!-- Hero Section -->
-  <section class="max-w-5xl mx-auto px-6 py-20 md:py-28 text-center">
-    <h1 class="font-serif text-5xl md:text-7xl leading-tight mb-6 font-light">
-      Where <span class="italic text-accent">Storytelling</span><br>Meets Systems.
-    </h1>
-    <div class="bar mx-auto mb-8"></div>
-    <p class="text-neutral-700 text-xl md:text-2xl max-w-2xl mx-auto leading-relaxed mb-10">
-      I translate <span class="font-semibold">complex data into human stories</span> that drive growth and build movements.
-    </p>
-    <div class="flex gap-4 justify-center">
-      <a href="#work" class="px-6 py-3 rounded-full bg-accent text-white font-semibold text-sm tracking-wide hover:bg-accent-light transition-colors">View Signature Work</a>
-      <a href="#contact" class="px-6 py-3 rounded-full border border-neutral-300 text-ink font-semibold text-sm tracking-wide hover:border-neutral-400 transition-colors">Let's Talk</a>
+  <section class="hero">
+    <div class="container">
+      <h1>Where <span style="font-style: italic; color: var(--accent);">Storytelling</span><br>Meets Systems.</h1>
+      <div class="bar" style="margin: 0 auto 2.5rem;"></div>
+      <p>Building marketing systems that drive measurable growth for 2M+ subscribers and $2M+ partnerships.</p>
+      <div class="btn-group">
+        <a href="#work" class="btn btn-primary">View Work</a>
+        <a href="#contact" class="btn btn-secondary">Let's Talk</a>
+      </div>
     </div>
   </section>
 
-  <!-- Brand Logos - Simplified -->
-  <section class="max-w-4xl mx-auto px-6 py-12 border-y border-neutral-200 bg-white/50">
-    <div class="brand-grid">
-      <div class="brand-item">ROLLING STONE</div>
-      <div class="brand-item">BILLBOARD</div>
-      <div class="brand-item">WWD</div>
-      <div class="brand-item">ISSEY MIYAKE</div>
-      <div class="brand-item">SAMSUNG</div>
-      <div class="brand-item">AJ MADISON</div>
+  <!-- Services -->
+  <section id="services" class="services">
+    <div class="container">
+      <div class="section-header">
+        <h2>Strategic Services</h2>
+        <p>End-to-end marketing systems architecture</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">📊</div>
+          <h3>Marketing Operations</h3>
+          <p>Design and implement the technical infrastructure that powers growth.</p>
+          <ul class="service-features">
+            <li>CRM & marketing automation</li>
+            <li>API & webhook integrations</li>
+            <li>Data governance & analytics</li>
+            <li>System architecture</li>
+          </ul>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">🔄</div>
+          <h3>Lifecycle Strategy</h3>
+          <p>Architect customer journeys that drive retention and revenue.</p>
+          <ul class="service-features">
+            <li>Onboarding & activation flows</li>
+            <li>Segmentation & personalization</li>
+            <li>Renewal & reactivation programs</li>
+            <li>Cross-channel orchestration</li>
+          </ul>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">🎯</div>
+          <h3>Paid Media & Growth</h3>
+          <p>Scale acquisition through strategic channels and complex compliance environments.</p>
+          <ul class="service-features">
+            <li>$2M+ budget management</li>
+            <li>Platform compliance & sensitive topics</li>
+            <li>Performance optimization</li>
+            <li>ROI analysis & reporting</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Brand Collaborations -->
+  <section class="brands">
+    <div class="container">
+      <div class="section-header">
+        <h2>Selected Collaborations</h2>
+        <p>Media, luxury, and regulated industries</p>
+      </div>
+      <div class="brand-grid">
+        <div class="brand-item">
+          <div class="brand-name">ROLLING STONE</div>
+          <span class="brand-metric">Email Systems<br>17% Revenue Lift</span>
+        </div>
+        <div class="brand-item">
+          <div class="brand-name">BILLBOARD</div>
+          <span class="brand-metric">2M+ Subscribers<br>Lifecycle Strategy</span>
+        </div>
+        <div class="brand-item">
+          <div class="brand-name">WWD</div>
+          <span class="brand-metric">Double-Digit<br>Conversion Growth</span>
+        </div>
+        <div class="brand-item">
+          <div class="brand-name">MUSEUM OF SEX</div>
+          <span class="brand-metric">Paid Ads & Compliance<br>59% of Web Sales</span>
+        </div>
+        <div class="brand-item">
+          <div class="brand-name">SAMSUNG</div>
+          <span class="brand-metric">$2M Partnerships<br>Trade Marketing</span>
+        </div>
+        <div class="brand-item">
+          <div class="brand-name">AJ MADISON</div>
+          <span class="brand-metric">Trade & Retail<br>8% Lead Conversion</span>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- About & Philosophy -->
-  <section id="about" class="max-w-5xl mx-auto px-6 py-20 md:py-28">
-    <div class="grid md:grid-cols-2 gap-12 items-center">
-      <div>
-        <h2 class="font-serif text-4xl md:text-5xl mb-6">The $300 Bra & The Art of Persuasion.</h2>
-        <div class="bar mb-8"></div>
-        <p class="text-neutral-700 text-lg mb-6">
-          Early in my career, I marketed a $300 bra. The lesson wasn't about lingerie; it was about value. <span class="font-semibold text-accent">People don't buy products; they buy better versions of themselves.</span>
-        </p>
-        <p class="text-neutral-700 text-lg">
-          This insight became my foundation: combining data-driven strategy with human-centered storytelling to create marketing that doesn't just sell, but <span class="italic">resonates</span>.
-        </p>
-      </div>
-      <div class="bg-white rounded-2xl p-8 border border-accent/20">
-        <blockquote class="font-serif text-2xl md:text-3xl italic text-accent mb-4 text-center">
-          “If I can sell a $300 bra, I can sell anything.”
-        </blockquote>
-        <p class="text-neutral-600 text-center text-sm">
-          — From luxury intimates to global media and nonprofit impact.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Core Expertise - Streamlined -->
-  <section id="expertise" class="bg-white py-20">
-    <div class="max-w-5xl mx-auto px-6">
-      <h2 class="font-serif text-4xl md:text-5xl mb-6 text-center">Core Expertise</h2>
-      <p class="text-neutral-700 text-xl max-w-xl mx-auto mb-12 text-center leading-relaxed">A hybrid skill set bridging analytical depth and creative vision.</p>
-      <div class="bar mx-auto mb-12"></div>
-
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="text-center p-6">
-          <h3 class="font-serif text-lg mb-4 text-accent">Strategy & Story</h3>
-          <p class="text-neutral-700 text-sm">Content Strategy, Brand Storytelling, Audience Development, Creative Briefing.</p>
+  <section id="about" class="about">
+    <div class="container">
+      <div class="about-content">
+        <h2>The $300 Bra</h2>
+        <div class="bar"></div>
+        <p>Early in my career, I marketed a $300 bra. The lesson wasn't about lingerie; it was about value. <span class="highlight">People don't buy products; they buy better versions of themselves.</span></p>
+        <p>This insight became my foundation: data-driven strategy meets human-centered storytelling.</p>
+        
+        <div class="quote-block">
+          <blockquote>"If I can sell a $300 bra, I can sell anything."</blockquote>
+          <p class="quote-source">From luxury intimates to global impact</p>
         </div>
-        <div class="text-center p-6">
-          <h3 class="font-serif text-lg mb-4 text-accent">Execution & Analysis</h3>
-          <p class="text-neutral-700 text-sm">CRM & Lifecycle Marketing, Performance Analysis, Budget & Partnership Management.</p>
-        </div>
-        <div class="text-center p-6">
-          <h3 class="font-serif text-lg mb-4 text-accent">Technical Fluency</h3>
-          <p class="text-neutral-700 text-sm">SFMC, Klaviyo, GA4, Looker, Adobe Suite, HTML/CSS.</p>
+
+        <div style="margin-top: 3rem; text-align: center;">
+          <p style="font-size: 1.25rem; color: var(--neutral-600); font-style: italic;">
+            The psychology remains the same whether it's luxury lingerie, media subscriptions, or navigating complex platform regulations.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Signature Work - Highlight Reel -->
-  <section id="work" class="max-w-5xl mx-auto px-6 py-20 md:py-28">
-    <h2 class="font-serif text-4xl md:text-5xl mb-6">Signature Work</h2>
-    <p class="text-neutral-700 text-xl mb-12 max-w-2xl">Driving growth through data-informed strategy and creative execution.</p>
-    <div class="bar mb-12"></div>
+  <!-- Work Section -->
+  <section id="work" class="work">
+    <div class="container">
+      <h2>Selected Work</h2>
+      <p class="work-subtitle">From 2M+ subscriber platforms to regulated industry growth.</p>
+      <div class="bar"></div>
 
-    <!-- Performance Metrics -->
-    <div class="grid md:grid-cols-3 gap-8 mb-16">
-      <div class="text-center p-8 bg-white border border-neutral-200 rounded-2xl">
-        <div class="text-5xl md:text-6xl font-serif mb-3 text-accent">17%</div>
-        <div class="text-sm text-neutral-600 font-semibold">Sales growth</div>
-        <div class="text-xs text-accent mt-2">Year-over-year</div>
-      </div>
-      <div class="text-center p-8 bg-white border border-neutral-200 rounded-2xl">
-        <div class="text-5xl md:text-6xl font-serif mb-3 text-accent">15%</div>
-        <div class="text-sm text-neutral-600 font-semibold">Cost reduction</div>
-        <div class="text-xs text-accent mt-2">While maintaining results</div>
-      </div>
-      <div class="text-center p-8 bg-white border border-neutral-200 rounded-2xl">
-        <div class="text-5xl md:text-6xl font-serif mb-3 text-accent">4.5x</div>
-        <div class="text-sm text-neutral-600 font-semibold">Return on spend</div>
-        <div class="text-xs text-accent mt-2">For every dollar invested</div>
+      <div class="work-grid">
+        <!-- Work 1 - Media -->
+        <div class="work-item">
+          <div>
+            <div class="work-category">Media Portfolio</div>
+            <h3>Penske Media</h3>
+            <p>Architected cross-platform lifecycle journeys across Salesforce, Listrak, Attentive, and Mailchimp for an audience of over 2 million subscribers across five global media brands.</p>
+            <div class="work-stats">
+              <div class="stat">
+                <div class="stat-value">17%</div>
+                <div class="stat-label">Portfolio revenue lift</div>
+              </div>
+              <div class="stat">
+                <div class="stat-value">2M+</div>
+                <div class="stat-label">Subscribers</div>
+              </div>
+              <div class="stat">
+                <div class="stat-value">$50K</div>
+                <div class="stat-label">Annual savings</div>
+              </div>
+            </div>
+          </div>
+          <div class="work-card">
+            <h4>Technical Impact</h4>
+            <p>Salesforce Marketing Cloud architecture with API & webhook integrations for real-time tracking. Streamlined campaign workflows saving $50K annually.</p>
+          </div>
+        </div>
+
+        <!-- Work 2 - Museum of Sex -->
+        <div class="work-item reverse">
+          <div>
+            <div class="work-category">Regulated Industries & Growth</div>
+            <h3>Museum of Sex</h3>
+            <p>Navigated complex platform compliance while optimizing $7K monthly Google Ads budget, driving 59% of all web sales through strategic campaign management in a heavily restricted advertising environment.</p>
+            <div class="work-stats">
+              <div class="stat">
+                <div class="stat-value">59%</div>
+                <div class="stat-label">Of all web sales</div>
+              </div>
+              <div class="stat">
+                <div class="stat-value">69%</div>
+                <div class="stat-label">Campaign ROI</div>
+              </div>
+              <div class="stat">
+                <div class="stat-value">375+</div>
+                <div class="stat-label">Monthly conversions</div>
+              </div>
+            </div>
+            <div class="challenge-note">
+              <p>Successfully navigated Google and Facebook's strict content policies for adult-adjacent topics, developing compliant advertising strategies that maintained performance while avoiding platform restrictions.</p>
+            </div>
+          </div>
+          <div class="work-card">
+            <h4>Platform Compliance</h4>
+            <p>Developed sophisticated workarounds for platform restrictions, focusing on high-converting ticket campaigns (2.69% conversion rate) while managing underperforming exhibit segments through strategic budget reallocation.</p>
+          </div>
+        </div>
+
+        <!-- Work 3 - Community -->
+        <div class="work-item">
+          <div>
+            <div class="work-category">Social Impact</div>
+            <h3>Community Fridge Project</h3>
+            <p>Founded and led a national circular-economy initiative, establishing the company's first CSR program. Featured in The New York Times and Architectural Digest.</p>
+            <div class="work-card" style="background: transparent; padding: 0;">
+              <p style="font-style: italic; font-size: 1.25rem; color: var(--neutral-700);">
+                "The amount of support exceeded anything I could have imagined."
+              </p>
+              <p style="color: var(--accent); font-weight: 600; margin-top: 1.5rem;">— Modern Luxury</p>
+            </div>
+          </div>
+          <div class="work-card">
+            <h4>Impact & Recognition</h4>
+            <p>Launched a national CSR program donating 100+ refrigerators to address food insecurity, generating significant positive press and establishing corporate social responsibility as a core business function.</p>
+          </div>
+        </div>
+
+        <!-- Work 4 - Luxury Retail -->
+        <div class="work-item reverse">
+          <div>
+            <div class="work-category">Brand Elevation</div>
+            <h3>AJ Madison</h3>
+            <p>Managed $2M+ annual digital advertising budget and implemented progressive profiling that increased lead-to-customer conversion by 8%.</p>
+            <div class="work-stats">
+              <div class="stat">
+                <div class="stat-value">4.5x</div>
+                <div class="stat-label">ROI</div>
+              </div>
+              <div class="stat">
+                <div class="stat-value">8%</div>
+                <div class="stat-label">Lead conversion</div>
+              </div>
+              <div class="stat">
+                <div class="stat-value">$2M</div>
+                <div class="stat-label">Annual budget</div>
+              </div>
+            </div>
+          </div>
+          <div class="work-card">
+            <h4>Partnerships</h4>
+            <p>Secured and grew annual partnerships with major brands (LG, GE, Samsung), increasing partner budget by 15-20% each year through API integrations and lifecycle automation.</p>
+          </div>
+        </div>
       </div>
     </div>
+  </section>
 
-    <div class="space-y-12">
-      <!-- Work 1 -->
-      <div class="grid md:grid-cols-2 gap-8 items-center">
-        <div class="bg-accent-lighter rounded-2xl p-8">
-          <div class="text-xs tracking-widest uppercase text-accent font-semibold mb-2">Penske Media</div>
-          <h3 class="font-serif text-2xl mb-4">Black Friday Portfolio Strategy</h3>
-          <p class="text-neutral-700 mb-4">Architected cross-platform content for Rolling Stone, Billboard, and WWD, driving a <span class="font-semibold text-accent">17% sales growth</span> across the media portfolio.</p>
-        </div>
-        <div class="text-center p-6">
-          <div class="stat-number text-6xl font-serif mb-2">17%</div>
-          <div class="text-sm text-neutral-600 font-semibold">Sales Growth</div>
-        </div>
-      </div>
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="testimonials">
+    <div class="container">
+      <h2>Colleague Testimonials</h2>
+      <div class="bar" style="margin: 0 auto 4rem;"></div>
 
-      <!-- Work 2 -->
-      <div class="grid md:grid-cols-2 gap-8 items-center">
-        <div class="order-2 md:order-1 text-center p-6">
-          <div class="stat-number text-6xl font-serif mb-2">4.5x</div>
-          <div class="text-sm text-neutral-600 font-semibold">Return on Spend</div>
+      <div class="testimonial-grid">
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card">
+          <p class="testimonial-text">"Marla's collaborative energy and attention to detail drive success. An incredible asset to any team."</p>
+          <div class="testimonial-author">
+            <div class="author-name">Renee</div>
+            <div class="author-role">Email Marketing</div>
+          </div>
         </div>
-        <div class="order-1 md:order-2 bg-accent-lighter rounded-2xl p-8">
-          <div class="text-xs tracking-widest uppercase text-accent font-semibold mb-2">AJ Madison</div>
-          <h3 class="font-serif text-2xl mb-4">Partnership & Brand Elevation</h3>
-          <p class="text-neutral-700 mb-4">Secured seven-figure annual partnerships with LG, GE, and Samsung, achieving <span class="font-semibold text-accent">4.5x return</span> by translating technical specs into compelling luxury narratives.</p>
-        </div>
-      </div>
 
-      <!-- Work 3 - Community Fridge -->
-      <div class="bg-white border border-neutral-200 rounded-2xl p-8 text-center">
-        <div class="text-xs tracking-widest uppercase text-accent font-semibold mb-2">Social Impact</div>
-        <h3 class="font-serif text-2xl mb-4">The Community Fridge Project</h3>
-        <p class="text-neutral-700 mb-4 max-w-xl mx-auto">Conceived and launched a national CSR program, donating 100+ refrigerators to address food insecurity. Featured in <span class="italic">The New York Times</span>.</p>
-        <p class="text-neutral-600 text-sm italic">"The amount of support we have received... exceeded anything I could have imagined." — Modern Luxury</p>
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card">
+          <p class="testimonial-text">"Marla's expertise helped me grow strategically. She makes everyone around her better."</p>
+          <div class="testimonial-author">
+            <div class="author-name">Justin</div>
+            <div class="author-role">Content Strategy</div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="testimonial-card">
+          <p class="testimonial-text">"Prompt, flexible, and consistently supportive across complex campaigns."</p>
+          <div class="testimonial-author">
+            <div class="author-name">Charyse</div>
+            <div class="author-role">Email Developer</div>
+          </div>
+        </div>
+
+        <!-- Testimonial 4 -->
+        <div class="testimonial-card">
+          <p class="testimonial-text">"Excels at coordinating multiple teams while building genuine connections."</p>
+          <div class="testimonial-author">
+            <div class="author-name">Cora</div>
+            <div class="author-role">Art Director</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="bg-white py-20 text-center">
-    <div class="max-w-2xl mx-auto px-6">
-      <h2 class="font-serif text-4xl md:text-5xl mb-6">Let's build something unexpected.</h2>
-      <p class="text-neutral-700 text-lg mb-8">
-        I bring corporate-level strategy and storytelling to mission-driven work.
-      </p>
-      <div class="flex flex-wrap gap-4 justify-center">
-        <a href="mailto:va.mvharris@gmail.com?subject=Project Inquiry&body=Hi Marla, I'm reaching out because I'm interested in collaborating on..." class="px-6 py-3 rounded-full bg-accent text-white font-semibold text-sm tracking-wide hover:bg-accent-light transition-colors">Get in Touch</a>
-        <a href="mailto:va.mvharris@gmail.com?subject=Over virtual coffee&body=Hi Marla, I've been exploring your portfolio and would love to chat about..." class="px-6 py-3 rounded-full border border-neutral-300 text-ink font-semibold text-sm tracking-wide hover:border-neutral-400 transition-colors">Share a Virtual Coffee</a>
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2>Let's build systems that scale.</h2>
+      <p>From 2M+ subscriber platforms to complex compliance challenges.</p>
+      <div class="btn-group">
+        <a href="mailto:va.mvharris@gmail.com?subject=Project Inquiry&body=Hi Marla, I'm reaching out because I'm interested in collaborating on..." class="btn btn-primary">Get in Touch</a>
+        <a href="mailto:va.mvharris@gmail.com?subject=Over virtual coffee&body=Hi Marla, I've been exploring your portfolio and would love to chat about..." class="btn btn-secondary">Share a Virtual Coffee</a>
       </div>
-      <div class="mt-16 pt-8 border-t border-neutral-200 text-sm text-neutral-500">
-        <p class="mb-1">Marla V. Harris</p>
-        <p class="mb-1">va.mvharris@gmail.com</p>
-        <p class="text-xs text-neutral-400 mt-2">© 2023 Marla V. Harris. All rights reserved.</p>
+      
+      <div class="social-links">
+        <a href="https://linkedin.com/in/marla-harris-047b2946" class="social-link" aria-label="LinkedIn">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="#" class="social-link" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+      
+      <div class="contact-info">
+        <p>Marla V. Harris</p>
+        <p><a href="mailto:va.mvharris@gmail.com" class="contact-link">va.mvharris@gmail.com</a></p>
+        <p>Brooklyn, NY</p>
       </div>
     </div>
   </section>
-
 </body>
 </html>
