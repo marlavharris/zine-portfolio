@@ -127,7 +127,7 @@
     /* Hero */
     .hero {
       text-align: center;
-      padding: 4rem 0;
+      padding: 3rem 0;
     }
     
     .hero h1 {
@@ -184,7 +184,7 @@
     
     /* Services */
     .services {
-      padding: 4rem 0;
+      padding: 3rem 0;
       background: white;
     }
     
@@ -215,7 +215,7 @@
       background: var(--paper);
       border: 1px solid var(--neutral-200);
       border-radius: 0.75rem;
-      padding: 2rem;
+      padding: 1.5rem;
       transition: all 0.3s ease;
       display: flex;
       flex-direction: column;
@@ -266,7 +266,7 @@
     
     /* Brand Grid */
     .brands {
-      padding: 4rem 0;
+      padding: 3rem 0;
     }
     
     .brand-grid {
@@ -275,13 +275,13 @@
       gap: 0.75rem;
       border-top: 1px solid var(--neutral-200);
       border-bottom: 1px solid var(--neutral-200);
-      padding: 3rem 0;
+      padding: 2rem 0;
       background: rgba(255,255,255,0.5);
     }
     
     .brand-item {
       text-align: center;
-      padding: 1.25rem 0.75rem;
+      padding: 1rem 0.5rem;
       font-weight: 600;
       color: var(--ink);
       letter-spacing: 0.05em;
@@ -290,7 +290,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      min-height: 80px;
+      min-height: 70px;
       border-radius: 4px;
     }
     
@@ -315,7 +315,7 @@
     
     /* About */
     .about {
-      padding: 4rem 0;
+      padding: 3rem 0;
     }
     
     .about-content {
@@ -389,7 +389,7 @@
     
     /* Work */
     .work {
-      padding: 4rem 0;
+      padding: 3rem 0;
       background: white;
     }
     
@@ -471,7 +471,7 @@
     .work-card {
       background: var(--accent-lighter);
       border-radius: 0.75rem;
-      padding: 2rem;
+      padding: 1.5rem;
       height: 100%;
       display: flex;
       flex-direction: column;
@@ -495,8 +495,8 @@
     .challenge-note {
       background: rgba(153, 0, 73, 0.05);
       border-left: 4px solid var(--accent);
-      padding: 1.25rem;
-      margin-top: 1.25rem;
+      padding: 1rem;
+      margin-top: 1rem;
       border-radius: 0 6px 6px 0;
     }
     
@@ -509,7 +509,7 @@
     
     /* Testimonials */
     .testimonials {
-      padding: 4rem 0;
+      padding: 3rem 0;
     }
     
     .testimonials h2 {
@@ -528,7 +528,7 @@
     .testimonial-card {
       background: var(--accent-lighter);
       border-radius: 0.75rem;
-      padding: 2rem;
+      padding: 1.5rem;
       display: flex;
       flex-direction: column;
       height: 100%;
@@ -561,7 +561,7 @@
     
     /* Contact */
     .contact {
-      padding: 4rem 0;
+      padding: 3rem 0;
       text-align: center;
       background: white;
     }
@@ -653,7 +653,7 @@
       }
       
       .hero {
-        padding: 3rem 0;
+        padding: 2rem 0;
       }
       
       .btn-group {
@@ -696,6 +696,20 @@
       .brand-name {
         font-size: 0.8rem;
       }
+      
+      /* Mobile padding fixes */
+      .service-card, .work-card, .testimonial-card {
+        padding: 1.25rem;
+      }
+      
+      .brand-grid {
+        padding: 1.5rem 0;
+      }
+      
+      .brand-item {
+        padding: 0.75rem 0.25rem;
+        min-height: 60px;
+      }
     }
     
     @media (max-width: 480px) {
@@ -705,8 +719,8 @@
       }
       
       .brand-item {
-        padding: 1rem 0.5rem;
-        min-height: 70px;
+        padding: 0.75rem 0.25rem;
+        min-height: 60px;
       }
       
       .brand-name {
