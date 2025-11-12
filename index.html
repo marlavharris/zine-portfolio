@@ -7,15 +7,15 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-869S7ZPXQH');
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Marla Harris - Growth engineer building marketing systems for 3M+ subscribers and $2M+ partnerships. Strategic marketing and systems architecture.">
   <title>Marla V. Harris — Strategic Marketing & Systems Architecture</title>
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <!-- Font Awesome -->
+  <!-- Font Awesome (only needed icons) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
@@ -26,7 +26,7 @@
       --accent-lighter: rgba(178,0,95,0.08);
       --neutral-100: #f5f5f5;
       --neutral-200: #e5e5e5;
-      --neutral-600: #525252;
+      --neutral-600: #666666; /* Improved contrast */
       --neutral-700: #404040;
     }
     
@@ -36,11 +36,16 @@
       box-sizing: border-box;
     }
     
+    html {
+      scroll-behavior: smooth;
+    }
+    
     body {
       font-family: 'Inter', sans-serif;
       color: var(--ink);
       background: var(--paper);
       line-height: 1.5;
+      min-font-size: 16px;
     }
     
     .container {
@@ -132,7 +137,7 @@
     }
     
     .hero p {
-      font-size: 1.25rem;
+      font-size: clamp(1.125rem, 2.5vw, 1.25rem);
       color: var(--neutral-700);
       max-width: 600px;
       margin: 0 auto 2rem;
@@ -153,6 +158,8 @@
       font-size: 0.875rem;
       letter-spacing: 0.05em;
       transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
     }
     
     .btn-primary {
@@ -162,6 +169,7 @@
     
     .btn-primary:hover {
       background: var(--accent-light);
+      transform: translateY(-2px);
     }
     
     .btn-secondary {
@@ -171,6 +179,7 @@
     
     .btn-secondary:hover {
       border-color: var(--neutral-600);
+      transform: translateY(-2px);
     }
     
     /* Services */
@@ -185,12 +194,12 @@
     }
     
     .section-header h2 {
-      font-size: 2.25rem;
+      font-size: clamp(1.75rem, 5vw, 2.25rem);
       margin-bottom: 1rem;
     }
     
     .section-header p {
-      font-size: 1.125rem;
+      font-size: clamp(1rem, 2.5vw, 1.125rem);
       color: var(--neutral-700);
       max-width: 500px;
       margin: 0 auto;
@@ -277,15 +286,17 @@
       color: var(--ink);
       letter-spacing: 0.05em;
       opacity: 0.7;
-      transition: opacity 0.3s ease;
+      transition: all 0.3s ease;
       display: flex;
       flex-direction: column;
       justify-content: center;
       min-height: 80px;
+      border-radius: 4px;
     }
     
     .brand-item:hover {
       opacity: 1;
+      background: var(--accent-lighter);
     }
     
     .brand-name {
@@ -312,13 +323,41 @@
       margin: 0 auto;
     }
     
-    .about h2 {
-      font-size: 3rem;
+    .bra-quote {
+      font-size: clamp(1.8rem, 5vw, 2.5rem);
+      color: var(--accent);
+      font-style: italic;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+    
+    .quote-subtitle {
+      text-align: center;
+      color: var(--neutral-600);
+      font-weight: 500;
+      margin-bottom: 2rem;
+      letter-spacing: 0.05em;
+      font-size: clamp(0.9rem, 2vw, 1rem);
+    }
+    
+    .about-story {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .about h3 {
+      font-size: 1.1rem;
       margin-bottom: 1rem;
+      color: var(--neutral-700);
+      font-weight: 400;
+      text-align: left;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
     
     .about p {
-      font-size: 1.125rem;
+      font-size: clamp(1rem, 2.5vw, 1.125rem);
       color: var(--neutral-700);
       margin-bottom: 1.25rem;
     }
@@ -336,7 +375,7 @@
     
     blockquote {
       font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
+      font-size: clamp(1.25rem, 3vw, 1.5rem);
       font-style: italic;
       text-align: center;
       margin-bottom: 0.75rem;
@@ -355,12 +394,12 @@
     }
     
     .work h2 {
-      font-size: 3rem;
+      font-size: clamp(2rem, 5vw, 3rem);
       margin-bottom: 0.75rem;
     }
     
     .work-subtitle {
-      font-size: 1.25rem;
+      font-size: clamp(1.125rem, 2.5vw, 1.25rem);
       color: var(--neutral-700);
       max-width: 600px;
       margin-bottom: 2rem;
@@ -397,12 +436,12 @@
     }
     
     .work-item h3 {
-      font-size: 2rem;
+      font-size: clamp(1.5rem, 3vw, 2rem);
       margin-bottom: 1rem;
     }
     
     .work-item p {
-      font-size: 1rem;
+      font-size: clamp(0.95rem, 2vw, 1rem);
       color: var(--neutral-700);
       margin-bottom: 1.5rem;
     }
@@ -419,7 +458,7 @@
     
     .stat-value {
       font-family: 'Playfair Display', serif;
-      font-size: 2rem;
+      font-size: clamp(1.5rem, 3vw, 2rem);
       color: var(--accent);
       margin-bottom: 0.25rem;
     }
@@ -474,7 +513,7 @@
     }
     
     .testimonials h2 {
-      font-size: 3rem;
+      font-size: clamp(2rem, 5vw, 3rem);
       text-align: center;
       margin-bottom: 1rem;
     }
@@ -528,12 +567,12 @@
     }
     
     .contact h2 {
-      font-size: 3rem;
+      font-size: clamp(2rem, 5vw, 3rem);
       margin-bottom: 1rem;
     }
     
     .contact p {
-      font-size: 1.25rem;
+      font-size: clamp(1.125rem, 2.5vw, 1.25rem);
       color: var(--neutral-700);
       max-width: 600px;
       margin: 0 auto 2rem;
@@ -657,12 +696,6 @@
       .brand-name {
         font-size: 0.8rem;
       }
-      
-      /* Mobile fixes */
-      .about h2 {
-        font-size: 2rem;
-        white-space: normal;
-      }
     }
     
     @media (max-width: 480px) {
@@ -742,7 +775,7 @@
       </div>
       <div class="services-grid">
         <div class="service-card">
-          <div class="service-icon">📊</div>
+          <div class="service-icon" aria-hidden="true">📊</div>
           <h3>Marketing Operations</h3>
           <p>Design and implement the technical infrastructure that powers growth.</p>
           <ul class="service-features">
@@ -754,7 +787,7 @@
         </div>
         
         <div class="service-card">
-          <div class="service-icon">🔄</div>
+          <div class="service-icon" aria-hidden="true">🔄</div>
           <h3>Lifecycle Strategy</h3>
           <p>Create customer journeys that build loyalty and growth</p>
           <ul class="service-features">
@@ -766,7 +799,7 @@
         </div>
         
         <div class="service-card">
-          <div class="service-icon">🎯</div>
+          <div class="service-icon" aria-hidden="true">🎯</div>
           <h3>Paid Media & Growth</h3>
           <p>Strategic growth, compliant execution</p>
           <ul class="service-features">
@@ -801,16 +834,16 @@
           <span class="brand-metric">Creative Overhaul<br>Digital Transformation</span>
         </div>
         <div class="brand-item">
-          <div class="brand-name">MUSEUM OF SEX</div>
-          <span class="brand-metric">Paid Ads & Compliance<br>59% of Web Sales</span>
+          <div class="brand-name">BAO BAO ISSEY MIYAKE</div>
+          <span class="brand-metric">Luxury Retail<br>21.46% Open Rate</span>
         </div>
         <div class="brand-item">
-          <div class="brand-name">AJ MADISON</div>
-          <span class="brand-metric">$2M Partnerships<br>Trade Marketing</span>
+          <div class="brand-name">SUB-ZERO WOLF</div>
+          <span class="brand-metric">Premium Partnerships<br>Trade Marketing</span>
         </div>
         <div class="brand-item">
-          <div class="brand-name">TERRA'S BOUTIQUE</div>
-          <span class="brand-metric">Life Cycle Marketing<br>18% AVG CTR</span>
+          <div class="brand-name">THERMADOR | BOSCH</div>
+          <span class="brand-metric">Elite Appliances<br>Brand Partnerships</span>
         </div>
       </div>
     </div>
@@ -820,13 +853,13 @@
   <section id="about" class="about">
     <div class="container">
       <div class="about-content">
-        <h2 style="font-size: 2.5rem; color: var(--accent); font-style: italic; line-height: 1.1; margin-bottom: 0.5rem; text-align: center;">"If I can sell a $300 bra,<br>I can sell anything."</h2>
-        <p style="text-align: center; color: var(--neutral-600); font-weight: 500; margin-bottom: 2rem; letter-spacing: 0.05em;">From luxury intimates to global impact</p>
+        <h2 class="bra-quote">"If I can sell a $300 bra,<br>I can sell anything."</h2>
+        <p class="quote-subtitle">From luxury intimates to global impact</p>
         <div class="bar" style="margin: 0 auto 2rem;"></div>
         
-        <div style="max-width: 600px; margin: 0 auto;">
-          <h3 style="font-size: 1.1rem; margin-bottom: 1rem; color: var(--neutral-700); font-weight: 400; text-align: left; text-transform: uppercase; letter-spacing: 0.05em;">The $300 Bra</h3>
-          <p style="text-align: left; margin-bottom: 0;">I started my career in retail, selling expensive lingerie. <span class="highlight">I learned you can get anyone to spend $300 on a bra, if you know how.</span> This insight became my foundation: data-driven strategy meets human-centered storytelling.</p>
+        <div class="about-story">
+          <h3>The $300 Bra</h3>
+          <p>I started my career in retail, selling expensive lingerie. <span class="highlight">I learned you can get anyone to spend $300 on a bra, if you know how.</span> This insight became my foundation: data-driven strategy meets human-centered storytelling.</p>
         </div>
       </div>
     </div>
@@ -897,30 +930,35 @@
           </div>
         </div>
 
-        <!-- Work 3 - Terra's Boutique -->
+        <!-- Work 3 - Bao Bao Issey Miyake -->
         <div class="work-item">
           <div>
-            <div class="work-category">Community & Small Business</div>
-            <h3>Terra's Boutique</h3>
-            <p>Drove consistent engagement and revenue for a Black-owned, sorority-founded boutique through strategic email campaigns achieving 5-18% click-through rates.</p>
+            <div class="work-category">Luxury Retail</div>
+            <h3>Bao Bao Issey Miyake</h3>
+            <p>Optimized email creative strategy for luxury fashion, driving exceptional engagement through data-driven design decisions and sophisticated audience segmentation.</p>
+            
             <div class="work-stats">
+              <div class="stat">
+                <div class="stat-value">21.46%</div>
+                <div class="stat-label">Open Rate</div>
+              </div>
               <div class="stat">
                 <div class="stat-value">18%</div>
                 <div class="stat-label">Peak CTR</div>
               </div>
               <div class="stat">
-                <div class="stat-value">5%+</div>
-                <div class="stat-label">Avg CTR</div>
+                <div class="stat-value">Above</div>
+                <div class="stat-label">Retail Benchmarks</div>
               </div>
-              <div class="stat">
-                <div class="stat-value">7.2%</div>
-                <div class="stat-label">Top campaign CTR</div>
-              </div>
+            </div>
+            
+            <div class="challenge-note">
+              <p><strong>Creative Insight:</strong> Identified that minimalist, single-product visuals without overlay text consistently drove the highest engagement, outperforming traditional retail email designs and establishing new creative benchmarks for luxury fashion.</p>
             </div>
           </div>
           <div class="work-card">
-            <h4>Engagement Excellence</h4>
-            <p>Delivered exceptional click-through performance through sophisticated segmentation and community-focused messaging, driving real business results for mission-driven brands.</p>
+            <h4>Creative Optimization</h4>
+            <p>Transformed email marketing performance through rigorous A/B testing and creative analysis. Proved that clean, product-focused creative with minimal text overlays significantly outperformed conventional retail email designs in the luxury segment.</p>
           </div>
         </div>
 
@@ -931,7 +969,7 @@
             <h3>Community Fridge Project</h3>
             <p>Founded and led a national circular-economy initiative, establishing the company's first CSR program. Featured in The New York Times and Modern Luxury.</p>
             <div style="background: transparent; padding: 1rem 0;">
-              <p style="font-style: italic; font-size: 1.125rem; color: var(--neutral-700); margin-bottom: 1rem;">
+              <p style="font-style: italic; font-size: clamp(1rem, 2.5vw, 1.125rem); color: var(--neutral-700); margin-bottom: 1rem;">
                 "The amount of support exceeded anything I could have imagined."
               </p>
               <p style="color: var(--accent); font-weight: 600;">
@@ -967,8 +1005,8 @@
             </div>
           </div>
           <div class="work-card">
-            <h4>Partnerships</h4>
-            <p>Cultivated brand partnerships (LG, GE, Sub-Zero/Wolf, Samsung) through elite trade marketing, premium print, and exclusive event activations. Drove sustained partnership growth by creating must-attend industry experiences that became the standard for brand engagement.</p>
+            <h4>Luxury Partnerships</h4>
+            <p>Cultivated elite brand partnerships (Sub-Zero/Wolf, Thermador, Bosch, LG, GE, Samsung) through sophisticated trade marketing, premium print, and exclusive event activations. Drove sustained partnership growth by creating must-attend industry experiences that became the standard for luxury appliance engagement.</p>
           </div>
         </div>
       </div>
