@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-869S7ZPXQH"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -11,20 +10,10 @@
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Marla Harris - Growth engineer building marketing systems for 3M+ subscribers and $2M+ partnerships. Strategic marketing and systems architecture.">
-  
-  <!-- Open Graph Tags -->
-  <meta property="og:title" content="Marla V. Harris — Strategic Marketing & Systems Architecture">
-  <meta property="og:description" content="Growth engineer building marketing systems for 3M+ subscribers and $2M+ partnerships">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://yourportfolio.com">
-  <!-- <meta property="og:image" content="https://yourportfolio.com/og-image.jpg"> -->
-  
+  <meta name="description" content="Marla Harris - Growth engineer building marketing systems for millions of subscribers and $2M+ partnerships.">
   <title>Marla V. Harris — Strategic Marketing & Systems Architecture</title>
   
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <style>
@@ -34,7 +23,6 @@
       --accent: #990049;
       --accent-light: #b2005f;
       --accent-lighter: rgba(178,0,95,0.08);
-      --neutral-100: #f5f5f5;
       --neutral-200: #e5e5e5;
       --neutral-600: #666666;
       --neutral-700: #404040;
@@ -55,41 +43,42 @@
       color: var(--ink);
       background: var(--paper);
       line-height: 1.5;
-      overflow-x: hidden;
     }
     
     .container {
-      max-width: 1200px;
+      max-width: 1000px;
       margin: 0 auto;
       padding: 0 2rem;
     }
     
-    h1, h2, h3, h4 {
+    h1, h2, h3 {
       font-family: 'Playfair Display', serif;
       font-weight: 400;
       line-height: 1.2;
     }
     
     .bar {
-      width: 84px;
-      height: 3px;
+      width: 60px;
+      height: 2px;
       background: var(--accent);
-      border-radius: 999px;
       margin: 1rem 0;
     }
     
-    /* Header & Mobile Menu */
+    .star-decoration {
+      text-align: center;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+      color: var(--ink);
+      letter-spacing: 0.3em;
+    }
+    
+    /* Header */
     header {
       border-bottom: 1px solid var(--neutral-200);
       background: var(--paper);
       position: sticky;
       top: 0;
       z-index: 1000;
-      transition: all 0.3s ease;
-    }
-    
-    header.scrolled {
-      box-shadow: 0 2px 20px rgba(0,0,0,0.08);
     }
     
     nav {
@@ -118,34 +107,13 @@
       letter-spacing: 0.05em;
       color: var(--neutral-600);
       text-decoration: none;
-      position: relative;
       font-weight: 500;
-      transition: color 0.3s ease;
     }
     
     .nav-link:hover {
       color: var(--accent);
     }
     
-    .nav-link::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: -6px;
-      height: 1.5px;
-      background: var(--accent);
-      transform: scaleX(0);
-      transform-origin: right;
-      transition: transform .3s ease;
-    }
-    
-    .nav-link:hover::after {
-      transform: scaleX(1);
-      transform-origin: left;
-    }
-    
-    /* Mobile Menu */
     .mobile-menu-btn {
       display: none;
       background: none;
@@ -153,82 +121,24 @@
       font-size: 1.5rem;
       color: var(--ink);
       cursor: pointer;
-      padding: 0.5rem;
-    }
-    
-    .mobile-menu {
-      position: fixed;
-      top: 0;
-      right: -100%;
-      width: 80%;
-      height: 100vh;
-      background: var(--paper);
-      z-index: 1001;
-      transition: right 0.3s ease;
-      padding: 2rem;
-      box-shadow: -5px 0 20px rgba(0,0,0,0.1);
-    }
-    
-    .mobile-menu.active {
-      right: 0;
-    }
-    
-    .mobile-menu-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 2rem;
-      padding-bottom: 1rem;
-      border-bottom: 1px solid var(--neutral-200);
-    }
-    
-    .mobile-nav-links {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-    
-    .mobile-nav-link {
-      font-size: 1.125rem;
-      color: var(--ink);
-      text-decoration: none;
-      font-weight: 500;
-      padding: 0.5rem 0;
-      border-bottom: 1px solid var(--neutral-200);
-    }
-    
-    .overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.5);
-      z-index: 1000;
-    }
-    
-    .overlay.active {
-      display: block;
     }
     
     /* Hero */
     .hero {
       text-align: center;
-      padding: 4rem 0 3rem;
-      background: linear-gradient(135deg, var(--paper) 0%, rgba(254,250,252,0.9) 100%);
+      padding: 4rem 0 2rem;
     }
     
     .hero h1 {
-      font-size: clamp(2.5rem, 8vw, 5rem);
+      font-size: clamp(2.5rem, 8vw, 4rem);
       margin-bottom: 1.5rem;
       font-weight: 300;
     }
     
     .hero p {
-      font-size: clamp(1.125rem, 2.5vw, 1.25rem);
+      font-size: 1.25rem;
       color: var(--neutral-700);
-      max-width: 600px;
+      max-width: 500px;
       margin: 0 auto 2rem;
     }
     
@@ -245,10 +155,7 @@
       font-weight: 600;
       text-decoration: none;
       font-size: 0.875rem;
-      letter-spacing: 0.05em;
       transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
     }
     
     .btn-primary {
@@ -258,8 +165,6 @@
     
     .btn-primary:hover {
       background: var(--accent-light);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(153,0,73,0.3);
     }
     
     .btn-secondary {
@@ -269,8 +174,76 @@
     
     .btn-secondary:hover {
       border-color: var(--neutral-600);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    
+    /* Work */
+    .work {
+      padding: 3rem 0;
+    }
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    
+    .section-header h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    
+    .work-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    .work-card {
+      background: white;
+      border: 1px solid var(--neutral-200);
+      border-radius: 0.5rem;
+      padding: 1.5rem;
+    }
+    
+    .work-category {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    
+    .work-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .work-card p {
+      color: var(--neutral-700);
+      margin-bottom: 1.5rem;
+    }
+    
+    .work-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    
+    .stat {
+      text-align: center;
+    }
+    
+    .stat-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--accent);
+      margin-bottom: 0.25rem;
+    }
+    
+    .stat-label {
+      color: var(--neutral-600);
+      font-size: 0.9rem;
     }
     
     /* Services */
@@ -279,66 +252,28 @@
       background: white;
     }
     
-    .section-header {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-    
-    .section-header h2 {
-      font-size: clamp(1.75rem, 5vw, 2.25rem);
-      margin-bottom: 1rem;
-    }
-    
-    .section-header p {
-      font-size: clamp(1rem, 2.5vw, 1.125rem);
-      color: var(--neutral-700);
-      max-width: 500px;
-      margin: 0 auto;
-    }
-    
     .services-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
+      gap: 1.5rem;
     }
     
     .service-card {
       background: var(--paper);
       border: 1px solid var(--neutral-200);
-      border-radius: 0.75rem;
-      padding: 1.25rem;
-      transition: all 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      position: relative;
-    }
-    
-    .service-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-      border-color: var(--accent-light);
-    }
-    
-    .star-decoration {
+      border-radius: 0.5rem;
+      padding: 1.5rem;
       text-align: center;
-      margin-bottom: 1rem;
-      font-size: 1.2rem;
-      color: var(--ink);
-      letter-spacing: 0.3em;
     }
     
     .service-card h3 {
       font-size: 1.25rem;
-      margin-bottom: 0.75rem;
-      text-align: center;
+      margin-bottom: 1rem;
     }
     
     .service-card p {
       color: var(--neutral-700);
-      margin-bottom: 1.25rem;
-      flex-grow: 1;
-      font-size: 0.95rem;
+      margin-bottom: 1rem;
     }
     
     .service-features {
@@ -346,32 +281,20 @@
     }
     
     .service-features li {
-      padding: 0.375rem 0;
+      padding: 0.25rem 0;
       color: var(--neutral-700);
-      position: relative;
-      padding-left: 1.25rem;
       font-size: 0.9rem;
     }
     
-    .service-features li:before {
-      content: "•";
-      color: var(--accent);
-      position: absolute;
-      left: 0;
-    }
-    
-    /* Tech Stack */
-    .tech-stack {
+    /* Tech & Tools */
+    .tech {
       padding: 3rem 0;
-      background: var(--paper);
     }
     
     .tech-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      max-width: 800px;
-      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
     }
     
     .tech-category {
@@ -391,7 +314,7 @@
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 0.75rem;
+      gap: 0.5rem;
     }
     
     .tech-item {
@@ -402,355 +325,84 @@
       font-size: 0.9rem;
       font-weight: 500;
       color: var(--ink);
-      transition: all 0.3s ease;
     }
     
-    .tech-item:hover {
-      border-color: var(--accent);
-      transform: translateY(-2px);
-    }
-    
-    /* Brand Grid */
+    /* Brands */
     .brands {
-      padding: 3rem 0;
-    }
-    
-    .brand-grid {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 0.5rem;
-      border-top: 1px solid var(--neutral-200);
-      border-bottom: 1px solid var(--neutral-200);
-      padding: 1.5rem 0;
-      background: rgba(255,255,255,0.5);
-      position: relative;
-    }
-    
-    .brand-item {
-      text-align: center;
-      padding: 0.75rem 0.5rem;
-      font-weight: 600;
-      color: var(--ink);
-      letter-spacing: 0.05em;
-      opacity: 0.7;
-      transition: all 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      min-height: 60px;
-      border-radius: 4px;
-    }
-    
-    .brand-item:hover {
-      opacity: 1;
-      background: var(--accent-lighter);
-      transform: scale(1.02);
-    }
-    
-    .brand-name {
-      font-size: 0.85rem;
-      line-height: 1.2;
-      margin-bottom: 0.375rem;
-    }
-    
-    .brand-metric {
-      display: block;
-      font-size: 0.7rem;
-      color: var(--accent);
-      font-weight: 500;
-      line-height: 1.2;
-    }
-    
-    /* About */
-    .about {
-      padding: 3rem 0;
-    }
-    
-    .about-content {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    
-    .bra-quote {
-      font-size: clamp(1.8rem, 5vw, 2.5rem);
-      color: var(--accent);
-      font-style: italic;
-      line-height: 1.1;
-      margin-bottom: 0.5rem;
-      text-align: center;
-    }
-    
-    .quote-subtitle {
-      text-align: center;
-      color: var(--neutral-600);
-      font-weight: 500;
-      margin-bottom: 2rem;
-      letter-spacing: 0.05em;
-      font-size: clamp(0.9rem, 2vw, 1rem);
-    }
-    
-    .about-story {
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    
-    .about h3 {
-      font-size: 1.1rem;
-      margin-bottom: 1rem;
-      color: var(--neutral-700);
-      font-weight: 400;
-      text-align: left;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-    
-    .about p {
-      font-size: clamp(1rem, 2.5vw, 1.125rem);
-      color: var(--neutral-700);
-      margin-bottom: 1.25rem;
-    }
-    
-    .highlight {
-      font-weight: 600;
-      color: var(--accent);
-    }
-    
-    .story-cta {
-      background: var(--accent-lighter);
-      padding: 1.5rem;
-      border-radius: 0.75rem;
-      margin-top: 1.5rem;
-      text-align: center;
-    }
-    
-    /* My Approach */
-    .approach {
       padding: 3rem 0;
       background: white;
     }
     
-    .approach-content {
-      max-width: 700px;
-      margin: 0 auto;
-    }
-    
-    .approach-content p {
-      font-size: 1.125rem;
-      margin-bottom: 1.5rem;
-    }
-    
-    /* Work */
-    .work {
-      padding: 2.5rem 0;
-      background: var(--paper);
-    }
-    
-    .work h2 {
-      font-size: clamp(2rem, 5vw, 3rem);
-      margin-bottom: 0.75rem;
-    }
-    
-    .work-subtitle {
-      font-size: clamp(1.125rem, 2.5vw, 1.25rem);
-      color: var(--neutral-700);
-      max-width: 600px;
-      margin-bottom: 2rem;
-    }
-    
-    .work-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      position: relative;
-    }
-    
-    .work-item {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-      align-items: center;
-      position: relative;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.6s ease;
-    }
-    
-    .work-item.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    
-    .work-item.reverse {
-      direction: rtl;
-    }
-    
-    .work-item.reverse > * {
-      direction: ltr;
-    }
-    
-    .work-category {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--accent);
-      font-weight: 600;
-      margin-bottom: 0.75rem;
-    }
-    
-    .work-item h3 {
-      font-size: clamp(1.5rem, 3vw, 2rem);
-      margin-bottom: 1rem;
-    }
-    
-    .work-item p {
-      font-size: clamp(0.95rem, 2vw, 1rem);
-      color: var(--neutral-700);
-      margin-bottom: 1rem;
-    }
-    
-    .work-stats {
+    .brand-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1rem;
     }
     
-    .stat {
+    .brand-item {
       text-align: center;
+      padding: 1.25rem 1rem;
+      font-weight: 600;
+      color: var(--ink);
+      opacity: 0.8;
+      transition: opacity 0.3s ease;
     }
     
-    .stat-value {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.5rem, 3vw, 2rem);
-      color: var(--accent);
-      margin-bottom: 0.25rem;
+    .brand-item:hover {
+      opacity: 1;
     }
     
-    .stat-label {
-      color: var(--neutral-600);
+    .brand-name {
       font-size: 0.9rem;
-    }
-    
-    .work-card {
-      background: var(--accent-lighter);
-      border-radius: 0.75rem;
-      padding: 1.25rem;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      position: relative;
-      transition: all 0.3s ease;
-    }
-    
-    .work-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(153,0,73,0.1);
-    }
-    
-    .work-card h4 {
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--accent);
       margin-bottom: 0.5rem;
     }
     
-    .work-card p {
-      font-size: 1rem;
-      color: var(--neutral-700);
-      margin-bottom: 0;
+    .brand-metric {
+      font-size: 0.75rem;
+      color: var(--accent);
     }
     
-    .challenge-note {
-      background: rgba(153, 0, 73, 0.05);
-      border-left: 4px solid var(--accent);
-      padding: 1rem;
-      margin-top: 1rem;
-      border-radius: 0 6px 6px 0;
-    }
-    
-    .challenge-note p {
-      font-size: 0.9rem;
-      color: var(--neutral-700);
-      margin-bottom: 0;
-      font-style: italic;
-    }
-    
-    /* Testimonials */
-    .testimonials {
+    /* About */
+    .about {
       padding: 3rem 0;
-      background: white;
+      text-align: center;
     }
     
-    .testimonial-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
-      margin-top: 3rem;
-      max-width: 1000px;
-      margin-left: auto;
-      margin-right: auto;
+    .about-content {
+      max-width: 600px;
+      margin: 0 auto;
     }
     
-    .testimonial-card {
-      background: var(--accent-lighter);
-      border-radius: 0.75rem;
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      transition: all 0.3s ease;
-      border: 1px solid transparent;
-    }
-    
-    .testimonial-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(153,0,73,0.1);
-      border-color: var(--accent-light);
-    }
-    
-    .testimonial-text {
-      font-size: 1.05rem;
+    .bra-quote {
+      font-size: 2rem;
+      color: var(--accent);
       font-style: italic;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+    
+    .about p {
+      font-size: 1.125rem;
       color: var(--neutral-700);
       margin-bottom: 1.5rem;
-      line-height: 1.6;
-      flex-grow: 1;
-    }
-    
-    .testimonial-author {
-      border-top: 1px solid rgba(153, 0, 73, 0.2);
-      padding-top: 1.5rem;
-    }
-    
-    .author-name {
-      font-weight: 600;
-      color: var(--accent);
-      font-size: 1rem;
-      margin-bottom: 0.25rem;
-    }
-    
-    .author-role {
-      color: var(--neutral-600);
-      font-size: 0.9rem;
     }
     
     /* Contact */
     .contact {
       padding: 3rem 0;
       text-align: center;
-      background: var(--paper);
+      background: white;
     }
     
     .contact h2 {
-      font-size: clamp(2rem, 5vw, 3rem);
+      font-size: 2rem;
       margin-bottom: 1rem;
     }
     
     .contact p {
-      font-size: clamp(1.125rem, 2.5vw, 1.25rem);
+      font-size: 1.125rem;
       color: var(--neutral-700);
-      max-width: 600px;
+      max-width: 500px;
       margin: 0 auto 2rem;
     }
     
@@ -772,91 +424,23 @@
       color: var(--accent);
       text-decoration: none;
       transition: all 0.3s ease;
-      font-size: 1.1rem;
     }
     
     .social-link:hover {
       background: var(--accent);
       color: white;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 15px rgba(153,0,73,0.3);
     }
     
     .contact-info {
-      margin-top: 2.5rem;
-      padding-top: 2rem;
-      border-top: 1px solid var(--neutral-200);
       color: var(--neutral-600);
     }
     
     .contact-info p {
-      margin-bottom: 0.375rem;
+      margin-bottom: 0.5rem;
       font-size: 0.9rem;
     }
     
-    .contact-link {
-      color: var(--accent);
-      text-decoration: none;
-    }
-    
-    .contact-link:hover {
-      text-decoration: underline;
-    }
-    
-    /* Article Button */
-    .article-btn {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 0.5rem 1.25rem;
-      background: transparent;
-      border: 1px solid var(--accent);
-      color: var(--accent);
-      border-radius: 999px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-    
-    .article-btn:hover {
-      background: var(--accent);
-      color: white;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 15px rgba(153,0,73,0.3);
-    }
-    
-    /* Scroll indicator */
-    .scroll-indicator {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 3px;
-      background: var(--accent);
-      z-index: 1000;
-      transition: width 0.3s ease;
-    }
-    
     /* Responsive */
-    @media (max-width: 1024px) {
-      .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      
-      .services-grid .service-card:last-child {
-        grid-column: 1 / -1;
-        max-width: 400px;
-        margin: 0 auto;
-      }
-      
-      .brand-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-      
-      .testimonial-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-    
     @media (max-width: 768px) {
       .nav-links {
         display: none;
@@ -866,8 +450,20 @@
         display: block;
       }
       
-      .hero {
-        padding: 2rem 0;
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .tech-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .brand-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .work-stats {
+        grid-template-columns: 1fr;
       }
       
       .btn-group {
@@ -877,158 +473,117 @@
       
       .btn {
         width: 100%;
-        max-width: 220px;
+        max-width: 250px;
         text-align: center;
-      }
-      
-      .work-item {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
-      
-      .work-item.reverse {
-        direction: ltr;
-      }
-      
-      .work-stats {
-        grid-template-columns: repeat(3, 1fr);
-      }
-      
-      .brand-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      
-      .services-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .services-grid .service-card:last-child {
-        grid-column: auto;
-        max-width: none;
-      }
-      
-      .brand-name {
-        font-size: 0.8rem;
-      }
-      
-      .tech-items {
-        gap: 0.5rem;
-      }
-      
-      .tech-item {
-        font-size: 0.8rem;
-        padding: 0.4rem 0.8rem;
-      }
-      
-      .testimonial-grid {
-        gap: 1.5rem;
-      }
-      
-      .testimonial-card {
-        padding: 1.5rem;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      .brand-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.5rem;
-      }
-      
-      .brand-item {
-        padding: 0.5rem 0.25rem;
-        min-height: 60px;
-      }
-      
-      .brand-name {
-        font-size: 0.75rem;
-      }
-      
-      .brand-metric {
-        font-size: 0.65rem;
-      }
-      
-      .work-stats {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
-      }
-      
-      .stat-value {
-        font-size: 1.5rem;
-      }
-      
-      .btn-group {
-        align-items: stretch;
-      }
-      
-      .container {
-        padding: 0 1.5rem;
-      }
-      
-      .mobile-menu {
-        width: 100%;
-      }
-      
-      .testimonial-card {
-        padding: 1.25rem;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Scroll Indicator -->
-  <div class="scroll-indicator" id="scrollIndicator"></div>
-
-  <!-- Mobile Menu Overlay -->
-  <div class="overlay" id="overlay"></div>
-
-  <!-- Mobile Menu -->
-  <div class="mobile-menu" id="mobileMenu">
-    <div class="mobile-menu-header">
-      <div class="logo">Marla V. Harris</div>
-      <button class="mobile-menu-btn" id="closeMenu">
-        <i class="fas fa-times"></i>
-      </button>
-    </div>
-    <div class="mobile-nav-links">
-      <a href="#services" class="mobile-nav-link" onclick="closeMobileMenu()">Services</a>
-      <a href="#tech-stack" class="mobile-nav-link" onclick="closeMobileMenu()">Tech Stack</a>
-      <a href="#work" class="mobile-nav-link" onclick="closeMobileMenu()">Work</a>
-      <a href="#about" class="mobile-nav-link" onclick="closeMobileMenu()">About</a>
-      <a href="#testimonials" class="mobile-nav-link" onclick="closeMobileMenu()">Team Collaboration</a>
-      <a href="#contact" class="mobile-nav-link" onclick="closeMobileMenu()">Contact</a>
-    </div>
-  </div>
-
-  <!-- Header & Navigation -->
-  <header id="mainHeader">
+  <!-- Header -->
+  <header>
     <div class="container">
       <nav>
         <a href="#" class="logo">Marla V. Harris</a>
         <div class="nav-links">
-          <a href="#services" class="nav-link">Services</a>
-          <a href="#tech-stack" class="nav-link">Tech Stack</a>
           <a href="#work" class="nav-link">Work</a>
+          <a href="#services" class="nav-link">Services</a>
+          <a href="#tech" class="nav-link">Tech Stack</a>
+          <a href="#brands" class="nav-link">Brands</a>
           <a href="#about" class="nav-link">About</a>
-          <a href="#testimonials" class="nav-link">Team Collaboration</a>
           <a href="#contact" class="nav-link">Contact</a>
         </div>
-        <button class="mobile-menu-btn" id="openMenu">
+        <button class="mobile-menu-btn">
           <i class="fas fa-bars"></i>
         </button>
       </nav>
     </div>
   </header>
 
-  <!-- Hero Section -->
+  <!-- Hero -->
   <section class="hero">
     <div class="container">
+      <div class="star-decoration">✦ ✦ ✦</div>
       <h1>Where <span style="font-style: italic; color: var(--accent);">Storytelling</span><br>Meets Systems.</h1>
       <div class="bar" style="margin: 0 auto 2rem;"></div>
-      <p>Building marketing systems that drive measurable growth for 3M+ subscribers and $2M+ partnerships.</p>
+      <p>Growth engineer building marketing systems for millions of subscribers and $2M+ partnerships.</p>
       <div class="btn-group">
         <a href="#work" class="btn btn-primary">View Work</a>
         <a href="#contact" class="btn btn-secondary">Let's Talk</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Work -->
+  <section id="work" class="work">
+    <div class="container">
+      <div class="section-header">
+        <div class="star-decoration">✦ ✦ ✦</div>
+        <h2>Selected Work</h2>
+        <p>Technical systems driving marketing growth</p>
+        <div class="bar" style="margin: 1rem auto;"></div>
+      </div>
+
+      <div class="work-grid">
+        <div class="work-card">
+          <div class="work-category">Subscription & Email Marketing</div>
+          <h3>Penske Media Corporation</h3>
+          <p>Led subscription email marketing for Rolling Stone, Billboard, and WWD - crafting customer journeys, creative ideation, and copy that maintained editorial excellence while driving conversions.</p>
+          <div class="work-stats">
+            <div class="stat">
+              <div class="stat-value">Multi-Million</div>
+              <div class="stat-label">Subscriber Base</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value">Editorial</div>
+              <div class="stat-label">Brand Integrity</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value">Email Journey</div>
+              <div class="stat-label">Architecture</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="work-card">
+          <div class="work-category">Complex Markets</div>
+          <h3>Museum of Sex</h3>
+          <p>Navigated complex platform compliance while driving 59% of all web sales through strategic campaign management in restricted advertising environments.</p>
+          <div class="work-stats">
+            <div class="stat">
+              <div class="stat-value">59%</div>
+              <div class="stat-label">Of all web sales</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value">69%</div>
+              <div class="stat-label">Campaign ROI</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value">Platform</div>
+              <div class="stat-label">Compliance</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="work-card">
+          <div class="work-category">Luxury & Data-Driven Creative</div>
+          <h3>Bao Bao Issey Miyake</h3>
+          <p>Optimized email creative strategy through rigorous A/B testing, proving minimalist product visuals drive the highest engagement. Combined data analysis with luxury brand sensibilities.</p>
+          <div class="work-stats">
+            <div class="stat">
+              <div class="stat-value">21.46%</div>
+              <div class="stat-label">Open Rate</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value">18%</div>
+              <div class="stat-label">Peak CTR</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value">Data-Driven</div>
+              <div class="stat-label">Creative</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1039,42 +594,40 @@
       <div class="section-header">
         <div class="star-decoration">✦ ✦ ✦</div>
         <h2>Strategic Services</h2>
-        <p>Data-driven systems, human-centered results</p>
+        <p>Where technical architecture meets marketing strategy</p>
+        <div class="bar" style="margin: 1rem auto;"></div>
       </div>
       <div class="services-grid">
         <div class="service-card">
           <div class="star-decoration">✦</div>
-          <h3>Marketing Operations</h3>
-          <p>Design and implement the technical infrastructure that powers growth.</p>
+          <h3>Marketing Systems</h3>
+          <p>Technical infrastructure that powers growth</p>
           <ul class="service-features">
-            <li>CRM & marketing automation</li>
-            <li>API & webhook integrations</li>
-            <li>Data governance & analytics</li>
-            <li>System architecture</li>
+            <li>CRM & Automation Architecture</li>
+            <li>API & Data Integrations</li>
+            <li>System Implementation</li>
           </ul>
         </div>
         
         <div class="service-card">
           <div class="star-decoration">✦</div>
-          <h3>Lifecycle Strategy</h3>
-          <p>Create customer journeys that build loyalty and growth</p>
+          <h3>Growth Strategy</h3>
+          <p>Data-driven customer journey design</p>
           <ul class="service-features">
-            <li>Onboarding & activation flows</li>
-            <li>Segmentation & personalization</li>
-            <li>Renewal & reactivation programs</li>
-            <li>Cross-channel orchestration</li>
+            <li>Lifecycle Marketing</li>
+            <li>Paid Media & Compliance</li>
+            <li>Performance Optimization</li>
           </ul>
         </div>
         
         <div class="service-card">
           <div class="star-decoration">✦</div>
-          <h3>Paid Media & Growth</h3>
-          <p>Strategic growth, compliant execution</p>
+          <h3>Creative & Content</h3>
+          <p>Bridging creative vision with technical execution</p>
           <ul class="service-features">
-            <li>$2M+ budget management</li>
-            <li>Platform compliance & sensitive topics</li>
-            <li>Performance optimization</li>
-            <li>ROI analysis & reporting</li>
+            <li>Email & Journey Copywriting</li>
+            <li>Creative Ideation & Testing</li>
+            <li>Brand Voice Development</li>
           </ul>
         </div>
       </div>
@@ -1082,17 +635,18 @@
   </section>
 
   <!-- Tech Stack -->
-  <section id="tech-stack" class="tech-stack">
+  <section id="tech" class="tech">
     <div class="container">
       <div class="section-header">
         <div class="star-decoration">✦ ✦ ✦</div>
         <h2>Technical Toolkit</h2>
-        <p>Platforms and systems I've built and scaled with</p>
+        <p>Platforms and systems I architect and scale with</p>
+        <div class="bar" style="margin: 1rem auto;"></div>
       </div>
       
       <div class="tech-grid">
         <div class="tech-category">
-          <h3>CRM & Marketing Automation</h3>
+          <h3>Marketing Technology</h3>
           <div class="tech-items">
             <span class="tech-item">Salesforce</span>
             <span class="tech-item">Listrak</span>
@@ -1102,7 +656,17 @@
         </div>
         
         <div class="tech-category">
-          <h3>Content & E-commerce</h3>
+          <h3>Analytics & Data</h3>
+          <div class="tech-items">
+            <span class="tech-item">Looker</span>
+            <span class="tech-item">Google Analytics</span>
+            <span class="tech-item">Zuora</span>
+            <span class="tech-item">Piano</span>
+          </div>
+        </div>
+        
+        <div class="tech-category">
+          <h3>Platform & E-commerce</h3>
           <div class="tech-items">
             <span class="tech-item">Shopify</span>
             <span class="tech-item">WordPress</span>
@@ -1112,278 +676,71 @@
         </div>
         
         <div class="tech-category">
-          <h3>Analytics & Data</h3>
-          <div class="tech-items">
-            <span class="tech-item">Looker</span>
-            <span class="tech-item">Google Analytics 4</span>
-            <span class="tech-item">Zuora</span>
-            <span class="tech-item">Piano</span>
-          </div>
-        </div>
-        
-        <div class="tech-category">
-          <h3>Workflow & Operations</h3>
+          <h3>Operations</h3>
           <div class="tech-items">
             <span class="tech-item">Monday.com</span>
+            <span class="tech-item">Jira</span>
+            <span class="tech-item">Project Management</span>
+            <span class="tech-item">Workflow Design</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Brand Collaborations -->
-  <section class="brands">
+  <!-- Brands -->
+  <section id="brands" class="brands">
     <div class="container">
       <div class="section-header">
         <div class="star-decoration">✦ ✦ ✦</div>
         <h2>Selected Collaborations</h2>
-        <p>Media empires, luxury brands, regulated markets</p>
+        <p>Building systems for media empires, luxury brands, and complex markets</p>
+        <div class="bar" style="margin: 1rem auto;"></div>
       </div>
       <div class="brand-grid">
         <div class="brand-item">
-          <div class="brand-name">ROLLING STONE MAGAZINE</div>
-          <span class="brand-metric">Email Systems<br>Double-Digit Revenue Growth</span>
+          <div class="brand-name">ROLLING STONE</div>
+          <div class="brand-metric">Subscription Marketing</div>
         </div>
         <div class="brand-item">
           <div class="brand-name">BILLBOARD PRO</div>
-          <span class="brand-metric">Trade Marketing<br>Lifecycle Strategy</span>
+          <div class="brand-metric">Trade Marketing</div>
         </div>
         <div class="brand-item">
           <div class="brand-name">WOMEN'S WEAR DAILY</div>
-          <span class="brand-metric">Creative Overhaul<br>Digital Transformation</span>
+          <div class="brand-metric">Creative & Copy</div>
         </div>
         <div class="brand-item">
           <div class="brand-name">BAO BAO ISSEY MIYAKE</div>
-          <span class="brand-metric">Luxury Retail<br>21.46% Open Rate</span>
+          <div class="brand-metric">E-Commerce Management</div>
         </div>
         <div class="brand-item">
           <div class="brand-name">AJ MADISON</div>
-          <span class="brand-metric">Elevated Appliances<br>To Luxury/Lifestyle</span>
+          <div class="brand-metric">Trade Marketing</div>
         </div>
         <div class="brand-item">
-          <div class="brand-name">SUB-ZERO | WOLF</div>
-          <span class="brand-metric">Premium Partnerships<br>Brand Strategy</span>
+          <div class="brand-name">MUSEUM OF SEX</div>
+          <div class="brand-metric">Growth Marketing</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- About & Philosophy -->
+  <!-- About -->
   <section id="about" class="about">
     <div class="container">
       <div class="about-content">
-        <h2 class="bra-quote">"If I can sell a $300 bra,<br>I can sell anything."</h2>
-        <p class="quote-subtitle">From luxury intimates to global impact</p>
-        <div class="bar" style="margin: 0 auto 2rem;"></div>
-        
-        <div class="about-story">
-          <h3>The $300 Bra</h3>
-          <p>I started my career in retail, selling expensive lingerie. <span class="highlight">I learned that even the most complex purchases follow predictable patterns.</span> This insight became my foundation: understanding human psychology to build systems that scale.</p>
-          
-          <div class="story-cta">
-            <p style="font-size: 1.125rem; margin-bottom: 1rem; font-weight: 600;">How does luxury sales experience translate to system architecture?</p>
-            <a href="mailto:va.mvharris@gmail.com?subject=The $300 Bra Story&body=Hi Marla, I was looking at your portfolio and I'm curious about how your luxury sales experience translates to marketing system architecture." class="btn btn-primary">Ask Me</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- My Approach -->
-  <section class="approach">
-    <div class="container">
-      <div class="section-header">
         <div class="star-decoration">✦ ✦ ✦</div>
-        <h2>My Approach</h2>
-        <p>Building marketing systems that connect creativity to conversion</p>
-      </div>
-      <div class="approach-content">
-        <p><strong>I bridge the gap between marketing vision and technical execution.</strong> Having built systems from the ground up - migrating platforms, optimizing e-commerce, designing communication flows - I understand how creative strategy depends on solid technical foundations.</p>
-        <p>My experience spans from hands-on implementation to strategic architecture, ensuring that every system I design serves both business goals and creative ambition.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Work Section -->
-  <section id="work" class="work">
-    <div class="container">
-      <div class="star-decoration">✦ ✦ ✦</div>
-      <h2>Selected Work</h2>
-      <p class="work-subtitle">From 2M+ subscriber platforms to regulated industry growth.</p>
-      <div class="bar"></div>
-
-      <div class="work-grid">
-        <!-- Work 1 - Media -->
-        <div class="work-item">
-          <div>
-            <div class="work-category">Media Portfolio</div>
-            <h3>Penske Media Corporation</h3>
-            <p>Connected millions of subscribers across media brands through enterprise marketing automation. Built integrated customer journeys that transformed separate audiences into one powerful growth engine.</p>
-            <div class="work-stats">
-              <div class="stat">
-                <div class="stat-value">Double-Digit</div>
-                <div class="stat-label">Revenue Growth</div>
-              </div>
-              <div class="stat">
-                <div class="stat-value">Multi-Million</div>
-                <div class="stat-label">Audience Scale</div>
-              </div>
-              <div class="stat">
-                <div class="stat-value">Expense Minimization</div>
-                <div class="stat-label">Budget Optimization</div>
-              </div>
-            </div>
-          </div>
-          <div class="work-card">
-            <h4>Innovation & Strategy</h4>
-            <p>Pioneered the creative framework for subscriber journey mapping, championing new marketing cloud technologies that enabled real-time behavioral intelligence. Engineered streamlined campaign workflows that automated complex cross-brand initiatives, driving substantial annual savings while elevating audience engagement to new heights.</p>
-          </div>
-        </div>
-
-        <!-- Work 2 - Museum of Sex -->
-        <div class="work-item reverse">
-          <div>
-            <div class="work-category">Regulated Industries & Growth</div>
-            <h3>Museum of Sex</h3>
-            <p>Navigated complex platform compliance while optimizing $7K monthly Google Ads budget, driving 59% of all web sales through strategic campaign management in a heavily restricted advertising environment.</p>
-            <div class="work-stats">
-              <div class="stat">
-                <div class="stat-value">59%</div>
-                <div class="stat-label">Of all web sales</div>
-              </div>
-              <div class="stat">
-                <div class="stat-value">69%</div>
-                <div class="stat-label">Campaign ROI</div>
-              </div>
-              <div class="stat">
-                <div class="stat-value">375+</div>
-                <div class="stat-label">Monthly conversions</div>
-              </div>
-            </div>
-            <div class="challenge-note">
-              <p>Successfully navigated Google and Facebook's strict content policies for adult-adjacent topics, developing compliant advertising strategies that maintained performance while avoiding platform restrictions.</p>
-            </div>
-          </div>
-          <div class="work-card">
-            <h4>Platform Compliance</h4>
-            <p>Developed sophisticated workarounds for platform restrictions, focusing on high-converting ticket campaigns (2.69% conversion rate) while managing underperforming exhibit segments through strategic budget reallocation.</p>
-          </div>
-        </div>
-
-        <!-- Work 3 - Bao Bao Issey Miyake -->
-        <div class="work-item">
-          <div>
-            <div class="work-category">Luxury Retail</div>
-            <h3>Bao Bao Issey Miyake</h3>
-            <p>Optimized email creative strategy for luxury fashion, driving exceptional engagement through data-driven design decisions and sophisticated audience segmentation.</p>
-            
-            <div class="work-stats">
-              <div class="stat">
-                <div class="stat-value">21.46%</div>
-                <div class="stat-label">Open Rate</div>
-              </div>
-              <div class="stat">
-                <div class="stat-value">18%</div>
-                <div class="stat-label">Peak CTR</div>
-              </div>
-              <div class="stat">
-                <div class="stat-value">Above</div>
-                <div class="stat-label">Retail Benchmarks</div>
-              </div>
-            </div>
-            
-            <div class="challenge-note">
-              <p><strong>Creative Insight:</strong> Identified that minimalist, single-product visuals without overlay text consistently drove the highest engagement, outperforming traditional retail email designs and establishing new creative benchmarks for luxury fashion.</p>
-            </div>
-          </div>
-          <div class="work-card">
-            <h4>Creative Optimization</h4>
-            <p>Transformed email marketing performance through rigorous A/B testing and creative analysis. Proved that clean, product-focused creative with minimal text overlays significantly outperformed conventional retail email designs in the luxury segment.</p>
-          </div>
-        </div>
-
-        <!-- Work 4 - Community Fridge -->
-        <div class="work-item">
-          <div>
-            <div class="work-category">Social Impact</div>
-            <h3>Community Fridge Project</h3>
-            <p>Founded and led a national circular-economy initiative, establishing the company's first CSR program. Featured in The New York Times and Modern Luxury.</p>
-            <div style="background: transparent; padding: 1rem 0;">
-              <p style="font-style: italic; font-size: clamp(1rem, 2.5vw, 1.125rem); color: var(--neutral-700); margin-bottom: 1rem;">
-                "The amount of support exceeded anything I could have imagined."
-              </p>
-              <p style="color: var(--accent); font-weight: 600;">
-                — <a href="https://dc.capitolfile.com/community-fridge-ajmadison" style="color: var(--accent); text-decoration: underline;">Modern Luxury</a>
-              </p>
-              <a href="https://dc.capitolfile.com/community-fridge-ajmadison" class="article-btn" target="_blank">Read More Here</a>
-            </div>
-          </div>
-          <div class="work-card">
-            <h4>Impact & Recognition</h4>
-            <p>Launched a national CSR program donating 100+ refrigerators to address food insecurity, generating significant positive press and establishing corporate social responsibility as a core business function.</p>
-          </div>
-        </div>
-
-        <!-- Work 5 - AJ Madison -->
-        <div class="work-item">
-          <div>
-            <div class="work-category">Retail & Partnerships</div>
-            <h3>AJ Madison</h3>
-            <p>Drove growth for premier appliance retailer through strategic partnerships and digital optimization.</p>
-            
-            <div class="work-stats">
-              <div class="stat">
-                <div class="stat-value">4.5x</div>
-                <div class="stat-label">ROI</div>
-              </div>
-              <div class="stat">
-                <div class="stat-value">8%</div>
-                <div class="stat-label">Lead conversion</div>
-              </div>
-              <div class="stat">
-                <div class="stat-value">$2M</div>
-                <div class="stat-label">Annual budget</div>
-              </div>
-            </div>
-            
-            <div class="challenge-note">
-              <p><strong>Brand Partnerships:</strong> Sub-Zero/Wolf, Thermador, Bosch, LG, GE, Samsung</p>
-            </div>
-          </div>
-          <div class="work-card">
-            <h4>Partnership Strategy</h4>
-            <p>Managed elite brand relationships and trade marketing initiatives, creating exclusive event activations that became industry standards. Implemented progressive profiling that systematically increased conversion rates across partnership campaigns.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonials Section -->
-  <section id="testimonials" class="testimonials">
-    <div class="container">
-      <div class="star-decoration">✦ ✦ ✦</div>
-      <h2>Team Collaboration</h2>
-      <div class="bar" style="margin: 0 auto 3rem;"></div>
-
-      <div class="testimonial-grid">
-        <!-- Andrew's Testimonial -->
-        <div class="testimonial-card">
-          <p class="testimonial-text">"Marla manages email marketing for Penske Media Corporation, writing all promotional copy for Rolling Stone, Women's Wear Daily, Billboard, Sportico and Sourcing Journal subscriptions. She creates content that not only maintains grammatical excellence but matches the refined tone of editorial content across five major media brands — no easy feat."</p>
-          <div class="testimonial-author">
-            <div class="author-name">Andrew</div>
-            <div class="author-role">Subscription Marketing, Penske Media</div>
-          </div>
-        </div>
-
-        <!-- Strongest existing testimonial -->
-        <div class="testimonial-card">
-          <p class="testimonial-text">"Marla's collaborative energy and attention to detail drive success. She coordinated complex campaigns across multiple teams while maintaining clear communication and building genuine connections with stakeholders across our media portfolio."</p>
-          <div class="testimonial-author">
-            <div class="author-name">Renee</div>
-            <div class="author-role">Email Marketing, Penske Media</div>
-          </div>
-        </div>
+        <h2>About Me</h2>
+        <div class="bar" style="margin: 1rem auto 2rem;"></div>
+        
+        <p>I understand both the logistics that make systems work and the creative that makes them connect.</p>
+        
+        <h3 class="bra-quote">"If I can sell a $300 bra,<br>I can sell anything."</h3>
+        
+        <p>Now I bridge marketing vision with technical execution - building the infrastructure that turns creative strategy into measurable growth.</p>
+        
+        <a href="mailto:va.mvharris@gmail.com?subject=The $300 Bra Story" class="btn btn-primary">Ask Me How</a>
       </div>
     </div>
   </section>
@@ -1392,101 +749,41 @@
   <section id="contact" class="contact">
     <div class="container">
       <div class="star-decoration">✦ ✦ ✦</div>
-      <h2>Let's build systems that scale.</h2>
-      <p>From 2M+ subscriber platforms to complex compliance challenges.</p>
+      <h2>Let's Build Systems That Scale</h2>
+      <p>I understand both the technical architecture and the creative execution that drives growth.</p>
       <div class="btn-group">
-        <a href="mailto:va.mvharris@gmail.com?subject=Project Inquiry&body=Hi Marla, I'm reaching out because I'm interested in collaborating on..." class="btn btn-primary">Get in Touch</a>
-        <a href="mailto:va.mvharris@gmail.com?subject=Over virtual coffee&body=Hi Marla, I've been exploring your portfolio and would love to chat about..." class="btn btn-secondary">Share a Virtual Coffee</a>
+        <a href="mailto:va.mvharris@gmail.com" class="btn btn-primary">Get in Touch</a>
       </div>
       
       <div class="social-links">
-        <a href="https://linkedin.com/in/marla-harris-047b2946" class="social-link" aria-label="LinkedIn">
+        <a href="https://linkedin.com/in/marla-harris-047b2946" class="social-link">
           <i class="fab fa-linkedin-in"></i>
         </a>
-        <a href="https://www.instagram.com/marlavharris/" class="social-link" aria-label="Instagram">
+        <a href="https://www.instagram.com/marlavharris/" class="social-link">
           <i class="fab fa-instagram"></i>
         </a>
       </div>
       
       <div class="contact-info">
         <p>Marla V. Harris</p>
-        <p><a href="mailto:va.mvharris@gmail.com" class="contact-link">va.mvharris@gmail.com</a></p>
+        <p><a href="mailto:va.mvharris@gmail.com" style="color: var(--accent);">va.mvharris@gmail.com</a></p>
         <p>Brooklyn, NY</p>
       </div>
     </div>
   </section>
 
   <script>
-    // Mobile Menu Functionality
-    const openMenuBtn = document.getElementById('openMenu');
-    const closeMenuBtn = document.getElementById('closeMenu');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const overlay = document.getElementById('overlay');
-
-    function openMobileMenu() {
-      mobileMenu.classList.add('active');
-      overlay.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeMobileMenu() {
-      mobileMenu.classList.remove('active');
-      overlay.classList.remove('active');
-      document.body.style.overflow = 'auto';
-    }
-
-    openMenuBtn.addEventListener('click', openMobileMenu);
-    closeMenuBtn.addEventListener('click', closeMobileMenu);
-    overlay.addEventListener('click', closeMobileMenu);
-
-    // Enhanced scroll effects and animations
-    document.addEventListener('DOMContentLoaded', function() {
-      // Scroll indicator
-      const scrollIndicator = document.getElementById('scrollIndicator');
-      const header = document.getElementById('mainHeader');
-      
-      window.addEventListener('scroll', function() {
-        // Scroll indicator
-        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrolled = (winScroll / height) * 100;
-        scrollIndicator.style.width = scrolled + '%';
-        
-        // Header shadow on scroll
-        if (window.scrollY > 50) {
-          header.classList.add('scrolled');
-        } else {
-          header.classList.remove('scrolled');
+    // Simple smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
         }
-      });
-      
-      // Animate work items on scroll
-      const workItems = document.querySelectorAll('.work-item');
-      
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      }, { threshold: 0.1 });
-      
-      workItems.forEach(item => {
-        observer.observe(item);
-      });
-      
-      // Smooth scrolling for navigation links
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute('href'));
-          if (target) {
-            target.scrollIntoView({
-              behavior: 'smooth',
-              block: 'start'
-            });
-          }
-        });
       });
     });
   </script>
