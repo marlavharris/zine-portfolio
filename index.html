@@ -199,7 +199,7 @@
       transform: translateY(-2px);
     }
     
-    /* Results Banner - More Subtle */
+    /* Results Banner - Storytelling Version */
     .results-banner {
       background: transparent;
       padding: 3rem 0;
@@ -219,15 +219,22 @@
     
     .result-value {
       font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
+      font-size: 1.75rem;
       color: var(--accent);
       margin-bottom: 0.5rem;
     }
     
     .result-label {
-      color: var(--neutral-600);
+      color: var(--neutral-700);
       font-size: 0.9rem;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.02em;
+      line-height: 1.4;
+    }
+    
+    .result-label em {
+      font-style: italic;
+      color: var(--neutral-600);
+      font-size: 0.8rem;
     }
     
     /* Work - Editorial Style */
@@ -559,6 +566,14 @@
       .hero {
         padding: 10rem 0 4rem;
       }
+      
+      .result-label {
+        font-size: 0.85rem;
+      }
+      
+      .result-label em {
+        font-size: 0.75rem;
+      }
     }
   </style>
 </head>
@@ -598,25 +613,25 @@
     </div>
   </section>
 
-  <!-- Results Banner -->
+  <!-- Results Banner - Storytelling Version -->
   <section class="results-banner">
     <div class="container">
       <div class="results-grid">
         <div class="result-item">
-          <div class="result-value">Multi-Million</div>
-          <div class="result-label">Subscriber Base</div>
+          <div class="result-value">2.5M+</div>
+          <div class="result-label">Subscribers Engaged<br><em>Across Media Empires</em></div>
         </div>
         <div class="result-item">
-          <div class="result-value">Double-Digit</div>
-          <div class="result-label">Revenue Growth</div>
+          <div class="result-value">59%</div>
+          <div class="result-label">Of All Web Sales<br><em>Despite Platform Restrictions</em></div>
         </div>
         <div class="result-item">
-          <div class="result-value">$2M+</div>
-          <div class="result-label">Marketing Budget</div>
+          <div class="result-value">69%</div>
+          <div class="result-label">Campaign ROI<br><em>In Complex Markets</em></div>
         </div>
         <div class="result-item">
-          <div class="result-value">25%</div>
-          <div class="result-label">Sales Increase</div>
+          <div class="result-value">21.46%</div>
+          <div class="result-label">Open Rate<br><em>For Luxury Brands</em></div>
         </div>
       </div>
     </div>
