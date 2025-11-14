@@ -19,7 +19,7 @@
   <style>
     :root {
       --ink: #0b0b0b;
-      --paper: #fefafc;
+      --paper: #ffffff;
       --accent: #990049;
       --accent-light: #b2005f;
       --accent-lighter: rgba(178,0,95,0.08);
@@ -208,6 +208,7 @@
     /* Work */
     .work {
       padding: 3rem 0;
+      background: var(--paper);
     }
     
     .section-header {
@@ -231,6 +232,7 @@
       border: 1px solid var(--neutral-200);
       border-radius: 0.5rem;
       padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
     }
     
     .work-category {
@@ -297,7 +299,7 @@
     /* Approach */
     .approach {
       padding: 3rem 0;
-      background: white;
+      background: #fafafa;
     }
     
     .approach-grid {
@@ -307,11 +309,12 @@
     }
     
     .approach-card {
-      background: var(--paper);
+      background: white;
       border: 1px solid var(--neutral-200);
       border-radius: 0.5rem;
       padding: 1.5rem;
       text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
     }
     
     .approach-card h3 {
@@ -337,6 +340,7 @@
     /* Expertise */
     .expertise {
       padding: 3rem 0;
+      background: var(--paper);
     }
     
     .expertise-grid {
@@ -354,7 +358,7 @@
       text-transform: uppercase;
       letter-spacing: 0.1em;
       color: var(--accent);
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
       font-weight: 600;
     }
     
@@ -362,23 +366,30 @@
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 0.5rem;
+      gap: 0.75rem;
     }
     
     .expertise-item {
-      background: white;
-      border: 1px solid var(--neutral-200);
-      padding: 0.5rem 1rem;
-      border-radius: 999px;
+      background: #f8f9fa;
+      border: 1px solid #e9ecef;
+      padding: 0.75rem 1.25rem;
+      border-radius: 6px;
       font-size: 0.9rem;
       font-weight: 500;
       color: var(--ink);
+      transition: all 0.2s ease;
+    }
+    
+    .expertise-item:hover {
+      background: var(--accent-lighter);
+      border-color: var(--accent);
+      transform: translateY(-1px);
     }
     
     /* Brands */
     .brands {
       padding: 3rem 0;
-      background: white;
+      background: #fafafa;
     }
     
     .brand-grid {
@@ -414,6 +425,7 @@
     .about {
       padding: 3rem 0;
       text-align: center;
+      background: var(--paper);
     }
     
     .about-content {
@@ -439,7 +451,7 @@
     .contact {
       padding: 3rem 0;
       text-align: center;
-      background: white;
+      background: #fafafa;
     }
     
     .contact h2 {
@@ -766,7 +778,7 @@
           <h3>Strategic Skills</h3>
           <div class="expertise-items">
             <span class="expertise-item">Lifecycle Marketing</span>
-            <span class="expertise-item">Brand Strategy</li>
+            <span class="expertise-item">Brand Strategy</span>
             <span class="expertise-item">Budget Management</span>
             <span class="expertise-item">Team Leadership</span>
           </div>
