@@ -8,6 +8,40 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-869S7ZPXQH');
+  
+  // Enhanced event tracking
+  document.addEventListener('DOMContentLoaded', function() {
+    // Track button clicks
+    document.querySelectorAll('.btn, .article-btn, .social-link').forEach(button => {
+      button.addEventListener('click', function() {
+        gtag('event', 'button_click', {
+          'button_text': this.textContent.trim(),
+          'button_location': this.closest('section') ? this.closest('section').id : 'unknown'
+        });
+      });
+    });
+    
+    // Track scroll depth
+    let scrollDepth = 0;
+    window.addEventListener('scroll', function() {
+      const newDepth = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+      if (newDepth > scrollDepth && newDepth % 25 === 0) {
+        gtag('event', 'scroll_depth', {
+          'scroll_percentage': newDepth
+        });
+        scrollDepth = newDepth;
+      }
+    });
+    
+    // Track time on page
+    let startTime = Date.now();
+    window.addEventListener('beforeunload', function() {
+      const timeSpent = Math.round((Date.now() - startTime) / 1000);
+      gtag('event', 'time_on_page', {
+        'time_seconds': timeSpent
+      });
+    });
+  });
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -26,7 +60,7 @@
       --accent-lighter: rgba(178,0,95,0.08);
       --neutral-100: #f5f5f5;
       --neutral-200: #e5e5e5;
-      --neutral-600: #666666; /* Improved contrast */
+      --neutral-600: #666666;
       --neutral-700: #404040;
     }
     
@@ -75,6 +109,11 @@
       position: sticky;
       top: 0;
       z-index: 100;
+      transition: all 0.3s ease;
+    }
+    
+    header.scrolled {
+      box-shadow: 0 2px 20px rgba(0,0,0,0.08);
     }
     
     nav {
@@ -89,6 +128,7 @@
       font-size: 1.25rem;
       color: var(--ink);
       text-decoration: none;
+      font-weight: 600;
     }
     
     .nav-links {
@@ -104,6 +144,11 @@
       text-decoration: none;
       position: relative;
       font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    
+    .nav-link:hover {
+      color: var(--accent);
     }
     
     .nav-link::after {
@@ -127,13 +172,15 @@
     /* Hero */
     .hero {
       text-align: center;
-      padding: 3rem 0;
+      padding: 4rem 0 3rem;
+      background: linear-gradient(135deg, var(--paper) 0%, rgba(254,250,252,0.9) 100%);
     }
     
     .hero h1 {
       font-size: clamp(2.5rem, 8vw, 5rem);
       margin-bottom: 1.5rem;
       font-weight: 300;
+      animation: fadeInUp 0.8s ease-out;
     }
     
     .hero p {
@@ -141,6 +188,7 @@
       color: var(--neutral-700);
       max-width: 600px;
       margin: 0 auto 2rem;
+      animation: fadeInUp 0.8s ease-out 0.2s both;
     }
     
     .btn-group {
@@ -148,6 +196,7 @@
       gap: 1rem;
       justify-content: center;
       flex-wrap: wrap;
+      animation: fadeInUp 0.8s ease-out 0.4s both;
     }
     
     .btn {
@@ -170,6 +219,7 @@
     .btn-primary:hover {
       background: var(--accent-light);
       transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(153,0,73,0.3);
     }
     
     .btn-secondary {
@@ -180,6 +230,7 @@
     .btn-secondary:hover {
       border-color: var(--neutral-600);
       transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     }
     
     /* Services */
@@ -208,34 +259,38 @@
     .services-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
+      gap: 1rem;
     }
     
     .service-card {
       background: var(--paper);
       border: 1px solid var(--neutral-200);
       border-radius: 0.75rem;
-      padding: 1.5rem;
+      padding: 1.25rem;
       transition: all 0.3s ease;
       display: flex;
       flex-direction: column;
       height: 100%;
+      position: relative;
     }
     
     .service-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+      border-color: var(--accent-light);
     }
     
     .service-icon {
-      font-size: 2rem;
+      font-size: 1.5rem;
       margin-bottom: 1rem;
-      color: var(--accent);
+      color: var(--ink);
+      text-align: center;
     }
     
     .service-card h3 {
       font-size: 1.25rem;
       margin-bottom: 0.75rem;
+      text-align: center;
     }
     
     .service-card p {
@@ -264,6 +319,15 @@
       left: 0;
     }
     
+    /* Star styling */
+    .star-decoration {
+      text-align: center;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+      color: var(--ink);
+      letter-spacing: 0.3em;
+    }
+    
     /* Brand Grid */
     .brands {
       padding: 3rem 0;
@@ -272,16 +336,17 @@
     .brand-grid {
       display: grid;
       grid-template-columns: repeat(6, 1fr);
-      gap: 0.75rem;
+      gap: 0.5rem;
       border-top: 1px solid var(--neutral-200);
       border-bottom: 1px solid var(--neutral-200);
-      padding: 2rem 0;
+      padding: 1.5rem 0;
       background: rgba(255,255,255,0.5);
+      position: relative;
     }
     
     .brand-item {
       text-align: center;
-      padding: 1rem 0.5rem;
+      padding: 0.75rem 0.5rem;
       font-weight: 600;
       color: var(--ink);
       letter-spacing: 0.05em;
@@ -290,13 +355,14 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      min-height: 70px;
+      min-height: 60px;
       border-radius: 4px;
     }
     
     .brand-item:hover {
       opacity: 1;
       background: var(--accent-lighter);
+      transform: scale(1.02);
     }
     
     .brand-name {
@@ -408,7 +474,8 @@
     .work-grid {
       display: flex;
       flex-direction: column;
-      gap: 2rem;
+      gap: 1.5rem;
+      position: relative;
     }
     
     .work-item {
@@ -416,6 +483,15 @@
       grid-template-columns: 1fr 1fr;
       gap: 1.5rem;
       align-items: center;
+      position: relative;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+    
+    .work-item.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
     
     .work-item.reverse {
@@ -471,11 +547,18 @@
     .work-card {
       background: var(--accent-lighter);
       border-radius: 0.75rem;
-      padding: 1.5rem;
+      padding: 1.25rem;
       height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    
+    .work-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(153,0,73,0.1);
     }
     
     .work-card h4 {
@@ -521,17 +604,25 @@
     .testimonial-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
+      gap: 1rem;
       margin-top: 3rem;
+      position: relative;
     }
     
     .testimonial-card {
       background: var(--accent-lighter);
       border-radius: 0.75rem;
-      padding: 1.5rem;
+      padding: 1.25rem;
       display: flex;
       flex-direction: column;
       height: 100%;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    
+    .testimonial-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(153,0,73,0.1);
     }
     
     .testimonial-text {
@@ -603,6 +694,7 @@
       background: var(--accent);
       color: white;
       transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(153,0,73,0.3);
     }
     
     .contact-info {
@@ -624,6 +716,51 @@
     
     .contact-link:hover {
       text-decoration: underline;
+    }
+    
+    /* Article Button */
+    .article-btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.5rem 1.25rem;
+      background: transparent;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .article-btn:hover {
+      background: var(--accent);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(153,0,73,0.3);
+    }
+    
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Scroll indicator */
+    .scroll-indicator {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: var(--accent);
+      z-index: 1000;
+      transition: width 0.3s ease;
     }
     
     /* Responsive */
@@ -699,15 +836,15 @@
       
       /* Mobile padding fixes */
       .service-card, .work-card, .testimonial-card {
-        padding: 1.25rem;
+        padding: 1rem;
       }
       
       .brand-grid {
-        padding: 1.5rem 0;
+        padding: 1rem 0;
       }
       
       .brand-item {
-        padding: 0.75rem 0.25rem;
+        padding: 0.5rem 0.25rem;
         min-height: 60px;
       }
     }
@@ -719,7 +856,7 @@
       }
       
       .brand-item {
-        padding: 0.75rem 0.25rem;
+        padding: 0.5rem 0.25rem;
         min-height: 60px;
       }
       
@@ -751,8 +888,11 @@
   </style>
 </head>
 <body>
+  <!-- Scroll Indicator -->
+  <div class="scroll-indicator" id="scrollIndicator"></div>
+
   <!-- Header & Navigation -->
-  <header>
+  <header id="mainHeader">
     <div class="container">
       <nav>
         <a href="#" class="logo">Marla V. Harris</a>
@@ -784,12 +924,13 @@
   <section id="services" class="services">
     <div class="container">
       <div class="section-header">
+        <div class="star-decoration">✦ ✦ ✦</div>
         <h2>Strategic Services</h2>
         <p>Data-driven systems, human-centered results</p>
       </div>
       <div class="services-grid">
         <div class="service-card">
-          <div class="service-icon" aria-hidden="true">📊</div>
+          <div class="star-decoration">✦</div>
           <h3>Marketing Operations</h3>
           <p>Design and implement the technical infrastructure that powers growth.</p>
           <ul class="service-features">
@@ -801,7 +942,7 @@
         </div>
         
         <div class="service-card">
-          <div class="service-icon" aria-hidden="true">🔄</div>
+          <div class="star-decoration">✦</div>
           <h3>Lifecycle Strategy</h3>
           <p>Create customer journeys that build loyalty and growth</p>
           <ul class="service-features">
@@ -813,7 +954,7 @@
         </div>
         
         <div class="service-card">
-          <div class="service-icon" aria-hidden="true">🎯</div>
+          <div class="star-decoration">✦</div>
           <h3>Paid Media & Growth</h3>
           <p>Strategic growth, compliant execution</p>
           <ul class="service-features">
@@ -831,6 +972,7 @@
   <section class="brands">
     <div class="container">
       <div class="section-header">
+        <div class="star-decoration">✦ ✦ ✦</div>
         <h2>Selected Collaborations</h2>
         <p>Media empires, luxury brands, regulated markets</p>
       </div>
@@ -852,12 +994,12 @@
           <span class="brand-metric">Luxury Retail<br>21.46% Open Rate</span>
         </div>
         <div class="brand-item">
-          <div class="brand-name">SUB-ZERO WOLF</div>
-          <span class="brand-metric">Premium Partnerships<br>Trade Marketing</span>
+          <div class="brand-name">AJ MADISON</div>
+          <span class="brand-metric">Elevated Appliances<br>To Luxury/Lifestyle</span>
         </div>
         <div class="brand-item">
-          <div class="brand-name">THERMADOR | BOSCH</div>
-          <span class="brand-metric">Elite Appliances<br>Brand Partnerships</span>
+          <div class="brand-name">SUB-ZERO | WOLF</div>
+          <span class="brand-metric">Premium Partnerships<br>Brand Strategy</span>
         </div>
       </div>
     </div>
@@ -882,6 +1024,7 @@
   <!-- Work Section -->
   <section id="work" class="work">
     <div class="container">
+      <div class="star-decoration">✦ ✦ ✦</div>
       <h2>Selected Work</h2>
       <p class="work-subtitle">From 2M+ subscriber platforms to regulated industry growth.</p>
       <div class="bar"></div>
@@ -989,6 +1132,7 @@
               <p style="color: var(--accent); font-weight: 600;">
                 — <a href="https://dc.capitolfile.com/community-fridge-ajmadison" style="color: var(--accent); text-decoration: underline;">Modern Luxury</a>
               </p>
+              <a href="https://dc.capitolfile.com/community-fridge-ajmadison" class="article-btn" target="_blank">Read More Here</a>
             </div>
           </div>
           <div class="work-card">
@@ -1035,6 +1179,7 @@
   <!-- Testimonials Section -->
   <section id="testimonials" class="testimonials">
     <div class="container">
+      <div class="star-decoration">✦ ✦ ✦</div>
       <h2>Testimonials</h2>
       <div class="bar" style="margin: 0 auto 3rem;"></div>
 
@@ -1081,6 +1226,7 @@
   <!-- Contact -->
   <section id="contact" class="contact">
     <div class="container">
+      <div class="star-decoration">✦ ✦ ✦</div>
       <h2>Let's build systems that scale.</h2>
       <p>From 2M+ subscriber platforms to complex compliance challenges.</p>
       <div class="btn-group">
@@ -1104,5 +1250,58 @@
       </div>
     </div>
   </section>
+
+  <script>
+    // Enhanced scroll effects and animations
+    document.addEventListener('DOMContentLoaded', function() {
+      // Scroll indicator
+      const scrollIndicator = document.getElementById('scrollIndicator');
+      const header = document.getElementById('mainHeader');
+      
+      window.addEventListener('scroll', function() {
+        // Scroll indicator
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        scrollIndicator.style.width = scrolled + '%';
+        
+        // Header shadow on scroll
+        if (window.scrollY > 50) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+      
+      // Animate work items on scroll
+      const workItems = document.querySelectorAll('.work-item');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      workItems.forEach(item => {
+        observer.observe(item);
+      });
+      
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
