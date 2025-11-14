@@ -10,8 +10,8 @@
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Marla Harris - Growth engineer building marketing systems for multi-million subscriber bases and $2M+ partnerships.">
-  <title>Marla V. Harris — Strategic Marketing & Systems Architecture</title>
+  <meta name="description" content="Marla Harris - Where storytelling meets systems. Marketing leader bridging creative vision with technical execution.">
+  <title>Marla Harris — Where Storytelling Meets Systems</title>
   
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -176,6 +176,35 @@
       border-color: var(--neutral-600);
     }
     
+    /* Results Banner */
+    .results-banner {
+      background: var(--accent-lighter);
+      padding: 2rem 0;
+      text-align: center;
+    }
+    
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+    
+    .result-item {
+      text-align: center;
+    }
+    
+    .result-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--accent);
+      margin-bottom: 0.25rem;
+    }
+    
+    .result-label {
+      color: var(--neutral-600);
+      font-size: 0.9rem;
+    }
+    
     /* Work */
     .work {
       padding: 3rem 0;
@@ -265,19 +294,19 @@
       color: white;
     }
     
-    /* Services */
-    .services {
+    /* Approach */
+    .approach {
       padding: 3rem 0;
       background: white;
     }
     
-    .services-grid {
+    .approach-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
     }
     
-    .service-card {
+    .approach-card {
       background: var(--paper);
       border: 1px solid var(--neutral-200);
       border-radius: 0.5rem;
@@ -285,42 +314,42 @@
       text-align: center;
     }
     
-    .service-card h3 {
+    .approach-card h3 {
       font-size: 1.25rem;
       margin-bottom: 1rem;
     }
     
-    .service-card p {
+    .approach-card p {
       color: var(--neutral-700);
       margin-bottom: 1rem;
     }
     
-    .service-features {
+    .approach-features {
       list-style: none;
     }
     
-    .service-features li {
+    .approach-features li {
       padding: 0.25rem 0;
       color: var(--neutral-700);
       font-size: 0.9rem;
     }
     
-    /* Tech & Tools */
-    .tech {
+    /* Expertise */
+    .expertise {
       padding: 3rem 0;
     }
     
-    .tech-grid {
+    .expertise-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
+      gap: 2rem;
     }
     
-    .tech-category {
+    .expertise-category {
       text-align: center;
     }
     
-    .tech-category h3 {
+    .expertise-category h3 {
       font-size: 1rem;
       text-transform: uppercase;
       letter-spacing: 0.1em;
@@ -329,14 +358,14 @@
       font-weight: 600;
     }
     
-    .tech-items {
+    .expertise-items {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
       gap: 0.5rem;
     }
     
-    .tech-item {
+    .expertise-item {
       background: white;
       border: 1px solid var(--neutral-200);
       padding: 0.5rem 1rem;
@@ -393,7 +422,7 @@
     }
     
     .bra-quote {
-      font-size: 2rem;
+      font-size: 1.5rem;
       color: var(--accent);
       font-style: italic;
       line-height: 1.2;
@@ -469,11 +498,11 @@
         display: block;
       }
       
-      .services-grid {
+      .approach-grid {
         grid-template-columns: 1fr;
       }
       
-      .tech-grid {
+      .expertise-grid {
         grid-template-columns: 1fr;
       }
       
@@ -483,6 +512,10 @@
       
       .work-stats {
         grid-template-columns: 1fr;
+      }
+      
+      .results-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
       
       .btn-group {
@@ -503,12 +536,11 @@
   <header>
     <div class="container">
       <nav>
-        <a href="#" class="logo">Marla V. Harris</a>
+        <a href="#" class="logo">Marla Harris</a>
         <div class="nav-links">
           <a href="#work" class="nav-link">Work</a>
-          <a href="#services" class="nav-link">Services</a>
-          <a href="#tech" class="nav-link">Tech Stack</a>
-          <a href="#brands" class="nav-link">Brands</a>
+          <a href="#approach" class="nav-link">Approach</a>
+          <a href="#expertise" class="nav-link">Expertise</a>
           <a href="#about" class="nav-link">About</a>
           <a href="#contact" class="nav-link">Contact</a>
         </div>
@@ -525,10 +557,34 @@
       <div class="star-decoration">✦ ✦ ✦</div>
       <h1>Where <span style="font-style: italic; color: var(--accent);">Storytelling</span><br>Meets Systems.</h1>
       <div class="bar" style="margin: 0 auto 2rem;"></div>
-      <p>Growth engineer building marketing systems for multi-million subscriber bases and $2M+ partnerships.</p>
+      <p>Marketing leader bridging creative vision with technical execution for multi-million dollar brands.</p>
       <div class="btn-group">
         <a href="#work" class="btn btn-primary">View Work</a>
         <a href="#contact" class="btn btn-secondary">Let's Talk</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Results Banner -->
+  <section class="results-banner">
+    <div class="container">
+      <div class="results-grid">
+        <div class="result-item">
+          <div class="result-value">Multi-Million</div>
+          <div class="result-label">Subscriber Base</div>
+        </div>
+        <div class="result-item">
+          <div class="result-value">Double-Digit</div>
+          <div class="result-label">Revenue Growth</div>
+        </div>
+        <div class="result-item">
+          <div class="result-value">$2M+</div>
+          <div class="result-label">Marketing Budget</div>
+        </div>
+        <div class="result-item">
+          <div class="result-value">25%</div>
+          <div class="result-label">Sales Increase</div>
+        </div>
       </div>
     </div>
   </section>
@@ -623,85 +679,96 @@
     </div>
   </section>
 
-  <!-- Services -->
-  <section id="services" class="services">
+  <!-- Approach -->
+  <section id="approach" class="approach">
     <div class="container">
       <div class="section-header">
-        <h2>Strategic Services</h2>
-        <p>Where technical architecture meets marketing strategy</p>
+        <h2>My Approach</h2>
+        <p>Bridging human insight with technical execution</p>
         <div class="bar" style="margin: 1rem auto;"></div>
       </div>
-      <div class="services-grid">
-        <div class="service-card">
-          <h3>Marketing Systems</h3>
-          <p>Technical infrastructure that powers growth</p>
-          <ul class="service-features">
-            <li>CRM & Automation Architecture</li>
-            <li>API & Data Integrations</li>
-            <li>System Implementation</li>
+      <div class="approach-grid">
+        <div class="approach-card">
+          <h3>Start with Human Truth</h3>
+          <p>Understanding what drives real behavior</p>
+          <ul class="approach-features">
+            <li>Consumer Psychology</li>
+            <li>Behavioral Insights</li>
+            <li>Identity & Desire Mapping</li>
           </ul>
         </div>
         
-        <div class="service-card">
-          <h3>Growth Strategy</h3>
-          <p>Data-driven customer journey design</p>
-          <ul class="service-features">
-            <li>Lifecycle Marketing</li>
-            <li>Paid Media & Compliance</li>
+        <div class="approach-card">
+          <h3>Build Scalable Systems</h3>
+          <p>Technical infrastructure for growth</p>
+          <ul class="approach-features">
+            <li>Marketing Automation</li>
+            <li>Data Integration</li>
+            <li>Journey Architecture</li>
+          </ul>
+        </div>
+        
+        <div class="approach-card">
+          <h3>Drive Business Results</h3>
+          <p>Connecting insight to revenue</p>
+          <ul class="approach-features">
             <li>Performance Optimization</li>
-          </ul>
-        </div>
-        
-        <div class="service-card">
-          <h3>Creative & Content</h3>
-          <p>Bridging creative vision with technical execution</p>
-          <ul class="service-features">
-            <li>Email & Journey Copywriting</li>
-            <li>Creative Ideation & Testing</li>
-            <li>Brand Voice Development</li>
+            <li>ROI Measurement</li>
+            <li>Growth Strategy</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Tech Stack -->
-  <section id="tech" class="tech">
+  <!-- Expertise -->
+  <section id="expertise" class="expertise">
     <div class="container">
       <div class="section-header">
-        <h2>Technical Toolkit</h2>
-        <p>Platforms and systems I architect and scale with</p>
+        <h2>Technical Expertise</h2>
+        <p>Platforms and systems I build with</p>
         <div class="bar" style="margin: 1rem auto;"></div>
       </div>
       
-      <div class="tech-grid">
-        <div class="tech-category">
-          <h3>Marketing Technology</h3>
-          <div class="tech-items">
-            <span class="tech-item">Salesforce</span>
-            <span class="tech-item">Listrak</span>
-            <span class="tech-item">Klaviyo</span>
-            <span class="tech-item">Mailchimp</span>
+      <div class="expertise-grid">
+        <div class="expertise-category">
+          <h3>Marketing Platforms</h3>
+          <div class="expertise-items">
+            <span class="expertise-item">Salesforce</span>
+            <span class="expertise-item">Listrak</span>
+            <span class="expertise-item">Klaviyo</span>
+            <span class="expertise-item">Mailchimp</span>
+            <span class="expertise-item">Attentive</span>
           </div>
         </div>
         
-        <div class="tech-category">
+        <div class="expertise-category">
           <h3>Analytics & Data</h3>
-          <div class="tech-items">
-            <span class="tech-item">Looker</span>
-            <span class="tech-item">Google Analytics</span>
-            <span class="tech-item">Zuora</span>
-            <span class="tech-item">Piano</span>
+          <div class="expertise-items">
+            <span class="expertise-item">Google Analytics</span>
+            <span class="expertise-item">Looker</span>
+            <span class="expertise-item">API Integration</span>
+            <span class="expertise-item">A/B Testing</span>
           </div>
         </div>
-        
-        <div class="tech-category">
-          <h3>Platform & E-commerce</h3>
-          <div class="tech-items">
-            <span class="tech-item">Shopify</span>
-            <span class="tech-item">WordPress</span>
-            <span class="tech-item">Drupal</span>
-            <span class="tech-item">Contentful</span>
+
+        <div class="expertise-category">
+          <h3>E-commerce & CMS</h3>
+          <div class="expertise-items">
+            <span class="expertise-item">Shopify</span>
+            <span class="expertise-item">Magento</span>
+            <span class="expertise-item">WordPress</span>
+            <span class="expertise-item">Drupal</span>
+          </div>
+        </div>
+
+        <div class="expertise-category">
+          <h3>Strategic Skills</h3>
+          <div class="expertise-items">
+            <span class="expertise-item">Lifecycle Marketing</span>
+            <span class="expertise-item">Brand Strategy</li>
+            <span class="expertise-item">Budget Management</span>
+            <span class="expertise-item">Team Leadership</span>
           </div>
         </div>
       </div>
@@ -735,7 +802,7 @@
         </div>
         <div class="brand-item">
           <div class="brand-name">AJ MADISON</div>
-          <div class="brand-metric">Trade Marketing</div>
+          <div class="brand-metric">Brand Partnerships</div>
         </div>
         <div class="brand-item">
           <div class="brand-name">MUSEUM OF SEX</div>
@@ -752,11 +819,13 @@
         <h2>About Me</h2>
         <div class="bar" style="margin: 1rem auto 2rem;"></div>
         
-        <p>I understand both the logistics that make systems work and the creative that makes them connect.</p>
+        <h3 class="bra-quote">"I learned that desire speaks many languages, but always tells the same story."</h3>
         
-        <h3 class="bra-quote">"If I can sell a $300 bra,<br>I can sell anything."</h3>
+        <p>My journey in understanding premium consumers began on the sales floor of luxury lingerie boutiques, where I've consulted for over 15 years while building my marketing career. This ongoing immersion in high-touch retail gives me unique insight into what actually drives purchasing decisions.</p>
         
-        <p>Now I bridge marketing vision with technical execution - building the infrastructure that turns creative strategy into measurable growth.</p>
+        <p>From covering Mercedes Benz Fashion Week as a freelance writer to architecting marketing systems for media empires, I've always been fascinated by the intersection of brand storytelling and consumer behavior.</p>
+        
+        <p>Today, I build marketing infrastructure that recognizes human complexity while driving business results—creating systems that work for real people, not just target audiences.</p>
         
         <a href="mailto:va.mvharris@gmail.com?subject=Portfolio Inquiry - Marla Harris" class="btn btn-primary">Ask Me How</a>
       </div>
@@ -783,7 +852,7 @@
       </div>
       
       <div class="contact-info">
-        <p>Marla V. Harris</p>
+        <p>Marla Harris</p>
         <p><a href="mailto:va.mvharris@gmail.com" style="color: var(--accent);">va.mvharris@gmail.com</a></p>
         <p>Brooklyn, NY</p>
       </div>
