@@ -42,11 +42,12 @@
       font-family: 'Inter', sans-serif;
       color: var(--ink);
       background: var(--paper);
-      line-height: 1.5;
+      line-height: 1.6;
+      overflow-x: hidden;
     }
     
     .container {
-      max-width: 1000px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 0 2rem;
     }
@@ -59,9 +60,9 @@
     
     .bar {
       width: 60px;
-      height: 2px;
+      height: 1px;
       background: var(--accent);
-      margin: 1rem 0;
+      margin: 1.5rem 0;
     }
     
     .star-decoration {
@@ -72,42 +73,51 @@
       letter-spacing: 0.3em;
     }
     
-    /* Header */
+    /* Header - Luxury Style */
     header {
-      border-bottom: 1px solid var(--neutral-200);
-      background: var(--paper);
-      position: sticky;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      position: fixed;
       top: 0;
+      width: 100%;
       z-index: 1000;
+      border-bottom: none;
+      transition: all 0.3s ease;
+    }
+    
+    header.scrolled {
+      box-shadow: 0 2px 20px rgba(0,0,0,0.05);
     }
     
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem 0;
+      padding: 1.5rem 0;
     }
     
     .logo {
       font-family: 'Playfair Display', serif;
-      font-size: 1.25rem;
+      font-size: 1.1rem;
       color: var(--ink);
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 400;
+      letter-spacing: 0.1em;
     }
     
     .nav-links {
       display: flex;
-      gap: 2rem;
+      gap: 2.5rem;
     }
     
     .nav-link {
-      font-size: 0.875rem;
+      font-size: 0.8rem;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--neutral-600);
+      letter-spacing: 0.15em;
+      color: var(--neutral-700);
       text-decoration: none;
-      font-weight: 500;
+      font-weight: 400;
+      transition: color 0.3s ease;
     }
     
     .nav-link:hover {
@@ -123,23 +133,33 @@
       cursor: pointer;
     }
     
-    /* Hero */
+    /* Hero - Editorial Style */
     .hero {
+      padding: 12rem 0 6rem;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+    
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
       text-align: center;
-      padding: 4rem 0 2rem;
     }
     
     .hero h1 {
-      font-size: clamp(2.5rem, 8vw, 4rem);
-      margin-bottom: 1.5rem;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      margin-bottom: 2rem;
       font-weight: 300;
+      line-height: 1.1;
     }
     
     .hero p {
       font-size: 1.25rem;
       color: var(--neutral-700);
       max-width: 500px;
-      margin: 0 auto 2rem;
+      margin: 0 auto 3rem;
     }
     
     .btn-group {
@@ -150,12 +170,13 @@
     }
     
     .btn {
-      padding: 0.875rem 1.75rem;
+      padding: 1rem 2.25rem;
       border-radius: 999px;
-      font-weight: 600;
+      font-weight: 500;
       text-decoration: none;
       font-size: 0.875rem;
       transition: all 0.3s ease;
+      letter-spacing: 0.05em;
     }
     
     .btn-primary {
@@ -165,6 +186,7 @@
     
     .btn-primary:hover {
       background: var(--accent-light);
+      transform: translateY(-2px);
     }
     
     .btn-secondary {
@@ -174,19 +196,21 @@
     
     .btn-secondary:hover {
       border-color: var(--neutral-600);
+      transform: translateY(-2px);
     }
     
-    /* Results Banner */
+    /* Results Banner - More Subtle */
     .results-banner {
-      background: var(--accent-lighter);
-      padding: 2rem 0;
-      text-align: center;
+      background: transparent;
+      padding: 3rem 0;
+      border-top: 1px solid var(--neutral-200);
+      border-bottom: 1px solid var(--neutral-200);
     }
     
     .results-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
+      gap: 2rem;
     }
     
     .result-item {
@@ -197,134 +221,125 @@
       font-family: 'Playfair Display', serif;
       font-size: 1.5rem;
       color: var(--accent);
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.5rem;
     }
     
     .result-label {
       color: var(--neutral-600);
       font-size: 0.9rem;
+      letter-spacing: 0.05em;
     }
     
-    /* Work */
+    /* Work - Editorial Style */
     .work {
-      padding: 3rem 0;
+      padding: 6rem 0;
       background: var(--paper);
     }
     
     .section-header {
       text-align: center;
-      margin-bottom: 2.5rem;
+      margin-bottom: 4rem;
     }
     
     .section-header h2 {
-      font-size: 2rem;
+      font-size: 2.5rem;
       margin-bottom: 1rem;
+      font-weight: 300;
     }
     
-    .work-grid {
+    .section-header p {
+      color: var(--neutral-600);
+      font-size: 1.125rem;
+    }
+    
+    .editorial-grid {
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
+      gap: 4rem;
     }
     
-    .work-card {
-      background: white;
-      border: 1px solid var(--neutral-200);
-      border-radius: 0.5rem;
-      padding: 1.5rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    .editorial-item {
+      border-bottom: 1px solid var(--neutral-200);
+      padding-bottom: 4rem;
     }
     
-    .work-category {
-      font-size: 0.8rem;
+    .editorial-item:last-child {
+      border-bottom: none;
+    }
+    
+    .editorial-meta {
+      font-size: 0.75rem;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.2em;
       color: var(--accent);
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-    
-    .work-card h3 {
-      font-size: 1.5rem;
       margin-bottom: 1rem;
     }
     
-    .work-card p {
-      color: var(--neutral-700);
+    .editorial-item h3 {
+      font-size: 2rem;
       margin-bottom: 1.5rem;
+      font-weight: 400;
     }
     
-    .work-stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-      margin-bottom: 1rem;
+    .editorial-quote {
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--neutral-700);
+      margin: 1.5rem 0;
+      line-height: 1.4;
+      max-width: 700px;
     }
     
-    .stat {
-      text-align: center;
+    .editorial-stats {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
     }
     
-    .stat-value {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      color: var(--accent);
-      margin-bottom: 0.25rem;
-    }
-    
-    .stat-label {
-      color: var(--neutral-600);
+    .editorial-stats .stat {
       font-size: 0.9rem;
+      color: var(--neutral-600);
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--neutral-200);
+      border-radius: 4px;
     }
     
-    .article-btn {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 0.5rem 1.25rem;
-      background: transparent;
-      border: 1px solid var(--accent);
-      color: var(--accent);
-      border-radius: 999px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-    
-    .article-btn:hover {
-      background: var(--accent);
-      color: white;
-    }
-    
-    /* Approach */
+    /* Approach - Luxury Cards */
     .approach {
-      padding: 3rem 0;
+      padding: 6rem 0;
       background: #fafafa;
     }
     
     .approach-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
+      gap: 2rem;
     }
     
     .approach-card {
       background: white;
-      border: 1px solid var(--neutral-200);
-      border-radius: 0.5rem;
-      padding: 1.5rem;
+      border: none;
+      border-radius: 0;
+      padding: 2.5rem 2rem;
       text-align: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+    }
+    
+    .approach-card:hover {
+      transform: translateY(-5px);
     }
     
     .approach-card h3 {
-      font-size: 1.25rem;
-      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      font-weight: 400;
     }
     
     .approach-card p {
       color: var(--neutral-700);
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
     }
     
     .approach-features {
@@ -332,28 +347,29 @@
     }
     
     .approach-features li {
-      padding: 0.25rem 0;
+      padding: 0.5rem 0;
       color: var(--neutral-700);
       font-size: 0.9rem;
+      border-bottom: 1px solid var(--neutral-200);
     }
     
-    /* Expertise */
-    .expertise {
-      padding: 3rem 0;
+    .approach-features li:last-child {
+      border-bottom: none;
+    }
+    
+    /* Capabilities - Replaces Technical Expertise */
+    .capabilities {
+      padding: 6rem 0;
       background: var(--paper);
     }
     
-    .expertise-grid {
+    .capabilities-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
     }
     
-    .expertise-category {
-      text-align: center;
-    }
-    
-    .expertise-category h3 {
+    .capability-column h3 {
       font-size: 1rem;
       text-transform: uppercase;
       letter-spacing: 0.1em;
@@ -362,83 +378,79 @@
       font-weight: 600;
     }
     
-    .expertise-items {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 0.75rem;
+    .capability-column ul {
+      list-style: none;
     }
     
-    .expertise-item {
-      background: #f8f9fa;
-      border: 1px solid #e9ecef;
-      padding: 0.75rem 1.25rem;
-      border-radius: 6px;
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: var(--ink);
-      transition: all 0.2s ease;
+    .capability-column li {
+      padding: 0.75rem 0;
+      color: var(--neutral-700);
+      border-bottom: 1px solid var(--neutral-200);
     }
     
-    .expertise-item:hover {
-      background: var(--accent-lighter);
-      border-color: var(--accent);
-      transform: translateY(-1px);
+    .capability-column li:last-child {
+      border-bottom: none;
     }
     
-    /* Brands */
+    /* Brands - More Elegant */
     .brands {
-      padding: 3rem 0;
+      padding: 6rem 0;
       background: #fafafa;
     }
     
     .brand-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
+      gap: 1.5rem;
     }
     
     .brand-item {
       text-align: center;
-      padding: 1.25rem 1rem;
-      font-weight: 600;
+      padding: 2rem 1rem;
+      font-weight: 500;
       color: var(--ink);
       opacity: 0.8;
-      transition: opacity 0.3s ease;
+      transition: all 0.3s ease;
+      border: 1px solid transparent;
     }
     
     .brand-item:hover {
       opacity: 1;
+      border-color: var(--neutral-200);
     }
     
     .brand-name {
-      font-size: 0.9rem;
+      font-size: 1rem;
       margin-bottom: 0.5rem;
+      letter-spacing: 0.05em;
     }
     
     .brand-metric {
-      font-size: 0.75rem;
+      font-size: 0.8rem;
       color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
     }
     
-    /* About */
+    /* About - More Concise */
     .about {
-      padding: 3rem 0;
+      padding: 6rem 0;
       text-align: center;
       background: var(--paper);
     }
     
     .about-content {
-      max-width: 600px;
+      max-width: 700px;
       margin: 0 auto;
     }
     
     .bra-quote {
-      font-size: 1.5rem;
+      font-size: 1.75rem;
       color: var(--accent);
       font-style: italic;
-      line-height: 1.2;
-      margin-bottom: 1.5rem;
+      line-height: 1.3;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
     }
     
     .about p {
@@ -449,14 +461,15 @@
     
     /* Contact */
     .contact {
-      padding: 3rem 0;
+      padding: 6rem 0;
       text-align: center;
       background: #fafafa;
     }
     
     .contact h2 {
-      font-size: 2rem;
+      font-size: 2.5rem;
       margin-bottom: 1rem;
+      font-weight: 300;
     }
     
     .contact p {
@@ -470,7 +483,7 @@
       display: flex;
       justify-content: center;
       gap: 1rem;
-      margin: 1.5rem 0;
+      margin: 2rem 0;
     }
     
     .social-link {
@@ -489,6 +502,7 @@
     .social-link:hover {
       background: var(--accent);
       color: white;
+      transform: translateY(-2px);
     }
     
     .contact-info {
@@ -514,15 +528,11 @@
         grid-template-columns: 1fr;
       }
       
-      .expertise-grid {
+      .capabilities-grid {
         grid-template-columns: 1fr;
       }
       
       .brand-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .work-stats {
         grid-template-columns: 1fr;
       }
       
@@ -540,6 +550,15 @@
         max-width: 250px;
         text-align: center;
       }
+      
+      .editorial-stats {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .hero {
+        padding: 10rem 0 4rem;
+      }
     }
   </style>
 </head>
@@ -552,8 +571,8 @@
         <div class="nav-links">
           <a href="#work" class="nav-link">Work</a>
           <a href="#approach" class="nav-link">Approach</a>
-          <a href="#expertise" class="nav-link">Expertise</a>
-          <a href="#about" class="nav-link">About</a>
+          <a href="#capabilities" class="nav-link">Capabilities</a>
+          <a href="#about" class="nav-link">Philosophy</a>
           <a href="#contact" class="nav-link">Contact</a>
         </div>
         <button class="mobile-menu-btn">
@@ -566,13 +585,15 @@
   <!-- Hero -->
   <section class="hero">
     <div class="container">
-      <div class="star-decoration">✦ ✦ ✦</div>
-      <h1>Where <span style="font-style: italic; color: var(--accent);">Storytelling</span><br>Meets Systems.</h1>
-      <div class="bar" style="margin: 0 auto 2rem;"></div>
-      <p>Marketing leader bridging creative vision with technical execution for multi-million dollar brands.</p>
-      <div class="btn-group">
-        <a href="#work" class="btn btn-primary">View Work</a>
-        <a href="#contact" class="btn btn-secondary">Let's Talk</a>
+      <div class="hero-content">
+        <div class="star-decoration">✦</div>
+        <h1>Where <span style="font-style: italic; color: var(--accent);">Storytelling</span><br>Meets Systems.</h1>
+        <div class="bar" style="margin: 0 auto 3rem;"></div>
+        <p>Marketing leader bridging creative vision with technical execution for multi-million dollar brands.</p>
+        <div class="btn-group">
+          <a href="#work" class="btn btn-primary">View Work</a>
+          <a href="#contact" class="btn btn-secondary">Let's Talk</a>
+        </div>
       </div>
     </div>
   </section>
@@ -605,87 +626,55 @@
   <section id="work" class="work">
     <div class="container">
       <div class="section-header">
-        <div class="star-decoration">✦ ✦ ✦</div>
-        <h2>Selected Work</h2>
-        <p>Technical systems driving marketing growth</p>
-        <div class="bar" style="margin: 1rem auto;"></div>
+        <div class="star-decoration">✦</div>
+        <h2>Editorial & Brand Partnerships</h2>
+        <p>Strategic marketing systems for premium brands</p>
       </div>
 
-      <div class="work-grid">
-        <div class="work-card">
-          <div class="work-category">Subscription & Email Marketing</div>
+      <div class="editorial-grid">
+        <div class="editorial-item">
+          <div class="editorial-meta">Media Empire Strategy</div>
           <h3>Penske Media Corporation</h3>
-          <p>Led subscription email marketing for Rolling Stone, Billboard, and WWD - crafting customer journeys, creative ideation, and copy that maintained editorial excellence while driving conversions.</p>
-          <div class="work-stats">
-            <div class="stat">
-              <div class="stat-value">Multi-Million</div>
-              <div class="stat-label">Subscriber Base</div>
-            </div>
-            <div class="stat">
-              <div class="stat-value">Editorial</div>
-              <div class="stat-label">Brand Integrity</div>
-            </div>
-            <div class="stat">
-              <div class="stat-value">Email Journey</div>
-              <div class="stat-label">Architecture</div>
-            </div>
+          <p class="editorial-quote">"Architected subscription email marketing systems for Rolling Stone, Billboard, and WWD—crafting customer journeys that maintained editorial voice while driving conversions"</p>
+          <div class="editorial-stats">
+            <div class="stat">Multi-Million Subscriber Growth</div>
+            <div class="stat">Email Journey Architecture</div>
+            <div class="stat">Editorial Brand Integrity</div>
           </div>
         </div>
 
-        <div class="work-card">
-          <div class="work-category">Complex Markets</div>
+        <div class="editorial-item">
+          <div class="editorial-meta">Complex Market Navigation</div>
           <h3>Museum of Sex</h3>
-          <p>Navigated complex platform compliance while driving 59% of all web sales through strategic campaign management in restricted advertising environments.</p>
-          <div class="work-stats">
-            <div class="stat">
-              <div class="stat-value">59%</div>
-              <div class="stat-label">Of all web sales</div>
-            </div>
-            <div class="stat">
-              <div class="stat-value">69%</div>
-              <div class="stat-label">Campaign ROI</div>
-            </div>
-            <div class="stat">
-              <div class="stat-value">Platform</div>
-              <div class="stat-label">Compliance</div>
-            </div>
+          <p class="editorial-quote">"Navigated platform compliance restrictions while driving 59% of all web sales through strategic campaign management in challenging advertising environments"</p>
+          <div class="editorial-stats">
+            <div class="stat">59% of All Web Sales</div>
+            <div class="stat">69% Campaign ROI</div>
+            <div class="stat">Platform Compliance Mastery</div>
           </div>
         </div>
 
-        <div class="work-card">
-          <div class="work-category">Luxury & Data-Driven Creative</div>
+        <div class="editorial-item">
+          <div class="editorial-meta">Luxury E-commerce</div>
           <h3>Bao Bao Issey Miyake</h3>
-          <p>Optimized email creative strategy through rigorous A/B testing, proving minimalist product visuals drive the highest engagement. Combined data analysis with luxury brand sensibilities.</p>
-          <div class="work-stats">
-            <div class="stat">
-              <div class="stat-value">21.46%</div>
-              <div class="stat-label">Open Rate</div>
-            </div>
-            <div class="stat">
-              <div class="stat-value">18%</div>
-              <div class="stat-label">Peak CTR</div>
-            </div>
-            <div class="stat">
-              <div class="stat-value">Data-Driven</div>
-              <div class="stat-label">Creative</div>
-            </div>
+          <p class="editorial-quote">"Optimized luxury email creative through rigorous A/B testing, proving minimalist product visuals drive highest engagement while maintaining brand prestige"</p>
+          <div class="editorial-stats">
+            <div class="stat">21.46% Open Rate</div>
+            <div class="stat">18% Peak CTR</div>
+            <div class="stat">Data-Driven Luxury Creative</div>
           </div>
         </div>
-
-        <!-- Community Fridge Project -->
-        <div class="work-card">
-          <div class="work-category">Social Impact</div>
+        
+        <div class="editorial-item">
+          <div class="editorial-meta">Social Impact & Brand Leadership</div>
           <h3>Community Fridge Project</h3>
-          <p>Founded and led a national circular-economy initiative, establishing the company's first CSR program. Featured in The New York Times and Modern Luxury.</p>
-          <div style="background: transparent; padding: 1rem 0;">
-            <p style="font-style: italic; font-size: 1.125rem; color: var(--neutral-700); margin-bottom: 1rem;">
-              "The amount of support exceeded anything I could have imagined."
-            </p>
-            <p style="color: var(--accent); font-weight: 600;">
-              — <a href="https://dc.capitolfile.com/community-fridge-ajmadison" style="color: var(--accent); text-decoration: underline;">Modern Luxury</a>
-            </p>
-            <a href="https://dc.capitolfile.com/community-fridge-ajmadison" class="article-btn" target="_blank">Read More Here</a>
+          <p class="editorial-quote">"Founded and scaled a national circular-economy initiative, establishing the company's first CSR program and earning features in The New York Times"</p>
+          <div class="editorial-stats">
+            <div class="stat">National Initiative Launch</div>
+            <div class="stat">CSR Program Development</div>
+            <div class="stat">Press & Media Recognition</div>
           </div>
+          <a href="https://dc.capitolfile.com/community-fridge-ajmadison" class="btn btn-secondary" style="margin-top: 1.5rem;" target="_blank">Read More Here</a>
         </div>
       </div>
     </div>
@@ -697,7 +686,6 @@
       <div class="section-header">
         <h2>My Approach</h2>
         <p>Bridging human insight with technical execution</p>
-        <div class="bar" style="margin: 1rem auto;"></div>
       </div>
       <div class="approach-grid">
         <div class="approach-card">
@@ -733,55 +721,44 @@
     </div>
   </section>
 
-  <!-- Expertise -->
-  <section id="expertise" class="expertise">
+  <!-- Capabilities (Replaces Technical Expertise) -->
+  <section id="capabilities" class="capabilities">
     <div class="container">
       <div class="section-header">
-        <h2>Technical Expertise</h2>
-        <p>Platforms and systems I build with</p>
-        <div class="bar" style="margin: 1rem auto;"></div>
+        <div class="star-decoration">✦</div>
+        <h2>Strategic Capabilities</h2>
+        <p>Integrated marketing systems for premium growth</p>
       </div>
-      
-      <div class="expertise-grid">
-        <div class="expertise-category">
-          <h3>Marketing Platforms</h3>
-          <div class="expertise-items">
-            <span class="expertise-item">Salesforce</span>
-            <span class="expertise-item">Listrak</span>
-            <span class="expertise-item">Klaviyo</span>
-            <span class="expertise-item">Mailchimp</span>
-            <span class="expertise-item">Attentive</span>
-          </div>
-        </div>
-        
-        <div class="expertise-category">
-          <h3>Analytics & Data</h3>
-          <div class="expertise-items">
-            <span class="expertise-item">Google Analytics</span>
-            <span class="expertise-item">Looker</span>
-            <span class="expertise-item">API Integration</span>
-            <span class="expertise-item">A/B Testing</span>
-          </div>
+
+      <div class="capabilities-grid">
+        <div class="capability-column">
+          <h3>Brand Strategy</h3>
+          <ul>
+            <li>Luxury Positioning</li>
+            <li>Editorial Excellence</li>
+            <li>Consumer Psychology</li>
+            <li>Identity Mapping</li>
+          </ul>
         </div>
 
-        <div class="expertise-category">
-          <h3>E-commerce & CMS</h3>
-          <div class="expertise-items">
-            <span class="expertise-item">Shopify</span>
-            <span class="expertise-item">Magento</span>
-            <span class="expertise-item">WordPress</span>
-            <span class="expertise-item">Drupal</span>
-          </div>
+        <div class="capability-column">
+          <h3>Growth Systems</h3>
+          <ul>
+            <li>Lifecycle Architecture</li>
+            <li>Revenue Optimization</li>
+            <li>Performance Analytics</li>
+            <li>Budget Strategy</li>
+          </ul>
         </div>
 
-        <div class="expertise-category">
-          <h3>Strategic Skills</h3>
-          <div class="expertise-items">
-            <span class="expertise-item">Lifecycle Marketing</span>
-            <span class="expertise-item">Brand Strategy</span>
-            <span class="expertise-item">Budget Management</span>
-            <span class="expertise-item">Team Leadership</span>
-          </div>
+        <div class="capability-column">
+          <h3>Technical Integration</h3>
+          <ul>
+            <li>Marketing Automation</li>
+            <li>Data Systems</li>
+            <li>Platform Ecosystems</li>
+            <li>Journey Engineering</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -793,7 +770,6 @@
       <div class="section-header">
         <h2>Selected Collaborations</h2>
         <p>Building systems for media empires, luxury brands, and complex markets</p>
-        <div class="bar" style="margin: 1rem auto;"></div>
       </div>
       <div class="brand-grid">
         <div class="brand-item">
@@ -828,18 +804,16 @@
   <section id="about" class="about">
     <div class="container">
       <div class="about-content">
-        <h2>About Me</h2>
-        <div class="bar" style="margin: 1rem auto 2rem;"></div>
+        <h2>Philosophy</h2>
+        <div class="bar" style="margin: 1rem auto 2.5rem;"></div>
         
-        <h3 class="bra-quote">"I learned that desire speaks many languages, but always tells the same story."</h3>
+        <h3 class="bra-quote">"Desire speaks many languages, but always tells the same story."</h3>
         
-        <p>My journey in understanding premium consumers began on the sales floor of luxury lingerie boutiques, where I've consulted for over 15 years while building my marketing career. This ongoing immersion in high-touch retail gives me unique insight into what actually drives purchasing decisions.</p>
+        <p>My understanding of premium consumers was forged over fifteen years consulting for luxury lingerie boutiques while building marketing systems for media empires and luxury brands.</p>
         
-        <p>From covering Mercedes Benz Fashion Week as a freelance writer to architecting marketing systems for media empires, I've always been fascinated by the intersection of brand storytelling and consumer behavior.</p>
+        <p>From Mercedes Benz Fashion Week to multi-million dollar subscription platforms, I bridge the gap between human desire and technical execution—creating systems that honor complexity while driving measurable growth.</p>
         
-        <p>Today, I build marketing infrastructure that recognizes human complexity while driving business results—creating systems that work for real people, not just target audiences.</p>
-        
-        <a href="mailto:va.mvharris@gmail.com?subject=Portfolio Inquiry - Marla Harris" class="btn btn-primary">Ask Me How</a>
+        <a href="mailto:va.mvharris@gmail.com?subject=Portfolio Inquiry - Marla Harris" class="btn btn-primary" style="margin-top: 2rem;">Explore Collaboration</a>
       </div>
     </div>
   </section>
@@ -847,7 +821,7 @@
   <!-- Contact -->
   <section id="contact" class="contact">
     <div class="container">
-      <div class="star-decoration">✦ ✦ ✦</div>
+      <div class="star-decoration">✦</div>
       <h2>Let's Build Systems That Scale</h2>
       <p>I understand both the technical architecture and the creative execution that drives growth.</p>
       <div class="btn-group">
@@ -884,6 +858,16 @@
           });
         }
       });
+    });
+
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
     });
   </script>
 </body>
