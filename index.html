@@ -103,6 +103,7 @@
       text-decoration: none;
       font-weight: 400;
       letter-spacing: 0.1em;
+      z-index: 1001;
     }
     
     .nav-links {
@@ -126,6 +127,62 @@
     
     .mobile-menu-btn {
       display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--ink);
+      cursor: pointer;
+      z-index: 1001;
+    }
+    
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: var(--paper);
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: all 0.3s ease;
+    }
+    
+    .mobile-menu.active {
+      display: flex;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .mobile-nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      text-align: center;
+    }
+    
+    .mobile-nav-link {
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--neutral-700);
+      text-decoration: none;
+      font-weight: 400;
+      transition: color 0.3s ease;
+    }
+    
+    .mobile-nav-link:hover {
+      color: var(--accent);
+    }
+    
+    .close-menu {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
       background: none;
       border: none;
       font-size: 1.5rem;
@@ -177,16 +234,19 @@
       font-size: 0.875rem;
       transition: all 0.3s ease;
       letter-spacing: 0.05em;
+      display: inline-block;
     }
     
     .btn-primary {
       background: var(--accent);
       color: white;
+      box-shadow: 0 4px 14px rgba(153, 0, 73, 0.2);
     }
     
     .btn-primary:hover {
       background: var(--accent-light);
       transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(153, 0, 73, 0.3);
     }
     
     .btn-secondary {
@@ -195,7 +255,8 @@
     }
     
     .btn-secondary:hover {
-      border-color: var(--neutral-600);
+      border-color: var(--accent);
+      color: var(--accent);
       transform: translateY(-2px);
     }
     
@@ -331,11 +392,12 @@
       padding: 2.5rem 2rem;
       text-align: center;
       box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     
     .approach-card:hover {
       transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
     }
     
     .approach-card h3 {
@@ -424,6 +486,7 @@
     .brand-item:hover {
       opacity: 1;
       border-color: var(--neutral-200);
+      transform: translateY(-3px);
     }
     
     .brand-name {
@@ -458,6 +521,24 @@
       line-height: 1.3;
       margin-bottom: 2.5rem;
       font-weight: 300;
+      position: relative;
+      padding: 0 2rem;
+    }
+    
+    .bra-quote:before, .bra-quote:after {
+      content: '"';
+      font-size: 3rem;
+      color: var(--neutral-200);
+      position: absolute;
+      top: -1rem;
+    }
+    
+    .bra-quote:before {
+      left: 0;
+    }
+    
+    .bra-quote:after {
+      right: 0;
     }
     
     .about p {
@@ -466,11 +547,34 @@
       margin-bottom: 1.5rem;
     }
     
+    /* Leadership Section */
+    .leadership {
+      padding: 6rem 0;
+      background: #fafafa;
+    }
+    
+    .leadership-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .leadership-item {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 4px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      margin-bottom: 2rem;
+    }
+    
+    .leadership-item:last-child {
+      margin-bottom: 0;
+    }
+    
     /* Contact */
     .contact {
       padding: 6rem 0;
       text-align: center;
-      background: #fafafa;
+      background: var(--paper);
     }
     
     .contact h2 {
@@ -519,6 +623,18 @@
     .contact-info p {
       margin-bottom: 0.5rem;
       font-size: 0.9rem;
+    }
+    
+    /* Fade-in animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
     
     /* Responsive */
@@ -574,6 +690,15 @@
       .result-label em {
         font-size: 0.75rem;
       }
+      
+      .bra-quote {
+        font-size: 1.5rem;
+        padding: 0 1.5rem;
+      }
+      
+      .leadership-item {
+        padding: 2rem 1.5rem;
+      }
     }
   </style>
 </head>
@@ -588,12 +713,26 @@
           <a href="#approach" class="nav-link">Approach</a>
           <a href="#capabilities" class="nav-link">Capabilities</a>
           <a href="#about" class="nav-link">Philosophy</a>
+          <a href="#leadership" class="nav-link">Leadership</a>
           <a href="#contact" class="nav-link">Contact</a>
         </div>
         <button class="mobile-menu-btn">
           <i class="fas fa-bars"></i>
         </button>
       </nav>
+    </div>
+    <div class="mobile-menu">
+      <button class="close-menu">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="mobile-nav-links">
+        <a href="#work" class="mobile-nav-link">Work</a>
+        <a href="#approach" class="mobile-nav-link">Approach</a>
+        <a href="#capabilities" class="mobile-nav-link">Capabilities</a>
+        <a href="#about" class="mobile-nav-link">Philosophy</a>
+        <a href="#leadership" class="mobile-nav-link">Leadership</a>
+        <a href="#contact" class="mobile-nav-link">Contact</a>
+      </div>
     </div>
   </header>
 
@@ -647,7 +786,7 @@
       </div>
 
       <div class="editorial-grid">
-        <div class="editorial-item">
+        <div class="editorial-item fade-in">
           <div class="editorial-meta">Media Empire Strategy</div>
           <h3>Penske Media Corporation</h3>
           <p class="editorial-quote">"Architected subscription email marketing systems for Rolling Stone, Billboard, and WWD—crafting customer journeys that maintained editorial voice while driving conversions"</p>
@@ -658,7 +797,7 @@
           </div>
         </div>
 
-        <div class="editorial-item">
+        <div class="editorial-item fade-in">
           <div class="editorial-meta">Complex Market Navigation</div>
           <h3>Museum of Sex</h3>
           <p class="editorial-quote">"Navigated platform compliance restrictions while driving 59% of all web sales through strategic campaign management in challenging advertising environments"</p>
@@ -669,7 +808,7 @@
           </div>
         </div>
 
-        <div class="editorial-item">
+        <div class="editorial-item fade-in">
           <div class="editorial-meta">Luxury E-commerce</div>
           <h3>Bao Bao Issey Miyake</h3>
           <p class="editorial-quote">"Optimized luxury email creative through rigorous A/B testing, proving minimalist product visuals drive highest engagement while maintaining brand prestige"</p>
@@ -678,18 +817,6 @@
             <div class="stat">18% Peak CTR</div>
             <div class="stat">Data-Driven Luxury Creative</div>
           </div>
-        </div>
-        
-        <div class="editorial-item">
-          <div class="editorial-meta">Social Impact & Brand Leadership</div>
-          <h3>Community Fridge Project</h3>
-          <p class="editorial-quote">"Founded and scaled a national circular-economy initiative, establishing the company's first CSR program and earning features in The New York Times"</p>
-          <div class="editorial-stats">
-            <div class="stat">National Initiative Launch</div>
-            <div class="stat">CSR Program Development</div>
-            <div class="stat">Press & Media Recognition</div>
-          </div>
-          <a href="https://dc.capitolfile.com/community-fridge-ajmadison" class="btn btn-secondary" style="margin-top: 1.5rem;" target="_blank">Read More Here</a>
         </div>
       </div>
     </div>
@@ -703,7 +830,7 @@
         <p>Bridging human insight with technical execution</p>
       </div>
       <div class="approach-grid">
-        <div class="approach-card">
+        <div class="approach-card fade-in">
           <h3>Start with Human Truth</h3>
           <p>Understanding what drives real behavior</p>
           <ul class="approach-features">
@@ -713,7 +840,7 @@
           </ul>
         </div>
         
-        <div class="approach-card">
+        <div class="approach-card fade-in">
           <h3>Build Scalable Systems</h3>
           <p>Technical infrastructure for growth</p>
           <ul class="approach-features">
@@ -723,7 +850,7 @@
           </ul>
         </div>
         
-        <div class="approach-card">
+        <div class="approach-card fade-in">
           <h3>Drive Business Results</h3>
           <p>Connecting insight to revenue</p>
           <ul class="approach-features">
@@ -746,7 +873,7 @@
       </div>
 
       <div class="capabilities-grid">
-        <div class="capability-column">
+        <div class="capability-column fade-in">
           <h3>Brand Strategy</h3>
           <ul>
             <li>Luxury Positioning</li>
@@ -756,7 +883,7 @@
           </ul>
         </div>
 
-        <div class="capability-column">
+        <div class="capability-column fade-in">
           <h3>Growth Systems</h3>
           <ul>
             <li>Lifecycle Architecture</li>
@@ -766,7 +893,7 @@
           </ul>
         </div>
 
-        <div class="capability-column">
+        <div class="capability-column fade-in">
           <h3>Technical Integration</h3>
           <ul>
             <li>Marketing Automation</li>
@@ -787,27 +914,27 @@
         <p>Building systems for media empires, luxury brands, and complex markets</p>
       </div>
       <div class="brand-grid">
-        <div class="brand-item">
+        <div class="brand-item fade-in">
           <div class="brand-name">ROLLING STONE</div>
           <div class="brand-metric">Subscription Marketing</div>
         </div>
-        <div class="brand-item">
+        <div class="brand-item fade-in">
           <div class="brand-name">BILLBOARD PRO</div>
           <div class="brand-metric">Trade Marketing</div>
         </div>
-        <div class="brand-item">
+        <div class="brand-item fade-in">
           <div class="brand-name">WOMEN'S WEAR DAILY</div>
           <div class="brand-metric">Creative & Copy</div>
         </div>
-        <div class="brand-item">
+        <div class="brand-item fade-in">
           <div class="brand-name">BAO BAO ISSEY MIYAKE</div>
           <div class="brand-metric">E-Commerce Management</div>
         </div>
-        <div class="brand-item">
+        <div class="brand-item fade-in">
           <div class="brand-name">AJ MADISON</div>
           <div class="brand-metric">Brand Partnerships</div>
         </div>
-        <div class="brand-item">
+        <div class="brand-item fade-in">
           <div class="brand-name">MUSEUM OF SEX</div>
           <div class="brand-metric">Growth Marketing</div>
         </div>
@@ -819,16 +946,41 @@
   <section id="about" class="about">
     <div class="container">
       <div class="about-content">
-        <h2>Philosophy</h2>
+        <h2>The Thread</h2>
         <div class="bar" style="margin: 1rem auto 2.5rem;"></div>
         
-        <h3 class="bra-quote">"Desire speaks many languages, but always tells the same story."</h3>
+        <h3 class="bra-quote">Desire speaks many languages, but always tells the same story.</h3>
         
-        <p>My understanding of premium consumers was forged over fifteen years consulting for luxury lingerie boutiques while building marketing systems for media empires and luxury brands.</p>
+        <p>Fifteen years of consulting for luxury lingerie boutiques, while building systems for media empires, taught me this fundamental truth. It's the thread connecting a customer's identity to their actions.</p>
         
         <p>From Mercedes Benz Fashion Week to multi-million dollar subscription platforms, I bridge the gap between human desire and technical execution—creating systems that honor complexity while driving measurable growth.</p>
         
         <a href="mailto:va.mvharris@gmail.com?subject=Portfolio Inquiry - Marla Harris" class="btn btn-primary" style="margin-top: 2rem;">Explore Collaboration</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Leadership -->
+  <section id="leadership" class="leadership">
+    <div class="container">
+      <div class="section-header">
+        <div class="star-decoration">✦</div>
+        <h2>Leadership & Impact</h2>
+        <p>Beyond commercial success</p>
+      </div>
+      
+      <div class="leadership-content">
+        <div class="leadership-item fade-in">
+          <div class="editorial-meta">Social Impact & Brand Leadership</div>
+          <h3>Community Fridge Project</h3>
+          <p class="editorial-quote">"Founded and scaled a national circular-economy initiative, establishing the company's first CSR program and earning features in The New York Times"</p>
+          <div class="editorial-stats">
+            <div class="stat">National Initiative Launch</div>
+            <div class="stat">CSR Program Development</div>
+            <div class="stat">Press & Media Recognition</div>
+          </div>
+          <a href="https://dc.capitolfile.com/community-fridge-ajmadison" class="btn btn-secondary" style="margin-top: 1.5rem;" target="_blank">View Feature in Capitol File Magazine</a>
+        </div>
       </div>
     </div>
   </section>
@@ -884,6 +1036,44 @@
         header.classList.remove('scrolled');
       }
     });
+
+    // Mobile menu functionality
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const closeMenuBtn = document.querySelector('.close-menu');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.add('active');
+    });
+
+    closeMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+    });
+
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+      });
+    });
+
+    // Fade-in animation on scroll
+    const fadeElements = document.querySelectorAll('.fade-in');
+    
+    const fadeInOnScroll = () => {
+      fadeElements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const elementVisible = 150;
+        
+        if (elementTop < window.innerHeight - elementVisible) {
+          element.classList.add('visible');
+        }
+      });
+    };
+    
+    window.addEventListener('scroll', fadeInOnScroll);
+    // Initial check in case elements are already in view
+    fadeInOnScroll();
   </script>
 </body>
 </html>
