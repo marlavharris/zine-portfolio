@@ -587,7 +587,7 @@
       box-shadow: 0 5px 15px rgba(153, 0, 73, 0.1);
     }
     
-    /* Philosophy - More Integrated with Bra Quote */
+    /* Philosophy - Revised with Bra Quote Only */
     .philosophy {
       padding: 6rem 0;
       text-align: center;
@@ -610,50 +610,35 @@
       margin: 0 auto;
     }
     
-    .bra-quote {
+    .philosophy-content h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      font-weight: 300;
+    }
+    
+    .bra-quote-hero {
       font-family: 'Playfair Display', serif;
       font-style: italic;
-      font-size: 2rem;
-      color: #990049;
+      font-size: 2.2rem;
+      color: var(--accent);
       margin: 2rem 0 2.5rem;
-      line-height: 1.4;
-      font-weight: 700;
+      line-height: 1.3;
+      font-weight: 600;
       background: var(--accent-lighter);
       padding: 2rem;
       border-left: 3px solid var(--accent);
-    }
-    
-    .desire-quote {
-      font-size: 1.75rem;
-      color: var(--accent);
-      font-style: italic;
-      line-height: 1.3;
-      margin-bottom: 2.5rem;
-      font-weight: 300;
-      position: relative;
-      padding: 0 2rem;
-    }
-    
-    .desire-quote:before, .desire-quote:after {
-      content: '"';
-      font-size: 3rem;
-      color: var(--neutral-200);
-      position: absolute;
-      top: -1rem;
-    }
-    
-    .desire-quote:before {
-      left: 0;
-    }
-    
-    .desire-quote:after {
-      right: 0;
+      text-align: center;
     }
     
     .philosophy p {
       font-size: 1.125rem;
       color: var(--neutral-700);
       margin-bottom: 1.5rem;
+      text-align: left;
+    }
+    
+    .philosophy p:first-of-type {
+      margin-top: 2rem;
     }
     
     /* Leadership - Enhanced */
@@ -824,14 +809,13 @@
         font-size: 0.75rem;
       }
       
-      .desire-quote {
-        font-size: 1.5rem;
-        padding: 0 1.5rem;
+      .bra-quote-hero {
+        font-size: 1.8rem;
+        padding: 1.5rem;
       }
       
-      .bra-quote {
-        font-size: 1.6rem;
-        padding: 1.5rem;
+      .philosophy p {
+        text-align: center;
       }
       
       .leadership-item {
@@ -1080,22 +1064,20 @@
     </div>
   </section>
 
-  <!-- Philosophy - Now with Bra Quote as Hero -->
+  <!-- Philosophy - Revised with Bra Quote Only -->
   <section id="philosophy" class="philosophy">
     <div class="container">
       <div class="philosophy-content">
-        <h2>The Thread</h2>
+        <h2>My Journey</h2>
         <div class="bar" style="margin: 1rem auto 2.5rem;"></div>
         
-        <p class="bra-quote">"If I can sell a $300 bra, I can sell anything."</p>
+        <p class="bra-quote-hero">"If I can sell a $300 bra, I can sell anything."</p>
         
-        <h3 class="desire-quote">Desire speaks many languages, but always tells the same story.</h3>
+        <p>Five years of working retail, selling lingerie, taught me how to speak to the customer, and what gets them to buy. Lessons that I take with me in every project or job I take on.</p>
         
-        <p>Fifteen years of consulting for luxury lingerie boutiques, while building systems for media empires, taught me this fundamental truth. It's the thread connecting a customer's identity to their actions.</p>
+        <p>From covering fashion shows at Mercedes Benz Fashion Week to subscription marketing for media empires, I bridge the gap between human desire and technical execution—creating systems that honor complexity while driving measurable growth.</p>
         
-        <p>From Mercedes Benz Fashion Week to multi-million dollar subscription platforms, I bridge the gap between human desire and technical execution—creating systems that honor complexity while driving measurable growth.</p>
-        
-        <a href="#contact" class="btn btn-primary" style="margin-top: 2rem;">Explore Collaboration</a>
+        <a href="#contact" class="btn btn-primary" style="margin-top: 2rem;">Ask Me How</a>
       </div>
     </div>
   </section>
