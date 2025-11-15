@@ -26,6 +26,9 @@
       --neutral-200: #e5e5e5;
       --neutral-600: #666666;
       --neutral-700: #404040;
+      --charcoal: #1a1a1a;
+      --gold: #b4a582;
+      --gold-light: rgba(180, 165, 130, 0.1);
     }
     
     * {
@@ -62,14 +65,14 @@
       width: 60px;
       height: 1px;
       background: var(--accent);
-      margin: 1.5rem 0;
+      margin: 1.5rem auto;
     }
     
     .star-decoration {
       text-align: center;
       margin-bottom: 1rem;
       font-size: 1.2rem;
-      color: var(--ink);
+      color: var(--gold);
       letter-spacing: 0.3em;
     }
     
@@ -330,6 +333,7 @@
       font-size: 2.5rem;
       margin-bottom: 1rem;
       font-weight: 300;
+      color: var(--charcoal);
     }
     
     .section-header p {
@@ -475,6 +479,7 @@
       border: 1px solid var(--neutral-200);
       border-radius: 4px;
       background: var(--accent-lighter);
+      white-space: nowrap;
     }
     
     .work-systems {
@@ -503,6 +508,7 @@
       padding: 0.25rem 0.75rem;
       background: var(--neutral-200);
       border-radius: 999px;
+      white-space: nowrap;
     }
     
     .work-visual {
@@ -587,7 +593,7 @@
       box-shadow: 0 5px 15px rgba(153, 0, 73, 0.1);
     }
     
-    /* Philosophy - Revised with Bra Quote Only */
+    /* Philosophy - MIC DROP Bra Quote */
     .philosophy {
       padding: 6rem 0;
       text-align: center;
@@ -614,31 +620,46 @@
       font-size: 2.5rem;
       margin-bottom: 1rem;
       font-weight: 300;
+      color: var(--charcoal);
     }
     
-    .bra-quote-hero {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-size: 2.2rem;
-      color: var(--accent);
-      margin: 2rem 0 2.5rem;
-      line-height: 1.3;
-      font-weight: 600;
-      background: var(--accent-lighter);
-      padding: 2rem;
-      border-left: 3px solid var(--accent);
-      text-align: center;
+   .bra-quote-hero {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 5rem; 
+  color: var(--accent);
+  margin: 4rem 0;
+  line-height: 1;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: -0.03em;
+}
+    
+    .bra-quote-hero::before {
+      content: "“";
+      position: absolute;
+      top: -0.5rem;
+      left: -1rem;
+      font-size: 4rem;
+      color: var(--gold);
+      opacity: 0.7;
+    }
+    
+    .bra-quote-hero::after {
+      content: "”";
+      position: absolute;
+      bottom: -1.5rem;
+      right: -1rem;
+      font-size: 4rem;
+      color: var(--gold);
+      opacity: 0.7;
     }
     
     .philosophy p {
       font-size: 1.125rem;
       color: var(--neutral-700);
       margin-bottom: 1.5rem;
-      text-align: left;
-    }
-    
-    .philosophy p:first-of-type {
-      margin-top: 2rem;
+      text-align: center;
     }
     
     /* Leadership - Enhanced */
@@ -670,6 +691,7 @@
       gap: 1rem;
       flex-wrap: wrap;
       margin-top: 1.5rem;
+      justify-content: center;
     }
     
     /* Contact */
@@ -683,6 +705,7 @@
       font-size: 2.5rem;
       margin-bottom: 1rem;
       font-weight: 300;
+      color: var(--charcoal);
     }
     
     .contact p {
@@ -795,6 +818,12 @@
       .work-stats {
         flex-direction: column;
         gap: 1rem;
+        align-items: center;
+      }
+      
+      .work-stats .stat {
+        text-align: center;
+        width: auto;
       }
       
       .hero {
@@ -810,8 +839,24 @@
       }
       
       .bra-quote-hero {
-        font-size: 1.8rem;
-        padding: 1.5rem;
+        font-size: 2.4rem;
+        margin: 2.5rem 0;
+        padding: 1.5rem 0;
+      }
+      
+      .bra-quote-hero::before,
+      .bra-quote-hero::after {
+        font-size: 3rem;
+      }
+      
+      .bra-quote-hero::before {
+        left: -0.5rem;
+        top: -0.5rem;
+      }
+      
+      .bra-quote-hero::after {
+        right: -0.5rem;
+        bottom: -1rem;
       }
       
       .philosophy p {
@@ -824,10 +869,15 @@
       
       .leadership-links {
         flex-direction: column;
+        align-items: center;
       }
       
       .leadership-links .btn {
         max-width: 100%;
+      }
+      
+      .systems-list {
+        justify-content: center;
       }
     }
   </style>
@@ -870,7 +920,7 @@
       <div class="hero-content">
         <div class="star-decoration">✦</div>
         <h1>Where <span style="font-style: italic; color: var(--accent);">Storytelling</span><br>Meets Systems.</h1>
-        <div class="bar" style="margin: 0 auto 3rem;"></div>
+        <div class="bar"></div>
         <p>Marketing leader bridging creative vision with technical execution for multi-million dollar brands.</p>
         <div class="btn-group">
           <a href="#work" class="btn btn-primary">View Work</a>
@@ -1064,20 +1114,20 @@
     </div>
   </section>
 
-  <!-- Philosophy - Revised with Bra Quote Only -->
+  <!-- Philosophy - Bra Quote -->
   <section id="philosophy" class="philosophy">
     <div class="container">
       <div class="philosophy-content">
         <h2>My Journey</h2>
-        <div class="bar" style="margin: 1rem auto 2.5rem;"></div>
-        
-        <p class="bra-quote-hero">"If I can sell a $300 bra, I can sell anything."</p>
+        <div class="bar"></div>
         
         <p>Five years of working retail, selling lingerie, taught me how to speak to the customer, and what gets them to buy. Lessons that I take with me in every project or job I take on.</p>
         
         <p>From covering fashion shows at Mercedes Benz Fashion Week to subscription marketing for media empires, I bridge the gap between human desire and technical execution—creating systems that honor complexity while driving measurable growth.</p>
         
-        <a href="#contact" class="btn btn-primary" style="margin-top: 2rem;">Ask Me How</a>
+        <p class="bra-quote-hero">If I can sell a $300 bra, I can sell anything.</p>
+        
+        <a href="mailto:va.mvharris@gmail.com" class="btn btn-primary" style="margin-top: 2rem;">Ask Me How</a>
       </div>
     </div>
   </section>
