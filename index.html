@@ -277,10 +277,10 @@
       transform: translateY(-2px);
     }
     
-    /* Results Banner - Storytelling Version */
+    /* Results Banner - More Integrated */
     .results-banner {
-      background: transparent;
-      padding: 3rem 0;
+      background: var(--accent-lighter);
+      padding: 4rem 0;
       border-top: 1px solid var(--neutral-200);
       border-bottom: 1px solid var(--neutral-200);
     }
@@ -315,8 +315,8 @@
       font-size: 0.8rem;
     }
     
-    /* Work - Editorial Style */
-    .work {
+    /* Methodology - Combined Approach & Capabilities */
+    .methodology {
       padding: 6rem 0;
       background: var(--paper);
     }
@@ -337,72 +337,13 @@
       font-size: 1.125rem;
     }
     
-    .editorial-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 4rem;
-    }
-    
-    .editorial-item {
-      border-bottom: 1px solid var(--neutral-200);
-      padding-bottom: 4rem;
-    }
-    
-    .editorial-item:last-child {
-      border-bottom: none;
-    }
-    
-    .editorial-meta {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: var(--accent);
-      margin-bottom: 1rem;
-    }
-    
-    .editorial-item h3 {
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-      font-weight: 400;
-    }
-    
-    .editorial-quote {
-      font-style: italic;
-      font-size: 1.25rem;
-      color: var(--neutral-700);
-      margin: 1.5rem 0;
-      line-height: 1.4;
-      max-width: 700px;
-    }
-    
-    .editorial-stats {
-      display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-      margin-top: 1.5rem;
-    }
-    
-    .editorial-stats .stat {
-      font-size: 0.9rem;
-      color: var(--neutral-600);
-      padding: 0.5rem 1rem;
-      border: 1px solid var(--neutral-200);
-      border-radius: 4px;
-    }
-    
-    /* Approach - Luxury Cards */
-    .approach {
-      padding: 6rem 0;
-      background: #fafafa;
-    }
-    
-    .approach-grid {
+    .methodology-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
     }
     
-    .approach-card {
+    .methodology-card {
       background: white;
       border: none;
       border-radius: 0;
@@ -411,85 +352,196 @@
       box-shadow: 0 5px 15px rgba(0,0,0,0.05);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       border-top: 3px solid var(--accent-lighter);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
     }
     
-    .approach-card:hover {
+    .methodology-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 10px 25px rgba(0,0,0,0.08);
       border-top-color: var(--accent);
     }
     
-    .approach-card h3 {
+    .methodology-card h3 {
       font-size: 1.5rem;
       margin-bottom: 1.5rem;
       font-weight: 400;
     }
     
-    .approach-card p {
+    .methodology-card p {
       color: var(--neutral-700);
       margin-bottom: 1.5rem;
+      flex-grow: 1;
     }
     
-    .approach-features {
+    .methodology-features {
       list-style: none;
+      text-align: left;
+      margin-top: auto;
     }
     
-    .approach-features li {
+    .methodology-features li {
       padding: 0.5rem 0;
       color: var(--neutral-700);
       font-size: 0.9rem;
       border-bottom: 1px solid var(--neutral-200);
+      position: relative;
+      padding-left: 1.5rem;
     }
     
-    .approach-features li:last-child {
+    .methodology-features li:before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+    
+    .methodology-features li:last-child {
       border-bottom: none;
     }
     
-    /* Capabilities - Replaces Technical Expertise */
-    .capabilities {
+    /* Work - Enhanced with Alternating Layout */
+    .work {
       padding: 6rem 0;
-      background: var(--paper);
+      background: #fafafa;
     }
     
-    .capabilities-grid {
+    .work-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+    }
+    
+    .work-item {
+      background: white;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 3rem;
-      max-width: 900px;
-      margin: 0 auto;
+      grid-template-columns: 1fr 1fr;
+      min-height: 400px;
     }
     
-    .capability-column {
-      text-align: center;
+    .work-item.reverse {
+      grid-template-columns: 1fr 1fr;
+      direction: rtl;
     }
     
-    .capability-column h3 {
-      font-size: 1rem;
+    .work-item.reverse > * {
+      direction: ltr;
+    }
+    
+    .work-content {
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .work-meta {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    
+    .work-item h3 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+    }
+    
+    .work-quote {
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--neutral-700);
+      margin: 1.5rem 0;
+      line-height: 1.4;
+    }
+    
+    .work-stats {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin: 1.5rem 0;
+    }
+    
+    .work-stats .stat {
+      font-size: 0.9rem;
+      color: var(--neutral-600);
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--neutral-200);
+      border-radius: 4px;
+      background: var(--accent-lighter);
+    }
+    
+    .work-systems {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--neutral-200);
+    }
+    
+    .systems-label {
+      font-size: 0.8rem;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       color: var(--accent);
-      margin-bottom: 1.5rem;
-      font-weight: 600;
+      margin-bottom: 0.5rem;
     }
     
-    .capability-column ul {
-      list-style: none;
+    .systems-list {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
     }
     
-    .capability-column li {
-      padding: 0.75rem 0;
+    .system-tag {
+      font-size: 0.8rem;
       color: var(--neutral-700);
-      border-bottom: 1px solid var(--neutral-200);
+      padding: 0.25rem 0.75rem;
+      background: var(--neutral-200);
+      border-radius: 999px;
     }
     
-    .capability-column li:last-child {
-      border-bottom: none;
+    .work-visual {
+      background: var(--accent-lighter);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      position: relative;
     }
     
-    /* Brands - More Elegant & Compact */
+    .work-visual.reverse {
+      background: white;
+      border-left: 1px solid var(--neutral-200);
+    }
+    
+    .work-visual-content {
+      text-align: center;
+      color: var(--accent);
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+    }
+    
+    .work-visual-large {
+      font-size: 4rem;
+      font-weight: 300;
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+    
+    .work-visual-small {
+      font-size: 1rem;
+      opacity: 0.8;
+    }
+    
+    /* Brands - Logo Style */
     .brands {
       padding: 4rem 0;
-      background: #fafafa;
+      background: var(--paper);
     }
     
     .brand-grid {
@@ -500,7 +552,7 @@
     
     .brand-item {
       text-align: center;
-      padding: 1.5rem 1rem;
+      padding: 2rem 1rem;
       font-weight: 500;
       color: var(--ink);
       opacity: 0.9;
@@ -509,6 +561,23 @@
       background: white;
       font-size: 1rem;
       letter-spacing: 0.05em;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .brand-item:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, var(--accent-lighter), transparent);
+      transition: left 0.6s ease;
+    }
+    
+    .brand-item:hover:before {
+      left: 100%;
     }
     
     .brand-item:hover {
@@ -518,19 +587,43 @@
       box-shadow: 0 5px 15px rgba(153, 0, 73, 0.1);
     }
     
-    /* About - More Concise */
-    .about {
+    /* Philosophy - More Integrated with Bra Quote */
+    .philosophy {
       padding: 6rem 0;
       text-align: center;
-      background: var(--paper);
+      background: #fafafa;
+      position: relative;
     }
     
-    .about-content {
+    .philosophy:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    }
+    
+    .philosophy-content {
       max-width: 700px;
       margin: 0 auto;
     }
     
     .bra-quote {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 2rem;
+      color: #990049;
+      margin: 2rem 0 2.5rem;
+      line-height: 1.4;
+      font-weight: 700;
+      background: var(--accent-lighter);
+      padding: 2rem;
+      border-left: 3px solid var(--accent);
+    }
+    
+    .desire-quote {
       font-size: 1.75rem;
       color: var(--accent);
       font-style: italic;
@@ -541,7 +634,7 @@
       padding: 0 2rem;
     }
     
-    .bra-quote:before, .bra-quote:after {
+    .desire-quote:before, .desire-quote:after {
       content: '"';
       font-size: 3rem;
       color: var(--neutral-200);
@@ -549,34 +642,24 @@
       top: -1rem;
     }
     
-    .bra-quote:before {
+    .desire-quote:before {
       left: 0;
     }
     
-    .bra-quote:after {
+    .desire-quote:after {
       right: 0;
     }
     
-    .sell-quote {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-size: 2rem;
-      color: #990049;
-      margin: 2rem 0 2.5rem;
-      line-height: 1.4;
-      font-weight: 700;
-    }
-    
-    .about p {
+    .philosophy p {
       font-size: 1.125rem;
       color: var(--neutral-700);
       margin-bottom: 1.5rem;
     }
     
-    /* Leadership Section */
+    /* Leadership - Enhanced */
     .leadership {
       padding: 6rem 0;
-      background: #fafafa;
+      background: var(--paper);
     }
     
     .leadership-content {
@@ -586,21 +669,29 @@
     
     .leadership-item {
       background: white;
-      padding: 2.5rem;
+      padding: 3rem;
       border-radius: 4px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.05);
       margin-bottom: 2rem;
+      border-left: 3px solid var(--accent);
     }
     
     .leadership-item:last-child {
       margin-bottom: 0;
     }
     
+    .leadership-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+    
     /* Contact */
     .contact {
       padding: 6rem 0;
       text-align: center;
-      background: var(--paper);
+      background: #fafafa;
     }
     
     .contact h2 {
@@ -673,12 +764,28 @@
         display: block;
       }
       
-      .approach-grid {
+      .methodology-grid {
         grid-template-columns: 1fr;
       }
       
-      .capabilities-grid {
+      .work-item, .work-item.reverse {
         grid-template-columns: 1fr;
+        direction: ltr;
+      }
+      
+      .work-item.reverse > * {
+        direction: ltr;
+      }
+      
+      .work-visual {
+        min-height: 200px;
+        order: -1;
+      }
+      
+      .work-visual.reverse {
+        order: -1;
+        border-left: none;
+        border-bottom: 1px solid var(--neutral-200);
       }
       
       .brand-grid {
@@ -700,7 +807,7 @@
         text-align: center;
       }
       
-      .editorial-stats {
+      .work-stats {
         flex-direction: column;
         gap: 1rem;
       }
@@ -717,17 +824,26 @@
         font-size: 0.75rem;
       }
       
-      .bra-quote {
+      .desire-quote {
         font-size: 1.5rem;
         padding: 0 1.5rem;
       }
       
-      .sell-quote {
+      .bra-quote {
         font-size: 1.6rem;
+        padding: 1.5rem;
       }
       
       .leadership-item {
         padding: 2rem 1.5rem;
+      }
+      
+      .leadership-links {
+        flex-direction: column;
+      }
+      
+      .leadership-links .btn {
+        max-width: 100%;
       }
     }
   </style>
@@ -740,9 +856,9 @@
         <a href="#" class="logo">Marla Harris</a>
         <div class="nav-links">
           <a href="#work" class="nav-link">Work</a>
-          <a href="#approach" class="nav-link">Approach</a>
+          <a href="#methodology" class="nav-link">Methodology</a>
           <a href="#brands" class="nav-link">Brands</a>
-          <a href="#about" class="nav-link">Philosophy</a>
+          <a href="#philosophy" class="nav-link">Philosophy</a>
           <a href="#contact" class="nav-link">Contact</a>
         </div>
         <button class="mobile-menu-btn">
@@ -756,9 +872,9 @@
       </button>
       <div class="mobile-nav-links">
         <a href="#work" class="mobile-nav-link">Work</a>
-        <a href="#approach" class="mobile-nav-link">Approach</a>
+        <a href="#methodology" class="mobile-nav-link">Methodology</a>
         <a href="#brands" class="mobile-nav-link">Brands</a>
-        <a href="#about" class="mobile-nav-link">Philosophy</a>
+        <a href="#philosophy" class="mobile-nav-link">Philosophy</a>
         <a href="#contact" class="mobile-nav-link">Contact</a>
       </div>
     </div>
@@ -780,7 +896,7 @@
     </div>
   </section>
 
-  <!-- Results Banner - Storytelling Version -->
+  <!-- Results Banner -->
   <section class="results-banner">
     <div class="container">
       <div class="results-grid">
@@ -804,7 +920,52 @@
     </div>
   </section>
 
-  <!-- Work -->
+  <!-- Methodology - Combined Approach & Capabilities -->
+  <section id="methodology" class="methodology">
+    <div class="container">
+      <div class="section-header">
+        <div class="star-decoration">✦</div>
+        <h2>My Methodology</h2>
+        <p>Bridging human insight with technical execution</p>
+      </div>
+      <div class="methodology-grid">
+        <div class="methodology-card fade-in">
+          <h3>Start with Human Truth</h3>
+          <p>Understanding what drives real behavior—whether it's a $300 bra or a Rolling Stone subscription</p>
+          <ul class="methodology-features">
+            <li>Consumer Psychology</li>
+            <li>Behavioral Insights</li>
+            <li>Identity & Desire Mapping</li>
+            <li>Luxury Positioning</li>
+          </ul>
+        </div>
+        
+        <div class="methodology-card fade-in">
+          <h3>Build Scalable Systems</h3>
+          <p>Technical infrastructure that connects insight to execution across platforms</p>
+          <ul class="methodology-features">
+            <li>Marketing Automation</li>
+            <li>Data Integration</li>
+            <li>Journey Architecture</li>
+            <li>Platform Ecosystems</li>
+          </ul>
+        </div>
+        
+        <div class="methodology-card fade-in">
+          <h3>Drive Business Results</h3>
+          <p>Connecting creative vision to measurable revenue and growth</p>
+          <ul class="methodology-features">
+            <li>Performance Optimization</li>
+            <li>ROI Measurement</li>
+            <li>Growth Strategy</li>
+            <li>Revenue Optimization</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Work - Enhanced with Alternating Layout -->
   <section id="work" class="work">
     <div class="container">
       <div class="section-header">
@@ -813,122 +974,89 @@
         <p>Strategic marketing systems for premium brands</p>
       </div>
 
-      <div class="editorial-grid">
-        <div class="editorial-item fade-in">
-          <div class="editorial-meta">Media Empire Strategy</div>
-          <h3>Penske Media Corporation</h3>
-          <p class="editorial-quote">"Architected subscription email marketing systems for Rolling Stone, Billboard, and WWD—crafting customer journeys that maintained editorial voice while driving conversions"</p>
-          <div class="editorial-stats">
-            <div class="stat">Multi-Million Subscriber Growth</div>
-            <div class="stat">Email Journey Architecture</div>
-            <div class="stat">Editorial Brand Integrity</div>
+      <div class="work-grid">
+        <!-- First item - standard layout -->
+        <div class="work-item fade-in">
+          <div class="work-content">
+            <div class="work-meta">Media Empire Strategy</div>
+            <h3>Penske Media Corporation</h3>
+            <p class="work-quote">"Architected subscription email marketing systems for Rolling Stone, Billboard, and WWD—crafting customer journeys that maintained editorial voice while driving conversions"</p>
+            <div class="work-stats">
+              <div class="stat">Multi-Million Subscriber Growth</div>
+              <div class="stat">Email Journey Architecture</div>
+              <div class="stat">Editorial Brand Integrity</div>
+            </div>
+            <div class="work-systems">
+              <div class="systems-label">Systems & Platforms</div>
+              <div class="systems-list">
+                <div class="system-tag">Marketing Automation</div>
+                <div class="system-tag">CRM Integration</div>
+                <div class="system-tag">Data Analytics</div>
+              </div>
+            </div>
+          </div>
+          <div class="work-visual">
+            <div class="work-visual-content">
+              <div class="work-visual-large">2.5M+</div>
+              <div class="work-visual-small">Subscribers Engaged</div>
+            </div>
           </div>
         </div>
 
-        <div class="editorial-item fade-in">
-          <div class="editorial-meta">Complex Market Navigation</div>
-          <h3>Museum of Sex</h3>
-          <p class="editorial-quote">"Navigated platform compliance restrictions while driving 59% of all web sales through strategic campaign management in challenging advertising environments"</p>
-          <div class="editorial-stats">
-            <div class="stat">59% of All Web Sales</div>
-            <div class="stat">69% Campaign ROI</div>
-            <div class="stat">Platform Compliance Mastery</div>
+        <!-- Second item - reversed layout with pink background -->
+        <div class="work-item reverse fade-in">
+          <div class="work-content">
+            <div class="work-meta">Complex Market Navigation</div>
+            <h3>Museum of Sex</h3>
+            <p class="work-quote">"Navigated platform compliance restrictions while driving 59% of all web sales through strategic campaign management in challenging advertising environments"</p>
+            <div class="work-stats">
+              <div class="stat">59% of All Web Sales</div>
+              <div class="stat">69% Campaign ROI</div>
+              <div class="stat">Platform Compliance Mastery</div>
+            </div>
+            <div class="work-systems">
+              <div class="systems-label">Systems & Platforms</div>
+              <div class="systems-list">
+                <div class="system-tag">Compliance Systems</div>
+                <div class="system-tag">Campaign Analytics</div>
+                <div class="system-tag">Revenue Tracking</div>
+              </div>
+            </div>
+          </div>
+          <div class="work-visual">
+            <div class="work-visual-content">
+              <div class="work-visual-large">59%</div>
+              <div class="work-visual-small">Of All Web Sales</div>
+            </div>
           </div>
         </div>
 
-        <div class="editorial-item fade-in">
-          <div class="editorial-meta">Luxury E-commerce</div>
-          <h3>Bao Bao Issey Miyake</h3>
-          <p class="editorial-quote">"Optimized luxury email creative through rigorous A/B testing, proving minimalist product visuals drive highest engagement while maintaining brand prestige"</p>
-          <div class="editorial-stats">
-            <div class="stat">21.46% Open Rate</div>
-            <div class="stat">18% Peak CTR</div>
-            <div class="stat">Data-Driven Luxury Creative</div>
+        <!-- Third item - standard layout again -->
+        <div class="work-item fade-in">
+          <div class="work-content">
+            <div class="work-meta">Luxury E-commerce</div>
+            <h3>Bao Bao Issey Miyake</h3>
+            <p class="work-quote">"Optimized luxury email creative through rigorous A/B testing, proving minimalist product visuals drive highest engagement while maintaining brand prestige"</p>
+            <div class="work-stats">
+              <div class="stat">21.46% Open Rate</div>
+              <div class="stat">18% Peak CTR</div>
+              <div class="stat">Data-Driven Luxury Creative</div>
+            </div>
+            <div class="work-systems">
+              <div class="systems-label">Systems & Platforms</div>
+              <div class="systems-list">
+                <div class="system-tag">A/B Testing</div>
+                <div class="system-tag">Luxury CRM</div>
+                <div class="system-tag">Creative Analytics</div>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Approach -->
-  <section id="approach" class="approach">
-    <div class="container">
-      <div class="section-header">
-        <h2>My Approach</h2>
-        <p>Bridging human insight with technical execution</p>
-      </div>
-      <div class="approach-grid">
-        <div class="approach-card fade-in">
-          <h3>Start with Human Truth</h3>
-          <p>Understanding what drives real behavior</p>
-          <ul class="approach-features">
-            <li>Consumer Psychology</li>
-            <li>Behavioral Insights</li>
-            <li>Identity & Desire Mapping</li>
-          </ul>
-        </div>
-        
-        <div class="approach-card fade-in">
-          <h3>Build Scalable Systems</h3>
-          <p>Technical infrastructure for growth</p>
-          <ul class="approach-features">
-            <li>Marketing Automation</li>
-            <li>Data Integration</li>
-            <li>Journey Architecture</li>
-          </ul>
-        </div>
-        
-        <div class="approach-card fade-in">
-          <h3>Drive Business Results</h3>
-          <p>Connecting insight to revenue</p>
-          <ul class="approach-features">
-            <li>Performance Optimization</li>
-            <li>ROI Measurement</li>
-            <li>Growth Strategy</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Capabilities (Replaces Technical Expertise) -->
-  <section id="capabilities" class="capabilities">
-    <div class="container">
-      <div class="section-header">
-        <div class="star-decoration">✦</div>
-        <h2>Strategic Capabilities</h2>
-        <p>Integrated marketing systems for premium growth</p>
-      </div>
-
-      <div class="capabilities-grid">
-        <div class="capability-column fade-in">
-          <h3>Brand Strategy</h3>
-          <ul>
-            <li>Luxury Positioning</li>
-            <li>Editorial Excellence</li>
-            <li>Consumer Psychology</li>
-            <li>Identity Mapping</li>
-          </ul>
-        </div>
-
-        <div class="capability-column fade-in">
-          <h3>Growth Systems</h3>
-          <ul>
-            <li>Lifecycle Architecture</li>
-            <li>Revenue Optimization</li>
-            <li>Performance Analytics</li>
-            <li>Budget Strategy</li>
-          </ul>
-        </div>
-
-        <div class="capability-column fade-in">
-          <h3>Technical Integration</h3>
-          <ul>
-            <li>Marketing Automation</li>
-            <li>Data Systems</li>
-            <li>Platform Ecosystems</li>
-            <li>Journey Engineering</li>
-          </ul>
+          <div class="work-visual">
+            <div class="work-visual-content">
+              <div class="work-visual-large">21.46%</div>
+              <div class="work-visual-small">Open Rate</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -952,18 +1080,18 @@
     </div>
   </section>
 
-  <!-- About -->
-  <section id="about" class="about">
+  <!-- Philosophy - Now with Bra Quote as Hero -->
+  <section id="philosophy" class="philosophy">
     <div class="container">
-      <div class="about-content">
+      <div class="philosophy-content">
         <h2>The Thread</h2>
         <div class="bar" style="margin: 1rem auto 2.5rem;"></div>
         
-        <h3 class="bra-quote">Desire speaks many languages, but always tells the same story.</h3>
+        <p class="bra-quote">"If I can sell a $300 bra, I can sell anything."</p>
+        
+        <h3 class="desire-quote">Desire speaks many languages, but always tells the same story.</h3>
         
         <p>Fifteen years of consulting for luxury lingerie boutiques, while building systems for media empires, taught me this fundamental truth. It's the thread connecting a customer's identity to their actions.</p>
-        
-        <p class="sell-quote" style="font-size: 2rem; color: #990049; font-weight: 700; font-style: italic; margin: 2rem 0 2.5rem;">"If I can sell a $300 bra, I can sell anything."</p>
         
         <p>From Mercedes Benz Fashion Week to multi-million dollar subscription platforms, I bridge the gap between human desire and technical execution—creating systems that honor complexity while driving measurable growth.</p>
         
@@ -983,10 +1111,10 @@
       
       <div class="leadership-content">
         <div class="leadership-item fade-in">
-          <div class="editorial-meta">Social Impact & Brand Leadership</div>
+          <div class="work-meta">Social Impact & Brand Leadership</div>
           <h3>Community Fridge Project</h3>
-          <p class="editorial-quote">"Founded and scaled a national circular-economy initiative, establishing the company's first CSR program and earning features in The New York Times"</p>
-          <div style="margin-top: 1.5rem;">
+          <p class="work-quote">"Founded and scaled a national circular-economy initiative, establishing the company's first CSR program and earning features in The New York Times"</p>
+          <div class="leadership-links">
             <a href="https://patch.com/new-york/bed-stuy/bed-stuy-get-free-community-fridge-earth-day-campaign" class="btn btn-secondary" target="_blank">Read on Patch</a>
             <a href="https://true-residential.com/the-art-of-cold/true-manufacturing-in-partnership-with-aj-madison-donates-commercial-refrigerator-to-community-free-food-fridge-project/" class="btn btn-secondary" target="_blank">True Manufacturing</a>
             <a href="https://communitynewspapers.com/coral-gables-news/jennair-and-ajmadison-host-an-evening-at-the-museum-of-graffiti-art-gallery-and-donate-a-new-community-fridge-painted-by-artist-cale-k25/" class="btn btn-secondary" target="_blank">Community Newspapers</a>
