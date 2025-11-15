@@ -87,6 +87,7 @@
     
     header.scrolled {
       box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+      border-bottom: 1px solid var(--accent-lighter);
     }
     
     nav {
@@ -108,7 +109,7 @@
     
     .nav-links {
       display: flex;
-      gap: 2.5rem;
+      gap: 2rem;
     }
     
     .nav-link {
@@ -119,10 +120,26 @@
       text-decoration: none;
       font-weight: 400;
       transition: color 0.3s ease;
+      position: relative;
     }
     
     .nav-link:hover {
       color: var(--accent);
+    }
+    
+    .nav-link:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 1px;
+      bottom: -5px;
+      left: 0;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover:after {
+      width: 100%;
     }
     
     .mobile-menu-btn {
@@ -393,11 +410,13 @@
       text-align: center;
       box-shadow: 0 5px 15px rgba(0,0,0,0.05);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-top: 3px solid var(--accent-lighter);
     }
     
     .approach-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      border-top-color: var(--accent);
     }
     
     .approach-card h3 {
@@ -436,6 +455,12 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 3rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .capability-column {
+      text-align: center;
     }
     
     .capability-column h3 {
@@ -461,45 +486,36 @@
       border-bottom: none;
     }
     
-    /* Brands - More Elegant */
+    /* Brands - More Elegant & Compact */
     .brands {
-      padding: 6rem 0;
+      padding: 4rem 0;
       background: #fafafa;
     }
     
     .brand-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
+      gap: 1rem;
     }
     
     .brand-item {
       text-align: center;
-      padding: 2rem 1rem;
+      padding: 1.5rem 1rem;
       font-weight: 500;
       color: var(--ink);
-      opacity: 0.8;
+      opacity: 0.9;
       transition: all 0.3s ease;
-      border: 1px solid transparent;
+      border: 1px solid var(--neutral-200);
+      background: white;
+      font-size: 1rem;
+      letter-spacing: 0.05em;
     }
     
     .brand-item:hover {
       opacity: 1;
-      border-color: var(--neutral-200);
-      transform: translateY(-3px);
-    }
-    
-    .brand-name {
-      font-size: 1rem;
-      margin-bottom: 0.5rem;
-      letter-spacing: 0.05em;
-    }
-    
-    .brand-metric {
-      font-size: 0.8rem;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(153, 0, 73, 0.1);
     }
     
     /* About - More Concise */
@@ -539,6 +555,16 @@
     
     .bra-quote:after {
       right: 0;
+    }
+    
+    .sell-quote {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 2rem;
+      color: #990049;
+      margin: 2rem 0 2.5rem;
+      line-height: 1.4;
+      font-weight: 700;
     }
     
     .about p {
@@ -696,6 +722,10 @@
         padding: 0 1.5rem;
       }
       
+      .sell-quote {
+        font-size: 1.6rem;
+      }
+      
       .leadership-item {
         padding: 2rem 1.5rem;
       }
@@ -711,9 +741,8 @@
         <div class="nav-links">
           <a href="#work" class="nav-link">Work</a>
           <a href="#approach" class="nav-link">Approach</a>
-          <a href="#capabilities" class="nav-link">Capabilities</a>
+          <a href="#brands" class="nav-link">Brands</a>
           <a href="#about" class="nav-link">Philosophy</a>
-          <a href="#leadership" class="nav-link">Leadership</a>
           <a href="#contact" class="nav-link">Contact</a>
         </div>
         <button class="mobile-menu-btn">
@@ -728,9 +757,8 @@
       <div class="mobile-nav-links">
         <a href="#work" class="mobile-nav-link">Work</a>
         <a href="#approach" class="mobile-nav-link">Approach</a>
-        <a href="#capabilities" class="mobile-nav-link">Capabilities</a>
+        <a href="#brands" class="mobile-nav-link">Brands</a>
         <a href="#about" class="mobile-nav-link">Philosophy</a>
-        <a href="#leadership" class="mobile-nav-link">Leadership</a>
         <a href="#contact" class="mobile-nav-link">Contact</a>
       </div>
     </div>
@@ -914,30 +942,12 @@
         <p>Building systems for media empires, luxury brands, and complex markets</p>
       </div>
       <div class="brand-grid">
-        <div class="brand-item fade-in">
-          <div class="brand-name">ROLLING STONE</div>
-          <div class="brand-metric">Subscription Marketing</div>
-        </div>
-        <div class="brand-item fade-in">
-          <div class="brand-name">BILLBOARD PRO</div>
-          <div class="brand-metric">Trade Marketing</div>
-        </div>
-        <div class="brand-item fade-in">
-          <div class="brand-name">WOMEN'S WEAR DAILY</div>
-          <div class="brand-metric">Creative & Copy</div>
-        </div>
-        <div class="brand-item fade-in">
-          <div class="brand-name">BAO BAO ISSEY MIYAKE</div>
-          <div class="brand-metric">E-Commerce Management</div>
-        </div>
-        <div class="brand-item fade-in">
-          <div class="brand-name">AJ MADISON</div>
-          <div class="brand-metric">Brand Partnerships</div>
-        </div>
-        <div class="brand-item fade-in">
-          <div class="brand-name">MUSEUM OF SEX</div>
-          <div class="brand-metric">Growth Marketing</div>
-        </div>
+        <div class="brand-item fade-in">ROLLING STONE MAGAZINE</div>
+        <div class="brand-item fade-in">BILLBOARD PRO MAGAZINE</div>
+        <div class="brand-item fade-in">WOMEN'S WEAR DAILY</div>
+        <div class="brand-item fade-in">BAO BAO ISSEY MIYAKE</div>
+        <div class="brand-item fade-in">AJ MADISON</div>
+        <div class="brand-item fade-in">MUSEUM OF SEX</div>
       </div>
     </div>
   </section>
@@ -953,9 +963,11 @@
         
         <p>Fifteen years of consulting for luxury lingerie boutiques, while building systems for media empires, taught me this fundamental truth. It's the thread connecting a customer's identity to their actions.</p>
         
+        <p class="sell-quote" style="font-size: 2rem; color: #990049; font-weight: 700; font-style: italic; margin: 2rem 0 2.5rem;">"If I can sell a $300 bra, I can sell anything."</p>
+        
         <p>From Mercedes Benz Fashion Week to multi-million dollar subscription platforms, I bridge the gap between human desire and technical execution—creating systems that honor complexity while driving measurable growth.</p>
         
-        <a href="mailto:va.mvharris@gmail.com?subject=Portfolio Inquiry - Marla Harris" class="btn btn-primary" style="margin-top: 2rem;">Explore Collaboration</a>
+        <a href="#contact" class="btn btn-primary" style="margin-top: 2rem;">Explore Collaboration</a>
       </div>
     </div>
   </section>
@@ -974,12 +986,11 @@
           <div class="editorial-meta">Social Impact & Brand Leadership</div>
           <h3>Community Fridge Project</h3>
           <p class="editorial-quote">"Founded and scaled a national circular-economy initiative, establishing the company's first CSR program and earning features in The New York Times"</p>
-          <div class="editorial-stats">
-            <div class="stat">National Initiative Launch</div>
-            <div class="stat">CSR Program Development</div>
-            <div class="stat">Press & Media Recognition</div>
+          <div style="margin-top: 1.5rem;">
+            <a href="https://patch.com/new-york/bed-stuy/bed-stuy-get-free-community-fridge-earth-day-campaign" class="btn btn-secondary" target="_blank">Read on Patch</a>
+            <a href="https://true-residential.com/the-art-of-cold/true-manufacturing-in-partnership-with-aj-madison-donates-commercial-refrigerator-to-community-free-food-fridge-project/" class="btn btn-secondary" target="_blank">True Manufacturing</a>
+            <a href="https://communitynewspapers.com/coral-gables-news/jennair-and-ajmadison-host-an-evening-at-the-museum-of-graffiti-art-gallery-and-donate-a-new-community-fridge-painted-by-artist-cale-k25/" class="btn btn-secondary" target="_blank">Community Newspapers</a>
           </div>
-          <a href="https://dc.capitolfile.com/community-fridge-ajmadison" class="btn btn-secondary" style="margin-top: 1.5rem;" target="_blank">View Feature in Capitol File Magazine</a>
         </div>
       </div>
     </div>
