@@ -293,18 +293,21 @@
       font-size: 1.125rem;
     }
     
+    /* VERTICAL-FRIENDLY GRID */
     .content-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
       gap: 3rem;
     }
     
     .content-item {
       background: white;
-      border-radius: 4px;
+      border-radius: 8px;
       overflow: hidden;
       box-shadow: 0 5px 15px rgba(0,0,0,0.05);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
     }
     
     .content-item:hover {
@@ -313,28 +316,34 @@
     }
     
     .content-image {
-      height: 250px;
       width: 100%;
       background: var(--accent-lighter);
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: center;
       overflow: hidden;
+      border-bottom: 1px solid var(--neutral-200);
     }
     
+    /* VERTICAL IMAGE STYLING */
     .content-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      width: auto;
+      max-width: 100%;
+      height: auto;
+      max-height: 500px;
+      object-fit: contain;
       transition: transform 0.3s ease;
     }
     
     .content-item:hover .content-image img {
-      transform: scale(1.05);
+      transform: scale(1.02);
     }
     
     .content-details {
       padding: 2rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
     }
     
     .content-details h3 {
@@ -346,6 +355,7 @@
     .content-details p {
       color: var(--neutral-700);
       margin-bottom: 1.5rem;
+      flex-grow: 1;
     }
     
     .content-meta {
@@ -353,8 +363,8 @@
       justify-content: space-between;
       font-size: 0.85rem;
       color: var(--neutral-600);
-      margin-top: 1.5rem;
-      padding-top: 1rem;
+      margin-top: auto;
+      padding-top: 1.5rem;
       border-top: 1px solid var(--neutral-200);
     }
     
@@ -435,6 +445,7 @@
       
       .content-grid {
         grid-template-columns: 1fr;
+        gap: 2rem;
       }
       
       .page-hero {
@@ -451,6 +462,21 @@
         width: 100%;
         max-width: 250px;
         text-align: center;
+      }
+      
+      /* Mobile vertical image adjustments */
+      .content-image img {
+        max-height: 400px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .content-image img {
+        max-height: 350px;
       }
     }
   </style>
@@ -492,9 +518,9 @@
     <div class="container">
       <div class="page-hero-content">
         <div class="star-decoration">✦</div>
-        <h1>Creative<br><span style="font-style: italic; color: var(--accent);">Visual Storytelling</span><br>& Brand Identity</h1>
+        <h1>Creative<br><span style="font-style: italic; color: var(--accent);">Email Design</span><br>& Visual Campaigns</h1>
         <div class="bar"></div>
-        <p>Where aesthetic sensibility meets strategic execution for memorable brand experiences.</p>
+        <p>Strategic email marketing and visual campaigns that drive engagement and conversion.</p>
         <div class="btn-group">
           <a href="index.html#contact" class="btn btn-primary">Start a Project</a>
           <a href="index.html" class="btn btn-secondary">Back to Home</a>
@@ -507,45 +533,15 @@
     <div class="container">
       <div class="section-header">
         <div class="star-decoration">✦</div>
-        <h2>Creative Portfolio</h2>
-        <p>Visual campaigns and brand identity work</p>
+        <h2>Email Campaign Portfolio</h2>
+        <p>Vertical-format email designs and marketing campaigns</p>
       </div>
       
       <div class="content-grid">
-        <!-- Using placeholder images since these don't exist in your repo -->
+        <!-- Billboard Pro Email -->
         <div class="content-item fade-in">
           <div class="content-image">
-            <img src="https://placehold.co/600x400/990049/white?text=Rolling+Stone+Rebrand" alt="Rolling Stone Rebrand Campaign">
-          </div>
-          <div class="content-details">
-            <h3>Rolling Stone Rebrand</h3>
-            <p>Developed visual identity system for Rolling Stone's digital subscription launch, balancing heritage with contemporary appeal.</p>
-            <div class="content-meta">
-              <span>Client: Penske Media</span>
-              <span>2022</span>
-            </div>
-          </div>
-        </div>
-        
-        <!-- This image exists in your repo -->
-        <div class="content-item fade-in">
-          <div class="content-image">
-            <img src="baobao-email%20blast.PNG" alt="Bao Bao Issey Miyake Luxury Campaign">
-          </div>
-          <div class="content-details">
-            <h3>Bao Bao Luxury Campaign</h3>
-            <p>Art directed minimalist product photography that increased engagement by 47% while maintaining brand prestige.</p>
-            <div class="content-meta">
-              <span>Client: Issey Miyake</span>
-              <span>2021</span>
-            </div>
-          </div>
-        </div>
-        
-        <!-- This image exists in your repo -->
-        <div class="content-item fade-in">
-          <div class="content-image">
-            <img src="5.4%20-%20ENDS%20SOON%20-%20Country%20Campaign%202.gif" alt="Billboard Pro Digital Design">
+            <img src="5.4%20-%20ENDS%20SOON%20-%20Country%20Campaign%202.gif" alt="Billboard Pro Email Campaign">
           </div>
           <div class="content-details">
             <h3>Billboard Pro Launch</h3>
@@ -557,10 +553,40 @@
           </div>
         </div>
         
-        <!-- Using placeholder since this doesn't exist -->
+        <!-- Bao Bao Email -->
         <div class="content-item fade-in">
           <div class="content-image">
-            <img src="https://placehold.co/600x400/990049/white?text=Museum+of+Sex+Campaigns" alt="Museum of Sex Email Campaigns">
+            <img src="baobao-email%20blast.PNG" alt="Bao Bao Issey Miyake Email Campaign">
+          </div>
+          <div class="content-details">
+            <h3>Bao Bao Luxury Campaign</h3>
+            <p>Art directed minimalist product photography that increased engagement by 47% while maintaining brand prestige.</p>
+            <div class="content-meta">
+              <span>Client: Issey Miyake</span>
+              <span>2021</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Rolling Stone Email -->
+        <div class="content-item fade-in">
+          <div class="content-image">
+            <img src="https://placehold.co/300x500/990049/ffffff?text=Rolling+Stone+Email&font=inter" alt="Rolling Stone Rebrand Email">
+          </div>
+          <div class="content-details">
+            <h3>Rolling Stone Rebrand</h3>
+            <p>Developed visual identity system for Rolling Stone's digital subscription launch, balancing heritage with contemporary appeal.</p>
+            <div class="content-meta">
+              <span>Client: Penske Media</span>
+              <span>2022</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Museum of Sex Email -->
+        <div class="content-item fade-in">
+          <div class="content-image">
+            <img src="https://placehold.co/300x500/990049/ffffff?text=Museum+of+Sex+Email&font=inter" alt="Museum of Sex Email Campaigns">
           </div>
           <div class="content-details">
             <h3>Museum of Sex Campaigns</h3>
@@ -572,14 +598,14 @@
           </div>
         </div>
         
-        <!-- Using placeholder since this doesn't exist -->
+        <!-- WWD Fashion Week Email -->
         <div class="content-item fade-in">
           <div class="content-image">
-            <img src="https://placehold.co/600x400/990049/white?text=WWD+Fashion+Week" alt="WWD Fashion Week Visual Systems">
+            <img src="https://placehold.co/300x500/990049/ffffff?text=WWD+Fashion+Week+Email&font=inter" alt="WWD Fashion Week Email">
           </div>
           <div class="content-details">
             <h3>WWD Fashion Week</h3>
-            <p>Developed comprehensive visual identity for Women's Wear Daily's Fashion Week coverage, creating cohesive branding across digital and print.</p>
+            <p>Developed comprehensive visual identity for Women's Wear Daily's Fashion Week coverage across digital platforms.</p>
             <div class="content-meta">
               <span>Client: Penske Media</span>
               <span>2019-2022</span>
@@ -587,14 +613,14 @@
           </div>
         </div>
         
-        <!-- This image exists in your repo -->
+        <!-- AJ Madison Email -->
         <div class="content-item fade-in">
           <div class="content-image">
-            <img src="Screenshot%202025-10-30%20224348.png" alt="AJ Madison Brand Guidelines">
+            <img src="Screenshot%202025-10-30%20224348.png" alt="AJ Madison Email Guidelines">
           </div>
           <div class="content-details">
             <h3>AJ Madison Visual Identity</h3>
-            <p>Created comprehensive brand guidelines that unified visual communication across all marketing channels and touchpoints.</p>
+            <p>Created comprehensive brand guidelines that unified visual communication across all marketing channels.</p>
             <div class="content-meta">
               <span>Client: AJ Madison</span>
               <span>2018</span>
@@ -608,8 +634,8 @@
   <section class="contact">
     <div class="container">
       <div class="star-decoration">✦</div>
-      <h2>Let's Create Something Beautiful</h2>
-      <p>Ready to blend strategic thinking with compelling visual storytelling?</p>
+      <h2>Let's Create Impactful Email Campaigns</h2>
+      <p>Ready to develop strategic email designs that convert?</p>
       <div class="btn-group">
         <a href="mailto:va.mvharris@gmail.com" class="btn btn-primary">Start a Project</a>
       </div>
