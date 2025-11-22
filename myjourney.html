@@ -1,4 +1,4 @@
-[file name]: copywriting.html
+[file name]: myjourney.html
 [file content begin]
 <!DOCTYPE html>
 <html lang="en">
@@ -14,8 +14,8 @@
 <!-- End Google Analytics -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Marla Harris - Copywriting Portfolio">
-  <title>Copywriting Portfolio | Marla Harris</title>
+  <meta name="description" content="Marla Harris - My Journey from marketing to public service">
+  <title>My Journey | Marla Harris</title>
   
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -231,7 +231,7 @@
     }
     
     .page-hero-content {
-      max-width: 600px;
+      max-width: 700px;
       margin: 0 auto;
     }
     
@@ -242,14 +242,6 @@
       line-height: 1.1;
     }
     
-    .coming-soon-badge {
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: var(--accent);
-      margin-bottom: 2rem;
-    }
-    
     .quote-section {
       margin: 3rem 0;
     }
@@ -257,19 +249,49 @@
     .quote-text {
       font-family: 'Playfair Display', serif;
       font-style: italic;
-      font-size: 1.8rem;
+      font-size: 2rem;
       line-height: 1.4;
       color: var(--accent);
       text-align: center;
       margin-bottom: 1rem;
     }
     
-    .quote-author {
-      font-weight: 500;
-      color: var(--ink);
-      font-size: 1rem;
-      letter-spacing: 0.05em;
-      text-align: center;
+    .journey-content {
+      padding: 4rem 0;
+      background: var(--paper);
+    }
+    
+    .journey-text {
+      font-size: 1.125rem;
+      color: var(--neutral-700);
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+    
+    .journey-text:last-child {
+      margin-bottom: 0;
+    }
+    
+    .masters-highlight {
+      background: var(--accent-lighter);
+      padding: 2rem;
+      border-radius: 8px;
+      border-left: 3px solid var(--accent);
+      margin: 3rem 0;
+    }
+    
+    .masters-highlight h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+    
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 3rem;
     }
     
     .btn {
@@ -284,15 +306,30 @@
       text-align: center;
       border: none;
       cursor: pointer;
+    }
+    
+    .btn-primary {
       background: var(--accent);
       color: white;
       box-shadow: 0 4px 14px rgba(153, 0, 73, 0.2);
     }
     
-    .btn:hover {
+    .btn-primary:hover {
       background: var(--accent-light);
       transform: translateY(-2px);
       box-shadow: 0 6px 20px rgba(153, 0, 73, 0.3);
+    }
+    
+    .btn-secondary {
+      border: 1px solid var(--neutral-200);
+      color: var(--ink);
+      background: transparent;
+    }
+    
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
     }
     
     .contact {
@@ -368,8 +405,14 @@
       }
       
       .quote-text {
-        font-size: 1.4rem;
+        font-size: 1.6rem;
         padding: 0 1rem;
+      }
+      
+      .btn-group {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
       }
       
       .btn {
@@ -379,8 +422,13 @@
         padding: 0.875rem 1.5rem;
       }
       
-      .contact {
+      .journey-content {
         padding: 3rem 0;
+      }
+      
+      .masters-highlight {
+        padding: 1.5rem;
+        margin: 2rem 0;
       }
     }
     
@@ -391,6 +439,10 @@
       
       .page-hero {
         padding: 7rem 0 2rem;
+      }
+      
+      .contact {
+        padding: 3rem 0;
       }
     }
   </style>
@@ -431,16 +483,32 @@
   <section class="page-hero">
     <div class="container">
       <div class="page-hero-content">
-        <div class="coming-soon-badge">Coming Soon</div>
-        <h1>Copywriting<br>& Content</h1>
+        <div class="star-decoration">✦</div>
+        <h1>My Journey</h1>
         <div class="bar"></div>
         
         <div class="quote-section">
-          <div class="quote-text">"Given this flair for the written word..."</div>
-          <div class="quote-author">— Andrew</div>
+          <div class="quote-text">"If I can sell a $300 bra, I can sell anything."</div>
         </div>
-        
-        <a href="index.html#contact" class="btn">Contact Me</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="journey-content">
+    <div class="container">
+      <p class="journey-text">Five years of working retail, selling lingerie, taught me how to speak to the customer, and what gets them to buy. Lessons that I take with me in every project or job I take on.</p>
+      
+      <p class="journey-text">From covering fashion shows at Mercedes Benz Fashion Week to subscription marketing for media empires, I bridge the gap between human desire and technical execution—creating systems that honor complexity while driving measurable growth.</p>
+      
+      <div class="masters-highlight">
+        <h3>Next Chapter: Public Service</h3>
+        <p class="journey-text">I'm starting my Master of Public Administration this fall at Baruch College's Marxe School of Public and International Affairs, and I'm currently seeking marketing or communications roles—especially in mission-driven spaces.</p>
+        <p class="journey-text">With a strong background in storytelling, strategy, and audience engagement, I'm looking to bring that experience to a team that values impact and clarity. If you know of any roles in nonprofit, public sector, or purpose-led marketing, I'd love to connect.</p>
+      </div>
+      
+      <div class="btn-group">
+        <a href="index.html#contact" class="btn btn-primary">Connect With Me</a>
+        <a href="creative.html" class="btn btn-secondary">View My Work</a>
       </div>
     </div>
   </section>
@@ -448,10 +516,11 @@
   <section class="contact">
     <div class="container">
       <div class="star-decoration">✦</div>
-      <h2>Let's Create Compelling Content</h2>
-      <p>Ready to develop strategic copy that converts?</p>
+      <h2>Let's Create Impact Together</h2>
+      <p>Ready to bring strategic marketing to mission-driven work?</p>
       <div class="btn-group">
-        <a href="mailto:va.mvharris@gmail.com" class="btn">Start a Project</a>
+        <a href="mailto:va.mvharris@gmail.com" class="btn btn-primary">Email Me</a>
+        <a href="https://linkedin.com/in/marla-harris-047b2946" class="btn btn-secondary" target="_blank">LinkedIn</a>
       </div>
       
       <div class="social-links">
