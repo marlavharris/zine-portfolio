@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Marla Harris - My Journey from marketing to public service">
+  <title>My Journey | Marla Harris</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --ink: #0b0b0b;
+      --paper: #ffffff;
+      --accent: #990049;
+      --accent-light: #b2005f;
+      --accent-lighter: rgba(178,0,95,0.08);
+      --neutral-200: #e5e5e5;
+      --neutral-600: #666666;
+      --neutral-700: #404040;
+      --charcoal: #1a1a1a;
+      --gold: #b4a582;
+      --gold-light: rgba(180, 165, 130, 0.1);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 400;
+      line-height: 1.2;
+    }
+    
+    .bar {
+      width: 60px;
+      height: 1px;
+      background: var(--accent);
+      margin: 1.5rem auto;
+    }
+    
+    .star-decoration {
+      text-align: center;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+      color: var(--gold);
+      letter-spacing: 0.3em;
+    }
+    
+    header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      border-bottom: none;
+      transition: all 0.3s ease;
+    }
+    
+    header.scrolled {
+      box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+      border-bottom: 1px solid var(--accent-lighter);
+    }
+    
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 0;
+    }
+    
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      z-index: 1001;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    
+    .nav-link {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--neutral-700);
+      text-decoration: none;
+      font-weight: 400;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+    
+    .nav-link:hover {
+      color: var(--accent);
+    }
+    
+    .nav-link:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 1px;
+      bottom: -5px;
+      left: 0;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover:after {
+      width: 100%;
+    }
+    
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--ink);
+      cursor: pointer;
+      z-index: 1001;
+    }
+    
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: var(--paper);
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: all 0.3s ease;
+    }
+    
+    .mobile-menu.active {
+      display: flex;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .mobile-nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      text-align: center;
+    }
+    
+    .mobile-nav-link {
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--neutral-700);
+      text-decoration: none;
+      font-weight: 400;
+      transition: color 0.3s ease;
+    }
+    
+    .mobile-nav-link:hover {
+      color: var(--accent);
+    }
+    
+    .close-menu {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--ink);
+      cursor: pointer;
+    }
+    
+    .page-hero {
+      padding: 12rem 0 4rem;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      text-align: center;
+    }
+    
+    .page-hero-content {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    .page-hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin-bottom: 1rem;
+      font-weight: 300;
+      line-height: 1.1;
+    }
+    
+    .quote-section {
+      margin: 3rem 0;
+    }
+    
+    .quote-text {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 2rem;
+      line-height: 1.4;
+      color: var(--accent);
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    
+    .journey-content {
+      padding: 4rem 0;
+      background: var(--paper);
+    }
+    
+    .journey-text {
+      font-size: 1.125rem;
+      color: var(--neutral-700);
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+    
+    .journey-text:last-child {
+      margin-bottom: 0;
+    }
+    
+    .masters-highlight {
+      background: var(--accent-lighter);
+      padding: 2rem;
+      border-radius: 8px;
+      border-left: 3px solid var(--accent);
+      margin: 3rem 0;
+    }
+    
+    .masters-highlight h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+    
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 3rem;
+    }
+    
+    .btn {
+      padding: 1rem 2.25rem;
+      border-radius: 999px;
+      font-weight: 500;
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: all 0.3s ease;
+      letter-spacing: 0.05em;
+      display: inline-block;
+    }
+    
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+      box-shadow: 0 4px 14px rgba(153, 0, 73, 0.2);
+    }
+    
+    .btn-primary:hover {
+      background: var(--accent-light);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(153, 0, 73, 0.3);
+    }
+    
+    .btn-secondary {
+      border: 1px solid var(--neutral-200);
+      color: var(--ink);
+    }
+    
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+    
+    .contact {
+      padding: 6rem 0;
+      text-align: center;
+      background: #fafafa;
+    }
+    
+    .contact h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      font-weight: 300;
+      color: var(--charcoal);
+    }
+    
+    .contact p {
+      font-size: 1.125rem;
+      color: var(--neutral-700);
+      max-width: 500px;
+      margin: 0 auto 2rem;
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--accent-lighter);
+      color: var(--accent);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .social-link:hover {
+      background: var(--accent);
+      color: white;
+      transform: translateY(-2px);
+    }
+    
+    .contact-info {
+      color: var(--neutral-600);
+    }
+    
+    .contact-info p {
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+    }
+    
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      .page-hero {
+        padding: 10rem 0 3rem;
+      }
+      
+      .quote-text {
+        font-size: 1.6rem;
+        padding: 0 1rem;
+      }
+      
+      .btn-group {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .btn {
+        width: 100%;
+        max-width: 250px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="index.html" class="logo">Marla Harris</a>
+        <div class="nav-links">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="journey.html" class="nav-link">My Journey</a>
+          <a href="creative.html" class="nav-link">Creative</a>
+          <a href="writing.html" class="nav-link">Writing</a>
+          <a href="csr.html" class="nav-link">CSR</a>
+          <a href="index.html#contact" class="nav-link">Contact</a>
+        </div>
+        <button class="mobile-menu-btn">
+          <i class="fas fa-bars"></i>
+        </button>
+      </nav>
+    </div>
+    <div class="mobile-menu">
+      <button class="close-menu">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="mobile-nav-links">
+        <a href="index.html" class="mobile-nav-link">Home</a>
+        <a href="journey.html" class="mobile-nav-link">My Journey</a>
+        <a href="creative.html" class="mobile-nav-link">Creative</a>
+        <a href="writing.html" class="mobile-nav-link">Writing</a>
+        <a href="csr.html" class="mobile-nav-link">CSR</a>
+        <a href="index.html#contact" class="mobile-nav-link">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero-content">
+        <div class="star-decoration">✦</div>
+        <h1>My Journey</h1>
+        <div class="bar"></div>
+        
+        <div class="quote-section">
+          <div class="quote-text">"If I can sell a $300 bra, I can sell anything."</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="journey-content">
+    <div class="container">
+      <p class="journey-text">Five years of working retail, selling lingerie, taught me how to speak to the customer, and what gets them to buy. Lessons that I take with me in every project or job I take on.</p>
+      
+      <p class="journey-text">From covering fashion shows at Mercedes Benz Fashion Week to subscription marketing for media empires, I bridge the gap between human desire and technical execution—creating systems that honor complexity while driving measurable growth.</p>
+      
+      <div class="masters-highlight">
+        <h3>Next Chapter: Public Service</h3>
+        <p class="journey-text">I'm starting my Master of Public Administration this fall at Baruch College's Marxe School of Public and International Affairs, and I'm currently seeking marketing or communications roles—especially in mission-driven spaces.</p>
+        <p class="journey-text">With a strong background in storytelling, strategy, and audience engagement, I'm looking to bring that experience to a team that values impact and clarity. If you know of any roles in nonprofit, public sector, or purpose-led marketing, I'd love to connect.</p>
+      </div>
+      
+      <div class="btn-group">
+        <a href="index.html#contact" class="btn btn-primary">Connect With Me</a>
+        <a href="creative.html" class="btn btn-secondary">View My Work</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact">
+    <div class="container">
+      <div class="star-decoration">✦</div>
+      <h2>Let's Create Impact Together</h2>
+      <p>Ready to bring strategic marketing to mission-driven work?</p>
+      <div class="btn-group">
+        <a href="mailto:va.mvharris@gmail.com" class="btn btn-primary">Email Me</a>
+        <a href="https://linkedin.com/in/marla-harris-047b2946" class="btn btn-secondary" target="_blank">LinkedIn</a>
+      </div>
+      
+      <div class="social-links">
+        <a href="https://linkedin.com/in/marla-harris-047b2946" class="social-link">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://www.instagram.com/marlavharris/" class="social-link">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+      
+      <div class="contact-info">
+        <p>Marla Harris</p>
+        <p><a href="mailto:va.mvharris@gmail.com" style="color: var(--accent);">va.mvharris@gmail.com</a></p>
+        <p>Brooklyn, NY</p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Mobile menu functionality
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const closeMenuBtn = document.querySelector('.close-menu');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+    if (mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    }
+
+    if (closeMenuBtn) {
+      closeMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    }
+
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (mobileMenu.classList.contains('active') && 
+          !e.target.closest('.mobile-menu') && 
+          !e.target.closest('.mobile-menu-btn')) {
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+  </script>
+</body>
+</html>
