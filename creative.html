@@ -316,149 +316,65 @@
       font-size: 1.125rem;
     }
     
-    /* VERTICAL-FRIENDLY GRID */
+    /* LUXURY SINGLE IMAGE LAYOUT */
     .content-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 3rem;
+      max-width: 1000px;
+      margin: 0 auto;
     }
     
     .content-item {
       background: white;
-      border-radius: 8px;
+      border-radius: 0;
       overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: none;
+      transition: all 0.3s ease;
       display: flex;
       flex-direction: column;
+      border: 1px solid var(--neutral-200);
     }
     
     .content-item:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
     }
     
     .content-image {
       width: 100%;
-      background: var(--accent-lighter);
+      background: var(--paper);
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       justify-content: center;
       overflow: hidden;
-      border-bottom: 1px solid var(--neutral-200);
       position: relative;
-      border: 1px solid var(--neutral-200);
+      padding: 2rem;
+      min-height: 500px;
     }
     
-    /* VERTICAL IMAGE STYLING */
+    /* CLEAN SINGLE IMAGE STYLING */
     .content-image img {
       width: auto;
       max-width: 100%;
       height: auto;
-      max-height: 500px;
+      max-height: 450px;
       object-fit: contain;
       transition: transform 0.3s ease;
-      border: 1px solid var(--neutral-200);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      border-radius: 2px;
     }
     
     .content-item:hover .content-image img {
       transform: scale(1.02);
     }
     
-    /* Carousel Styles */
-    .image-carousel {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-    }
-    
-    .carousel-track {
-      display: flex;
-      transition: transform 0.5s ease;
-      height: 100%;
-    }
-    
-    .carousel-slide {
-      min-width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    
-    .carousel-nav {
-      position: absolute;
-      top: 50%;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      padding: 0 1rem;
-      transform: translateY(-50%);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-    
-    .content-image:hover .carousel-nav {
-      opacity: 1;
-    }
-    
-    .carousel-btn {
-      background: rgba(255, 255, 255, 0.9);
-      border: 1px solid var(--neutral-200);
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      color: var(--accent);
-      font-size: 0.9rem;
-    }
-    
-    .carousel-btn:hover {
-      background: var(--accent);
-      color: white;
-      border-color: var(--accent);
-    }
-    
-    .carousel-dots {
-      position: absolute;
-      bottom: 1rem;
-      left: 0;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      gap: 0.5rem;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-    
-    .content-image:hover .carousel-dots {
-      opacity: 1;
-    }
-    
-    .carousel-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.5);
-      border: none;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    
-    .carousel-dot.active {
-      background: var(--accent);
-      transform: scale(1.2);
-    }
-    
     .content-details {
-      padding: 2rem;
+      padding: 2.5rem;
       flex-grow: 1;
       display: flex;
       flex-direction: column;
+      border-top: 1px solid var(--neutral-200);
     }
     
     .content-details h3 {
@@ -471,6 +387,7 @@
       color: var(--neutral-700);
       margin-bottom: 1.5rem;
       flex-grow: 1;
+      line-height: 1.7;
     }
     
     .content-meta {
@@ -596,19 +513,17 @@
         padding: 0.875rem 1.5rem;
       }
       
-      /* Mobile vertical image adjustments */
+      .content-image {
+        padding: 1.5rem;
+        min-height: 400px;
+      }
+      
       .content-image img {
-        max-height: 400px;
+        max-height: 350px;
       }
       
-      /* Show carousel controls on mobile for better UX */
-      .carousel-nav,
-      .carousel-dots {
-        opacity: 1;
-      }
-      
-      .carousel-btn {
-        background: rgba(255, 255, 255, 0.8);
+      .content-details {
+        padding: 2rem;
       }
     }
     
@@ -618,7 +533,7 @@
       }
       
       .content-image img {
-        max-height: 350px;
+        max-height: 300px;
       }
       
       .page-hero {
@@ -627,6 +542,11 @@
       
       .content-section {
         padding: 3rem 0;
+      }
+      
+      .content-image {
+        min-height: 350px;
+        padding: 1rem;
       }
     }
   </style>
@@ -686,35 +606,14 @@
       <div class="section-header">
         <div class="star-decoration">✦</div>
         <h2>Email Campaign Portfolio</h2>
-        <p>Vertical-format email designs and marketing campaigns</p>
+        <p>Strategic visual campaigns for premium brands and media empires</p>
       </div>
       
       <div class="content-grid">
         <!-- Billboard Pro Email -->
         <div class="content-item fade-in">
           <div class="content-image">
-            <div class="image-carousel" data-carousel="1">
-              <div class="carousel-track">
-                <div class="carousel-slide" data-slide="0">
-                  <img src="HALSEY - BB BAU (2) (3).gif" alt="Billboard Pro Email Campaign">
-                </div>
-                <div class="carousel-slide" data-slide="1">
-                  <img src="5.4 - ENDS SOON - Country Campaign 2.gif" alt="Billboard Pro Email Variation">
-                </div>
-              </div>
-              <div class="carousel-nav">
-                <button class="carousel-btn prev-btn">
-                  <i class="fas fa-chevron-left"></i>
-                </button>
-                <button class="carousel-btn next-btn">
-                  <i class="fas fa-chevron-right"></i>
-                </button>
-              </div>
-              <div class="carousel-dots">
-                <button class="carousel-dot active" data-slide="0"></button>
-                <button class="carousel-dot" data-slide="1"></button>
-              </div>
-            </div>
+            <img src="HALSEY - BB BAU (2) (3).gif" alt="Billboard Pro Email Campaign">
           </div>
           <div class="content-details">
             <h3>Billboard Pro Launch</h3>
@@ -729,32 +628,7 @@
         <!-- Bao Bao Email -->
         <div class="content-item fade-in">
           <div class="content-image">
-            <div class="image-carousel" data-carousel="2">
-              <div class="carousel-track">
-                <div class="carousel-slide" data-slide="0">
-                  <img src="bao_bao_email_3.jpg" alt="Bao Bao Issey Miyake Email Campaign">
-                </div>
-                <div class="carousel-slide" data-slide="1">
-                  <img src="bao_bao_email_SS17.jpg" alt="Bao Bao Email Detail View">
-                </div>
-                <div class="carousel-slide" data-slide="2">
-                  <img src="bao_bao_email_2.jpg" alt="Bao Bao Brand Guidelines">
-                </div>
-              </div>
-              <div class="carousel-nav">
-                <button class="carousel-btn prev-btn">
-                  <i class="fas fa-chevron-left"></i>
-                </button>
-                <button class="carousel-btn next-btn">
-                  <i class="fas fa-chevron-right"></i>
-                </button>
-              </div>
-              <div class="carousel-dots">
-                <button class="carousel-dot active" data-slide="0"></button>
-                <button class="carousel-dot" data-slide="1"></button>
-                <button class="carousel-dot" data-slide="2"></button>
-              </div>
-            </div>
+            <img src="bao_bao_email_3.jpg" alt="Bao Bao Issey Miyake Email Campaign">
           </div>
           <div class="content-details">
             <h3>Bao Bao Luxury Campaign</h3>
@@ -769,32 +643,7 @@
         <!-- Rolling Stone Email -->
         <div class="content-item fade-in">
           <div class="content-image">
-            <div class="image-carousel" data-carousel="3">
-              <div class="carousel-track">
-                <div class="carousel-slide" data-slide="0">
-                  <img src="2.29 BAU (Karol G) (1).gif" alt="Rolling Stone Rebrand Email">
-                </div>
-                <div class="carousel-slide" data-slide="1">
-                  <img src="Ends Tomorrow 3.19 - RS SALE - updated (2) (1).gif" alt="Rolling Stone Email Variation">
-                </div>
-                <div class="carousel-slide" data-slide="2">
-                  <img src="11.15 Revolutionary Artist's (2).gif" alt="Rolling Stone Campaign Extension">
-                </div>
-              </div>
-              <div class="carousel-nav">
-                <button class="carousel-btn prev-btn">
-                  <i class="fas fa-chevron-left"></i>
-                </button>
-                <button class="carousel-btn next-btn">
-                  <i class="fas fa-chevron-right"></i>
-                </button>
-              </div>
-              <div class="carousel-dots">
-                <button class="carousel-dot active" data-slide="0"></button>
-                <button class="carousel-dot" data-slide="1"></button>
-                <button class="carousel-dot" data-slide="2"></button>
-              </div>
-            </div>
+            <img src="2.29 BAU (Karol G) (1).gif" alt="Rolling Stone Rebrand Email">
           </div>
           <div class="content-details">
             <h3>Rolling Stone Campaigns</h3>
@@ -809,32 +658,7 @@
         <!-- WWD Fashion Week Email -->
         <div class="content-item fade-in">
           <div class="content-image">
-            <div class="image-carousel" data-carousel="4">
-              <div class="carousel-track">
-                <div class="carousel-slide" data-slide="0">
-                  <img src="WWD BF - DAY 3.gif" alt="WWD Fashion Week Email">
-                </div>
-                <div class="carousel-slide" data-slide="1">
-                  <img src="wwd-sustainability.gif" alt="WWD Fashion Week Campaign">
-                </div>
-                <div class="carousel-slide" data-slide="2">
-                  <img src="wwd-global.gif" alt="WWD Fashion Week Variation">
-                </div>
-              </div>
-              <div class="carousel-nav">
-                <button class="carousel-btn prev-btn">
-                  <i class="fas fa-chevron-left"></i>
-                </button>
-                <button class="carousel-btn next-btn">
-                  <i class="fas fa-chevron-right"></i>
-                </button>
-              </div>
-              <div class="carousel-dots">
-                <button class="carousel-dot active" data-slide="0"></button>
-                <button class="carousel-dot" data-slide="1"></button>
-                <button class="carousel-dot" data-slide="2"></button>
-              </div>
-            </div>
+            <img src="WWD BF - DAY 3.gif" alt="WWD Fashion Week Email">
           </div>
           <div class="content-details">
             <h3>WWD Fashion Week</h3>
@@ -849,32 +673,7 @@
         <!-- AJ Madison Digital Lookbook -->
         <div class="content-item fade-in">
           <div class="content-image">
-            <div class="image-carousel" data-carousel="5">
-              <div class="carousel-track">
-                <div class="carousel-slide" data-slide="0">
-                  <img src="AjMadison_ApplianceJournal.jpg" alt="AJ Madison Digital Lookbook">
-                </div>
-                <div class="carousel-slide" data-slide="1">
-                  <img src="2.jpg" alt="AJ Madison Editorial Design">
-                </div>
-                <div class="carousel-slide" data-slide="2">
-                  <img src="3.jpg" alt="AJ Madison Publication Layout">
-                </div>
-              </div>
-              <div class="carousel-nav">
-                <button class="carousel-btn prev-btn">
-                  <i class="fas fa-chevron-left"></i>
-                </button>
-                <button class="carousel-btn next-btn">
-                  <i class="fas fa-chevron-right"></i>
-                </button>
-              </div>
-              <div class="carousel-dots">
-                <button class="carousel-dot active" data-slide="0"></button>
-                <button class="carousel-dot" data-slide="1"></button>
-                <button class="carousel-dot" data-slide="2"></button>
-              </div>
-            </div>
+            <img src="AjMadison_ApplianceJournal.jpg" alt="AJ Madison Digital Lookbook">
           </div>
           <div class="content-details">
             <div class="role-badge">Editorial Operations Manager</div>
@@ -1018,59 +817,6 @@
     window.addEventListener('scroll', fadeInOnScroll);
     window.addEventListener('load', fadeInOnScroll);
     fadeInOnScroll();
-
-    // Image Carousel Functionality
-    document.querySelectorAll('.image-carousel').forEach(carousel => {
-      const track = carousel.querySelector('.carousel-track');
-      const slides = Array.from(track.children);
-      const nextButton = carousel.querySelector('.next-btn');
-      const prevButton = carousel.querySelector('.prev-btn');
-      const dots = carousel.querySelectorAll('.carousel-dot');
-      
-      if (slides.length === 0) return;
-      
-      const slideWidth = slides[0].getBoundingClientRect().width;
-      let currentSlide = 0;
-      
-      // Arrange slides next to each other
-      slides.forEach((slide, index) => {
-        slide.style.left = slideWidth * index + 'px';
-      });
-      
-      const moveToSlide = (targetSlide) => {
-        const targetIndex = parseInt(targetSlide.dataset.slide);
-        track.style.transform = 'translateX(-' + (slideWidth * targetIndex) + 'px)';
-        currentSlide = targetIndex;
-        
-        // Update dots
-        dots.forEach(dot => dot.classList.remove('active'));
-        dots[currentSlide].classList.add('active');
-      };
-      
-      // Next button click
-      if (nextButton) {
-        nextButton.addEventListener('click', e => {
-          const nextSlide = currentSlide < slides.length - 1 ? currentSlide + 1 : 0;
-          moveToSlide(slides[nextSlide]);
-        });
-      }
-      
-      // Previous button click
-      if (prevButton) {
-        prevButton.addEventListener('click', e => {
-          const prevSlide = currentSlide > 0 ? currentSlide - 1 : slides.length - 1;
-          moveToSlide(slides[prevSlide]);
-        });
-      }
-      
-      // Dot navigation
-      dots.forEach(dot => {
-        dot.addEventListener('click', e => {
-          const targetSlide = parseInt(e.target.dataset.slide);
-          moveToSlide(slides[targetSlide]);
-        });
-      });
-    });
 
     // Close mobile menu when clicking outside
     document.addEventListener('click', (e) => {
