@@ -1,5 +1,3 @@
-[file name]: index.html
-[file content begin]
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +13,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Marla Harris - Marketing Leader: Where Storytelling Meets Scalable Systems">
+  <meta property="og:title" content="Marla Harris - Marketing Leader">
+  <meta property="og:description" content="Where Storytelling Meets Scalable Systems">
+  <meta property="og:type" content="website">
   <title>Marla Harris — Marketing Leader: Where Storytelling Meets Scalable Systems</title>
   
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -162,7 +163,9 @@
       color: var(--ink);
       cursor: pointer;
       z-index: 1001;
-      padding: 0.25rem;
+      padding: 0.5rem;
+      min-height: 44px;
+      min-width: 44px;
     }
     
     .mobile-menu {
@@ -204,6 +207,11 @@
       text-decoration: none;
       font-weight: 400;
       transition: color 0.3s ease;
+      padding: 1rem 2rem;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     
     .mobile-nav-link:hover {
@@ -219,7 +227,9 @@
       font-size: 1.5rem;
       color: var(--ink);
       cursor: pointer;
-      padding: 0.25rem;
+      padding: 0.5rem;
+      min-height: 44px;
+      min-width: 44px;
     }
     
     /* Hero Section */
@@ -264,12 +274,15 @@
       font-weight: 500;
       text-decoration: none;
       font-size: 0.875rem;
-      transition: all 0.3s ease;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       letter-spacing: 0.05em;
-      display: inline-block;
+      display: inline-flex;
       border: none;
       cursor: pointer;
       text-align: center;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
     }
     
     .btn-primary {
@@ -461,10 +474,47 @@
       letter-spacing: 0.05em;
       text-transform: uppercase;
       margin-top: auto;
+      padding: 0.5rem 0;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     
     .portfolio-link-minimal:hover {
       text-decoration: underline;
+    }
+    
+    /* Testimonial Section */
+    .testimonial-section {
+      padding: 4rem 0;
+      background: var(--paper);
+      border-top: 1px solid var(--neutral-200);
+    }
+    
+    .testimonial-content {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    .testimonial-text {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.5rem;
+      line-height: 1.5;
+      color: var(--accent);
+      margin-bottom: 2rem;
+    }
+    
+    .testimonial-author {
+      font-weight: 600;
+      color: var(--ink);
+    }
+    
+    .testimonial-role {
+      color: var(--neutral-600);
+      font-size: 0.9rem;
     }
     
     /* Section Header */
@@ -506,6 +556,19 @@
       margin: 0 auto 2rem;
     }
     
+    .content-request {
+      margin: 1.5rem 0;
+    }
+    
+    .content-request a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    
+    .content-request a:hover {
+      text-decoration: underline;
+    }
+    
     .social-links {
       display: flex;
       justify-content: center;
@@ -517,19 +580,19 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 42px;
-      height: 42px;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
       background: var(--accent-lighter);
       color: var(--accent);
       text-decoration: none;
-      transition: all 0.3s ease;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
     
     .social-link:hover {
       background: var(--accent);
       color: white;
-      transform: translateY(-2px);
+      transform: translateY(-2px) scale(1.05);
     }
     
     .contact-info {
@@ -539,6 +602,16 @@
     .contact-info p {
       margin-bottom: 0.5rem;
       font-size: 0.9rem;
+    }
+    
+    /* Loading state for images */
+    .img-loading {
+      background: var(--neutral-200);
+      min-height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--neutral-600);
     }
     
     /* Fade-in animation */
@@ -553,6 +626,22 @@
       transform: translateY(0);
     }
     
+    /* Print Styles */
+    @media print {
+      .btn, .mobile-menu-btn, .social-links, .content-request {
+        display: none !important;
+      }
+      
+      .hero {
+        padding: 4rem 0 2rem;
+        min-height: auto;
+      }
+      
+      .performance-metrics, .brands, .portfolio, .testimonial-section, .contact {
+        padding: 2rem 0;
+      }
+    }
+    
     /* Responsive */
     @media (max-width: 768px) {
       .container {
@@ -564,7 +653,9 @@
       }
       
       .mobile-menu-btn {
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
       
       .metrics-elegant {
@@ -596,6 +687,7 @@
       
       .hero {
         padding: 8rem 0 3rem;
+        min-height: 90vh;
       }
       
       .hero h1 {
@@ -631,6 +723,11 @@
       .section-header h2 {
         font-size: 2rem;
       }
+      
+      .testimonial-text {
+        font-size: 1.25rem;
+        padding: 0 1rem;
+      }
     }
     
     @media (max-width: 480px) {
@@ -644,13 +741,30 @@
       
       .hero {
         padding: 7rem 0 2rem;
+        min-height: 80vh;
       }
       
       .performance-metrics,
       .portfolio,
       .brands,
+      .testimonial-section,
       .contact {
         padding: 3rem 0;
+      }
+      
+      .mobile-nav-link {
+        font-size: 1.1rem;
+        padding: 0.875rem 1.5rem;
+      }
+    }
+    
+    @media (max-width: 360px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .hero p {
+        font-size: 0.9rem;
       }
     }
   </style>
@@ -706,7 +820,7 @@
     </div>
   </section>
 
-  <!-- Performance Metrics - STAYS ON TOP -->
+  <!-- Performance Metrics -->
   <section class="performance-metrics">
     <div class="container">
       <div class="section-header">
@@ -739,7 +853,19 @@
     </div>
   </section>
 
-  <!-- Brands - Comes after Performance -->
+  <!-- Testimonial Section -->
+  <section class="testimonial-section">
+    <div class="container">
+      <div class="testimonial-content fade-in">
+        <div class="star-decoration">✦</div>
+        <div class="testimonial-text">"Marla writes all promotional copy... consistently producing content that is not only flawless in grammar but perfectly aligned with the refined editorial voice. Given this flair for the written word, she is an excellent choice..."</div>
+        <div class="testimonial-author">Andrew</div>
+        <div class="testimonial-role">Senior Marketing Director</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Brands -->
   <section class="brands">
     <div class="container">
       <div class="section-header">
@@ -794,6 +920,11 @@
       <div class="star-decoration">✦</div>
       <h2>Let's Build Systems That Scale</h2>
       <p>I understand both the technical architecture and the creative execution that drives growth.</p>
+      
+      <div class="content-request">
+        <p><small>Want to see more specific examples? <a href="mailto:va.mvharris@gmail.com?subject=Portfolio%20Case%20Study%20Request">Request detailed case studies</a></small></p>
+      </div>
+      
       <div class="btn-group">
         <a href="mailto:va.mvharris@gmail.com" class="btn btn-primary">Get in Touch</a>
         <a href="myjourney.html" class="btn btn-secondary">My Journey</a>
@@ -864,7 +995,6 @@
     if (mobileMenuBtn) {
       mobileMenuBtn.addEventListener('click', () => {
         mobileMenu.classList.add('active');
-        // Use this instead of overflow: hidden
         document.documentElement.style.overflow = 'hidden';
         document.body.style.overflow = 'hidden';
         
@@ -954,7 +1084,21 @@
         }
       });
     });
+
+    // Image loading fallback
+    document.addEventListener('DOMContentLoaded', function() {
+      const images = document.querySelectorAll('img');
+      images.forEach(img => {
+        img.addEventListener('error', function() {
+          this.alt = 'Image not available';
+          this.style.display = 'none';
+          const loadingDiv = document.createElement('div');
+          loadingDiv.className = 'img-loading';
+          loadingDiv.textContent = 'Image loading...';
+          this.parentNode.appendChild(loadingDiv);
+        });
+      });
+    });
   </script>
 </body>
 </html>
-[file content end]
