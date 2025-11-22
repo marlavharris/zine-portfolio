@@ -43,6 +43,8 @@
     
     html {
       scroll-behavior: smooth;
+      overflow-x: hidden;
+      scrollbar-gutter: stable;
     }
     
     body {
@@ -52,6 +54,7 @@
       line-height: 1.6;
       overflow-x: hidden;
       -webkit-text-size-adjust: 100%;
+      padding-right: calc(100vw - 100%);
     }
     
     .container {
@@ -177,6 +180,7 @@
       opacity: 0;
       transform: translateY(-20px);
       transition: all 0.3s ease;
+      padding-right: calc(100vw - 100%);
     }
     
     .mobile-menu.active {
@@ -338,79 +342,10 @@
       line-height: 1.6;
     }
     
-    /* Portfolio - Luxury Minimal */
-    .portfolio {
-      padding: 4rem 0;
-      background: #fafafa;
-    }
-    
-    .portfolio-minimal {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      margin-top: 3rem;
-    }
-    
-    .portfolio-minimal-item {
-      background: white;
-      padding: 2.5rem 1.5rem;
-      text-align: center;
-      border: 1px solid var(--neutral-200);
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .portfolio-minimal-item:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, var(--accent-lighter), transparent);
-      transition: left 0.6s ease;
-    }
-    
-    .portfolio-minimal-item:hover:before {
-      left: 100%;
-    }
-    
-    .portfolio-minimal-item:hover {
-      border-color: var(--accent);
-      transform: translateY(-2px);
-    }
-    
-    .portfolio-minimal-item h3 {
-      font-size: 1.375rem;
-      margin-bottom: 1rem;
-      font-weight: 400;
-    }
-    
-    .portfolio-minimal-item p {
-      color: var(--neutral-700);
-      margin-bottom: 2rem;
-      line-height: 1.6;
-      font-size: 0.95rem;
-    }
-    
-    .portfolio-link-minimal {
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 0.875rem;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-    }
-    
-    .portfolio-link-minimal:hover {
-      text-decoration: underline;
-    }
-    
     /* Brands - Even Grid */
     .brands {
       padding: 4rem 0;
-      background: var(--paper);
+      background: #f8f8f8;
     }
     
     .brands-grid {
@@ -452,6 +387,86 @@
       transform: translateY(-2px);
     }
     
+    /* Portfolio - Luxury Minimal */
+    .portfolio {
+      padding: 4rem 0;
+      background: #fafafa;
+    }
+    
+    .portfolio-minimal {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    
+    .portfolio-minimal-item {
+      background: white;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      border: 1px solid var(--neutral-200);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    
+    .portfolio-minimal-item:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, var(--accent-lighter), transparent);
+      transition: left 0.6s ease;
+    }
+    
+    .portfolio-minimal-item:hover:before {
+      left: 100%;
+    }
+    
+    .portfolio-minimal-item:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+    
+    .portfolio-minimal-item h3 {
+      font-size: 1.375rem;
+      margin-bottom: 1rem;
+      font-weight: 400;
+      min-height: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .portfolio-minimal-item p {
+      color: var(--neutral-700);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+      font-size: 0.95rem;
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+    }
+    
+    .portfolio-link-minimal {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.875rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-top: auto;
+    }
+    
+    .portfolio-link-minimal:hover {
+      text-decoration: underline;
+    }
+    
     /* Section Header */
     .section-header {
       text-align: center;
@@ -474,7 +489,7 @@
     .contact {
       padding: 4rem 0;
       text-align: center;
-      background: #fafafa;
+      background: #f8f8f8;
     }
     
     .contact h2 {
@@ -604,6 +619,10 @@
         padding: 2rem 1.25rem;
       }
       
+      .portfolio-minimal-item h3 {
+        min-height: auto;
+      }
+      
       .brand-item {
         padding: 2rem 1rem;
         font-size: 0.85rem;
@@ -646,7 +665,7 @@
           <a href="index.html" class="nav-link">Home</a>
           <a href="creative.html" class="nav-link">Creative</a>
           <a href="copywriting.html" class="nav-link">Copywriting</a>
-          <a href="community.html" class="nav-link">Community</a>
+          <a href="csr.html" class="nav-link">CSR</a>
           <a href="myjourney.html" class="nav-link">My Journey</a>
           <a href="#contact" class="nav-link">Contact</a>
         </div>
@@ -664,7 +683,7 @@
         <a href="index.html" class="mobile-nav-link">Home</a>
         <a href="creative.html" class="mobile-nav-link">Creative</a>
         <a href="copywriting.html" class="mobile-nav-link">Copywriting</a>
-        <a href="community.html" class="mobile-nav-link">Community</a>
+        <a href="csr.html" class="mobile-nav-link">CSR</a>
         <a href="myjourney.html" class="mobile-nav-link">My Journey</a>
         <a href="#contact" class="mobile-nav-link">Contact</a>
       </div>
@@ -687,7 +706,7 @@
     </div>
   </section>
 
-  <!-- Performance Metrics - Luxury Style -->
+  <!-- Performance Metrics - STAYS ON TOP -->
   <section class="performance-metrics">
     <div class="container">
       <div class="section-header">
@@ -720,7 +739,25 @@
     </div>
   </section>
 
-  <!-- Portfolio - Luxury Minimal -->
+  <!-- Brands - Comes after Performance -->
+  <section class="brands">
+    <div class="container">
+      <div class="section-header">
+        <h2>Brands I've Worked With</h2>
+        <p>Collaborating with premium brands across media, luxury, and complex markets</p>
+      </div>
+      <div class="brands-grid">
+        <div class="brand-item fade-in">ROLLING STONE</div>
+        <div class="brand-item fade-in">BILLBOARD PRO</div>
+        <div class="brand-item fade-in">WOMEN'S WEAR DAILY</div>
+        <div class="brand-item fade-in">BAO BAO ISSEY MIYAKE</div>
+        <div class="brand-item fade-in">AJ MADISON</div>
+        <div class="brand-item fade-in">MUSEUM OF SEX</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
   <section id="portfolio" class="portfolio">
     <div class="container">
       <div class="section-header">
@@ -743,28 +780,10 @@
         </div>
         
         <div class="portfolio-minimal-item fade-in">
-          <h3>Community</h3>
+          <h3>CSR</h3>
           <p>Building meaningful corporate social responsibility programs that create lasting community impact and brand value.</p>
-          <a href="community.html" class="portfolio-link-minimal">View Initiatives</a>
+          <a href="csr.html" class="portfolio-link-minimal">View Initiatives</a>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Brands - Even Grid -->
-  <section class="brands">
-    <div class="container">
-      <div class="section-header">
-        <h2>Brands I've Worked With</h2>
-        <p>Collaborating with premium brands across media, luxury, and complex markets</p>
-      </div>
-      <div class="brands-grid">
-        <div class="brand-item fade-in">ROLLING STONE</div>
-        <div class="brand-item fade-in">BILLBOARD PRO</div>
-        <div class="brand-item fade-in">WOMEN'S WEAR DAILY</div>
-        <div class="brand-item fade-in">BAO BAO ISSEY MIYAKE</div>
-        <div class="brand-item fade-in">AJ MADISON</div>
-        <div class="brand-item fade-in">MUSEUM OF SEX</div>
       </div>
     </div>
   </section>
@@ -845,6 +864,8 @@
     if (mobileMenuBtn) {
       mobileMenuBtn.addEventListener('click', () => {
         mobileMenu.classList.add('active');
+        // Use this instead of overflow: hidden
+        document.documentElement.style.overflow = 'hidden';
         document.body.style.overflow = 'hidden';
         
         // Track GA event
@@ -859,6 +880,7 @@
     if (closeMenuBtn) {
       closeMenuBtn.addEventListener('click', () => {
         mobileMenu.classList.remove('active');
+        document.documentElement.style.overflow = '';
         document.body.style.overflow = '';
       });
     }
@@ -866,6 +888,7 @@
     mobileNavLinks.forEach(link => {
       link.addEventListener('click', () => {
         mobileMenu.classList.remove('active');
+        document.documentElement.style.overflow = '';
         document.body.style.overflow = '';
         
         // Track GA event
@@ -902,6 +925,7 @@
           !e.target.closest('.mobile-menu') && 
           !e.target.closest('.mobile-menu-btn')) {
         mobileMenu.classList.remove('active');
+        document.documentElement.style.overflow = '';
         document.body.style.overflow = '';
       }
     });
