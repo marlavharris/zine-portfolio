@@ -588,16 +588,18 @@
   </style>
 </head>
 <body>
+  <!-- Single Header Section -->
   <header>
     <div class="container">
       <nav>
         <a href="index.html" class="logo">Marla Harris</a>
         <div class="nav-links">
+          <a href="index.html" class="nav-link">Home</a>
           <a href="index.html#work" class="nav-link">Work</a>
           <a href="index.html#methodology" class="nav-link">Methodology</a>
           <a href="creative.html" class="nav-link">Creative</a>
-          <a href="csr.html" class="nav-link">CSR</a>
-          <a href="writing.html" class="nav-link">Writing</a>
+          <a href="index.html#brands" class="nav-link">Brands</a>
+          <a href="index.html#philosophy" class="nav-link">Philosophy</a>
           <a href="index.html#contact" class="nav-link">Contact</a>
         </div>
         <button class="mobile-menu-btn">
@@ -605,16 +607,18 @@
         </button>
       </nav>
     </div>
+    <!-- Mobile Menu -->
     <div class="mobile-menu">
       <button class="close-menu">
         <i class="fas fa-times"></i>
       </button>
       <div class="mobile-nav-links">
+        <a href="index.html" class="mobile-nav-link">Home</a>
         <a href="index.html#work" class="mobile-nav-link">Work</a>
         <a href="index.html#methodology" class="mobile-nav-link">Methodology</a>
         <a href="creative.html" class="mobile-nav-link">Creative</a>
-        <a href="csr.html" class="mobile-nav-link">CSR</a>
-        <a href="writing.html" class="mobile-nav-link">Writing</a>
+        <a href="index.html#brands" class="mobile-nav-link">Brands</a>
+        <a href="index.html#philosophy" class="mobile-nav-link">Philosophy</a>
         <a href="index.html#contact" class="mobile-nav-link">Contact</a>
       </div>
     </div>
@@ -628,14 +632,14 @@
         <div class="bar"></div>
         <p>Strategic email marketing and visual campaigns that drive engagement and conversion.</p>
         <div class="btn-group">
-          <a href="index.html#contact" class="btn btn-primary">Start a Project</a>
-          <a href="index.html" class="btn btn-secondary">Back to Home</a>
+          <a href="#portfolio" class="btn btn-primary">View Creative Work</a>
+          <a href="index.html#contact" class="btn btn-secondary">Contact Me</a>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="content-section">
+  <section id="portfolio" class="content-section">
     <div class="container">
       <div class="section-header">
         <div class="star-decoration">✦</div>
@@ -851,6 +855,7 @@
       <p>Ready to develop strategic email designs that convert?</p>
       <div class="btn-group">
         <a href="mailto:va.mvharris@gmail.com" class="btn btn-primary">Start a Project</a>
+        <a href="index.html#contact" class="btn btn-secondary">Contact Me</a>
       </div>
       
       <div class="social-links">
@@ -887,17 +892,44 @@
     const mobileMenu = document.querySelector('.mobile-menu');
     const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
 
-    mobileMenuBtn.addEventListener('click', () => {
-      mobileMenu.classList.add('active');
-    });
+    if (mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    }
 
-    closeMenuBtn.addEventListener('click', () => {
-      mobileMenu.classList.remove('active');
-    });
+    if (closeMenuBtn) {
+      closeMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    }
 
     mobileNavLinks.forEach(link => {
       link.addEventListener('click', () => {
         mobileMenu.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Enhanced smooth scrolling for creative page
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const target = document.querySelector(targetId);
+        if (target) {
+          const headerHeight = document.querySelector('header').offsetHeight;
+          const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+          
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
       });
     });
 
@@ -926,6 +958,8 @@
       const prevButton = carousel.querySelector('.prev-btn');
       const dots = carousel.querySelectorAll('.carousel-dot');
       
+      if (slides.length === 0) return;
+      
       const slideWidth = slides[0].getBoundingClientRect().width;
       let currentSlide = 0;
       
@@ -934,37 +968,48 @@
         slide.style.left = slideWidth * index + 'px';
       });
       
-      const moveToSlide = (track, currentSlide, targetSlide) => {
+      const moveToSlide = (targetSlide) => {
         track.style.transform = 'translateX(-' + targetSlide.style.left + ')';
-        currentSlide = targetSlide.dataset.slide;
+        currentSlide = parseInt(targetSlide.dataset.slide);
         
         // Update dots
         dots.forEach(dot => dot.classList.remove('active'));
-        dots[targetSlide.dataset.slide].classList.add('active');
+        dots[currentSlide].classList.add('active');
       };
       
       // Next button click
-      nextButton.addEventListener('click', e => {
-        const nextSlide = currentSlide < slides.length - 1 ? currentSlide + 1 : 0;
-        moveToSlide(track, currentSlide, slides[nextSlide]);
-        currentSlide = nextSlide;
-      });
+      if (nextButton) {
+        nextButton.addEventListener('click', e => {
+          const nextSlide = currentSlide < slides.length - 1 ? currentSlide + 1 : 0;
+          moveToSlide(slides[nextSlide]);
+        });
+      }
       
       // Previous button click
-      prevButton.addEventListener('click', e => {
-        const prevSlide = currentSlide > 0 ? currentSlide - 1 : slides.length - 1;
-        moveToSlide(track, currentSlide, slides[prevSlide]);
-        currentSlide = prevSlide;
-      });
+      if (prevButton) {
+        prevButton.addEventListener('click', e => {
+          const prevSlide = currentSlide > 0 ? currentSlide - 1 : slides.length - 1;
+          moveToSlide(slides[prevSlide]);
+        });
+      }
       
       // Dot navigation
       dots.forEach(dot => {
         dot.addEventListener('click', e => {
           const targetSlide = parseInt(e.target.dataset.slide);
-          moveToSlide(track, currentSlide, slides[targetSlide]);
-          currentSlide = targetSlide;
+          moveToSlide(slides[targetSlide]);
         });
       });
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (mobileMenu.classList.contains('active') && 
+          !e.target.closest('.mobile-menu') && 
+          !e.target.closest('.mobile-menu-btn')) {
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = '';
+      }
     });
   </script>
 </body>
