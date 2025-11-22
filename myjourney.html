@@ -1,10 +1,21 @@
+[file name]: copywriting.html
+[file content begin]
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-869S7ZPXQH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-869S7ZPXQH');
+</script>
+<!-- End Google Analytics -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Marla Harris - My Journey from marketing to public service">
-  <title>My Journey | Marla Harris</title>
+  <meta name="description" content="Marla Harris - Copywriting Portfolio">
+  <title>Copywriting Portfolio | Marla Harris</title>
   
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -32,6 +43,8 @@
     
     html {
       scroll-behavior: smooth;
+      overflow-x: hidden;
+      scrollbar-gutter: stable;
     }
     
     body {
@@ -40,12 +53,14 @@
       background: var(--paper);
       line-height: 1.6;
       overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
+      padding-right: calc(100vw - 100%);
     }
     
     .container {
       max-width: 800px;
       margin: 0 auto;
-      padding: 0 2rem;
+      padding: 0 1.5rem;
     }
     
     h1, h2, h3 {
@@ -70,8 +85,9 @@
     }
     
     header {
-      background: rgba(255, 255, 255, 0.95);
+      background: rgba(255, 255, 255, 0.98);
       backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       position: fixed;
       top: 0;
       width: 100%;
@@ -89,7 +105,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.5rem 0;
+      padding: 1.25rem 0;
     }
     
     .logo {
@@ -145,6 +161,7 @@
       color: var(--ink);
       cursor: pointer;
       z-index: 1001;
+      padding: 0.25rem;
     }
     
     .mobile-menu {
@@ -162,6 +179,7 @@
       opacity: 0;
       transform: translateY(-20px);
       transition: all 0.3s ease;
+      padding-right: calc(100vw - 100%);
     }
     
     .mobile-menu.active {
@@ -193,17 +211,18 @@
     
     .close-menu {
       position: absolute;
-      top: 2rem;
-      right: 2rem;
+      top: 1.5rem;
+      right: 1.5rem;
       background: none;
       border: none;
       font-size: 1.5rem;
       color: var(--ink);
       cursor: pointer;
+      padding: 0.25rem;
     }
     
     .page-hero {
-      padding: 12rem 0 4rem;
+      padding: 10rem 0 4rem;
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -212,7 +231,7 @@
     }
     
     .page-hero-content {
-      max-width: 700px;
+      max-width: 600px;
       margin: 0 auto;
     }
     
@@ -223,6 +242,14 @@
       line-height: 1.1;
     }
     
+    .coming-soon-badge {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      margin-bottom: 2rem;
+    }
+    
     .quote-section {
       margin: 3rem 0;
     }
@@ -230,53 +257,23 @@
     .quote-text {
       font-family: 'Playfair Display', serif;
       font-style: italic;
-      font-size: 2rem;
+      font-size: 1.8rem;
       line-height: 1.4;
       color: var(--accent);
       text-align: center;
       margin-bottom: 1rem;
     }
     
-    .journey-content {
-      padding: 4rem 0;
-      background: var(--paper);
-    }
-    
-    .journey-text {
-      font-size: 1.125rem;
-      color: var(--neutral-700);
-      margin-bottom: 2rem;
-      line-height: 1.7;
-    }
-    
-    .journey-text:last-child {
-      margin-bottom: 0;
-    }
-    
-    .masters-highlight {
-      background: var(--accent-lighter);
-      padding: 2rem;
-      border-radius: 8px;
-      border-left: 3px solid var(--accent);
-      margin: 3rem 0;
-    }
-    
-    .masters-highlight h3 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      color: var(--accent);
-    }
-    
-    .btn-group {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 3rem;
+    .quote-author {
+      font-weight: 500;
+      color: var(--ink);
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+      text-align: center;
     }
     
     .btn {
-      padding: 1rem 2.25rem;
+      padding: 1rem 2rem;
       border-radius: 999px;
       font-weight: 500;
       text-decoration: none;
@@ -284,39 +281,28 @@
       transition: all 0.3s ease;
       letter-spacing: 0.05em;
       display: inline-block;
-    }
-    
-    .btn-primary {
+      text-align: center;
+      border: none;
+      cursor: pointer;
       background: var(--accent);
       color: white;
       box-shadow: 0 4px 14px rgba(153, 0, 73, 0.2);
     }
     
-    .btn-primary:hover {
+    .btn:hover {
       background: var(--accent-light);
       transform: translateY(-2px);
       box-shadow: 0 6px 20px rgba(153, 0, 73, 0.3);
     }
     
-    .btn-secondary {
-      border: 1px solid var(--neutral-200);
-      color: var(--ink);
-    }
-    
-    .btn-secondary:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      transform: translateY(-2px);
-    }
-    
     .contact {
-      padding: 6rem 0;
+      padding: 4rem 0;
       text-align: center;
-      background: #fafafa;
+      background: #f8f8f8;
     }
     
     .contact h2 {
-      font-size: 2.5rem;
+      font-size: 2.25rem;
       margin-bottom: 1rem;
       font-weight: 300;
       color: var(--charcoal);
@@ -365,6 +351,10 @@
     }
     
     @media (max-width: 768px) {
+      .container {
+        padding: 0 1.25rem;
+      }
+      
       .nav-links {
         display: none;
       }
@@ -374,23 +364,33 @@
       }
       
       .page-hero {
-        padding: 10rem 0 3rem;
+        padding: 8rem 0 3rem;
       }
       
       .quote-text {
-        font-size: 1.6rem;
+        font-size: 1.4rem;
         padding: 0 1rem;
-      }
-      
-      .btn-group {
-        flex-direction: column;
-        align-items: center;
       }
       
       .btn {
         width: 100%;
-        max-width: 250px;
+        max-width: 280px;
         text-align: center;
+        padding: 0.875rem 1.5rem;
+      }
+      
+      .contact {
+        padding: 3rem 0;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 1rem;
+      }
+      
+      .page-hero {
+        padding: 7rem 0 2rem;
       }
     }
   </style>
@@ -402,27 +402,27 @@
         <a href="index.html" class="logo">Marla Harris</a>
         <div class="nav-links">
           <a href="index.html" class="nav-link">Home</a>
-          <a href="journey.html" class="nav-link">My Journey</a>
           <a href="creative.html" class="nav-link">Creative</a>
-          <a href="writing.html" class="nav-link">Writing</a>
+          <a href="copywriting.html" class="nav-link">Copywriting</a>
           <a href="csr.html" class="nav-link">CSR</a>
+          <a href="myjourney.html" class="nav-link">My Journey</a>
           <a href="index.html#contact" class="nav-link">Contact</a>
         </div>
-        <button class="mobile-menu-btn">
+        <button class="mobile-menu-btn" aria-label="Toggle menu">
           <i class="fas fa-bars"></i>
         </button>
       </nav>
     </div>
     <div class="mobile-menu">
-      <button class="close-menu">
+      <button class="close-menu" aria-label="Close menu">
         <i class="fas fa-times"></i>
       </button>
       <div class="mobile-nav-links">
         <a href="index.html" class="mobile-nav-link">Home</a>
-        <a href="journey.html" class="mobile-nav-link">My Journey</a>
         <a href="creative.html" class="mobile-nav-link">Creative</a>
-        <a href="writing.html" class="mobile-nav-link">Writing</a>
+        <a href="copywriting.html" class="mobile-nav-link">Copywriting</a>
         <a href="csr.html" class="mobile-nav-link">CSR</a>
+        <a href="myjourney.html" class="mobile-nav-link">My Journey</a>
         <a href="index.html#contact" class="mobile-nav-link">Contact</a>
       </div>
     </div>
@@ -431,32 +431,16 @@
   <section class="page-hero">
     <div class="container">
       <div class="page-hero-content">
-        <div class="star-decoration">✦</div>
-        <h1>My Journey</h1>
+        <div class="coming-soon-badge">Coming Soon</div>
+        <h1>Copywriting<br>& Content</h1>
         <div class="bar"></div>
         
         <div class="quote-section">
-          <div class="quote-text">"If I can sell a $300 bra, I can sell anything."</div>
+          <div class="quote-text">"Given this flair for the written word..."</div>
+          <div class="quote-author">— Andrew</div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="journey-content">
-    <div class="container">
-      <p class="journey-text">Five years of working retail, selling lingerie, taught me how to speak to the customer, and what gets them to buy. Lessons that I take with me in every project or job I take on.</p>
-      
-      <p class="journey-text">From covering fashion shows at Mercedes Benz Fashion Week to subscription marketing for media empires, I bridge the gap between human desire and technical execution—creating systems that honor complexity while driving measurable growth.</p>
-      
-      <div class="masters-highlight">
-        <h3>Next Chapter: Public Service</h3>
-        <p class="journey-text">I'm starting my Master of Public Administration this fall at Baruch College's Marxe School of Public and International Affairs, and I'm currently seeking marketing or communications roles—especially in mission-driven spaces.</p>
-        <p class="journey-text">With a strong background in storytelling, strategy, and audience engagement, I'm looking to bring that experience to a team that values impact and clarity. If you know of any roles in nonprofit, public sector, or purpose-led marketing, I'd love to connect.</p>
-      </div>
-      
-      <div class="btn-group">
-        <a href="index.html#contact" class="btn btn-primary">Connect With Me</a>
-        <a href="creative.html" class="btn btn-secondary">View My Work</a>
+        
+        <a href="index.html#contact" class="btn">Contact Me</a>
       </div>
     </div>
   </section>
@@ -464,18 +448,17 @@
   <section class="contact">
     <div class="container">
       <div class="star-decoration">✦</div>
-      <h2>Let's Create Impact Together</h2>
-      <p>Ready to bring strategic marketing to mission-driven work?</p>
+      <h2>Let's Create Compelling Content</h2>
+      <p>Ready to develop strategic copy that converts?</p>
       <div class="btn-group">
-        <a href="mailto:va.mvharris@gmail.com" class="btn btn-primary">Email Me</a>
-        <a href="https://linkedin.com/in/marla-harris-047b2946" class="btn btn-secondary" target="_blank">LinkedIn</a>
+        <a href="mailto:va.mvharris@gmail.com" class="btn">Start a Project</a>
       </div>
       
       <div class="social-links">
-        <a href="https://linkedin.com/in/marla-harris-047b2946" class="social-link">
+        <a href="https://linkedin.com/in/marla-harris-047b2946" class="social-link" aria-label="LinkedIn">
           <i class="fab fa-linkedin-in"></i>
         </a>
-        <a href="https://www.instagram.com/marlavharris/" class="social-link">
+        <a href="https://www.instagram.com/marlavharris/" class="social-link" aria-label="Instagram">
           <i class="fab fa-instagram"></i>
         </a>
       </div>
@@ -508,13 +491,22 @@
     if (mobileMenuBtn) {
       mobileMenuBtn.addEventListener('click', () => {
         mobileMenu.classList.add('active');
+        document.documentElement.style.overflow = 'hidden';
         document.body.style.overflow = 'hidden';
+        
+        // Track GA event
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'mobile_menu_open', {
+            'event_category': 'Navigation'
+          });
+        }
       });
     }
 
     if (closeMenuBtn) {
       closeMenuBtn.addEventListener('click', () => {
         mobileMenu.classList.remove('active');
+        document.documentElement.style.overflow = '';
         document.body.style.overflow = '';
       });
     }
@@ -522,7 +514,16 @@
     mobileNavLinks.forEach(link => {
       link.addEventListener('click', () => {
         mobileMenu.classList.remove('active');
+        document.documentElement.style.overflow = '';
         document.body.style.overflow = '';
+        
+        // Track GA event
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'mobile_nav_click', {
+            'event_category': 'Navigation',
+            'event_label': link.getAttribute('href')
+          });
+        }
       });
     });
 
@@ -532,9 +533,36 @@
           !e.target.closest('.mobile-menu') && 
           !e.target.closest('.mobile-menu-btn')) {
         mobileMenu.classList.remove('active');
+        document.documentElement.style.overflow = '';
         document.body.style.overflow = '';
       }
+    });
+
+    // Track outbound links
+    document.querySelectorAll('a[href^="http"]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        if (link.hostname !== window.location.hostname) {
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'outbound_click', {
+              'event_category': 'Outbound',
+              'event_label': link.href
+            });
+          }
+        }
+      });
+    });
+
+    // Track email clicks
+    document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
+      link.addEventListener('click', () => {
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'email_click', {
+            'event_category': 'Contact'
+          });
+        }
+      });
     });
   </script>
 </body>
 </html>
+[file content end]
