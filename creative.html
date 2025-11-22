@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google Analytics -->
+<!-- Google Analytics - Optimized loading -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-869S7ZPXQH"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -15,8 +15,22 @@
   <meta name="description" content="Marla Harris - Creative Portfolio: Visual storytelling and brand identity work">
   <title>Creative Portfolio | Marla Harris</title>
   
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  
+  <!-- Fonts with optimized loading -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  </noscript>
+  
+  <!-- Icons with optimized loading -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  </noscript>
   
   <style>
     :root {
@@ -507,6 +521,16 @@
       transform: translateY(0);
     }
     
+    /* Image loading states */
+    .content-image img {
+      opacity: 0;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    
+    .content-image img.loaded {
+      opacity: 1;
+    }
+    
     @media (max-width: 768px) {
       .container {
         padding: 0 1.25rem;
@@ -652,10 +676,30 @@
         <div class="content-item fade-in">
           <div class="content-image">
             <div class="image-gallery">
-              <img src="HALSEY - BB BAU (2) (3).gif" alt="Billboard Pro Email Campaign">
-              <!-- Add more images here -->
-              <img src="5.4 - ENDS SOON - Country Campaign 2.gif" alt="Billboard Pro Email Campaign Additional Image 1">
-              <img src="Early Access - Ends Soon - BB BLACK FRIDAY.gif" alt="Billboard Pro Email Campaign Additional Image 2">
+              <img 
+                src="HALSEY - BB BAU (2) (3).gif" 
+                alt="Billboard Pro Email Campaign"
+                loading="lazy"
+                width="800"
+                height="600"
+                onload="this.classList.add('loaded')"
+              >
+              <img 
+                src="5.4 - ENDS SOON - Country Campaign 2.gif" 
+                alt="Billboard Pro Email Campaign Additional Image 1"
+                loading="lazy"
+                width="800"
+                height="600"
+                onload="this.classList.add('loaded')"
+              >
+              <img 
+                src="Early Access - Ends Soon - BB BLACK FRIDAY.gif" 
+                alt="Billboard Pro Email Campaign Additional Image 2"
+                loading="lazy"
+                width="800"
+                height="600"
+                onload="this.classList.add('loaded')"
+              >
             </div>
           </div>
           <div class="content-details">
@@ -672,10 +716,30 @@
         <div class="content-item fade-in">
           <div class="content-image">
             <div class="image-gallery">
-              <img src="bao_bao_email_3.jpg" alt="Bao Bao Issey Miyake Email Campaign">
-              <!-- Add more images here -->
-              <img src="bao_bao_email_SS17.jpg" alt="Bao Bao Issey Miyake Email Campaign Additional Image 1">
-              <img src="bao_bao_email_2.jpg" alt="Bao Bao Issey Miyake Email Campaign Additional Image 2">
+              <img 
+                src="bao_bao_email_3.jpg" 
+                alt="Bao Bao Issey Miyake Email Campaign"
+                loading="lazy"
+                width="800"
+                height="600"
+                onload="this.classList.add('loaded')"
+              >
+              <img 
+                src="bao_bao_email_SS17.jpg" 
+                alt="Bao Bao Issey Miyake Email Campaign Additional Image 1"
+                loading="lazy"
+                width="800"
+                height="600"
+                onload="this.classList.add('loaded')"
+              >
+              <img 
+                src="bao_bao_email_2.jpg" 
+                alt="Bao Bao Issey Miyake Email Campaign Additional Image 2"
+                loading="lazy"
+                width="800"
+                height="600"
+                onload="this.classList.add('loaded')"
+              >
             </div>
           </div>
           <div class="content-details">
@@ -692,10 +756,30 @@
         <div class="content-item fade-in">
           <div class="content-image">
             <div class="image-gallery">
-              <img src="2.29 BAU (Karol G) (1).gif" alt="Rolling Stone Rebrand Email">
-              <!-- Add more images here -->
-              <img src="11.15 Revolutionary Artist's (2).gif" alt="Rolling Stone Email Additional Image 1">
-              <img src="Ends Tomorrow 3.19 - RS SALE - updated (2) (1).gif" alt="Rolling Stone Rebrand Email Additional Image 2">
+              <img 
+                src="2.29 BAU (Karol G) (1).gif" 
+                alt="Rolling Stone Rebrand Email"
+                loading="lazy"
+                width="800"
+                height="600"
+                onload="this.classList.add('loaded')"
+              >
+              <img 
+                src="11.15 Revolutionary Artist's (2).gif" 
+                alt="Rolling Stone Email Additional Image 1"
+                loading="lazy"
+                width="800"
+                height="600"
+                onload="this.classList.add('loaded')"
+              >
+              <img 
+                src="Ends Tomorrow 3.19 - RS SALE - updated (2) (1).gif" 
+                alt="Rolling Stone Rebrand Email Additional Image 2"
+                loading="lazy"
+                width="800"
+                height="600"
+                onload="this.classList.add('loaded')"
+              >
             </div>
           </div>
           <div class="content-details">
@@ -712,10 +796,30 @@
         <div class="content-item fade-in">
           <div class="content-image">
             <div class="image-gallery">
-              <img src="WWD BF - DAY 3.gif" alt="WWD Email">
-              <!-- Add more images here -->
-              <img src="wwd-global.gif" alt="WWD Email Additional Image 1">
-              <img src="wwd-sustainability.gif" alt="WWD Email Additional Image 2">
+              <img 
+                src="WWD BF - DAY 3.gif" 
+                alt="WWD Email"
+                loading="lazy"
+                width="800"
+                height="600"
+                onload="this.classList.add('loaded')"
+              >
+              <img 
+                src="wwd-global.gif" 
+                alt="WWD Email Additional Image 1"
+                loading="lazy"
+                width="800"
+                height="600"
+                onload="this.classList.add('loaded')"
+              >
+              <img 
+                src="wwd-sustainability.gif" 
+                alt="WWD Email Additional Image 2"
+                loading="lazy"
+                width="800"
+                height="600"
+                onload="this.classList.add('loaded')"
+              >
             </div>
           </div>
           <div class="content-details">
@@ -732,10 +836,30 @@
         <div class="content-item fade-in">
           <div class="content-image">
             <div class="image-gallery">
-              <img src="AjMadison_ApplianceJournal.jpg" alt="AJ Madison Digital Lookbook">
-              <!-- Add more images here -->
-              <img src="2.jpg" alt="AJ Madison Digital Lookbook Additional Image 1">
-              <img src="3.jpg" alt="AJ Madison Digital Lookbook Additional Image 2">
+              <img 
+                src="AjMadison_ApplianceJournal.jpg" 
+                alt="AJ Madison Digital Lookbook"
+                loading="lazy"
+                width="800"
+                height="600"
+                onload="this.classList.add('loaded')"
+              >
+              <img 
+                src="2.jpg" 
+                alt="AJ Madison Digital Lookbook Additional Image 1"
+                loading="lazy"
+                width="800"
+                height="600"
+                onload="this.classList.add('loaded')"
+              >
+              <img 
+                src="3.jpg" 
+                alt="AJ Madison Digital Lookbook Additional Image 2"
+                loading="lazy"
+                width="800"
+                height="600"
+                onload="this.classList.add('loaded')"
+              >
             </div>
           </div>
           <div class="content-details">
@@ -863,23 +987,23 @@
       });
     });
 
-    // Fade in on scroll
+    // Fade in on scroll with Intersection Observer (better performance)
     const fadeElements = document.querySelectorAll('.fade-in');
     
-    const fadeInOnScroll = () => {
-      fadeElements.forEach(element => {
-        const elementTop = element.getBoundingClientRect().top;
-        const elementVisible = 100;
-        
-        if (elementTop < window.innerHeight - elementVisible) {
-          element.classList.add('visible');
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          fadeObserver.unobserve(entry.target);
         }
       });
-    };
+    }, {
+      threshold: 0.1
+    });
     
-    window.addEventListener('scroll', fadeInOnScroll);
-    window.addEventListener('load', fadeInOnScroll);
-    fadeInOnScroll();
+    fadeElements.forEach(element => {
+      fadeObserver.observe(element);
+    });
 
     // Close mobile menu when clicking outside
     document.addEventListener('click', (e) => {
