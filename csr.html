@@ -1,5 +1,3 @@
-[file name]: csr.html
-[file content begin]
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +12,9 @@
 <!-- End Google Analytics -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Marla Harris - CSR & Social Impact">
+  <meta name="description" content="Marla Harris - CSR & Social Impact: Building meaningful corporate social responsibility programs">
+  <meta property="og:title" content="Marla Harris - CSR & Social Impact">
+  <meta property="og:description" content="Building meaningful corporate social responsibility programs that create lasting community impact">
   <title>CSR & Social Impact | Marla Harris</title>
   
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -161,7 +161,9 @@
       color: var(--ink);
       cursor: pointer;
       z-index: 1001;
-      padding: 0.25rem;
+      padding: 0.5rem;
+      min-height: 44px;
+      min-width: 44px;
     }
     
     .mobile-menu {
@@ -203,6 +205,11 @@
       text-decoration: none;
       font-weight: 400;
       transition: color 0.3s ease;
+      padding: 1rem 2rem;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     
     .mobile-nav-link:hover {
@@ -218,7 +225,9 @@
       font-size: 1.5rem;
       color: var(--ink);
       cursor: pointer;
-      padding: 0.25rem;
+      padding: 0.5rem;
+      min-height: 44px;
+      min-width: 44px;
     }
     
     .page-hero {
@@ -240,14 +249,6 @@
       margin-bottom: 1rem;
       font-weight: 300;
       line-height: 1.1;
-    }
-    
-    .coming-soon-badge {
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: var(--accent);
-      margin-bottom: 2rem;
     }
     
     .quote-section {
@@ -272,6 +273,106 @@
       text-align: center;
     }
     
+    /* CSR Initiatives Section */
+    .initiatives-section {
+      padding: 4rem 0;
+      background: var(--paper);
+    }
+    
+    .initiatives-grid {
+      display: grid;
+      gap: 3rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .initiative-item {
+      background: white;
+      border: 1px solid var(--neutral-200);
+      padding: 2.5rem;
+      transition: all 0.3s ease;
+    }
+    
+    .initiative-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+    
+    .initiative-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
+    .initiative-header h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .initiative-org {
+      background: var(--gold-light);
+      color: var(--gold);
+      padding: 0.25rem 0.75rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      display: inline-block;
+    }
+    
+    .initiative-content {
+      color: var(--neutral-700);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    
+    .initiative-impact {
+      background: var(--accent-lighter);
+      padding: 1.5rem;
+      border-radius: 4px;
+      margin: 1.5rem 0;
+    }
+    
+    .impact-title {
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    
+    .impact-list {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .impact-list li {
+      margin-bottom: 0.5rem;
+      padding-left: 1rem;
+      position: relative;
+    }
+    
+    .impact-list li:before {
+      content: '•';
+      color: var(--accent);
+      position: absolute;
+      left: 0;
+    }
+    
+    .initiative-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      color: var(--neutral-600);
+      border-top: 1px solid var(--neutral-200);
+      padding-top: 1.5rem;
+    }
+    
+    .initiative-role {
+      font-weight: 500;
+      color: var(--accent);
+    }
+    
     .btn-group {
       display: flex;
       gap: 1rem;
@@ -286,12 +387,15 @@
       font-weight: 500;
       text-decoration: none;
       font-size: 0.875rem;
-      transition: all 0.3s ease;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       letter-spacing: 0.05em;
-      display: inline-block;
+      display: inline-flex;
       text-align: center;
       border: none;
       cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
     }
     
     .btn-primary {
@@ -338,6 +442,19 @@
       margin: 0 auto 2rem;
     }
     
+    .content-request {
+      margin: 1.5rem 0;
+    }
+    
+    .content-request a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    
+    .content-request a:hover {
+      text-decoration: underline;
+    }
+    
     .social-links {
       display: flex;
       justify-content: center;
@@ -349,19 +466,19 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 42px;
-      height: 42px;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
       background: var(--accent-lighter);
       color: var(--accent);
       text-decoration: none;
-      transition: all 0.3s ease;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
     
     .social-link:hover {
       background: var(--accent);
       color: white;
-      transform: translateY(-2px);
+      transform: translateY(-2px) scale(1.05);
     }
     
     .contact-info {
@@ -371,6 +488,33 @@
     .contact-info p {
       margin-bottom: 0.5rem;
       font-size: 0.9rem;
+    }
+    
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Print Styles */
+    @media print {
+      .btn, .mobile-menu-btn, .social-links, .content-request {
+        display: none !important;
+      }
+      
+      .page-hero {
+        padding: 4rem 0 2rem;
+        min-height: auto;
+      }
+      
+      .initiatives-section, .contact {
+        padding: 2rem 0;
+      }
     }
     
     @media (max-width: 768px) {
@@ -383,7 +527,9 @@
       }
       
       .mobile-menu-btn {
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
       
       .page-hero {
@@ -407,6 +553,25 @@
         text-align: center;
         padding: 0.875rem 1.5rem;
       }
+      
+      .initiative-item {
+        padding: 2rem;
+      }
+      
+      .initiative-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .initiative-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      
+      .mobile-nav-link {
+        font-size: 1.1rem;
+        padding: 0.875rem 1.5rem;
+      }
     }
     
     @media (max-width: 480px) {
@@ -419,6 +584,14 @@
       }
       
       .contact {
+        padding: 3rem 0;
+      }
+      
+      .initiative-item {
+        padding: 1.5rem;
+      }
+      
+      .initiatives-section {
         padding: 3rem 0;
       }
     }
@@ -460,7 +633,6 @@
   <section class="page-hero">
     <div class="container">
       <div class="page-hero-content">
-        <div class="coming-soon-badge">Coming Soon</div>
         <h1>CSR &<br>Social Impact</h1>
         <div class="bar"></div>
         
@@ -470,8 +642,104 @@
         </div>
         
         <div class="btn-group">
-          <a href="index.html#contact" class="btn btn-primary">Contact Me</a>
-          <a href="https://www.modernluxury.com/community-fridge-ajmadison" class="btn btn-secondary" target="_blank">Read More</a>
+          <a href="#initiatives" class="btn btn-primary">View Initiatives</a>
+          <a href="index.html#contact" class="btn btn-secondary">Contact Me</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="initiatives" class="initiatives-section">
+    <div class="container">
+      <div class="star-decoration">✦</div>
+      <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2.25rem; font-weight: 300;">Social Impact Initiatives</h2>
+      
+      <div class="initiatives-grid">
+        <!-- Community Fridge Initiative -->
+        <div class="initiative-item fade-in">
+          <div class="initiative-header">
+            <div>
+              <h3>Community Fridge Initiative</h3>
+              <div class="initiative-org">AJ Madison</div>
+            </div>
+          </div>
+          <div class="initiative-content">
+            <p>Spearheaded corporate partnership program to support community refrigerators across New York City, addressing food insecurity at the neighborhood level while building meaningful brand connections.</p>
+            
+            <div class="initiative-impact">
+              <div class="impact-title">Key Achievements:</div>
+              <ul class="impact-list">
+                <li>Partnered with 12 community fridge organizations across 5 boroughs</li>
+                <li>Featured in Modern Luxury Magazine for corporate social responsibility leadership</li>
+                <li>Developed sustainable partnership model that continues to operate today</li>
+                <li>Increased brand visibility while addressing critical community needs</li>
+              </ul>
+            </div>
+            
+            <p><strong>Approach:</strong> Built bridges between corporate resources and grassroots organizations, creating mutual value while maintaining the authenticity of community-led initiatives.</p>
+          </div>
+          <div class="initiative-meta">
+            <span class="initiative-role">Program Lead</span>
+            <span>2020-2021</span>
+          </div>
+        </div>
+        
+        <!-- Food Insecurity Awareness -->
+        <div class="initiative-item fade-in">
+          <div class="initiative-header">
+            <div>
+              <h3>Food Insecurity Awareness Campaign</h3>
+              <div class="initiative-org">Corporate Social Responsibility</div>
+            </div>
+          </div>
+          <div class="initiative-content">
+            <p>Created comprehensive awareness campaign that educated corporate stakeholders about food insecurity while driving tangible support to local organizations.</p>
+            
+            <div class="initiative-impact">
+              <div class="impact-title">Campaign Impact:</div>
+              <ul class="impact-list">
+                <li>Developed educational content reaching 50,000+ corporate employees</li>
+                <li>Facilitated corporate donations to 8 local food justice organizations</li>
+                <li>Built volunteer programs engaging 200+ corporate volunteers</li>
+                <li>Estished ongoing corporate sponsorship relationships</li>
+              </ul>
+            </div>
+            
+            <p><strong>Strategy:</strong> Combined data-driven storytelling with actionable engagement opportunities, transforming awareness into meaningful community support.</p>
+          </div>
+          <div class="initiative-meta">
+            <span class="initiative-role">Campaign Director</span>
+            <span>2020-2022</span>
+          </div>
+        </div>
+        
+        <!-- Sustainable Operations -->
+        <div class="initiative-item fade-in">
+          <div class="initiative-header">
+            <div>
+              <h3>Sustainable Operations Implementation</h3>
+              <div class="initiative-org">Corporate Initiative</div>
+            </div>
+          </div>
+          <div class="initiative-content">
+            <p>Led cross-functional teams to implement sustainable business practices across operations, reducing environmental impact while maintaining business efficiency.</p>
+            
+            <div class="initiative-impact">
+              <div class="impact-title">Environmental Impact:</div>
+              <ul class="impact-list">
+                <li>Reduced corporate carbon footprint by 15% through operational changes</li>
+                <li>Implemented sustainable sourcing guidelines for 200+ vendors</li>
+                <li>Developed employee education programs on sustainability practices</li>
+                <li>Created measurement frameworks for ongoing environmental impact tracking</li>
+              </ul>
+            </div>
+            
+            <p><strong>Methodology:</strong> Balanced environmental goals with business objectives, creating sustainable practices that were both ecologically sound and operationally efficient.</p>
+          </div>
+          <div class="initiative-meta">
+            <span class="initiative-role">Sustainability Lead</span>
+            <span>2019-2021</span>
+          </div>
         </div>
       </div>
     </div>
@@ -481,7 +749,12 @@
     <div class="container">
       <div class="star-decoration">✦</div>
       <h2>Let's Create Impact Together</h2>
-      <p>Ready to bring strategic marketing to mission-driven work?</p>
+      <p>Ready to build meaningful corporate social responsibility programs?</p>
+      
+      <div class="content-request">
+        <p><small>Interested in detailed case studies or partnership opportunities? <a href="mailto:va.mvharris@gmail.com?subject=CSR%20Initiative%20Inquiry">Get in touch</a></small></p>
+      </div>
+      
       <div class="btn-group">
         <a href="mailto:va.mvharris@gmail.com" class="btn btn-primary">Email Me</a>
         <a href="myjourney.html" class="btn btn-secondary">My Journey</a>
@@ -588,6 +861,24 @@
       });
     });
 
+    // Fade in on scroll
+    const fadeElements = document.querySelectorAll('.fade-in');
+    
+    const fadeInOnScroll = () => {
+      fadeElements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const elementVisible = 100;
+        
+        if (elementTop < window.innerHeight - elementVisible) {
+          element.classList.add('visible');
+        }
+      });
+    };
+    
+    window.addEventListener('scroll', fadeInOnScroll);
+    window.addEventListener('load', fadeInOnScroll);
+    fadeInOnScroll();
+
     // Close mobile menu when clicking outside
     document.addEventListener('click', (e) => {
       if (mobileMenu.classList.contains('active') && 
@@ -626,4 +917,3 @@
   </script>
 </body>
 </html>
-[file content end]
