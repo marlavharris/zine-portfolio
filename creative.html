@@ -1,6 +1,17 @@
+[file name]: creative.html
+[file content begin]
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-869S7ZPXQH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-869S7ZPXQH');
+</script>
+<!-- End Google Analytics -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Marla Harris - Creative Portfolio: Visual storytelling and brand identity work">
@@ -32,6 +43,8 @@
     
     html {
       scroll-behavior: smooth;
+      overflow-x: hidden;
+      scrollbar-gutter: stable;
     }
     
     body {
@@ -40,12 +53,14 @@
       background: var(--paper);
       line-height: 1.6;
       overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
+      padding-right: calc(100vw - 100%);
     }
     
     .container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 2rem;
+      padding: 0 1.5rem;
     }
     
     h1, h2, h3 {
@@ -70,8 +85,9 @@
     }
     
     header {
-      background: rgba(255, 255, 255, 0.95);
+      background: rgba(255, 255, 255, 0.98);
       backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       position: fixed;
       top: 0;
       width: 100%;
@@ -89,7 +105,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.5rem 0;
+      padding: 1.25rem 0;
     }
     
     .logo {
@@ -145,6 +161,7 @@
       color: var(--ink);
       cursor: pointer;
       z-index: 1001;
+      padding: 0.25rem;
     }
     
     .mobile-menu {
@@ -162,6 +179,7 @@
       opacity: 0;
       transform: translateY(-20px);
       transition: all 0.3s ease;
+      padding-right: calc(100vw - 100%);
     }
     
     .mobile-menu.active {
@@ -193,13 +211,14 @@
     
     .close-menu {
       position: absolute;
-      top: 2rem;
-      right: 2rem;
+      top: 1.5rem;
+      right: 1.5rem;
       background: none;
       border: none;
       font-size: 1.5rem;
       color: var(--ink);
       cursor: pointer;
+      padding: 0.25rem;
     }
     
     .page-hero {
@@ -238,7 +257,7 @@
     }
     
     .btn {
-      padding: 1rem 2.25rem;
+      padding: 1rem 2rem;
       border-radius: 999px;
       font-weight: 500;
       text-decoration: none;
@@ -246,6 +265,9 @@
       transition: all 0.3s ease;
       letter-spacing: 0.05em;
       display: inline-block;
+      border: none;
+      cursor: pointer;
+      text-align: center;
     }
     
     .btn-primary {
@@ -263,6 +285,7 @@
     .btn-secondary {
       border: 1px solid var(--neutral-200);
       color: var(--ink);
+      background: transparent;
     }
     
     .btn-secondary:hover {
@@ -272,17 +295,17 @@
     }
     
     .content-section {
-      padding: 6rem 0;
+      padding: 4rem 0;
       background: var(--paper);
     }
     
     .section-header {
       text-align: center;
-      margin-bottom: 4rem;
+      margin-bottom: 3rem;
     }
     
     .section-header h2 {
-      font-size: 2.5rem;
+      font-size: 2.25rem;
       margin-bottom: 1rem;
       font-weight: 300;
       color: var(--charcoal);
@@ -297,7 +320,7 @@
     .content-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 3rem;
+      gap: 2rem;
     }
     
     .content-item {
@@ -324,6 +347,7 @@
       overflow: hidden;
       border-bottom: 1px solid var(--neutral-200);
       position: relative;
+      border: 1px solid var(--neutral-200);
     }
     
     /* VERTICAL IMAGE STYLING */
@@ -334,6 +358,7 @@
       max-height: 500px;
       object-fit: contain;
       transition: transform 0.3s ease;
+      border: 1px solid var(--neutral-200);
     }
     
     .content-item:hover .content-image img {
@@ -378,8 +403,8 @@
     }
     
     .carousel-btn {
-      background: rgba(255, 255, 255, 0.8);
-      border: none;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid var(--neutral-200);
       width: 36px;
       height: 36px;
       border-radius: 50%;
@@ -395,6 +420,7 @@
     .carousel-btn:hover {
       background: var(--accent);
       color: white;
+      border-color: var(--accent);
     }
     
     .carousel-dots {
@@ -469,13 +495,13 @@
     }
     
     .contact {
-      padding: 6rem 0;
+      padding: 4rem 0;
       text-align: center;
-      background: #fafafa;
+      background: #f8f8f8;
     }
     
     .contact h2 {
-      font-size: 2.5rem;
+      font-size: 2.25rem;
       margin-bottom: 1rem;
       font-weight: 300;
       color: var(--charcoal);
@@ -535,6 +561,10 @@
     }
     
     @media (max-width: 768px) {
+      .container {
+        padding: 0 1.25rem;
+      }
+      
       .nav-links {
         display: none;
       }
@@ -556,12 +586,14 @@
       .btn-group {
         flex-direction: column;
         align-items: center;
+        gap: 0.75rem;
       }
       
       .btn {
         width: 100%;
-        max-width: 250px;
+        max-width: 280px;
         text-align: center;
+        padding: 0.875rem 1.5rem;
       }
       
       /* Mobile vertical image adjustments */
@@ -574,6 +606,10 @@
       .carousel-dots {
         opacity: 1;
       }
+      
+      .carousel-btn {
+        background: rgba(255, 255, 255, 0.8);
+      }
     }
     
     @media (max-width: 480px) {
@@ -583,6 +619,14 @@
       
       .content-image img {
         max-height: 350px;
+      }
+      
+      .page-hero {
+        padding: 7rem 0 2rem;
+      }
+      
+      .content-section {
+        padding: 3rem 0;
       }
     }
   </style>
@@ -595,30 +639,28 @@
         <a href="index.html" class="logo">Marla Harris</a>
         <div class="nav-links">
           <a href="index.html" class="nav-link">Home</a>
-          <a href="index.html#work" class="nav-link">Work</a>
-          <a href="index.html#methodology" class="nav-link">Methodology</a>
           <a href="creative.html" class="nav-link">Creative</a>
-          <a href="index.html#brands" class="nav-link">Brands</a>
-          <a href="index.html#philosophy" class="nav-link">Philosophy</a>
+          <a href="copywriting.html" class="nav-link">Copywriting</a>
+          <a href="csr.html" class="nav-link">CSR</a>
+          <a href="myjourney.html" class="nav-link">My Journey</a>
           <a href="index.html#contact" class="nav-link">Contact</a>
         </div>
-        <button class="mobile-menu-btn">
+        <button class="mobile-menu-btn" aria-label="Toggle menu">
           <i class="fas fa-bars"></i>
         </button>
       </nav>
     </div>
     <!-- Mobile Menu -->
     <div class="mobile-menu">
-      <button class="close-menu">
+      <button class="close-menu" aria-label="Close menu">
         <i class="fas fa-times"></i>
       </button>
       <div class="mobile-nav-links">
         <a href="index.html" class="mobile-nav-link">Home</a>
-        <a href="index.html#work" class="mobile-nav-link">Work</a>
-        <a href="index.html#methodology" class="mobile-nav-link">Methodology</a>
         <a href="creative.html" class="mobile-nav-link">Creative</a>
-        <a href="index.html#brands" class="mobile-nav-link">Brands</a>
-        <a href="index.html#philosophy" class="mobile-nav-link">Philosophy</a>
+        <a href="copywriting.html" class="mobile-nav-link">Copywriting</a>
+        <a href="csr.html" class="mobile-nav-link">CSR</a>
+        <a href="myjourney.html" class="mobile-nav-link">My Journey</a>
         <a href="index.html#contact" class="mobile-nav-link">Contact</a>
       </div>
     </div>
@@ -653,10 +695,10 @@
           <div class="content-image">
             <div class="image-carousel" data-carousel="1">
               <div class="carousel-track">
-                <div class="carousel-slide">
+                <div class="carousel-slide" data-slide="0">
                   <img src="HALSEY - BB BAU (2) (3).gif" alt="Billboard Pro Email Campaign">
                 </div>
-                <div class="carousel-slide">
+                <div class="carousel-slide" data-slide="1">
                   <img src="5.4 - ENDS SOON - Country Campaign 2.gif" alt="Billboard Pro Email Variation">
                 </div>
               </div>
@@ -689,13 +731,13 @@
           <div class="content-image">
             <div class="image-carousel" data-carousel="2">
               <div class="carousel-track">
-                <div class="carousel-slide">
+                <div class="carousel-slide" data-slide="0">
                   <img src="bao_bao_email_3.jpg" alt="Bao Bao Issey Miyake Email Campaign">
                 </div>
-                <div class="carousel-slide">
+                <div class="carousel-slide" data-slide="1">
                   <img src="bao_bao_email_SS17.jpg" alt="Bao Bao Email Detail View">
                 </div>
-                <div class="carousel-slide">
+                <div class="carousel-slide" data-slide="2">
                   <img src="bao_bao_email_2.jpg" alt="Bao Bao Brand Guidelines">
                 </div>
               </div>
@@ -729,13 +771,13 @@
           <div class="content-image">
             <div class="image-carousel" data-carousel="3">
               <div class="carousel-track">
-                <div class="carousel-slide">
+                <div class="carousel-slide" data-slide="0">
                   <img src="2.29 BAU (Karol G) (1).gif" alt="Rolling Stone Rebrand Email">
                 </div>
-                <div class="carousel-slide">
+                <div class="carousel-slide" data-slide="1">
                   <img src="Ends Tomorrow 3.19 - RS SALE - updated (2) (1).gif" alt="Rolling Stone Email Variation">
                 </div>
-                <div class="carousel-slide">
+                <div class="carousel-slide" data-slide="2">
                   <img src="11.15 Revolutionary Artist's (2).gif" alt="Rolling Stone Campaign Extension">
                 </div>
               </div>
@@ -769,13 +811,13 @@
           <div class="content-image">
             <div class="image-carousel" data-carousel="4">
               <div class="carousel-track">
-                <div class="carousel-slide">
+                <div class="carousel-slide" data-slide="0">
                   <img src="WWD BF - DAY 3.gif" alt="WWD Fashion Week Email">
                 </div>
-                <div class="carousel-slide">
+                <div class="carousel-slide" data-slide="1">
                   <img src="wwd-sustainability.gif" alt="WWD Fashion Week Campaign">
                 </div>
-                <div class="carousel-slide">
+                <div class="carousel-slide" data-slide="2">
                   <img src="wwd-global.gif" alt="WWD Fashion Week Variation">
                 </div>
               </div>
@@ -809,13 +851,13 @@
           <div class="content-image">
             <div class="image-carousel" data-carousel="5">
               <div class="carousel-track">
-                <div class="carousel-slide">
+                <div class="carousel-slide" data-slide="0">
                   <img src="AjMadison_ApplianceJournal.jpg" alt="AJ Madison Digital Lookbook">
                 </div>
-                <div class="carousel-slide">
+                <div class="carousel-slide" data-slide="1">
                   <img src="2.jpg" alt="AJ Madison Editorial Design">
                 </div>
-                <div class="carousel-slide">
+                <div class="carousel-slide" data-slide="2">
                   <img src="3.jpg" alt="AJ Madison Publication Layout">
                 </div>
               </div>
@@ -859,10 +901,10 @@
       </div>
       
       <div class="social-links">
-        <a href="https://linkedin.com/in/marla-harris-047b2946" class="social-link">
+        <a href="https://linkedin.com/in/marla-harris-047b2946" class="social-link" aria-label="LinkedIn">
           <i class="fab fa-linkedin-in"></i>
         </a>
-        <a href="https://www.instagram.com/marlavharris/" class="social-link">
+        <a href="https://www.instagram.com/marlavharris/" class="social-link" aria-label="Instagram">
           <i class="fab fa-instagram"></i>
         </a>
       </div>
@@ -895,13 +937,22 @@
     if (mobileMenuBtn) {
       mobileMenuBtn.addEventListener('click', () => {
         mobileMenu.classList.add('active');
+        document.documentElement.style.overflow = 'hidden';
         document.body.style.overflow = 'hidden';
+        
+        // Track GA event
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'mobile_menu_open', {
+            'event_category': 'Navigation'
+          });
+        }
       });
     }
 
     if (closeMenuBtn) {
       closeMenuBtn.addEventListener('click', () => {
         mobileMenu.classList.remove('active');
+        document.documentElement.style.overflow = '';
         document.body.style.overflow = '';
       });
     }
@@ -909,7 +960,16 @@
     mobileNavLinks.forEach(link => {
       link.addEventListener('click', () => {
         mobileMenu.classList.remove('active');
+        document.documentElement.style.overflow = '';
         document.body.style.overflow = '';
+        
+        // Track GA event
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'mobile_nav_click', {
+            'event_category': 'Navigation',
+            'event_label': link.getAttribute('href')
+          });
+        }
       });
     });
 
@@ -929,6 +989,14 @@
             top: targetPosition,
             behavior: 'smooth'
           });
+          
+          // Track GA event
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'nav_click', {
+              'event_category': 'Navigation',
+              'event_label': targetId
+            });
+          }
         }
       });
     });
@@ -939,7 +1007,7 @@
     const fadeInOnScroll = () => {
       fadeElements.forEach(element => {
         const elementTop = element.getBoundingClientRect().top;
-        const elementVisible = 150;
+        const elementVisible = 100;
         
         if (elementTop < window.innerHeight - elementVisible) {
           element.classList.add('visible');
@@ -948,6 +1016,7 @@
     };
     
     window.addEventListener('scroll', fadeInOnScroll);
+    window.addEventListener('load', fadeInOnScroll);
     fadeInOnScroll();
 
     // Image Carousel Functionality
@@ -969,8 +1038,9 @@
       });
       
       const moveToSlide = (targetSlide) => {
-        track.style.transform = 'translateX(-' + targetSlide.style.left + ')';
-        currentSlide = parseInt(targetSlide.dataset.slide);
+        const targetIndex = parseInt(targetSlide.dataset.slide);
+        track.style.transform = 'translateX(-' + (slideWidth * targetIndex) + 'px)';
+        currentSlide = targetIndex;
         
         // Update dots
         dots.forEach(dot => dot.classList.remove('active'));
@@ -1008,9 +1078,36 @@
           !e.target.closest('.mobile-menu') && 
           !e.target.closest('.mobile-menu-btn')) {
         mobileMenu.classList.remove('active');
+        document.documentElement.style.overflow = '';
         document.body.style.overflow = '';
       }
+    });
+
+    // Track outbound links
+    document.querySelectorAll('a[href^="http"]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        if (link.hostname !== window.location.hostname) {
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'outbound_click', {
+              'event_category': 'Outbound',
+              'event_label': link.href
+            });
+          }
+        }
+      });
+    });
+
+    // Track email clicks
+    document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
+      link.addEventListener('click', () => {
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'email_click', {
+            'event_category': 'Contact'
+          });
+        }
+      });
     });
   </script>
 </body>
 </html>
+[file content end]
