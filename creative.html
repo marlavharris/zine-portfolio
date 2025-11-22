@@ -328,11 +328,10 @@
       font-size: 1.125rem;
     }
     
-    /* LUXURY SINGLE IMAGE LAYOUT */
+    /* ENHANCED SCROLLING GALLERY LAYOUT */
     .content-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-      gap: 3rem;
+      gap: 4rem;
       max-width: 1000px;
       margin: 0 auto;
     }
@@ -353,16 +352,110 @@
       box-shadow: 0 20px 40px rgba(0,0,0,0.08);
     }
     
-    .content-image {
+    /* SCROLLING IMAGE GALLERY */
+    .content-gallery {
       width: 100%;
       background: var(--paper);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .gallery-container {
+      display: flex;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      min-height: 500px;
+      align-items: center;
+    }
+    
+    .gallery-slide {
+      min-width: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
-      position: relative;
       padding: 2rem;
-      min-height: 500px;
+      position: relative;
+    }
+    
+    .gallery-slide img {
+      width: auto;
+      max-width: 100%;
+      height: auto;
+      max-height: 450px;
+      object-fit: contain;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      border-radius: 2px;
+    }
+    
+    /* GIF Indicator */
+    .gif-indicator {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: var(--accent);
+      color: white;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      z-index: 3;
+    }
+    
+    /* Gallery Navigation */
+    .gallery-nav {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 1rem;
+      transform: translateY(-50%);
+      pointer-events: none;
+      z-index: 2;
+    }
+    
+    .gallery-btn {
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid var(--neutral-200);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      pointer-events: all;
+      color: var(--ink);
+    }
+    
+    .gallery-btn:hover {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+      transform: scale(1.1);
+    }
+    
+    .gallery-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 1rem;
+      background: var(--paper);
+      border-top: 1px solid var(--neutral-200);
+    }
+    
+    .gallery-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--neutral-200);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .gallery-dot.active {
+      background: var(--accent);
+      transform: scale(1.2);
     }
     
     /* Image loading state */
@@ -373,22 +466,7 @@
       align-items: center;
       justify-content: center;
       font-size: 0.9rem;
-    }
-    
-    /* CLEAN SINGLE IMAGE STYLING */
-    .content-image img {
-      width: auto;
-      max-width: 100%;
-      height: auto;
-      max-height: 450px;
-      object-fit: contain;
-      transition: transform 0.3s ease;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      border-radius: 2px;
-    }
-    
-    .content-item:hover .content-image img {
-      transform: scale(1.02);
+      min-height: 200px;
     }
     
     .content-details {
@@ -512,9 +590,18 @@
       transform: translateY(0);
     }
     
+    /* Performance Note */
+    .performance-note {
+      text-align: center;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      color: var(--neutral-600);
+    }
+    
     /* Print Styles */
     @media print {
-      .btn, .mobile-menu-btn, .social-links, .content-request {
+      .btn, .mobile-menu-btn, .social-links, .content-request,
+      .gallery-nav, .gallery-dots, .gif-indicator, .performance-note {
         display: none !important;
       }
       
@@ -525,6 +612,14 @@
       
       .content-section, .contact {
         padding: 2rem 0;
+      }
+      
+      .gallery-container {
+        transform: none !important;
+      }
+      
+      .gallery-slide {
+        min-width: 50% !important;
       }
     }
     
@@ -544,8 +639,7 @@
       }
       
       .content-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 3rem;
       }
       
       .page-hero {
@@ -566,13 +660,19 @@
         padding: 0.875rem 1.5rem;
       }
       
-      .content-image {
+      .gallery-slide {
         padding: 1.5rem;
         min-height: 400px;
       }
       
-      .content-image img {
+      .gallery-slide img {
         max-height: 350px;
+      }
+      
+      .gallery-btn {
+        width: 36px;
+        height: 36px;
+        padding: 0.5rem;
       }
       
       .content-details {
@@ -583,14 +683,21 @@
         font-size: 1.1rem;
         padding: 0.875rem 1.5rem;
       }
+      
+      .gif-indicator {
+        top: 0.5rem;
+        right: 0.5rem;
+        font-size: 0.7rem;
+        padding: 0.2rem 0.4rem;
+      }
     }
     
     @media (max-width: 480px) {
       .content-grid {
-        grid-template-columns: 1fr;
+        gap: 2rem;
       }
       
-      .content-image img {
+      .gallery-slide img {
         max-height: 300px;
       }
       
@@ -602,9 +709,23 @@
         padding: 3rem 0;
       }
       
-      .content-image {
+      .gallery-slide {
         min-height: 350px;
         padding: 1rem;
+      }
+      
+      .gallery-nav {
+        padding: 0 0.5rem;
+      }
+    }
+    
+    @media (max-width: 360px) {
+      .gallery-slide {
+        min-height: 300px;
+      }
+      
+      .gallery-slide img {
+        max-height: 250px;
       }
     }
   </style>
@@ -667,30 +788,123 @@
         <p>Strategic visual campaigns for premium brands and media empires</p>
       </div>
       
+      <div class="performance-note">
+        <p><i class="fas fa-sync-alt" style="margin-right: 0.5rem;"></i> 
+        All campaigns shown as animated GIFs to accurately represent email client rendering</p>
+      </div>
+      
       <div class="content-grid">
-        <!-- Billboard Pro Email -->
+        <!-- Rolling Stone Gallery -->
         <div class="content-item fade-in">
-          <div class="content-image">
-            <img src="HALSEY - BB BAU (2) (3).gif" alt="Billboard Pro Email Campaign showcasing Halsey promotion with clean typography and visual hierarchy" loading="lazy">
+          <div class="content-gallery" id="rollingstone-gallery">
+            <div class="gallery-container">
+              <div class="gallery-slide">
+                <div class="gif-indicator">GIF</div>
+                <img src="11.15 Revolutionary Artist's (2).gif" 
+                     alt="Rolling Stone Revolutionary Artist email campaign with dynamic layout and engaging visuals" 
+                     loading="lazy"
+                     width="600"
+                     height="400">
+              </div>
+              <div class="gallery-slide">
+                <div class="gif-indicator">GIF</div>
+                <img src="2.29 BAU (Karol G) (1).gif" 
+                     alt="Rolling Stone Karol G feature email with bold typography and vibrant design" 
+                     loading="lazy"
+                     width="600"
+                     height="400">
+              </div>
+              <div class="gallery-slide">
+                <img src="rollingstone-3.jpg" 
+                     alt="Rolling Stone music news email with engaging layout and clear hierarchy" 
+                     loading="lazy"
+                     width="600"
+                     height="400">
+              </div>
+              <div class="gallery-slide">
+                <img src="rollingstone-4.jpg" 
+                     alt="Rolling Stone artist interview email campaign with immersive storytelling" 
+                     loading="lazy"
+                     width="600"
+                     height="400">
+              </div>
+            </div>
+            <div class="gallery-nav">
+              <button class="gallery-btn prev-btn" aria-label="Previous image">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button class="gallery-btn next-btn" aria-label="Next image">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+            <div class="gallery-dots">
+              <div class="gallery-dot active" data-index="0"></div>
+              <div class="gallery-dot" data-index="1"></div>
+              <div class="gallery-dot" data-index="2"></div>
+              <div class="gallery-dot" data-index="3"></div>
+            </div>
           </div>
           <div class="content-details">
-            <h3>Billboard Pro Launch</h3>
-            <p>Created visual system for Billboard's premium subscription product, establishing clear visual hierarchy and conversion pathways that increased engagement by 32%.</p>
+            <h3>Rolling Stone Campaigns</h3>
+            <p>Developed visual identity system for Rolling Stone's digital subscription launch, balancing heritage with contemporary appeal to achieve 21.46% open rates and 28% conversion rates. Created engaging email campaigns that maintained the iconic Rolling Stone voice while driving measurable results.</p>
             <div class="content-meta">
               <span>Client: Penske Media</span>
-              <span>2020</span>
+              <span>2020-2022</span>
             </div>
           </div>
         </div>
         
-        <!-- Bao Bao Email -->
+        <!-- Bao Bao Issey Miyake Gallery -->
         <div class="content-item fade-in">
-          <div class="content-image">
-            <img src="bao_bao_email_3.jpg" alt="Bao Bao Issey Miyake luxury email campaign with minimalist product photography" loading="lazy">
+          <div class="content-gallery" id="baobao-gallery">
+            <div class="gallery-container">
+              <div class="gallery-slide">
+                <img src="bao_bao_email_1.jpg" 
+                     alt="Bao Bao Issey Miyake luxury email campaign with architectural product photography" 
+                     loading="lazy"
+                     width="600"
+                     height="400">
+              </div>
+              <div class="gallery-slide">
+                <img src="bao_bao_email_2.jpg" 
+                     alt="Bao Bao collection launch email showcasing geometric designs and minimalist aesthetic" 
+                     loading="lazy"
+                     width="600"
+                     height="400">
+              </div>
+              <div class="gallery-slide">
+                <img src="bao_bao_email_3.jpg" 
+                     alt="Bao Bao product feature email with sophisticated typography and clean layout" 
+                     loading="lazy"
+                     width="600"
+                     height="400">
+              </div>
+              <div class="gallery-slide">
+                <img src="bao_bao_email_SS17.jpg" 
+                     alt="Bao Bao SS17 seasonal campaign with elegant color palette and refined composition" 
+                     loading="lazy"
+                     width="600"
+                     height="400">
+              </div>
+            </div>
+            <div class="gallery-nav">
+              <button class="gallery-btn prev-btn" aria-label="Previous image">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button class="gallery-btn next-btn" aria-label="Next image">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+            <div class="gallery-dots">
+              <div class="gallery-dot active" data-index="0"></div>
+              <div class="gallery-dot" data-index="1"></div>
+              <div class="gallery-dot" data-index="2"></div>
+              <div class="gallery-dot" data-index="3"></div>
+            </div>
           </div>
           <div class="content-details">
             <h3>Bao Bao Luxury Campaign</h3>
-            <p>Art directed minimalist product photography that increased engagement by 47% while maintaining brand prestige and driving 28% higher conversion rates.</p>
+            <p>Art directed minimalist product photography and email campaigns for Issey Miyake's architectural handbag line. Increased engagement by 47% while maintaining brand prestige and driving 28% higher conversion rates through refined visual storytelling that highlighted the geometric beauty of each design.</p>
             <div class="content-meta">
               <span>Client: Issey Miyake</span>
               <span>2021</span>
@@ -698,29 +912,117 @@
           </div>
         </div>
         
-        <!-- Rolling Stone Email -->
+        <!-- Billboard Pro Gallery -->
         <div class="content-item fade-in">
-          <div class="content-image">
-            <img src="2.29 BAU (Karol G) (1).gif" alt="Rolling Stone email campaign featuring Karol G with bold typography and dynamic layout" loading="lazy">
+          <div class="content-gallery" id="billboard-gallery">
+            <div class="gallery-container">
+              <div class="gallery-slide">
+                <div class="gif-indicator">GIF</div>
+                <img src="HALSEY - BB BAU (2) (3).gif" 
+                     alt="Billboard Pro Halsey email campaign with dynamic layout and engaging visuals" 
+                     loading="lazy"
+                     width="600"
+                     height="400">
+              </div>
+              <div class="gallery-slide">
+                <img src="billboard-pro-2.jpg" 
+                     alt="Billboard Pro subscription launch email with clear value proposition and conversion focus" 
+                     loading="lazy"
+                     width="600"
+                     height="400">
+              </div>
+              <div class="gallery-slide">
+                <img src="billboard-pro-3.jpg" 
+                     alt="Billboard Pro music industry insights email with data visualization" 
+                     loading="lazy"
+                     width="600"
+                     height="400">
+              </div>
+              <div class="gallery-slide">
+                <img src="billboard-pro-4.jpg" 
+                     alt="Billboard Pro artist spotlight email with immersive layout and engaging content" 
+                     loading="lazy"
+                     width="600"
+                     height="400">
+              </div>
+            </div>
+            <div class="gallery-nav">
+              <button class="gallery-btn prev-btn" aria-label="Previous image">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button class="gallery-btn next-btn" aria-label="Next image">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+            <div class="gallery-dots">
+              <div class="gallery-dot active" data-index="0"></div>
+              <div class="gallery-dot" data-index="1"></div>
+              <div class="gallery-dot" data-index="2"></div>
+              <div class="gallery-dot" data-index="3"></div>
+            </div>
           </div>
           <div class="content-details">
-            <h3>Rolling Stone Campaigns</h3>
-            <p>Developed visual identity system for Rolling Stone's digital subscription launch, balancing heritage with contemporary appeal to achieve 21.46% open rates.</p>
+            <h3>Billboard Pro Launch</h3>
+            <p>Created comprehensive visual system for Billboard's premium subscription product, establishing clear visual hierarchy and conversion pathways that increased engagement by 32%. Developed email campaigns that effectively communicated the value of industry data and insights to music professionals.</p>
             <div class="content-meta">
               <span>Client: Penske Media</span>
-              <span>2022</span>
+              <span>2020</span>
             </div>
           </div>
         </div>
         
-        <!-- WWD Fashion Week Email -->
+        <!-- WWD Fashion Week Gallery -->
         <div class="content-item fade-in">
-          <div class="content-image">
-            <img src="WWD BF - DAY 3.gif" alt="Women's Wear Daily Fashion Week email with elegant typography and fashion imagery" loading="lazy">
+          <div class="content-gallery" id="wwd-gallery">
+            <div class="gallery-container">
+              <div class="gallery-slide">
+                <div class="gif-indicator">GIF</div>
+                <img src="WWD BF - DAY 3.gif" 
+                     alt="WWD Fashion Week email with elegant typography and fashion imagery" 
+                     loading="lazy"
+                     width="600"
+                     height="400">
+              </div>
+              <div class="gallery-slide">
+                <img src="wwd-2.jpg" 
+                     alt="WWD runway coverage email with dynamic layout and trend highlights" 
+                     loading="lazy"
+                     width="600"
+                     height="400">
+              </div>
+              <div class="gallery-slide">
+                <img src="wwd-3.jpg" 
+                     alt="WWD designer spotlight email campaign with exclusive content" 
+                     loading="lazy"
+                     width="600"
+                     height="400">
+              </div>
+              <div class="gallery-slide">
+                <img src="wwd-4.jpg" 
+                     alt="WWD trend report email with visual storytelling and industry insights" 
+                     loading="lazy"
+                     width="600"
+                     height="400">
+              </div>
+            </div>
+            <div class="gallery-nav">
+              <button class="gallery-btn prev-btn" aria-label="Previous image">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button class="gallery-btn next-btn" aria-label="Next image">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+            <div class="gallery-dots">
+              <div class="gallery-dot active" data-index="0"></div>
+              <div class="gallery-dot" data-index="1"></div>
+              <div class="gallery-dot" data-index="2"></div>
+              <div class="gallery-dot" data-index="3"></div>
+            </div>
           </div>
           <div class="content-details">
             <h3>WWD Fashion Week</h3>
-            <p>Developed comprehensive visual identity for Women's Wear Daily's Fashion Week coverage across digital platforms, increasing subscriber engagement by 41%.</p>
+            <p>Developed comprehensive visual identity for Women's Wear Daily's Fashion Week coverage across digital platforms, increasing subscriber engagement by 41% and establishing industry leadership. Created email campaigns that captured the excitement of fashion week while delivering valuable industry insights.</p>
             <div class="content-meta">
               <span>Client: Penske Media</span>
               <span>2019-2022</span>
@@ -728,15 +1030,58 @@
           </div>
         </div>
         
-        <!-- AJ Madison Digital Lookbook -->
+        <!-- AJ Madison Digital Lookbook Gallery -->
         <div class="content-item fade-in">
-          <div class="content-image">
-            <img src="AjMadison_ApplianceJournal.jpg" alt="AJ Madison digital lookbook featuring premium appliance photography and editorial layout" loading="lazy">
+          <div class="content-gallery" id="ajmadison-gallery">
+            <div class="gallery-container">
+              <div class="gallery-slide">
+                <img src="AjMadison_ApplianceJournal.jpg" 
+                     alt="AJ Madison digital lookbook featuring premium appliance photography and editorial layout" 
+                     loading="lazy"
+                     width="600"
+                     height="400">
+              </div>
+              <div class="gallery-slide">
+                <img src="ajmadison-2.jpg" 
+                     alt="AJ Madison kitchen design inspiration email with lifestyle imagery" 
+                     loading="lazy"
+                     width="600"
+                     height="400">
+              </div>
+              <div class="gallery-slide">
+                <img src="ajmadison-3.jpg" 
+                     alt="AJ Madison product feature email with detailed specifications and benefits" 
+                     loading="lazy"
+                     width="600"
+                     height="400">
+              </div>
+              <div class="gallery-slide">
+                <img src="ajmadison-4.jpg" 
+                     alt="AJ Madison seasonal sale campaign email with clear calls-to-action" 
+                     loading="lazy"
+                     width="600"
+                     height="400">
+              </div>
+            </div>
+            <div class="gallery-nav">
+              <button class="gallery-btn prev-btn" aria-label="Previous image">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button class="gallery-btn next-btn" aria-label="Next image">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+            <div class="gallery-dots">
+              <div class="gallery-dot active" data-index="0"></div>
+              <div class="gallery-dot" data-index="1"></div>
+              <div class="gallery-dot" data-index="2"></div>
+              <div class="gallery-dot" data-index="3"></div>
+            </div>
           </div>
           <div class="content-details">
             <div class="role-badge">Editorial Operations Manager</div>
             <h3>AJ Madison Digital Lookbook</h3>
-            <p>Directed the creation of comprehensive digital lookbooks and editorial content, managing the end-to-end production process from concept to publication, resulting in 59% of web sales.</p>
+            <p>Directed the creation of comprehensive digital lookbooks and editorial content, managing the end-to-end production process from concept to publication. Developed email campaigns that showcased premium appliances in lifestyle contexts, resulting in 59% of web sales driven by enhanced visual content and strategic storytelling.</p>
             <div class="content-meta">
               <span>Client: AJ Madison</span>
               <span>2018</span>
@@ -881,24 +1226,107 @@
     window.addEventListener('load', fadeInOnScroll);
     fadeInOnScroll();
 
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', (e) => {
-      if (mobileMenu.classList.contains('active') && 
-          !e.target.closest('.mobile-menu') && 
-          !e.target.closest('.mobile-menu-btn')) {
-        mobileMenu.classList.remove('active');
-        document.documentElement.style.overflow = '';
-        document.body.style.overflow = '';
-      }
-    });
-
-    // Image loading fallback
+    // Image Gallery Functionality
     document.addEventListener('DOMContentLoaded', function() {
+      // Initialize all galleries
+      const galleries = document.querySelectorAll('.content-gallery');
+      
+      galleries.forEach(gallery => {
+        const container = gallery.querySelector('.gallery-container');
+        const slides = gallery.querySelectorAll('.gallery-slide');
+        const prevBtn = gallery.querySelector('.prev-btn');
+        const nextBtn = gallery.querySelector('.next-btn');
+        const dots = gallery.querySelectorAll('.gallery-dot');
+        
+        let currentSlide = 0;
+        const totalSlides = slides.length;
+        
+        // Update gallery position
+        function updateGallery() {
+          container.style.transform = `translateX(-${currentSlide * 100}%)`;
+          
+          // Update dots
+          dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentSlide);
+          });
+          
+          // Track gallery navigation
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'gallery_navigate', {
+              'event_category': 'Portfolio',
+              'event_label': gallery.id,
+              'value': currentSlide + 1
+            });
+          }
+        }
+        
+        // Next slide
+        function nextSlide() {
+          currentSlide = (currentSlide + 1) % totalSlides;
+          updateGallery();
+        }
+        
+        // Previous slide
+        function prevSlide() {
+          currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+          updateGallery();
+        }
+        
+        // Go to specific slide
+        function goToSlide(index) {
+          currentSlide = index;
+          updateGallery();
+        }
+        
+        // Event listeners
+        if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+        if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+        
+        dots.forEach((dot, index) => {
+          dot.addEventListener('click', () => goToSlide(index));
+        });
+        
+        // Keyboard navigation
+        gallery.addEventListener('keydown', (e) => {
+          if (e.key === 'ArrowLeft') prevSlide();
+          if (e.key === 'ArrowRight') nextSlide();
+        });
+        
+        // Swipe support for mobile
+        let startX = 0;
+        let endX = 0;
+        
+        gallery.addEventListener('touchstart', (e) => {
+          startX = e.touches[0].clientX;
+        });
+        
+        gallery.addEventListener('touchend', (e) => {
+          endX = e.changedTouches[0].clientX;
+          handleSwipe();
+        });
+        
+        function handleSwipe() {
+          const diff = startX - endX;
+          const swipeThreshold = 50;
+          
+          if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+              nextSlide(); // Swipe left
+            } else {
+              prevSlide(); // Swipe right
+            }
+          }
+        }
+        
+        // Auto-advance (optional - uncomment if desired)
+        // setInterval(nextSlide, 5000);
+      });
+      
+      // Image loading fallback
       const images = document.querySelectorAll('img');
       images.forEach(img => {
-        // Add loading state
         const parent = img.parentElement;
-        if (parent.classList.contains('content-image')) {
+        if (parent.classList.contains('gallery-slide')) {
           const loadingDiv = document.createElement('div');
           loadingDiv.className = 'img-loading';
           loadingDiv.textContent = 'Loading image...';
@@ -916,6 +1344,32 @@
           });
         }
       });
+      
+      // Preload GIFs when gallery becomes active
+      const galleryObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const gifs = entry.target.querySelectorAll('img[src$=".gif"]');
+            gifs.forEach(gif => {
+              // Force GIF loading when gallery is in view
+              gif.src = gif.src + '?t=' + new Date().getTime();
+            });
+          }
+        });
+      }, { threshold: 0.5 });
+      
+      galleries.forEach(gallery => galleryObserver.observe(gallery));
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (mobileMenu.classList.contains('active') && 
+          !e.target.closest('.mobile-menu') && 
+          !e.target.closest('.mobile-menu-btn')) {
+        mobileMenu.classList.remove('active');
+        document.documentElement.style.overflow = '';
+        document.body.style.overflow = '';
+      }
     });
 
     // Track outbound links
