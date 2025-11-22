@@ -1,5 +1,3 @@
-[file name]: myjourney.html
-[file content begin]
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +13,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Marla Harris - My Journey from marketing to public service">
+  <meta property="og:title" content="Marla Harris - My Journey">
+  <meta property="og:description" content="From marketing leadership to public service through Master of Public Administration">
   <title>My Journey | Marla Harris</title>
   
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -161,7 +161,9 @@
       color: var(--ink);
       cursor: pointer;
       z-index: 1001;
-      padding: 0.25rem;
+      padding: 0.5rem;
+      min-height: 44px;
+      min-width: 44px;
     }
     
     .mobile-menu {
@@ -203,6 +205,11 @@
       text-decoration: none;
       font-weight: 400;
       transition: color 0.3s ease;
+      padding: 1rem 2rem;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     
     .mobile-nav-link:hover {
@@ -218,7 +225,9 @@
       font-size: 1.5rem;
       color: var(--ink);
       cursor: pointer;
-      padding: 0.25rem;
+      padding: 0.5rem;
+      min-height: 44px;
+      min-width: 44px;
     }
     
     .page-hero {
@@ -272,7 +281,7 @@
       margin-bottom: 0;
     }
     
-    .masters-highlight {
+    .journey-highlight {
       background: var(--accent-lighter);
       padding: 2rem;
       border-radius: 8px;
@@ -280,10 +289,53 @@
       margin: 3rem 0;
     }
     
-    .masters-highlight h3 {
+    .journey-highlight h3 {
       font-size: 1.5rem;
       margin-bottom: 1rem;
       color: var(--accent);
+    }
+    
+    .skills-section {
+      margin: 3rem 0;
+    }
+    
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .skill-category {
+      background: white;
+      border: 1px solid var(--neutral-200);
+      padding: 2rem;
+      border-radius: 8px;
+    }
+    
+    .skill-category h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+    
+    .skill-list {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .skill-list li {
+      margin-bottom: 0.5rem;
+      padding-left: 1rem;
+      position: relative;
+    }
+    
+    .skill-list li:before {
+      content: '•';
+      color: var(--accent);
+      position: absolute;
+      left: 0;
     }
     
     .btn-group {
@@ -300,12 +352,15 @@
       font-weight: 500;
       text-decoration: none;
       font-size: 0.875rem;
-      transition: all 0.3s ease;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       letter-spacing: 0.05em;
-      display: inline-block;
+      display: inline-flex;
       text-align: center;
       border: none;
       cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
     }
     
     .btn-primary {
@@ -352,6 +407,19 @@
       margin: 0 auto 2rem;
     }
     
+    .content-request {
+      margin: 1.5rem 0;
+    }
+    
+    .content-request a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    
+    .content-request a:hover {
+      text-decoration: underline;
+    }
+    
     .social-links {
       display: flex;
       justify-content: center;
@@ -363,19 +431,19 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 42px;
-      height: 42px;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
       background: var(--accent-lighter);
       color: var(--accent);
       text-decoration: none;
-      transition: all 0.3s ease;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
     
     .social-link:hover {
       background: var(--accent);
       color: white;
-      transform: translateY(-2px);
+      transform: translateY(-2px) scale(1.05);
     }
     
     .contact-info {
@@ -385,6 +453,33 @@
     .contact-info p {
       margin-bottom: 0.5rem;
       font-size: 0.9rem;
+    }
+    
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Print Styles */
+    @media print {
+      .btn, .mobile-menu-btn, .social-links, .content-request {
+        display: none !important;
+      }
+      
+      .page-hero {
+        padding: 4rem 0 2rem;
+        min-height: auto;
+      }
+      
+      .journey-content, .contact {
+        padding: 2rem 0;
+      }
     }
     
     @media (max-width: 768px) {
@@ -397,7 +492,9 @@
       }
       
       .mobile-menu-btn {
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
       
       .page-hero {
@@ -426,9 +523,18 @@
         padding: 3rem 0;
       }
       
-      .masters-highlight {
+      .journey-highlight {
         padding: 1.5rem;
         margin: 2rem 0;
+      }
+      
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .mobile-nav-link {
+        font-size: 1.1rem;
+        padding: 0.875rem 1.5rem;
       }
     }
     
@@ -443,6 +549,10 @@
       
       .contact {
         padding: 3rem 0;
+      }
+      
+      .quote-text {
+        font-size: 1.4rem;
       }
     }
   </style>
@@ -496,14 +606,51 @@
 
   <section class="journey-content">
     <div class="container">
-      <p class="journey-text">Five years of working retail, selling lingerie, taught me how to speak to the customer, and what gets them to buy. Lessons that I take with me in every project or job I take on.</p>
+      <p class="journey-text fade-in">Five years of working retail, selling lingerie, taught me how to speak to the customer, and what gets them to buy. Lessons that I take with me in every project or job I take on.</p>
       
-      <p class="journey-text">From covering fashion shows at Mercedes Benz Fashion Week to subscription marketing for media empires, I bridge the gap between human desire and technical execution—creating systems that honor complexity while driving measurable growth.</p>
+      <p class="journey-text fade-in">From covering fashion shows at Mercedes Benz Fashion Week to subscription marketing for media empires, I bridge the gap between human desire and technical execution—creating systems that honor complexity while driving measurable growth.</p>
       
-      <div class="masters-highlight">
+      <div class="skills-section fade-in">
+        <h3 style="text-align: center; margin-bottom: 2rem; font-size: 2rem;">Core Competencies</h3>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h4>Marketing Strategy</h4>
+            <ul class="skill-list">
+              <li>Subscription Marketing</li>
+              <li>Audience Development</li>
+              <li>Brand Positioning</li>
+              <li>Growth Strategy</li>
+            </ul>
+          </div>
+          <div class="skill-category">
+            <h4>Creative Execution</h4>
+            <ul class="skill-list">
+              <li>Email Campaign Design</li>
+              <li>Visual Identity Systems</li>
+              <li>Content Strategy</li>
+              <li>Brand Storytelling</li>
+            </ul>
+          </div>
+          <div class="skill-category">
+            <h4>Technical Skills</h4>
+            <ul class="skill-list">
+              <li>Marketing Automation</li>
+              <li>Analytics & Reporting</li>
+              <li>CRM Management</li>
+              <li>Project Management</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="journey-highlight fade-in">
         <h3>Next Chapter: Public Service</h3>
         <p class="journey-text">I'm starting my Master of Public Administration this fall at Baruch College's Marxe School of Public and International Affairs, and I'm currently seeking marketing or communications roles—especially in mission-driven spaces.</p>
         <p class="journey-text">With a strong background in storytelling, strategy, and audience engagement, I'm looking to bring that experience to a team that values impact and clarity. If you know of any roles in nonprofit, public sector, or purpose-led marketing, I'd love to connect.</p>
+      </div>
+      
+      <div class="content-request fade-in">
+        <p style="text-align: center;"><small>Want to learn more about my transition to public service? <a href="mailto:va.mvharris@gmail.com?subject=Public%20Service%20Transition">Let's discuss</a></small></p>
       </div>
       
       <div class="btn-group">
@@ -518,6 +665,11 @@
       <div class="star-decoration">✦</div>
       <h2>Let's Create Impact Together</h2>
       <p>Ready to bring strategic marketing to mission-driven work?</p>
+      
+      <div class="content-request">
+        <p><small>Looking for marketing leadership in the public or nonprofit sector? <a href="mailto:va.mvharris@gmail.com?subject=Public%20Service%20Opportunity">Let's connect</a></small></p>
+      </div>
+      
       <div class="btn-group">
         <a href="mailto:va.mvharris@gmail.com" class="btn btn-primary">Email Me</a>
         <a href="https://linkedin.com/in/marla-harris-047b2946" class="btn btn-secondary" target="_blank">LinkedIn</a>
@@ -596,6 +748,52 @@
       });
     });
 
+    // Enhanced smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const target = document.querySelector(targetId);
+        if (target) {
+          const headerHeight = document.querySelector('header').offsetHeight;
+          const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+          
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+          
+          // Track GA event
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'nav_click', {
+              'event_category': 'Navigation',
+              'event_label': targetId
+            });
+          }
+        }
+      });
+    });
+
+    // Fade in on scroll
+    const fadeElements = document.querySelectorAll('.fade-in');
+    
+    const fadeInOnScroll = () => {
+      fadeElements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const elementVisible = 100;
+        
+        if (elementTop < window.innerHeight - elementVisible) {
+          element.classList.add('visible');
+        }
+      });
+    };
+    
+    window.addEventListener('scroll', fadeInOnScroll);
+    window.addEventListener('load', fadeInOnScroll);
+    fadeInOnScroll();
+
     // Close mobile menu when clicking outside
     document.addEventListener('click', (e) => {
       if (mobileMenu.classList.contains('active') && 
@@ -634,4 +832,3 @@
   </script>
 </body>
 </html>
-[file content end]
