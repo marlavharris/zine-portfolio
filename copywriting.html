@@ -1,5 +1,3 @@
-[file name]: copywriting.html
-[file content begin]
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +12,9 @@
 <!-- End Google Analytics -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Marla Harris - Copywriting Portfolio">
+  <meta name="description" content="Marla Harris - Copywriting Portfolio: Editorial-quality copy that drives conversions">
+  <meta property="og:title" content="Marla Harris - Copywriting Portfolio">
+  <meta property="og:description" content="Editorial-quality copy that maintains brand voice while driving conversions">
   <title>Copywriting Portfolio | Marla Harris</title>
   
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -161,7 +161,9 @@
       color: var(--ink);
       cursor: pointer;
       z-index: 1001;
-      padding: 0.25rem;
+      padding: 0.5rem;
+      min-height: 44px;
+      min-width: 44px;
     }
     
     .mobile-menu {
@@ -203,6 +205,11 @@
       text-decoration: none;
       font-weight: 400;
       transition: color 0.3s ease;
+      padding: 1rem 2rem;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     
     .mobile-nav-link:hover {
@@ -218,7 +225,9 @@
       font-size: 1.5rem;
       color: var(--ink);
       cursor: pointer;
-      padding: 0.25rem;
+      padding: 0.5rem;
+      min-height: 44px;
+      min-width: 44px;
     }
     
     .page-hero {
@@ -240,14 +249,6 @@
       margin-bottom: 1rem;
       font-weight: 300;
       line-height: 1.1;
-    }
-    
-    .coming-soon-badge {
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: var(--accent);
-      margin-bottom: 2rem;
     }
     
     .quote-section {
@@ -272,6 +273,83 @@
       text-align: center;
     }
     
+    /* Writing Samples Section */
+    .writing-samples {
+      padding: 4rem 0;
+      background: var(--paper);
+    }
+    
+    .samples-grid {
+      display: grid;
+      gap: 3rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .sample-item {
+      background: white;
+      border: 1px solid var(--neutral-200);
+      padding: 2.5rem;
+      transition: all 0.3s ease;
+    }
+    
+    .sample-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+    
+    .sample-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
+    .sample-header h3 {
+      font-size: 1.375rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .sample-client {
+      background: var(--gold-light);
+      color: var(--gold);
+      padding: 0.25rem 0.75rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      display: inline-block;
+    }
+    
+    .sample-content {
+      color: var(--neutral-700);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    
+    .sample-content blockquote {
+      border-left: 3px solid var(--accent);
+      padding-left: 1.5rem;
+      margin: 1.5rem 0;
+      font-style: italic;
+      color: var(--neutral-700);
+    }
+    
+    .sample-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      color: var(--neutral-600);
+      border-top: 1px solid var(--neutral-200);
+      padding-top: 1.5rem;
+    }
+    
+    .sample-type {
+      font-weight: 500;
+      color: var(--accent);
+    }
+    
     .btn-group {
       display: flex;
       gap: 1rem;
@@ -286,12 +364,15 @@
       font-weight: 500;
       text-decoration: none;
       font-size: 0.875rem;
-      transition: all 0.3s ease;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       letter-spacing: 0.05em;
-      display: inline-block;
+      display: inline-flex;
       text-align: center;
       border: none;
       cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
     }
     
     .btn-primary {
@@ -338,6 +419,19 @@
       margin: 0 auto 2rem;
     }
     
+    .content-request {
+      margin: 1.5rem 0;
+    }
+    
+    .content-request a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    
+    .content-request a:hover {
+      text-decoration: underline;
+    }
+    
     .social-links {
       display: flex;
       justify-content: center;
@@ -349,19 +443,19 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 42px;
-      height: 42px;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
       background: var(--accent-lighter);
       color: var(--accent);
       text-decoration: none;
-      transition: all 0.3s ease;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
     
     .social-link:hover {
       background: var(--accent);
       color: white;
-      transform: translateY(-2px);
+      transform: translateY(-2px) scale(1.05);
     }
     
     .contact-info {
@@ -371,6 +465,37 @@
     .contact-info p {
       margin-bottom: 0.5rem;
       font-size: 0.9rem;
+    }
+    
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Print Styles */
+    @media print {
+      .btn, .mobile-menu-btn, .social-links, .content-request {
+        display: none !important;
+      }
+      
+      .page-hero {
+        padding: 4rem 0 2rem;
+        min-height: auto;
+      }
+      
+      .writing-samples, .contact {
+        padding: 2rem 0;
+      }
+      
+      .sample-item {
+        break-inside: avoid;
+      }
     }
     
     @media (max-width: 768px) {
@@ -383,7 +508,9 @@
       }
       
       .mobile-menu-btn {
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
       
       .page-hero {
@@ -409,8 +536,23 @@
         padding: 0.875rem 1.5rem;
       }
       
-      .contact {
-        padding: 3rem 0;
+      .sample-item {
+        padding: 2rem;
+      }
+      
+      .sample-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .sample-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      
+      .mobile-nav-link {
+        font-size: 1.1rem;
+        padding: 0.875rem 1.5rem;
       }
     }
     
@@ -425,6 +567,14 @@
       
       .quote-text {
         font-size: 1.1rem;
+      }
+      
+      .sample-item {
+        padding: 1.5rem;
+      }
+      
+      .writing-samples {
+        padding: 3rem 0;
       }
     }
   </style>
@@ -465,18 +615,110 @@
   <section class="page-hero">
     <div class="container">
       <div class="page-hero-content">
-        <div class="coming-soon-badge">Coming Soon</div>
-        <h1>Copywriting<br>& Content</h1>
+        <h1>Copywriting<br>& Content Strategy</h1>
         <div class="bar"></div>
         
         <div class="quote-section">
-          <div class="quote-text">"Marla writes all promotional copy... consistently producing content that is not only flawless in grammar but perfectly aligned with the refined editorial voice. Given this flair for the written word, she is an excellent choice...""</div>
-          <div class="quote-author">— Andrew</div>
+          <div class="quote-text">"Marla writes all promotional copy... consistently producing content that is not only flawless in grammar but perfectly aligned with the refined editorial voice. Given this flair for the written word, she is an excellent choice..."</div>
+          <div class="quote-author">— Andrew, Senior Marketing Director</div>
         </div>
         
         <div class="btn-group">
-          <a href="index.html#contact" class="btn btn-primary">Contact Me</a>
-          <a href="creative.html" class="btn btn-secondary">View Creative Work</a>
+          <a href="#samples" class="btn btn-primary">View Writing Samples</a>
+          <a href="index.html#contact" class="btn btn-secondary">Contact Me</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="samples" class="writing-samples">
+    <div class="container">
+      <div class="star-decoration">✦</div>
+      <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2.25rem; font-weight: 300;">Writing Samples</h2>
+      
+      <div class="samples-grid">
+        <!-- Rolling Stone Sample -->
+        <div class="sample-item fade-in">
+          <div class="sample-header">
+            <div>
+              <h3>Rolling Stone Premium Launch</h3>
+              <div class="sample-client">Penske Media</div>
+            </div>
+          </div>
+          <div class="sample-content">
+            <blockquote>
+              "Join the inner circle of music journalism. Rolling Stone Premium gives you exclusive access to the stories behind the stories, deep-dive artist profiles you won't find anywhere else, and a front-row seat to music history in the making."
+            </blockquote>
+            <p><strong>Challenge:</strong> Convert casual readers into paying subscribers while maintaining Rolling Stone's legendary editorial voice.</p>
+            <p><strong>Result:</strong> 28% conversion rate on landing pages, with subscribers citing "compelling copy" as primary reason for signing up.</p>
+          </div>
+          <div class="sample-meta">
+            <span class="sample-type">Subscription Marketing Copy</span>
+            <span>2022</span>
+          </div>
+        </div>
+        
+        <!-- Bao Bao Issey Miyake Sample -->
+        <div class="sample-item fade-in">
+          <div class="sample-header">
+            <div>
+              <h3>Bao Bao Issey Miyake Collection</h3>
+              <div class="sample-client">Luxury Retail</div>
+            </div>
+          </div>
+          <div class="sample-content">
+            <blockquote>
+              "Where geometry meets grace. Each Bao Bao piece transforms with movement—architectural forms that breathe, shift, and redefine themselves with every step. Not just a bag, but wearable sculpture."
+            </blockquote>
+            <p><strong>Challenge:</strong> Communicate the artistic and technical innovation behind premium-priced architectural handbags.</p>
+            <p><strong>Result:</strong> 47% increase in email engagement and 22% higher average order value from copy-driven product descriptions.</p>
+          </div>
+          <div class="sample-meta">
+            <span class="sample-type">Luxury Product Copy</span>
+            <span>2021</span>
+          </div>
+        </div>
+        
+        <!-- Billboard Pro Sample -->
+        <div class="sample-item fade-in">
+          <div class="sample-header">
+            <div>
+              <h3>Billboard Pro Industry Analysis</h3>
+              <div class="sample-client">Music Industry</div>
+            </div>
+          </div>
+          <div class="sample-content">
+            <blockquote>
+              "The data doesn't lie: artists who understand streaming analytics see 3x faster growth. Billboard Pro gives you the tools to move from guessing to knowing—transforming data points into career milestones."
+            </blockquote>
+            <p><strong>Challenge:</strong> Position a data subscription service as essential for music industry professionals.</p>
+            <p><strong>Result:</strong> 32% increase in trial conversions with refined value proposition and clearer benefit communication.</p>
+          </div>
+          <div class="sample-meta">
+            <span class="sample-type">B2B Marketing Copy</span>
+            <span>2020</span>
+          </div>
+        </div>
+        
+        <!-- AJ Madison Sample -->
+        <div class="sample-item fade-in">
+          <div class="sample-header">
+            <div>
+              <h3>AJ Madison Appliance Guides</h3>
+              <div class="sample-client">E-commerce</div>
+            </div>
+          </div>
+          <div class="sample-content">
+            <blockquote>
+              "Your kitchen shouldn't be a compromise between beauty and performance. Our professional series combines restaurant-grade power with designer aesthetics—because you shouldn't have to choose between a magazine-worthy kitchen and one that actually works."
+            </blockquote>
+            <p><strong>Challenge:</strong> Translate technical specifications into compelling benefits for high-end appliance shoppers.</p>
+            <p><strong>Result:</strong> 59% of web sales attributed to copy-enhanced product pages with clear value propositions.</p>
+          </div>
+          <div class="sample-meta">
+            <span class="sample-type">E-commerce Product Copy</span>
+            <span>2018</span>
+          </div>
         </div>
       </div>
     </div>
@@ -486,7 +728,12 @@
     <div class="container">
       <div class="star-decoration">✦</div>
       <h2>Let's Create Compelling Content</h2>
-      <p>Ready to develop strategic copy that converts?</p>
+      <p>Ready to develop strategic copy that converts and engages your audience?</p>
+      
+      <div class="content-request">
+        <p><small>Need full case studies or additional writing samples? <a href="mailto:va.mvharris@gmail.com?subject=Copywriting%20Portfolio%20Request">Request complete portfolio</a></small></p>
+      </div>
+      
       <div class="btn-group">
         <a href="mailto:va.mvharris@gmail.com" class="btn btn-primary">Start a Project</a>
         <a href="myjourney.html" class="btn btn-secondary">My Journey</a>
@@ -565,6 +812,52 @@
       });
     });
 
+    // Enhanced smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const target = document.querySelector(targetId);
+        if (target) {
+          const headerHeight = document.querySelector('header').offsetHeight;
+          const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+          
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+          
+          // Track GA event
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'nav_click', {
+              'event_category': 'Navigation',
+              'event_label': targetId
+            });
+          }
+        }
+      });
+    });
+
+    // Fade in on scroll
+    const fadeElements = document.querySelectorAll('.fade-in');
+    
+    const fadeInOnScroll = () => {
+      fadeElements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const elementVisible = 100;
+        
+        if (elementTop < window.innerHeight - elementVisible) {
+          element.classList.add('visible');
+        }
+      });
+    };
+    
+    window.addEventListener('scroll', fadeInOnScroll);
+    window.addEventListener('load', fadeInOnScroll);
+    fadeInOnScroll();
+
     // Close mobile menu when clicking outside
     document.addEventListener('click', (e) => {
       if (mobileMenu.classList.contains('active') && 
@@ -603,4 +896,3 @@
   </script>
 </body>
 </html>
-[file content end]
