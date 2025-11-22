@@ -159,9 +159,7 @@
       color: var(--ink);
       cursor: pointer;
       z-index: 1001;
-      padding: 0.5rem;
-      min-height: 44px;
-      min-width: 44px;
+      padding: 0.25rem;
     }
     
     .mobile-menu {
@@ -203,11 +201,6 @@
       text-decoration: none;
       font-weight: 400;
       transition: color 0.3s ease;
-      padding: 1rem 2rem;
-      min-height: 44px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
     
     .mobile-nav-link:hover {
@@ -223,9 +216,7 @@
       font-size: 1.5rem;
       color: var(--ink);
       cursor: pointer;
-      padding: 0.5rem;
-      min-height: 44px;
-      min-width: 44px;
+      padding: 0.25rem;
     }
     
     .page-hero {
@@ -323,7 +314,7 @@
       font-size: 1.125rem;
     }
     
-    /* YOUR ORIGINAL LUXURY SINGLE IMAGE LAYOUT */
+    /* LUXURY SINGLE IMAGE LAYOUT */
     .content-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -348,88 +339,50 @@
       box-shadow: 0 20px 40px rgba(0,0,0,0.08);
     }
     
+    /* SCROLLABLE IMAGE GALLERY */
     .content-image {
       width: 100%;
       background: var(--paper);
       display: flex;
       align-items: center;
-      justify-content: center;
-      overflow: hidden;
+      overflow-x: auto;
+      overflow-y: hidden;
       position: relative;
       padding: 2rem;
       min-height: 500px;
+      scrollbar-width: thin;
+      scrollbar-color: var(--accent) var(--neutral-200);
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
     }
     
-    /* SIMPLE SCROLLING GALLERY - KEEPS YOUR ORIGINAL LOOK */
-    .gallery-container {
-      display: flex;
-      transition: transform 0.5s ease;
-      width: 100%;
-    }
-    
-    .gallery-slide {
-      min-width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    
-    .gallery-nav {
-      position: absolute;
-      top: 50%;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      padding: 0 1rem;
-      transform: translateY(-50%);
-      pointer-events: none;
-      z-index: 2;
-    }
-    
-    .gallery-btn {
-      background: rgba(255, 255, 255, 0.9);
-      border: 1px solid var(--neutral-200);
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      pointer-events: all;
-      color: var(--ink);
-    }
-    
-    .gallery-btn:hover {
-      background: var(--accent);
-      color: white;
-      border-color: var(--accent);
-    }
-    
-    .gallery-dots {
-      display: flex;
-      justify-content: center;
-      gap: 0.5rem;
-      padding: 1rem;
-      background: var(--paper);
-      border-top: 1px solid var(--neutral-200);
-    }
-    
-    .gallery-dot {
-      width: 8px;
+    /* Custom scrollbar for webkit browsers */
+    .content-image::-webkit-scrollbar {
       height: 8px;
-      border-radius: 50%;
+    }
+    
+    .content-image::-webkit-scrollbar-track {
       background: var(--neutral-200);
-      cursor: pointer;
-      transition: all 0.3s ease;
+      border-radius: 4px;
     }
     
-    .gallery-dot.active {
+    .content-image::-webkit-scrollbar-thumb {
       background: var(--accent);
+      border-radius: 4px;
     }
     
-    /* YOUR ORIGINAL IMAGE STYLING */
+    .content-image::-webkit-scrollbar-thumb:hover {
+      background: var(--accent-light);
+    }
+    
+    .image-gallery {
+      display: flex;
+      gap: 2rem;
+      padding: 0 1rem;
+      align-items: center;
+    }
+    
+    /* CLEAN SINGLE IMAGE STYLING */
     .content-image img {
       width: auto;
       max-width: 100%;
@@ -439,6 +392,7 @@
       transition: transform 0.3s ease;
       box-shadow: 0 10px 30px rgba(0,0,0,0.1);
       border-radius: 2px;
+      flex-shrink: 0;
     }
     
     .content-item:hover .content-image img {
@@ -602,9 +556,8 @@
         padding: 2rem;
       }
       
-      .gallery-btn {
-        width: 36px;
-        height: 36px;
+      .image-gallery {
+        gap: 1.5rem;
       }
     }
     
@@ -629,11 +582,15 @@
         min-height: 350px;
         padding: 1rem;
       }
+      
+      .image-gallery {
+        gap: 1rem;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Fixed Header Section -->
+  <!-- Single Header Section -->
   <header>
     <div class="container">
       <nav>
@@ -691,32 +648,14 @@
       </div>
       
       <div class="content-grid">
-        <!-- Billboard Pro Email with Gallery -->
+        <!-- Billboard Pro Email -->
         <div class="content-item fade-in">
           <div class="content-image">
-            <div class="gallery-container">
-              <div class="gallery-slide">
-                <img src="HALSEY - BB BAU (2) (3).gif" alt="Billboard Pro Email Campaign">
-              </div>
-              <div class="gallery-slide">
-                <img src="billboard-pro-2.jpg" alt="Billboard Pro Campaign Variation">
-              </div>
-              <div class="gallery-slide">
-                <img src="billboard-pro-3.jpg" alt="Billboard Pro Additional Design">
-              </div>
-            </div>
-            <div class="gallery-nav">
-              <button class="gallery-btn prev-btn" aria-label="Previous image">
-                <i class="fas fa-chevron-left"></i>
-              </button>
-              <button class="gallery-btn next-btn" aria-label="Next image">
-                <i class="fas fa-chevron-right"></i>
-              </button>
-            </div>
-            <div class="gallery-dots">
-              <div class="gallery-dot active" data-index="0"></div>
-              <div class="gallery-dot" data-index="1"></div>
-              <div class="gallery-dot" data-index="2"></div>
+            <div class="image-gallery">
+              <img src="HALSEY - BB BAU (2) (3).gif" alt="Billboard Pro Email Campaign">
+              <!-- Add more images here -->
+              <img src="placeholder-image-1.jpg" alt="Billboard Pro Email Campaign Additional Image 1">
+              <img src="placeholder-image-2.jpg" alt="Billboard Pro Email Campaign Additional Image 2">
             </div>
           </div>
           <div class="content-details">
@@ -729,36 +668,14 @@
           </div>
         </div>
         
-        <!-- Bao Bao Email with Gallery -->
+        <!-- Bao Bao Email -->
         <div class="content-item fade-in">
           <div class="content-image">
-            <div class="gallery-container">
-              <div class="gallery-slide">
-                <img src="bao_bao_email_1.jpg" alt="Bao Bao Issey Miyake Email Campaign">
-              </div>
-              <div class="gallery-slide">
-                <img src="bao_bao_email_2.jpg" alt="Bao Bao Additional Design">
-              </div>
-              <div class="gallery-slide">
-                <img src="bao_bao_email_3.jpg" alt="Bao Bao Campaign Variation">
-              </div>
-              <div class="gallery-slide">
-                <img src="bao_bao_email_SS17.jpg" alt="Bao Bao SS17 Collection">
-              </div>
-            </div>
-            <div class="gallery-nav">
-              <button class="gallery-btn prev-btn" aria-label="Previous image">
-                <i class="fas fa-chevron-left"></i>
-              </button>
-              <button class="gallery-btn next-btn" aria-label="Next image">
-                <i class="fas fa-chevron-right"></i>
-              </button>
-            </div>
-            <div class="gallery-dots">
-              <div class="gallery-dot active" data-index="0"></div>
-              <div class="gallery-dot" data-index="1"></div>
-              <div class="gallery-dot" data-index="2"></div>
-              <div class="gallery-dot" data-index="3"></div>
+            <div class="image-gallery">
+              <img src="bao_bao_email_3.jpg" alt="Bao Bao Issey Miyake Email Campaign">
+              <!-- Add more images here -->
+              <img src="placeholder-image-3.jpg" alt="Bao Bao Issey Miyake Email Campaign Additional Image 1">
+              <img src="placeholder-image-4.jpg" alt="Bao Bao Issey Miyake Email Campaign Additional Image 2">
             </div>
           </div>
           <div class="content-details">
@@ -771,32 +688,14 @@
           </div>
         </div>
         
-        <!-- Rolling Stone Email with Gallery -->
+        <!-- Rolling Stone Email -->
         <div class="content-item fade-in">
           <div class="content-image">
-            <div class="gallery-container">
-              <div class="gallery-slide">
-                <img src="11.15 Revolutionary Artist's (2).gif" alt="Rolling Stone Revolutionary Artist Campaign">
-              </div>
-              <div class="gallery-slide">
-                <img src="2.29 BAU (Karol G) (1).gif" alt="Rolling Stone Karol G Campaign">
-              </div>
-              <div class="gallery-slide">
-                <img src="rollingstone-3.jpg" alt="Rolling Stone Additional Design">
-              </div>
-            </div>
-            <div class="gallery-nav">
-              <button class="gallery-btn prev-btn" aria-label="Previous image">
-                <i class="fas fa-chevron-left"></i>
-              </button>
-              <button class="gallery-btn next-btn" aria-label="Next image">
-                <i class="fas fa-chevron-right"></i>
-              </button>
-            </div>
-            <div class="gallery-dots">
-              <div class="gallery-dot active" data-index="0"></div>
-              <div class="gallery-dot" data-index="1"></div>
-              <div class="gallery-dot" data-index="2"></div>
+            <div class="image-gallery">
+              <img src="2.29 BAU (Karol G) (1).gif" alt="Rolling Stone Rebrand Email">
+              <!-- Add more images here -->
+              <img src="placeholder-image-5.jpg" alt="Rolling Stone Rebrand Email Additional Image 1">
+              <img src="placeholder-image-6.jpg" alt="Rolling Stone Rebrand Email Additional Image 2">
             </div>
           </div>
           <div class="content-details">
@@ -809,10 +708,15 @@
           </div>
         </div>
         
-        <!-- Keep your other content items the same -->
+        <!-- WWD Fashion Week Email -->
         <div class="content-item fade-in">
           <div class="content-image">
-            <img src="WWD BF - DAY 3.gif" alt="WWD Fashion Week Email">
+            <div class="image-gallery">
+              <img src="WWD BF - DAY 3.gif" alt="WWD Fashion Week Email">
+              <!-- Add more images here -->
+              <img src="placeholder-image-7.jpg" alt="WWD Fashion Week Email Additional Image 1">
+              <img src="placeholder-image-8.jpg" alt="WWD Fashion Week Email Additional Image 2">
+            </div>
           </div>
           <div class="content-details">
             <h3>WWD Fashion Week</h3>
@@ -824,9 +728,15 @@
           </div>
         </div>
         
+        <!-- AJ Madison Digital Lookbook -->
         <div class="content-item fade-in">
           <div class="content-image">
-            <img src="AjMadison_ApplianceJournal.jpg" alt="AJ Madison Digital Lookbook">
+            <div class="image-gallery">
+              <img src="AjMadison_ApplianceJournal.jpg" alt="AJ Madison Digital Lookbook">
+              <!-- Add more images here -->
+              <img src="placeholder-image-9.jpg" alt="AJ Madison Digital Lookbook Additional Image 1">
+              <img src="placeholder-image-10.jpg" alt="AJ Madison Digital Lookbook Additional Image 2">
+            </div>
           </div>
           <div class="content-details">
             <div class="role-badge">Editorial Operations Manager</div>
@@ -891,6 +801,13 @@
         mobileMenu.classList.add('active');
         document.documentElement.style.overflow = 'hidden';
         document.body.style.overflow = 'hidden';
+        
+        // Track GA event
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'mobile_menu_open', {
+            'event_category': 'Navigation'
+          });
+        }
       });
     }
 
@@ -907,6 +824,14 @@
         mobileMenu.classList.remove('active');
         document.documentElement.style.overflow = '';
         document.body.style.overflow = '';
+        
+        // Track GA event
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'mobile_nav_click', {
+            'event_category': 'Navigation',
+            'event_label': link.getAttribute('href')
+          });
+        }
       });
     });
 
@@ -926,6 +851,14 @@
             top: targetPosition,
             behavior: 'smooth'
           });
+          
+          // Track GA event
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'nav_click', {
+              'event_category': 'Navigation',
+              'event_label': targetId
+            });
+          }
         }
       });
     });
@@ -947,56 +880,6 @@
     window.addEventListener('scroll', fadeInOnScroll);
     window.addEventListener('load', fadeInOnScroll);
     fadeInOnScroll();
-
-    // Simple Gallery Functionality
-    document.addEventListener('DOMContentLoaded', function() {
-      const galleries = document.querySelectorAll('.content-image');
-      
-      galleries.forEach(gallery => {
-        const container = gallery.querySelector('.gallery-container');
-        if (!container) return; // Skip if no gallery (single images)
-        
-        const slides = gallery.querySelectorAll('.gallery-slide');
-        const prevBtn = gallery.querySelector('.prev-btn');
-        const nextBtn = gallery.querySelector('.next-btn');
-        const dots = gallery.querySelectorAll('.gallery-dot');
-        
-        let currentSlide = 0;
-        const totalSlides = slides.length;
-        
-        function updateGallery() {
-          container.style.transform = `translateX(-${currentSlide * 100}%)`;
-          
-          // Update dots
-          dots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === currentSlide);
-          });
-        }
-        
-        function nextSlide() {
-          currentSlide = (currentSlide + 1) % totalSlides;
-          updateGallery();
-        }
-        
-        function prevSlide() {
-          currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-          updateGallery();
-        }
-        
-        function goToSlide(index) {
-          currentSlide = index;
-          updateGallery();
-        }
-        
-        // Event listeners
-        if (nextBtn) nextBtn.addEventListener('click', nextSlide);
-        if (prevBtn) prevBtn.addEventListener('click', prevSlide);
-        
-        dots.forEach((dot, index) => {
-          dot.addEventListener('click', () => goToSlide(index));
-        });
-      });
-    });
 
     // Close mobile menu when clicking outside
     document.addEventListener('click', (e) => {
