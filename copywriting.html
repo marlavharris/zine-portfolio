@@ -751,7 +751,6 @@
           <div class="flip-card-inner">
             <div class="flip-card-front">
               <div class="card-image">
-                <img src="screencapture-view-email-billboard-2023-08-14-17_11_04.png" alt="Rolling Stone email creative">
                 <div class="image-placeholder">
                   <i class="fas fa-music fa-3x"></i>
                   <p>Rolling Stone Email Creative</p>
@@ -778,7 +777,6 @@
           <div class="flip-card-inner">
             <div class="flip-card-front">
               <div class="card-image">
-                <img src="screencapture-view-email-sportico-2023-08-14-17_08_53.png" alt="Sportico email creative">
                 <div class="image-placeholder">
                   <i class="fas fa-running fa-3x"></i>
                   <p>Sportico Email Creative</p>
@@ -805,7 +803,6 @@
           <div class="flip-card-inner">
             <div class="flip-card-front">
               <div class="card-image">
-                <img src="screencapture-view-email-wwd-2023-08-14-17_06_41.png" alt="WWD email creative">
                 <div class="image-placeholder">
                   <i class="fas fa-tshirt fa-3x"></i>
                   <p>WWD Email Creative</p>
@@ -980,14 +977,12 @@
       }
     });
 
-    // Image loading fallback
+    // Image loading fallback - removed the problematic image elements
     document.addEventListener('DOMContentLoaded', function() {
-      const images = document.querySelectorAll('img');
-      images.forEach(img => {
-        img.addEventListener('error', function() {
-          this.alt = 'Image not available';
-          this.style.display = 'none';
-        });
+      // Remove the broken image elements that were causing issues
+      const brokenImages = document.querySelectorAll('.card-image img');
+      brokenImages.forEach(img => {
+        img.remove();
       });
     });
   </script>
