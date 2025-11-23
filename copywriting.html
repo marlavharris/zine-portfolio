@@ -276,7 +276,60 @@
       transform: translateY(-2px);
     }
 
-    /* Flip Cards Section - UPDATED FOR 2x2 GRID */
+    /* Testimonial - MOVED UP WITH PINK COLOR */
+    .testimonial-section {
+      padding: 4rem 0;
+      background: var(--accent-lighter);
+    }
+    
+    .testimonial-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    .testimonial-text {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.5rem;
+      line-height: 1.6;
+      color: var(--accent);
+      margin-bottom: 2rem;
+      position: relative;
+    }
+    
+    .testimonial-text:before,
+    .testimonial-text:after {
+      content: '"';
+      font-size: 3rem;
+      color: var(--accent);
+      position: absolute;
+      opacity: 0.5;
+    }
+    
+    .testimonial-text:before {
+      top: -1rem;
+      left: -2rem;
+    }
+    
+    .testimonial-text:after {
+      bottom: -2rem;
+      right: -2rem;
+    }
+    
+    .testimonial-author {
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 0.25rem;
+      color: var(--charcoal);
+    }
+    
+    .testimonial-role {
+      color: var(--neutral-600);
+      font-size: 0.9rem;
+    }
+
+    /* Flip Cards Section */
     .flip-cards {
       padding: 4rem 0;
       background: var(--paper);
@@ -424,72 +477,7 @@
       background: var(--accent-light);
     }
 
-    /* Connect Section */
-    .connect-section {
-      padding: 4rem 0;
-      background: #f8f8f8;
-    }
-    
-    .connect-content {
-      max-width: 600px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    
-    .connect-text {
-      font-size: 1.125rem;
-      color: var(--neutral-700);
-      margin-bottom: 2rem;
-    }
-
-    /* Testimonial */
-    .testimonial-section {
-      padding: 4rem 0;
-      background: var(--paper);
-    }
-    
-    .testimonial-content {
-      max-width: 700px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    
-    .testimonial-text {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-size: 1.5rem;
-      line-height: 1.5;
-      color: var(--accent);
-      margin-bottom: 2rem;
-    }
-    
-    .testimonial-author {
-      font-weight: 600;
-    }
-    
-    .testimonial-role {
-      color: var(--neutral-600);
-      font-size: 0.9rem;
-    }
-
-    /* Section Header */
-    .section-header {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-    
-    .section-header h2 {
-      font-size: 2.25rem;
-      margin-bottom: 1rem;
-      font-weight: 300;
-    }
-    
-    .section-header p {
-      color: var(--neutral-600);
-      font-size: 1.125rem;
-    }
-
-    /* Contact */
+    /* Contact Section - COMBINED */
     .contact {
       padding: 4rem 0;
       text-align: center;
@@ -538,6 +526,23 @@
       color: var(--neutral-600);
     }
 
+    /* Section Header */
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .section-header h2 {
+      font-size: 2.25rem;
+      margin-bottom: 1rem;
+      font-weight: 300;
+    }
+    
+    .section-header p {
+      color: var(--neutral-600);
+      font-size: 1.125rem;
+    }
+
     /* Responsive */
     @media (max-width: 768px) {
       .nav-links {
@@ -568,6 +573,16 @@
       
       .hero {
         padding: 8rem 0 3rem;
+      }
+      
+      .testimonial-text {
+        font-size: 1.25rem;
+        padding: 0 1rem;
+      }
+      
+      .testimonial-text:before,
+      .testimonial-text:after {
+        display: none;
       }
     }
 
@@ -627,8 +642,20 @@
         <p>Crafting compelling copy that engages audiences, builds brands, and drives measurable results across digital and print media.</p>
         <div class="btn-group">
           <a href="#flip-cards" class="btn btn-primary">View Campaigns</a>
-          <a href="#connect" class="btn btn-secondary">Connect With Me</a>
+          <a href="#contact" class="btn btn-secondary">Get in Touch</a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonial - MOVED UP WITH PINK COLOR -->
+  <section class="testimonial-section">
+    <div class="container">
+      <div class="testimonial-content">
+        <div class="star-decoration">✦</div>
+        <div class="testimonial-text">Marla writes all promotional copy... consistently producing content that is not only flawless in grammar but perfectly aligned with the refined editorial voice. Given this flair for the written word, she is an excellent choice for any brand seeking sophisticated, effective copy.</div>
+        <div class="testimonial-author">Andrew</div>
+        <div class="testimonial-role">Senior Marketing Director</div>
       </div>
     </div>
   </section>
@@ -738,47 +765,17 @@
     </div>
   </section>
 
-  <!-- Connect Section -->
-  <section id="connect" class="connect-section">
-    <div class="container">
-      <div class="connect-content">
-        <div class="star-decoration">✦</div>
-        <h2>Connect With Me</h2>
-        <div class="bar"></div>
-        <div class="connect-text">
-          <p>Let's discuss how strategic copywriting can transform your brand communication and drive meaningful results.</p>
-          <p>I specialize in crafting compelling narratives that engage audiences, build brand authority, and drive conversions across email campaigns, editorial content, and marketing materials.</p>
-        </div>
-        <div class="btn-group">
-          <a href="mailto:va.mvharris@gmail.com" class="btn btn-primary">Start a Conversation</a>
-          <a href="subscriptions.html" class="btn btn-secondary">View Subscription Work</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonial -->
-  <section class="testimonial-section">
-    <div class="container">
-      <div class="testimonial-content">
-        <div class="star-decoration">✦</div>
-        <div class="testimonial-text">"Marla writes all promotional copy... consistently producing content that is not only flawless in grammar but perfectly aligned with the refined editorial voice. Given this flair for the written word, she is an excellent choice..."</div>
-        <div class="testimonial-author">Andrew</div>
-        <div class="testimonial-role">Senior Marketing Director</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
+  <!-- Contact Section - COMBINED -->
   <section id="contact" class="contact">
     <div class="container">
       <div class="star-decoration">✦</div>
       <h2>Let's Work Together</h2>
-      <p>Ready to elevate your brand with strategic copywriting?</p>
+      <div class="bar"></div>
+      <p>Ready to elevate your brand with strategic copywriting? Let's discuss how we can transform your brand communication and drive meaningful results.</p>
       
       <div class="btn-group">
         <a href="mailto:va.mvharris@gmail.com" class="btn btn-primary">Get in Touch</a>
-        <a href="index.html" class="btn btn-secondary">Back to Main</a>
+        <a href="subscriptions.html" class="btn btn-secondary">View Subscription Work</a>
       </div>
       
       <div class="social-links">
