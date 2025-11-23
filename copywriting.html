@@ -12,11 +12,11 @@
 <!-- End Google Analytics -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Marla Harris - Subscription Marketing: Driving Premium Subscriptions Through Strategic Email Campaigns">
-  <meta property="og:title" content="Marla Harris - Subscription Marketing">
-  <meta property="og:description" content="Driving Premium Subscriptions Through Strategic Email Campaigns">
+  <meta name="description" content="Marla Harris - Copywriting Portfolio: Strategic Writing That Drives Engagement and Conversion">
+  <meta property="og:title" content="Marla Harris - Copywriting Portfolio">
+  <meta property="og:description" content="Strategic Writing That Drives Engagement and Conversion">
   <meta property="og:type" content="website">
-  <title>Marla Harris — Subscription Marketing Portfolio</title>
+  <title>Marla Harris — Copywriting Portfolio</title>
   
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -309,89 +309,64 @@
       transform: translateY(-2px);
     }
 
-    /* Performance Metrics */
-    .performance-metrics {
+    /* Flip Cards Section */
+    .flip-cards {
       padding: 4rem 0;
       background: var(--paper);
       border-top: 1px solid var(--neutral-200);
     }
     
-    .metrics-elegant {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    
-    .metric-elegant {
-      text-align: center;
-      padding: 2.5rem 1.5rem;
-      position: relative;
-    }
-    
-    .metric-elegant:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
-    }
-    
-    .metric-value-elegant {
-      font-family: 'Playfair Display', serif;
-      font-size: 3rem;
-      color: var(--accent);
-      margin-bottom: 1rem;
-      line-height: 1;
-      font-weight: 300;
-    }
-    
-    .metric-story {
-      font-size: 1rem;
-      color: var(--neutral-700);
-      line-height: 1.6;
-    }
-
-    /* Email Creative Gallery */
-    .email-gallery {
-      padding: 4rem 0;
-      background: #f8f8f8;
-    }
-    
-    .gallery-container {
+    .cards-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
       gap: 2rem;
       margin-top: 3rem;
     }
     
-    .email-preview {
-      background: white;
-      border: 1px solid var(--neutral-200);
-      transition: all 0.3s ease;
+    .flip-card {
+      perspective: 1000px;
+      height: 500px;
+    }
+    
+    .flip-card-inner {
       position: relative;
-      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
     }
     
-    .email-preview:hover {
-      border-color: var(--accent);
-      transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
     }
     
-    .email-header {
-      padding: 1.5rem;
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      border: 1px solid var(--neutral-200);
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .flip-card-front {
+      background: white;
+      color: var(--ink);
+    }
+    
+    .flip-card-back {
       background: var(--charcoal);
       color: white;
-      text-align: center;
+      transform: rotateY(180deg);
+      padding: 2rem;
+      overflow-y: auto;
     }
     
-    .image-container {
-      position: relative;
-      height: 250px;
+    .card-image {
+      height: 350px;
       background: var(--neutral-200);
       display: flex;
       align-items: center;
@@ -399,21 +374,13 @@
       overflow: hidden;
     }
     
-    .email-image {
+    .card-image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.3s ease;
-    }
-    
-    .email-preview:hover .email-image {
-      transform: scale(1.05);
     }
     
     .image-placeholder {
-      position: absolute;
-      top: 0;
-      left: 0;
       width: 100%;
       height: 100%;
       display: flex;
@@ -429,35 +396,87 @@
       color: var(--accent);
     }
     
-    /* Email Stats */
-    .email-stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: var(--neutral-200);
-      margin-top: -1px;
-    }
-    
-    .stat {
-      background: white;
-      padding: 1rem;
+    .card-brand {
+      padding: 1.5rem;
+      background: var(--charcoal);
+      color: white;
       text-align: center;
     }
     
-    .stat-value {
-      font-family: 'Playfair Display', serif;
+    .card-brand h3 {
       font-size: 1.5rem;
-      color: var(--accent);
-      margin-bottom: 0.25rem;
-      line-height: 1;
-      font-weight: 300;
+      margin-bottom: 0.5rem;
     }
     
-    .stat-label {
-      font-size: 0.75rem;
-      color: var(--neutral-700);
+    .card-copy {
+      text-align: left;
+      line-height: 1.7;
+    }
+    
+    .card-copy p {
+      margin-bottom: 1rem;
+    }
+    
+    .card-cta {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      background: var(--accent);
+      color: white;
+      text-align: center;
+      font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.05em;
+    }
+
+    /* Connect Section */
+    .connect-section {
+      padding: 4rem 0;
+      background: #f8f8f8;
+    }
+    
+    .connect-content {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    .connect-text {
+      font-size: 1.125rem;
+      color: var(--neutral-700);
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+
+    /* Testimonial */
+    .testimonial-section {
+      padding: 4rem 0;
+      background: var(--paper);
+      border-top: 1px solid var(--neutral-200);
+    }
+    
+    .testimonial-content {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    .testimonial-text {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.5rem;
+      line-height: 1.5;
+      color: var(--accent);
+      margin-bottom: 2rem;
+    }
+    
+    .testimonial-author {
+      font-weight: 600;
+      color: var(--ink);
+    }
+    
+    .testimonial-role {
+      color: var(--neutral-600);
+      font-size: 0.9rem;
     }
 
     /* Section Header */
@@ -562,13 +581,16 @@
         justify-content: center;
       }
       
-      .metrics-elegant {
+      .cards-grid {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
       }
       
-      .gallery-container {
-        grid-template-columns: 1fr;
+      .flip-card {
+        height: 450px;
+      }
+      
+      .card-image {
+        height: 300px;
       }
       
       .btn-group {
@@ -598,20 +620,17 @@
         padding: 0 1rem;
       }
       
-      .metric-value-elegant {
-        font-size: 2.5rem;
-      }
-      
-      .metric-elegant {
-        padding: 2rem 1rem;
-      }
-      
       .section-header h2 {
         font-size: 2rem;
       }
       
-      .image-container {
-        height: 200px;
+      .testimonial-text {
+        font-size: 1.25rem;
+        padding: 0 1rem;
+      }
+      
+      .flip-card-back {
+        padding: 1.5rem;
       }
     }
   </style>
@@ -625,7 +644,8 @@
         <div class="nav-links">
           <a href="index.html" class="nav-link">Home</a>
           <a href="creative.html" class="nav-link">Creative</a>
-          <a href="copywriting.html" class="nav-link">Copywriting</a>
+          <a href="copywriting.html" class="nav-link active">Copywriting</a>
+          <a href="subscriptions.html" class="nav-link">Subscriptions</a>
           <a href="csr.html" class="nav-link">CSR</a>
           <a href="myjourney.html" class="nav-link">My Journey</a>
           <a href="#contact" class="nav-link">Contact</a>
@@ -644,6 +664,7 @@
         <a href="index.html" class="mobile-nav-link">Home</a>
         <a href="creative.html" class="mobile-nav-link">Creative</a>
         <a href="copywriting.html" class="mobile-nav-link">Copywriting</a>
+        <a href="subscriptions.html" class="mobile-nav-link">Subscriptions</a>
         <a href="csr.html" class="mobile-nav-link">CSR</a>
         <a href="myjourney.html" class="mobile-nav-link">My Journey</a>
         <a href="#contact" class="mobile-nav-link">Contact</a>
@@ -656,134 +677,138 @@
     <div class="container">
       <div class="hero-content">
         <div class="star-decoration">✦</div>
-        <h1>Subscription Marketing:<br>Where <span style="font-style: italic; color: var(--accent);">Creative</span><br>Meets Conversion.</h1>
+        <h1>Strategic Copywriting:<br>Where <span style="font-style: italic; color: var(--accent);">Words</span><br>Drive Action.</h1>
         <div class="bar"></div>
-        <p>Strategic email campaigns that drive premium subscriptions and deliver measurable revenue growth for luxury brands and media empires.</p>
+        <p>Crafting compelling copy that engages audiences, builds brands, and drives measurable results across digital and print media.</p>
         <div class="btn-group">
-          <a href="#metrics" class="btn btn-primary">View Performance</a>
-          <a href="#gallery" class="btn btn-secondary">See Creative</a>
+          <a href="#flip-cards" class="btn btn-primary">View Campaigns</a>
+          <a href="#connect" class="btn btn-secondary">Connect With Me</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Performance Metrics -->
-  <section id="metrics" class="performance-metrics">
+  <!-- Flip Cards -->
+  <section id="flip-cards" class="flip-cards">
     <div class="container">
       <div class="section-header">
         <div class="star-decoration">✦</div>
-        <h2>Subscription Performance</h2>
-        <p>Driving measurable results in competitive markets</p>
+        <h2>Email Campaign Copy</h2>
+        <p>Hover over each card to reveal the strategic copy</p>
       </div>
       
-      <div class="metrics-elegant">
-        <div class="metric-elegant fade-in">
-          <div class="metric-value-elegant">$26,864</div>
-          <div class="metric-story">Q1 subscription revenue generated through targeted email campaigns</div>
+      <div class="cards-grid">
+        <!-- Rolling Stone Card -->
+        <div class="flip-card fade-in">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="card-image">
+                <img src="screencapture-view-email-rollingstone-2023-08-14-17_13_32.png" alt="Rolling Stone email creative">
+                <div class="image-placeholder">
+                  <i class="fas fa-music fa-3x"></i>
+                  <p>Rolling Stone Email Creative</p>
+                </div>
+              </div>
+              <div class="card-brand">
+                <h3>ROLLING STONE</h3>
+                <p>Culture & Music Campaign</p>
+              </div>
+            </div>
+            <div class="flip-card-back">
+              <div class="card-copy">
+                <p>Rolling Stone has been at the forefront of American culture since 1967 - and just as the publication guided readers through the chaotic world of '60s counterculture, it continues to evolve and tell the most important stories of today.</p>
+                <p>Find out which states are pursuing laws prohibiting drag performances. Check out the best queer-owned brands. Follow country music's evolution as well as the musicians who are paving the way for inclusivity. And keep tabs on the most cringeworthy Pride merchandise.</p>
+                <p>Whether you're looking for the hottest new artists and albums, the latest cultural phenoms or powerful investigative journalism, Rolling Stone brings you riveting coverage daily. Subscribe now to get the magazine delivered, unlimited access to RollingStone.com or both together at a discounted rate. Offer ends today.</p>
+              </div>
+              <div class="card-cta">SUBSCRIBE NOW</div>
+            </div>
+          </div>
         </div>
         
-        <div class="metric-elegant fade-in">
-          <div class="metric-value-elegant">649</div>
-          <div class="metric-story">New premium subscribers acquired through conversion-optimized funnels</div>
+        <!-- Sportico Card -->
+        <div class="flip-card fade-in">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="card-image">
+                <img src="screencapture-view-email-sportico-2023-08-14-17_08_53.png" alt="Sportico email creative">
+                <div class="image-placeholder">
+                  <i class="fas fa-running fa-3x"></i>
+                  <p>Sportico Email Creative</p>
+                </div>
+              </div>
+              <div class="card-brand">
+                <h3>SPORTICO</h3>
+                <p>Sports Business Campaign</p>
+              </div>
+            </div>
+            <div class="flip-card-back">
+              <div class="card-copy">
+                <p>Sportico's comprehensive coverage keeps you informed on the numbers and what they mean for the sports industry.</p>
+                <p>From newly-named club presidents to chief revenue officers to the latest board appointments, follow the movements of sports' leading business players. Keep score on the Top 100 Highest-Paid Athletes in the World list, across 10 sports and 23 countries. Gain insight from franchise proprietors and organizational heads on how they are tackling worries about an economic downturn. And stay ahead of the latest SPACs, IPOs and newly-inked endorsement deals.</p>
+                <p>Subscribe today and save nearly 35% on unlimited access to Sportico, leading news source for the sports industry. Offer ends tomorrow.</p>
+              </div>
+              <div class="card-cta">SUBSCRIBE NOW</div>
+            </div>
+          </div>
         </div>
         
-        <div class="metric-elegant fade-in">
-          <div class="metric-value-elegant">63%</div>
-          <div class="metric-story">Average conversion rate across subscription campaigns and landing pages</div>
-        </div>
-        
-        <div class="metric-elegant fade-in">
-          <div class="metric-value-elegant">17%</div>
-          <div class="metric-story">Year-over-year Black Friday sales increase through strategic email sequencing</div>
+        <!-- WWD Card -->
+        <div class="flip-card fade-in">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="card-image">
+                <img src="screencapture-view-email-wwd-2023-08-14-17_06_41.png" alt="WWD email creative">
+                <div class="image-placeholder">
+                  <i class="fas fa-tshirt fa-3x"></i>
+                  <p>WWD Email Creative</p>
+                </div>
+              </div>
+              <div class="card-brand">
+                <h3>WOMEN'S WEAR DAILY</h3>
+                <p>Fashion & Textiles Campaign</p>
+              </div>
+            </div>
+            <div class="flip-card-back">
+              <div class="card-copy">
+                <p>Stay ahead of textiles and materials news with WWD's daily reporting.</p>
+                <p>Learn how bloggers are using Tik Tok to inform the public about the dangers of toxic chemicals in fast fashion. Discover which designers are creating innovative textiles from recycled plastic and what this means for the future. And get an early look at which fabrics will appear on the fall catwalks this year.</p>
+                <p>It's all available with a subscription to WWD. Subscribe at this unprecedented rate, and get unlimited access to daily textiles and materials coverage, as well as the full range of industry reporting on WWD.com and in the Digital Daily.</p>
+              </div>
+              <div class="card-cta">SUBSCRIBE NOW</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Email Creative Gallery -->
-  <section id="gallery" class="email-gallery">
+  <!-- Connect Section -->
+  <section id="connect" class="connect-section">
     <div class="container">
-      <div class="section-header">
+      <div class="connect-content fade-in">
         <div class="star-decoration">✦</div>
-        <h2>Email Campaign Creative</h2>
-        <p>Strategic email designs that drive subscriptions and engagement</p>
+        <h2>Connect With Me</h2>
+        <div class="bar"></div>
+        <div class="connect-text">
+          <p>Let's discuss how strategic copywriting can transform your brand communication and drive meaningful results.</p>
+          <p>I specialize in crafting compelling narratives that engage audiences, build brand authority, and drive conversions across email campaigns, editorial content, and marketing materials.</p>
+        </div>
+        <div class="btn-group">
+          <a href="mailto:va.mvharris@gmail.com" class="btn btn-primary">Start a Conversation</a>
+          <a href="subscriptions.html" class="btn btn-secondary">View Subscription Work</a>
+        </div>
       </div>
-      
-      <div class="gallery-container">
-        <!-- Sportico Email with Image Container -->
-        <div class="email-preview fade-in">
-          <div class="email-header">
-            <h3>SPORTICO</h3>
-            <p>Subscription Drive Campaign</p>
-          </div>
-          <div class="image-container">
-            <img src="images/sportico-email.gif" alt="Sportico email campaign animation" class="email-image">
-            <div class="image-placeholder">
-              <i class="fas fa-envelope fa-3x"></i>
-              <p>Sportico Email GIF</p>
-            </div>
-          </div>
-          <div class="email-stats">
-            <div class="stat">
-              <div class="stat-value">299</div>
-              <div class="stat-label">Annual Subs</div>
-            </div>
-            <div class="stat">
-              <div class="stat-value">25%+</div>
-              <div class="stat-label">Open Rate</div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Billboard Email with Image Container -->
-        <div class="email-preview fade-in">
-          <div class="email-header">
-            <h3>BILLBOARD PRO</h3>
-            <p>Premium Launch Campaign</p>
-          </div>
-          <div class="image-container">
-            <img src="screencapture-view-email-sportico-2023-08-14-17_08_53.png" alt="Billboard Pro email campaign animation" class="email-image">
-            <div class="screencapture-view-email-billboard-2023-08-14-17_11_04.png">
-              <i class="fas fa-chart-line fa-3x"></i>
-              <p>Billboard Email GIF</p>
-            </div>
-          </div>
-          <div class="email-stats">
-            <div class="stat">
-              <div class="stat-value">100</div>
-              <div class="stat-label">Bundle Subs</div>
-            </div>
-            <div class="stat">
-              <div class="stat-value">21.46%</div>
-              <div class="stat-label">Open Rate</div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Additional Campaign with Image Container -->
-        <div class="email-preview fade-in">
-          <div class="email-header">
-            <h3>PREMIUM CONTENT</h3>
-            <p>Conversion Optimization</p>
-          </div>
-          <div class="image-container">
-            <img src="images/premium-email.gif" alt="Premium content email campaign animation" class="email-image">
-            <div class="image-placeholder">
-              <i class="fas fa-star fa-3x"></i>
-              <p>Premium Email GIF</p>
-            </div>
-          </div>
-          <div class="email-stats">
-            <div class="stat">
-              <div class="stat-value">63%</div>
-              <div class="stat-label">Conversion</div>
-            </div>
-            <div class="stat">
-              <div class="stat-value">0.05%</div>
-              <div class="stat-label">Unsubscribe</div>
-            </div>
-          </div>
-        </div>
+    </div>
+  </section>
+
+  <!-- Testimonial -->
+  <section class="testimonial-section">
+    <div class="container">
+      <div class="testimonial-content fade-in">
+        <div class="star-decoration">✦</div>
+        <div class="testimonial-text">"Marla writes all promotional copy... consistently producing content that is not only flawless in grammar but perfectly aligned with the refined editorial voice. Given this flair for the written word, she is an excellent choice..."</div>
+        <div class="testimonial-author">Andrew</div>
+        <div class="testimonial-role">Senior Marketing Director</div>
       </div>
     </div>
   </section>
@@ -792,8 +817,8 @@
   <section id="contact" class="contact">
     <div class="container">
       <div class="star-decoration">✦</div>
-      <h2>Ready to Grow Your Subscriptions?</h2>
-      <p>Let's discuss how strategic email marketing can drive your subscription business forward.</p>
+      <h2>Let's Work Together</h2>
+      <p>Ready to elevate your brand with strategic copywriting?</p>
       
       <div class="btn-group">
         <a href="mailto:va.mvharris@gmail.com" class="btn btn-primary">Get in Touch</a>
@@ -834,14 +859,6 @@
             top: targetPosition,
             behavior: 'smooth'
           });
-          
-          // Track GA event
-          if (typeof gtag !== 'undefined') {
-            gtag('event', 'nav_click', {
-              'event_category': 'Navigation',
-              'event_label': targetId
-            });
-          }
         }
       });
     });
@@ -867,13 +884,6 @@
         mobileMenu.classList.add('active');
         document.documentElement.style.overflow = 'hidden';
         document.body.style.overflow = 'hidden';
-        
-        // Track GA event
-        if (typeof gtag !== 'undefined') {
-          gtag('event', 'mobile_menu_open', {
-            'event_category': 'Navigation'
-          });
-        }
       });
     }
 
@@ -890,14 +900,6 @@
         mobileMenu.classList.remove('active');
         document.documentElement.style.overflow = '';
         document.body.style.overflow = '';
-        
-        // Track GA event
-        if (typeof gtag !== 'undefined') {
-          gtag('event', 'mobile_nav_click', {
-            'event_category': 'Navigation',
-            'event_label': link.getAttribute('href')
-          });
-        }
       });
     });
 
@@ -928,31 +930,6 @@
         document.documentElement.style.overflow = '';
         document.body.style.overflow = '';
       }
-    });
-
-    // Track outbound links
-    document.querySelectorAll('a[href^="http"]').forEach(link => {
-      link.addEventListener('click', (e) => {
-        if (link.hostname !== window.location.hostname) {
-          if (typeof gtag !== 'undefined') {
-            gtag('event', 'outbound_click', {
-              'event_category': 'Outbound',
-              'event_label': link.href
-            });
-          }
-        }
-      });
-    });
-
-    // Track email clicks
-    document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
-      link.addEventListener('click', () => {
-        if (typeof gtag !== 'undefined') {
-          gtag('event', 'email_click', {
-            'event_category': 'Contact'
-          });
-        }
-      });
     });
 
     // Image loading fallback
