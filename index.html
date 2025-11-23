@@ -85,7 +85,7 @@
       letter-spacing: 0.3em;
     }
     
-    /* Header */
+    /* Header - CLEANED UP NAV */
     header {
       background: rgba(255, 255, 255, 0.98);
       backdrop-filter: blur(10px);
@@ -137,6 +137,10 @@
     }
     
     .nav-link:hover {
+      color: var(--accent);
+    }
+    
+    .nav-link.active {
       color: var(--accent);
     }
     
@@ -232,7 +236,7 @@
       min-width: 44px;
     }
     
-    /* Hero Section */
+    /* Hero Section - ORIGINAL LUXE STYLING */
     .hero {
       padding: 10rem 0 4rem;
       min-height: 100vh;
@@ -309,7 +313,7 @@
       transform: translateY(-2px);
     }
     
-    /* Performance Metrics - Luxury Style */
+    /* Performance Metrics - ORIGINAL LUXE STYLE */
     .performance-metrics {
       padding: 4rem 0;
       background: var(--paper);
@@ -355,7 +359,7 @@
       line-height: 1.6;
     }
     
-    /* Brands - Even Grid */
+    /* Brands - ORIGINAL STYLING */
     .brands {
       padding: 4rem 0;
       background: #f8f8f8;
@@ -400,7 +404,7 @@
       transform: translateY(-2px);
     }
     
-    /* Portfolio - Luxury Minimal */
+    /* Portfolio - ORIGINAL LUXE MINIMAL */
     .portfolio {
       padding: 4rem 0;
       background: #fafafa;
@@ -604,16 +608,6 @@
       font-size: 0.9rem;
     }
     
-    /* Loading state for images */
-    .img-loading {
-      background: var(--neutral-200);
-      min-height: 200px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--neutral-600);
-    }
-    
     /* Fade-in animation */
     .fade-in {
       opacity: 0;
@@ -624,22 +618,6 @@
     .fade-in.visible {
       opacity: 1;
       transform: translateY(0);
-    }
-    
-    /* Print Styles */
-    @media print {
-      .btn, .mobile-menu-btn, .social-links, .content-request {
-        display: none !important;
-      }
-      
-      .hero {
-        padding: 4rem 0 2rem;
-        min-height: auto;
-      }
-      
-      .performance-metrics, .brands, .portfolio, .testimonial-section, .contact {
-        padding: 2rem 0;
-      }
     }
     
     /* Responsive */
@@ -729,54 +707,16 @@
         padding: 0 1rem;
       }
     }
-    
-    @media (max-width: 480px) {
-      .container {
-        padding: 0 1rem;
-      }
-      
-      .brands-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .hero {
-        padding: 7rem 0 2rem;
-        min-height: 80vh;
-      }
-      
-      .performance-metrics,
-      .portfolio,
-      .brands,
-      .testimonial-section,
-      .contact {
-        padding: 3rem 0;
-      }
-      
-      .mobile-nav-link {
-        font-size: 1.1rem;
-        padding: 0.875rem 1.5rem;
-      }
-    }
-    
-    @media (max-width: 360px) {
-      .hero h1 {
-        font-size: 2rem;
-      }
-      
-      .hero p {
-        font-size: 0.9rem;
-      }
-    }
   </style>
 </head>
 <body>
-  <!-- Single Header -->
+  <!-- Header - CLEANED UP NAV -->
   <header>
     <div class="container">
       <nav>
         <a href="index.html" class="logo">Marla Harris</a>
         <div class="nav-links">
-          <a href="index.html" class="nav-link">Home</a>
+          <a href="index.html" class="nav-link active">Home</a>
           <a href="creative.html" class="nav-link">Creative</a>
           <a href="copywriting.html" class="nav-link">Copywriting</a>
           <a href="csr.html" class="nav-link">CSR</a>
@@ -804,7 +744,7 @@
     </div>
   </header>
 
-  <!-- Hero -->
+  <!-- Hero - ORIGINAL CONTENT -->
   <section class="hero" id="home">
     <div class="container">
       <div class="hero-content">
@@ -820,7 +760,7 @@
     </div>
   </section>
 
-  <!-- Performance Metrics -->
+  <!-- Performance Metrics - ORIGINAL -->
   <section class="performance-metrics">
     <div class="container">
       <div class="section-header">
@@ -964,14 +904,6 @@
             top: targetPosition,
             behavior: 'smooth'
           });
-          
-          // Track GA event
-          if (typeof gtag !== 'undefined') {
-            gtag('event', 'nav_click', {
-              'event_category': 'Navigation',
-              'event_label': targetId
-            });
-          }
         }
       });
     });
@@ -997,13 +929,6 @@
         mobileMenu.classList.add('active');
         document.documentElement.style.overflow = 'hidden';
         document.body.style.overflow = 'hidden';
-        
-        // Track GA event
-        if (typeof gtag !== 'undefined') {
-          gtag('event', 'mobile_menu_open', {
-            'event_category': 'Navigation'
-          });
-        }
       });
     }
 
@@ -1020,14 +945,6 @@
         mobileMenu.classList.remove('active');
         document.documentElement.style.overflow = '';
         document.body.style.overflow = '';
-        
-        // Track GA event
-        if (typeof gtag !== 'undefined') {
-          gtag('event', 'mobile_nav_click', {
-            'event_category': 'Navigation',
-            'event_label': link.getAttribute('href')
-          });
-        }
       });
     });
 
@@ -1058,46 +975,6 @@
         document.documentElement.style.overflow = '';
         document.body.style.overflow = '';
       }
-    });
-
-    // Track outbound links
-    document.querySelectorAll('a[href^="http"]').forEach(link => {
-      link.addEventListener('click', (e) => {
-        if (link.hostname !== window.location.hostname) {
-          if (typeof gtag !== 'undefined') {
-            gtag('event', 'outbound_click', {
-              'event_category': 'Outbound',
-              'event_label': link.href
-            });
-          }
-        }
-      });
-    });
-
-    // Track email clicks
-    document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
-      link.addEventListener('click', () => {
-        if (typeof gtag !== 'undefined') {
-          gtag('event', 'email_click', {
-            'event_category': 'Contact'
-          });
-        }
-      });
-    });
-
-    // Image loading fallback
-    document.addEventListener('DOMContentLoaded', function() {
-      const images = document.querySelectorAll('img');
-      images.forEach(img => {
-        img.addEventListener('error', function() {
-          this.alt = 'Image not available';
-          this.style.display = 'none';
-          const loadingDiv = document.createElement('div');
-          loadingDiv.className = 'img-loading';
-          loadingDiv.textContent = 'Image loading...';
-          this.parentNode.appendChild(loadingDiv);
-        });
-      });
     });
   </script>
 </body>
