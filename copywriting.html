@@ -12,8 +12,11 @@
 <!-- End Google Analytics -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Marla Harris - Copywriting Portfolio">
-  <title>Copywriting Portfolio | Marla Harris</title>
+  <meta name="description" content="Marla Harris - Subscription Marketing: Driving Premium Subscriptions Through Strategic Email Campaigns">
+  <meta property="og:title" content="Marla Harris - Subscription Marketing">
+  <meta property="og:description" content="Driving Premium Subscriptions Through Strategic Email Campaigns">
+  <meta property="og:type" content="website">
+  <title>Marla Harris — Subscription Marketing Portfolio</title>
   
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -56,7 +59,7 @@
     }
     
     .container {
-      max-width: 800px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 0 1.5rem;
     }
@@ -82,6 +85,7 @@
       letter-spacing: 0.3em;
     }
     
+    /* Header */
     header {
       background: rgba(255, 255, 255, 0.98);
       backdrop-filter: blur(10px);
@@ -228,55 +232,33 @@
       min-width: 44px;
     }
     
-    .page-hero {
+    /* Hero Section */
+    .hero {
       padding: 10rem 0 4rem;
       min-height: 100vh;
       display: flex;
       align-items: center;
       position: relative;
+    }
+    
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
       text-align: center;
     }
     
-    .page-hero-content {
-      max-width: 700px;
-      margin: 0 auto;
-    }
-    
-    .page-hero h1 {
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      margin-bottom: 1rem;
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      margin-bottom: 2rem;
       font-weight: 300;
       line-height: 1.1;
     }
     
-    .coming-soon-badge {
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: var(--accent);
-      margin-bottom: 2rem;
-    }
-    
-    .quote-section {
-      margin: 3rem 0;
-    }
-    
-    .quote-text {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-size: 1.4rem;
-      line-height: 1.5;
-      color: var(--accent);
-      text-align: center;
-      margin-bottom: 1rem;
-    }
-    
-    .quote-author {
-      font-weight: 500;
-      color: var(--ink);
-      font-size: 1rem;
-      letter-spacing: 0.05em;
-      text-align: center;
+    .hero p {
+      font-size: 1.125rem;
+      color: var(--neutral-700);
+      max-width: 500px;
+      margin: 0 auto 3rem;
     }
     
     .btn-group {
@@ -284,7 +266,6 @@
       gap: 1rem;
       justify-content: center;
       flex-wrap: wrap;
-      margin-top: 2rem;
     }
     
     .btn {
@@ -296,9 +277,9 @@
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       letter-spacing: 0.05em;
       display: inline-flex;
-      text-align: center;
       border: none;
       cursor: pointer;
+      text-align: center;
       align-items: center;
       justify-content: center;
       min-height: 44px;
@@ -327,7 +308,177 @@
       color: var(--accent);
       transform: translateY(-2px);
     }
+
+    /* Performance Metrics */
+    .performance-metrics {
+      padding: 4rem 0;
+      background: var(--paper);
+      border-top: 1px solid var(--neutral-200);
+    }
     
+    .metrics-elegant {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .metric-elegant {
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      position: relative;
+    }
+    
+    .metric-elegant:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    }
+    
+    .metric-value-elegant {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      line-height: 1;
+      font-weight: 300;
+    }
+    
+    .metric-story {
+      font-size: 1rem;
+      color: var(--neutral-700);
+      line-height: 1.6;
+    }
+
+    /* Email Creative Gallery */
+    .email-gallery {
+      padding: 4rem 0;
+      background: #f8f8f8;
+    }
+    
+    .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .email-preview {
+      background: white;
+      border: 1px solid var(--neutral-200);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .email-preview:hover {
+      border-color: var(--accent);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    
+    .email-header {
+      padding: 1.5rem;
+      background: var(--charcoal);
+      color: white;
+      text-align: center;
+    }
+    
+    .image-container {
+      position: relative;
+      height: 250px;
+      background: var(--neutral-200);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    
+    .email-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    
+    .email-preview:hover .email-image {
+      transform: scale(1.05);
+    }
+    
+    .image-placeholder {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--neutral-600);
+      background: var(--neutral-200);
+    }
+    
+    .image-placeholder i {
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+    
+    /* Email Stats */
+    .email-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--neutral-200);
+      margin-top: -1px;
+    }
+    
+    .stat {
+      background: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    
+    .stat-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--accent);
+      margin-bottom: 0.25rem;
+      line-height: 1;
+      font-weight: 300;
+    }
+    
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--neutral-700);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    /* Section Header */
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .section-header h2 {
+      font-size: 2.25rem;
+      margin-bottom: 1rem;
+      font-weight: 300;
+      color: var(--charcoal);
+    }
+    
+    .section-header p {
+      color: var(--neutral-600);
+      font-size: 1.125rem;
+    }
+
+    /* Contact */
     .contact {
       padding: 4rem 0;
       text-align: center;
@@ -382,7 +533,20 @@
       margin-bottom: 0.5rem;
       font-size: 0.9rem;
     }
+
+    /* Fade-in animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
     
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive */
     @media (max-width: 768px) {
       .container {
         padding: 0 1.25rem;
@@ -398,14 +562,13 @@
         justify-content: center;
       }
       
-      .page-hero {
-        padding: 8rem 0 3rem;
+      .metrics-elegant {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
       }
       
-      .quote-text {
-        font-size: 1.2rem;
-        padding: 0 1rem;
-        line-height: 1.4;
+      .gallery-container {
+        grid-template-columns: 1fr;
       }
       
       .btn-group {
@@ -421,28 +584,40 @@
         padding: 0.875rem 1.5rem;
       }
       
-      .mobile-nav-link {
-        font-size: 1.1rem;
-        padding: 0.875rem 1.5rem;
+      .hero {
+        padding: 8rem 0 3rem;
+        min-height: 90vh;
       }
-    }
-    
-    @media (max-width: 480px) {
-      .container {
+      
+      .hero h1 {
+        font-size: clamp(2.25rem, 8vw, 3.5rem);
+      }
+      
+      .hero p {
+        font-size: 1rem;
         padding: 0 1rem;
       }
       
-      .page-hero {
-        padding: 7rem 0 2rem;
+      .metric-value-elegant {
+        font-size: 2.5rem;
       }
       
-      .quote-text {
-        font-size: 1.1rem;
+      .metric-elegant {
+        padding: 2rem 1rem;
+      }
+      
+      .section-header h2 {
+        font-size: 2rem;
+      }
+      
+      .image-container {
+        height: 200px;
       }
     }
   </style>
 </head>
 <body>
+  <!-- Header -->
   <header>
     <div class="container">
       <nav>
@@ -453,13 +628,14 @@
           <a href="copywriting.html" class="nav-link">Copywriting</a>
           <a href="csr.html" class="nav-link">CSR</a>
           <a href="myjourney.html" class="nav-link">My Journey</a>
-          <a href="index.html#contact" class="nav-link">Contact</a>
+          <a href="#contact" class="nav-link">Contact</a>
         </div>
         <button class="mobile-menu-btn" aria-label="Toggle menu">
           <i class="fas fa-bars"></i>
         </button>
       </nav>
     </div>
+    <!-- Mobile Menu -->
     <div class="mobile-menu">
       <button class="close-menu" aria-label="Close menu">
         <i class="fas fa-times"></i>
@@ -470,39 +646,158 @@
         <a href="copywriting.html" class="mobile-nav-link">Copywriting</a>
         <a href="csr.html" class="mobile-nav-link">CSR</a>
         <a href="myjourney.html" class="mobile-nav-link">My Journey</a>
-        <a href="index.html#contact" class="mobile-nav-link">Contact</a>
+        <a href="#contact" class="mobile-nav-link">Contact</a>
       </div>
     </div>
   </header>
 
-  <section class="page-hero">
+  <!-- Hero -->
+  <section class="hero" id="home">
     <div class="container">
-      <div class="page-hero-content">
-        <div class="coming-soon-badge">Coming Soon</div>
-        <h1>Copywriting<br>& Content</h1>
+      <div class="hero-content">
+        <div class="star-decoration">✦</div>
+        <h1>Subscription Marketing:<br>Where <span style="font-style: italic; color: var(--accent);">Creative</span><br>Meets Conversion.</h1>
         <div class="bar"></div>
-        
-        <div class="quote-section">
-          <div class="quote-text">"Marla writes all promotional copy... consistently producing content that is not only flawless in grammar but perfectly aligned with the refined editorial voice. Given this flair for the written word, she is an excellent choice..."</div>
-          <div class="quote-author">— Andrew</div>
-        </div>
-        
+        <p>Strategic email campaigns that drive premium subscriptions and deliver measurable revenue growth for luxury brands and media empires.</p>
         <div class="btn-group">
-          <a href="index.html#contact" class="btn btn-primary">Contact Me</a>
-          <a href="creative.html" class="btn btn-secondary">View Creative Work</a>
+          <a href="#metrics" class="btn btn-primary">View Performance</a>
+          <a href="#gallery" class="btn btn-secondary">See Creative</a>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="contact">
+  <!-- Performance Metrics -->
+  <section id="metrics" class="performance-metrics">
+    <div class="container">
+      <div class="section-header">
+        <div class="star-decoration">✦</div>
+        <h2>Subscription Performance</h2>
+        <p>Driving measurable results in competitive markets</p>
+      </div>
+      
+      <div class="metrics-elegant">
+        <div class="metric-elegant fade-in">
+          <div class="metric-value-elegant">$26,864</div>
+          <div class="metric-story">Q1 subscription revenue generated through targeted email campaigns</div>
+        </div>
+        
+        <div class="metric-elegant fade-in">
+          <div class="metric-value-elegant">649</div>
+          <div class="metric-story">New premium subscribers acquired through conversion-optimized funnels</div>
+        </div>
+        
+        <div class="metric-elegant fade-in">
+          <div class="metric-value-elegant">63%</div>
+          <div class="metric-story">Average conversion rate across subscription campaigns and landing pages</div>
+        </div>
+        
+        <div class="metric-elegant fade-in">
+          <div class="metric-value-elegant">17%</div>
+          <div class="metric-story">Year-over-year Black Friday sales increase through strategic email sequencing</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Email Creative Gallery -->
+  <section id="gallery" class="email-gallery">
+    <div class="container">
+      <div class="section-header">
+        <div class="star-decoration">✦</div>
+        <h2>Email Campaign Creative</h2>
+        <p>Strategic email designs that drive subscriptions and engagement</p>
+      </div>
+      
+      <div class="gallery-container">
+        <!-- Sportico Email with Image Container -->
+        <div class="email-preview fade-in">
+          <div class="email-header">
+            <h3>SPORTICO</h3>
+            <p>Subscription Drive Campaign</p>
+          </div>
+          <div class="image-container">
+            <img src="images/sportico-email.gif" alt="Sportico email campaign animation" class="email-image">
+            <div class="image-placeholder">
+              <i class="fas fa-envelope fa-3x"></i>
+              <p>Sportico Email GIF</p>
+            </div>
+          </div>
+          <div class="email-stats">
+            <div class="stat">
+              <div class="stat-value">299</div>
+              <div class="stat-label">Annual Subs</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value">25%+</div>
+              <div class="stat-label">Open Rate</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Billboard Email with Image Container -->
+        <div class="email-preview fade-in">
+          <div class="email-header">
+            <h3>BILLBOARD PRO</h3>
+            <p>Premium Launch Campaign</p>
+          </div>
+          <div class="image-container">
+            <img src="screencapture-view-email-sportico-2023-08-14-17_08_53.png" alt="Billboard Pro email campaign animation" class="email-image">
+            <div class="screencapture-view-email-billboard-2023-08-14-17_11_04.png">
+              <i class="fas fa-chart-line fa-3x"></i>
+              <p>Billboard Email GIF</p>
+            </div>
+          </div>
+          <div class="email-stats">
+            <div class="stat">
+              <div class="stat-value">100</div>
+              <div class="stat-label">Bundle Subs</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value">21.46%</div>
+              <div class="stat-label">Open Rate</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Additional Campaign with Image Container -->
+        <div class="email-preview fade-in">
+          <div class="email-header">
+            <h3>PREMIUM CONTENT</h3>
+            <p>Conversion Optimization</p>
+          </div>
+          <div class="image-container">
+            <img src="images/premium-email.gif" alt="Premium content email campaign animation" class="email-image">
+            <div class="image-placeholder">
+              <i class="fas fa-star fa-3x"></i>
+              <p>Premium Email GIF</p>
+            </div>
+          </div>
+          <div class="email-stats">
+            <div class="stat">
+              <div class="stat-value">63%</div>
+              <div class="stat-label">Conversion</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value">0.05%</div>
+              <div class="stat-label">Unsubscribe</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact">
     <div class="container">
       <div class="star-decoration">✦</div>
-      <h2>Let's Create Compelling Content</h2>
-      <p>Ready to develop strategic copy that converts?</p>
+      <h2>Ready to Grow Your Subscriptions?</h2>
+      <p>Let's discuss how strategic email marketing can drive your subscription business forward.</p>
+      
       <div class="btn-group">
-        <a href="mailto:va.mvharris@gmail.com" class="btn btn-primary">Start a Project</a>
-        <a href="myjourney.html" class="btn btn-secondary">My Journey</a>
+        <a href="mailto:va.mvharris@gmail.com" class="btn btn-primary">Get in Touch</a>
+        <a href="index.html" class="btn btn-secondary">Back to Main</a>
       </div>
       
       <div class="social-links">
@@ -523,6 +818,34 @@
   </section>
 
   <script>
+    // Enhanced smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const target = document.querySelector(targetId);
+        if (target) {
+          const headerHeight = document.querySelector('header').offsetHeight;
+          const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+          
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+          
+          // Track GA event
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'nav_click', {
+              'event_category': 'Navigation',
+              'event_label': targetId
+            });
+          }
+        }
+      });
+    });
+
     // Header scroll effect
     window.addEventListener('scroll', function() {
       const header = document.querySelector('header');
@@ -578,6 +901,24 @@
       });
     });
 
+    // Fade-in animation on scroll
+    const fadeElements = document.querySelectorAll('.fade-in');
+    
+    const fadeInOnScroll = () => {
+      fadeElements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const elementVisible = 100;
+        
+        if (elementTop < window.innerHeight - elementVisible) {
+          element.classList.add('visible');
+        }
+      });
+    };
+    
+    window.addEventListener('scroll', fadeInOnScroll);
+    window.addEventListener('load', fadeInOnScroll);
+    fadeInOnScroll();
+
     // Close mobile menu when clicking outside
     document.addEventListener('click', (e) => {
       if (mobileMenu.classList.contains('active') && 
@@ -611,6 +952,17 @@
             'event_category': 'Contact'
           });
         }
+      });
+    });
+
+    // Image loading fallback
+    document.addEventListener('DOMContentLoaded', function() {
+      const images = document.querySelectorAll('img');
+      images.forEach(img => {
+        img.addEventListener('error', function() {
+          this.alt = 'Image not available';
+          this.style.display = 'none';
+        });
       });
     });
   </script>
