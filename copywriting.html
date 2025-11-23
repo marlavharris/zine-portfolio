@@ -276,7 +276,7 @@
       transform: translateY(-2px);
     }
 
-    /* Flip Cards Section */
+    /* Flip Cards Section - UPDATED FOR 2x2 GRID */
     .flip-cards {
       padding: 4rem 0;
       background: var(--paper);
@@ -284,7 +284,7 @@
     
     .cards-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 2rem;
       margin-top: 3rem;
     }
@@ -326,6 +326,25 @@
       transform: rotateY(180deg);
       padding: 2rem;
       overflow-y: auto;
+    }
+    
+    /* Pink Scrollbar for Card Copy */
+    .flip-card-back::-webkit-scrollbar {
+      width: 8px;
+    }
+    
+    .flip-card-back::-webkit-scrollbar-track {
+      background: var(--accent-lighter);
+      border-radius: 4px;
+    }
+    
+    .flip-card-back::-webkit-scrollbar-thumb {
+      background: var(--accent);
+      border-radius: 4px;
+    }
+    
+    .flip-card-back::-webkit-scrollbar-thumb:hover {
+      background: var(--accent-light);
     }
     
     .card-image {
@@ -526,6 +545,7 @@
         display: block;
       }
       
+      /* Stack cards on mobile */
       .cards-grid {
         grid-template-columns: 1fr;
       }
@@ -545,6 +565,13 @@
       
       .hero {
         padding: 8rem 0 3rem;
+      }
+    }
+
+    /* Medium screens - ensure 2x2 layout */
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
   </style>
@@ -618,12 +645,7 @@
           <div class="flip-card-inner">
             <div class="flip-card-front">
               <div class="card-image">
-                <!-- Replace this with your actual image -->
-                <!-- <img src="images/rolling-stone-email.jpg" alt="Rolling Stone email creative"> -->
-                <div class="image-placeholder">
-                  <i class="fas fa-music"></i>
-                  <p>Rolling Stone Email Creative</p>
-                </div>
+                <img src="screencapture-view-email-rollingstone-2023-08-14-17_13_32.png" alt="Rolling Stone email creative">
               </div>
               <div class="card-brand">
                 <h3>ROLLING STONE</h3>
@@ -632,9 +654,9 @@
             </div>
             <div class="flip-card-back">
               <div class="card-copy">
-                <p>Rolling Stone has been at the forefront of American culture since 1967 - and just as the publication guided readers through the chaotic world of '60s counterculture, it continues to evolve and tell the most important stories of today.</p>
+                <p><i>Rolling Stone</i> has been at the forefront of American culture since 1967 - and just as the publication guided readers through the chaotic world of '60s counterculture, it continues to evolve and tell the most important stories of today.</p>
                 <p>Find out which states are pursuing laws prohibiting drag performances. Check out the best queer-owned brands. Follow country music's evolution as well as the musicians who are paving the way for inclusivity. And keep tabs on the most cringeworthy Pride merchandise.</p>
-                <p>Whether you're looking for the hottest new artists and albums, the latest cultural phenoms or powerful investigative journalism, Rolling Stone brings you riveting coverage daily. Subscribe now to get the magazine delivered, unlimited access to RollingStone.com or both together at a discounted rate. Offer ends today.</p>
+                <p>Whether you're looking for the hottest new artists and albums, the latest cultural phenoms or powerful investigative journalism, <i>Rolling Stone</i> brings you riveting coverage daily. Subscribe now to get the magazine delivered, unlimited access to RollingStone.com or both together at a discounted rate. Offer ends today.</p>
               </div>
               <div class="card-cta">SUBSCRIBE NOW</div>
             </div>
@@ -647,10 +669,6 @@
             <div class="flip-card-front">
               <div class="card-image">
                 <img src="screencapture-view-email-sportico-2023-08-14-17_08_53.png" alt="Sportico email creative">
-                <div class="image-placeholder">
-                  <i class="fas fa-running"></i>
-                  <p>Sportico Email Creative</p>
-                </div>
               </div>
               <div class="card-brand">
                 <h3>SPORTICO</h3>
@@ -659,9 +677,9 @@
             </div>
             <div class="flip-card-back">
               <div class="card-copy">
-                <p>Sportico's comprehensive coverage keeps you informed on the numbers and what they mean for the sports industry.</p>
+                <p><i>Sportico</i>'s comprehensive coverage keeps you informed on the numbers and what they mean for the sports industry.</p>
                 <p>From newly-named club presidents to chief revenue officers to the latest board appointments, follow the movements of sports' leading business players. Keep score on the Top 100 Highest-Paid Athletes in the World list, across 10 sports and 23 countries. Gain insight from franchise proprietors and organizational heads on how they are tackling worries about an economic downturn. And stay ahead of the latest SPACs, IPOs and newly-inked endorsement deals.</p>
-                <p>Subscribe today and save nearly 35% on unlimited access to Sportico, leading news source for the sports industry. Offer ends tomorrow.</p>
+                <p>Subscribe today and save nearly 35% on unlimited access to <i>Sportico</i>, leading news source for the sports industry. Offer ends tomorrow.</p>
               </div>
               <div class="card-cta">SUBSCRIBE NOW</div>
             </div>
@@ -673,12 +691,7 @@
           <div class="flip-card-inner">
             <div class="flip-card-front">
               <div class="card-image">
-                <!-- Replace this with your actual image -->
-                <!-- <img src="images/wwd-email.jpg" alt="WWD email creative"> -->
-                <div class="image-placeholder">
-                  <i class="fas fa-tshirt"></i>
-                  <p>WWD Email Creative</p>
-                </div>
+                <img src="screencapture-view-email-wwd-2023-08-14-17_06_41.png" alt="WWD email creative">
               </div>
               <div class="card-brand">
                 <h3>WOMEN'S WEAR DAILY</h3>
@@ -690,6 +703,29 @@
                 <p>Stay ahead of textiles and materials news with WWD's daily reporting.</p>
                 <p>Learn how bloggers are using Tik Tok to inform the public about the dangers of toxic chemicals in fast fashion. Discover which designers are creating innovative textiles from recycled plastic and what this means for the future. And get an early look at which fabrics will appear on the fall catwalks this year.</p>
                 <p>It's all available with a subscription to WWD. Subscribe at this unprecedented rate, and get unlimited access to daily textiles and materials coverage, as well as the full range of industry reporting on WWD.com and in the Digital Daily.</p>
+              </div>
+              <div class="card-cta">SUBSCRIBE NOW</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Billboard Card -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="card-image">
+                <img src="screencapture-view-email-billboard-2023-08-14-17_11_04.png" alt="Billboard email creative">
+              </div>
+              <div class="card-brand">
+                <h3>BILLBOARD</h3>
+                <p>Music Charts & Industry Campaign</p>
+              </div>
+            </div>
+            <div class="flip-card-back">
+              <div class="card-copy">
+                <p><i>Billboard Pro</i> has been the definitive voice of music charts and industry news for over a century. From tracking the rise of new artists to analyzing market trends that shape the global music landscape, <i>Billboard Pro</i> remains the authority on what's hot and what's next.</p>
+                <p>Discover which artists are breaking records on the Hot 100. Get insider access to music industry deals and partnerships. Follow the evolution of streaming platforms and their impact on artist revenue. Stay informed about festival lineups, tour announcements, and the business behind the beats.</p>
+                <p>Subscribe today to get unlimited access to <i>Billboard Pro</i>'s comprehensive coverage, including exclusive charts, industry analysis, and breaking music news. Special introductory offer available for new subscribers.</p>
               </div>
               <div class="card-cta">SUBSCRIBE NOW</div>
             </div>
@@ -798,6 +834,23 @@
       } else {
         header.classList.remove('scrolled');
       }
+    });
+
+    // Image fallback handling
+    document.addEventListener('DOMContentLoaded', function() {
+      const images = document.querySelectorAll('.card-image img');
+      images.forEach(img => {
+        img.addEventListener('error', function() {
+          // If image fails to load, show placeholder
+          const placeholder = document.createElement('div');
+          placeholder.className = 'image-placeholder';
+          placeholder.innerHTML = `
+            <i class="fas fa-image"></i>
+            <p>Image not available</p>
+          `;
+          this.parentNode.appendChild(placeholder);
+        });
+      });
     });
   </script>
 </body>
