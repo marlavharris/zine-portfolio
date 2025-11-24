@@ -1,22 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-869S7ZPXQH"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-869S7ZPXQH');
-</script>
-<!-- End Google Analytics -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Marla Harris - Marketing Leader: Where Storytelling Meets Scalable Systems">
-  <meta property="og:title" content="Marla Harris - Marketing Leader">
-  <meta property="og:description" content="Where Storytelling Meets Scalable Systems">
-  <meta property="og:type" content="website">
-  <title>Marla Harris — Marketing Leader: Where Storytelling Meets Scalable Systems</title>
+  <title>Marla Harris — Marketing Leader</title>
   
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -45,7 +33,6 @@
     html {
       scroll-behavior: smooth;
       overflow-x: hidden;
-      scrollbar-gutter: stable;
     }
     
     body {
@@ -54,8 +41,6 @@
       background: var(--paper);
       line-height: 1.6;
       overflow-x: hidden;
-      -webkit-text-size-adjust: 100%;
-      padding-right: calc(100vw - 100%);
     }
     
     .container {
@@ -85,160 +70,9 @@
       letter-spacing: 0.3em;
     }
     
-    /* Header - CLEANED UP NAV */
-    header {
-      background: rgba(255, 255, 255, 0.98);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-      border-bottom: none;
-      transition: all 0.3s ease;
-    }
-    
-    header.scrolled {
-      box-shadow: 0 2px 20px rgba(0,0,0,0.05);
-      border-bottom: 1px solid var(--accent-lighter);
-    }
-    
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.25rem 0;
-    }
-    
-    .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
-      color: var(--ink);
-      text-decoration: none;
-      font-weight: 400;
-      letter-spacing: 0.1em;
-      z-index: 1001;
-    }
-    
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-    }
-    
-    .nav-link {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--neutral-700);
-      text-decoration: none;
-      font-weight: 400;
-      transition: color 0.3s ease;
-      position: relative;
-    }
-    
-    .nav-link:hover {
-      color: var(--accent);
-    }
-    
-    .nav-link.active {
-      color: var(--accent);
-    }
-    
-    .nav-link:after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 1px;
-      bottom: -5px;
-      left: 0;
-      background: var(--accent);
-      transition: width 0.3s ease;
-    }
-    
-    .nav-link:hover:after {
-      width: 100%;
-    }
-    
-    .mobile-menu-btn {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      color: var(--ink);
-      cursor: pointer;
-      z-index: 1001;
-      padding: 0.5rem;
-      min-height: 44px;
-      min-width: 44px;
-    }
-    
-    .mobile-menu {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100vh;
-      background: var(--paper);
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      z-index: 999;
-      opacity: 0;
-      transform: translateY(-20px);
-      transition: all 0.3s ease;
-      padding-right: calc(100vw - 100%);
-    }
-    
-    .mobile-menu.active {
-      display: flex;
-      opacity: 1;
-      transform: translateY(0);
-    }
-    
-    .mobile-nav-links {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      text-align: center;
-    }
-    
-    .mobile-nav-link {
-      font-size: 1.2rem;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--neutral-700);
-      text-decoration: none;
-      font-weight: 400;
-      transition: color 0.3s ease;
-      padding: 1rem 2rem;
-      min-height: 44px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    
-    .mobile-nav-link:hover {
-      color: var(--accent);
-    }
-    
-    .close-menu {
-      position: absolute;
-      top: 1.5rem;
-      right: 1.5rem;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      color: var(--ink);
-      cursor: pointer;
-      padding: 0.5rem;
-      min-height: 44px;
-      min-width: 44px;
-    }
-    
-    /* Hero Section - ORIGINAL LUXE STYLING */
+    /* Hero Section */
     .hero {
-      padding: 10rem 0 4rem;
+      padding: 6rem 0 4rem;
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -313,7 +147,7 @@
       transform: translateY(-2px);
     }
     
-    /* Performance Metrics - ORIGINAL LUXE STYLE */
+    /* Performance Metrics */
     .performance-metrics {
       padding: 4rem 0;
       background: var(--paper);
@@ -359,7 +193,7 @@
       line-height: 1.6;
     }
     
-    /* Brands - ORIGINAL STYLING */
+    /* Brands */
     .brands {
       padding: 4rem 0;
       background: #f8f8f8;
@@ -404,89 +238,108 @@
       transform: translateY(-2px);
     }
     
-    /* Portfolio - ORIGINAL LUXE MINIMAL */
+    /* Portfolio - Flip Cards */
     .portfolio {
       padding: 4rem 0;
       background: #fafafa;
     }
     
-    .portfolio-minimal {
+    .portfolio-flip {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
+      gap: 2rem;
       margin-top: 3rem;
     }
     
-    .portfolio-minimal-item {
-      background: white;
-      padding: 2.5rem 1.5rem;
-      text-align: center;
-      border: 1px solid var(--neutral-200);
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      height: 100%;
+    .flip-card {
+      background-color: transparent;
+      perspective: 1000px;
+      height: 400px;
     }
     
-    .portfolio-minimal-item:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
+    .flip-card-inner {
+      position: relative;
       width: 100%;
       height: 100%;
-      background: linear-gradient(90deg, transparent, var(--accent-lighter), transparent);
-      transition: left 0.6s ease;
+      text-align: center;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      border-radius: 8px;
     }
     
-    .portfolio-minimal-item:hover:before {
-      left: 100%;
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
     }
     
-    .portfolio-minimal-item:hover {
-      border-color: var(--accent);
-      transform: translateY(-2px);
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
     }
     
-    .portfolio-minimal-item h3 {
-      font-size: 1.375rem;
+    .flip-card-front {
+      background-color: white;
+      color: var(--ink);
+      border: 1px solid var(--neutral-200);
+    }
+    
+    .flip-card-back {
+      background-color: white;
+      color: var(--ink);
+      transform: rotateY(180deg);
+      border: 1px solid var(--accent);
+      overflow: hidden;
+    }
+    
+    .flip-card h3 {
+      font-size: 1.5rem;
       margin-bottom: 1rem;
       font-weight: 400;
-      min-height: 3rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
     
-    .portfolio-minimal-item p {
+    .flip-card p {
       color: var(--neutral-700);
-      margin-bottom: 2rem;
       line-height: 1.6;
       font-size: 0.95rem;
-      flex-grow: 1;
-      display: flex;
-      align-items: center;
     }
     
-    .portfolio-link-minimal {
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 0.875rem;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      margin-top: auto;
-      padding: 0.5rem 0;
-      min-height: 44px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .flip-card-image {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 4px;
+      margin-bottom: 1rem;
     }
     
-    .portfolio-link-minimal:hover {
-      text-decoration: underline;
+    .flip-card-text {
+      max-height: 300px;
+      overflow-y: auto;
+      padding-right: 5px;
+      text-align: left;
+      width: 100%;
+    }
+    
+    .flip-card-text::-webkit-scrollbar {
+      width: 4px;
+    }
+    
+    .flip-card-text::-webkit-scrollbar-track {
+      background: var(--neutral-200);
+      border-radius: 10px;
+    }
+    
+    .flip-card-text::-webkit-scrollbar-thumb {
+      background: var(--accent);
+      border-radius: 10px;
     }
     
     /* Testimonial Section */
@@ -626,22 +479,12 @@
         padding: 0 1.25rem;
       }
       
-      .nav-links {
-        display: none;
-      }
-      
-      .mobile-menu-btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      
       .metrics-elegant {
         grid-template-columns: 1fr;
         gap: 1.5rem;
       }
       
-      .portfolio-minimal {
+      .portfolio-flip {
         grid-template-columns: 1fr;
         gap: 1.5rem;
       }
@@ -664,7 +507,7 @@
       }
       
       .hero {
-        padding: 8rem 0 3rem;
+        padding: 4rem 0 3rem;
         min-height: 90vh;
       }
       
@@ -685,12 +528,8 @@
         padding: 2rem 1rem;
       }
       
-      .portfolio-minimal-item {
-        padding: 2rem 1.25rem;
-      }
-      
-      .portfolio-minimal-item h3 {
-        min-height: auto;
+      .flip-card {
+        height: 350px;
       }
       
       .brand-item {
@@ -707,44 +546,43 @@
         padding: 0 1rem;
       }
     }
+    
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 1rem;
+      }
+      
+      .brands-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .hero {
+        padding: 3rem 0 2rem;
+        min-height: 80vh;
+      }
+      
+      .performance-metrics,
+      .portfolio,
+      .brands,
+      .testimonial-section,
+      .contact {
+        padding: 3rem 0;
+      }
+    }
+    
+    @media (max-width: 360px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .hero p {
+        font-size: 0.9rem;
+      }
+    }
   </style>
 </head>
 <body>
-  <!-- Header - CLEANED UP NAV -->
-  <header>
-    <div class="container">
-      <nav>
-        <a href="index.html" class="logo">Marla Harris</a>
-        <div class="nav-links">
-          <a href="index.html" class="nav-link active">Home</a>
-          <a href="creative.html" class="nav-link">Creative</a>
-          <a href="copywriting.html" class="nav-link">Copywriting</a>
-          <a href="csr.html" class="nav-link">CSR</a>
-          <a href="myjourney.html" class="nav-link">My Journey</a>
-          <a href="#contact" class="nav-link">Contact</a>
-        </div>
-        <button class="mobile-menu-btn" aria-label="Toggle menu">
-          <i class="fas fa-bars"></i>
-        </button>
-      </nav>
-    </div>
-    <!-- Mobile Menu -->
-    <div class="mobile-menu">
-      <button class="close-menu" aria-label="Close menu">
-        <i class="fas fa-times"></i>
-      </button>
-      <div class="mobile-nav-links">
-        <a href="index.html" class="mobile-nav-link">Home</a>
-        <a href="creative.html" class="mobile-nav-link">Creative</a>
-        <a href="copywriting.html" class="mobile-nav-link">Copywriting</a>
-        <a href="csr.html" class="mobile-nav-link">CSR</a>
-        <a href="myjourney.html" class="mobile-nav-link">My Journey</a>
-        <a href="#contact" class="mobile-nav-link">Contact</a>
-      </div>
-    </div>
-  </header>
-
-  <!-- Hero - ORIGINAL CONTENT -->
+  <!-- Hero -->
   <section class="hero" id="home">
     <div class="container">
       <div class="hero-content">
@@ -760,7 +598,7 @@
     </div>
   </section>
 
-  <!-- Performance Metrics - ORIGINAL -->
+  <!-- Performance Metrics -->
   <section class="performance-metrics">
     <div class="container">
       <div class="section-header">
@@ -777,7 +615,7 @@
         
         <div class="metric-elegant fade-in">
           <div class="metric-value-elegant">59%</div>
-          <div class="metric-story">of web sales came from paid search, despite tight content rules.</div>
+          <div class="metric-story">Of all web sales driven despite industry-wide platform bans and restrictions</div>
         </div>
         
         <div class="metric-elegant fade-in">
@@ -787,7 +625,7 @@
         
         <div class="metric-elegant fade-in">
           <div class="metric-value-elegant">17%</div>
-          <div class="metric-story">year-over-year sales lift during Black Friday, driven by strategic send cadence.</div>
+          <div class="metric-story">Year-over-year sales lift during Black Friday, driven by strategic send cadence</div>
         </div>
       </div>
     </div>
@@ -832,23 +670,55 @@
         <p>Strategic work across creative, content, and community initiatives</p>
       </div>
       
-      <div class="portfolio-minimal">
-        <div class="portfolio-minimal-item fade-in">
-          <h3>Creative</h3>
-          <p>Strategic email marketing and visual campaigns that drive engagement and conversion for luxury brands and media empires.</p>
-          <a href="creative.html" class="portfolio-link-minimal">Explore Work</a>
+      <div class="portfolio-flip">
+        <!-- Creative Flip Card -->
+        <div class="flip-card fade-in">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <h3>Creative</h3>
+              <p>Strategic email marketing and visual campaigns that drive engagement and conversion for luxury brands and media empires.</p>
+              <p><small>Hover to see examples</small></p>
+            </div>
+            <div class="flip-card-back">
+              <img src="Ends Today - Ilhan Omar 3.21 RS Sale - 25% (3).gif" alt="Creative Work Example" class="flip-card-image">
+              <p>Email campaigns, visual branding, and marketing collateral for luxury and media clients.</p>
+            </div>
+          </div>
         </div>
         
-        <div class="portfolio-minimal-item fade-in">
-          <h3>Copywriting</h3>
-          <p>Editorial-quality copy that maintains brand voice while driving conversions for premium publications and luxury brands.</p>
-          <a href="copywriting.html" class="portfolio-link-minimal">Read Samples</a>
+        <!-- Copywriting Flip Card -->
+        <div class="flip-card fade-in">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <h3>Copywriting</h3>
+              <p>Editorial-quality copy that maintains brand voice while driving conversions for premium publications and luxury brands.</p>
+              <p><small>Hover to see samples</small></p>
+            </div>
+            <div class="flip-card-back">
+              <div class="flip-card-text">
+                <h4>Copywriting Samples</h4>
+                <p>Stay ahead of textiles and materials news with WWD's daily reporting.</p>
+                <p>Learn how bloggers are using Tik Tok to inform the public about the dangers of toxic chemicals in fast fashion. Discover which designers are creating innovative textiles from recycled plastic and what this means for the future.</p>
+                <p>And get an early look at which fabrics will appear on the fall catwalks this year.</p>
+                <p>It's all available with a subscription to WWD. Subscribe at this unprecedented rate, and get unlimited access to daily textiles and materials coverage, as well as the full range of industry reporting on WWD.com and in the Digital Daily.</p>
+              </div>
+            </div>
+          </div>
         </div>
         
-        <div class="portfolio-minimal-item fade-in">
-          <h3>CSR</h3>
-          <p>Building meaningful corporate social responsibility programs that create lasting community impact and brand value.</p>
-          <a href="csr.html" class="portfolio-link-minimal">View Initiatives</a>
+        <!-- CSR Flip Card -->
+        <div class="flip-card fade-in">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <h3>CSR</h3>
+              <p>Building meaningful corporate social responsibility programs that create lasting community impact and brand value.</p>
+              <p><small>Hover to see initiatives</small></p>
+            </div>
+            <div class="flip-card-back">
+              <img src="Image_from_iOS_6.jpg" alt="CSR Initiatives" class="flip-card-image">
+              <p>Community engagement programs, sustainability initiatives, and corporate responsibility campaigns.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -867,7 +737,6 @@
       
       <div class="btn-group">
         <a href="mailto:va.mvharris@gmail.com" class="btn btn-primary">Get in Touch</a>
-        <a href="myjourney.html" class="btn btn-secondary">My Journey</a>
       </div>
       
       <div class="social-links">
@@ -888,66 +757,6 @@
   </section>
 
   <script>
-    // Enhanced smooth scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-        
-        const target = document.querySelector(targetId);
-        if (target) {
-          const headerHeight = document.querySelector('header').offsetHeight;
-          const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-          
-          window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth'
-          });
-        }
-      });
-    });
-
-    // Header scroll effect
-    window.addEventListener('scroll', function() {
-      const header = document.querySelector('header');
-      if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-    });
-
-    // Mobile menu functionality
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const closeMenuBtn = document.querySelector('.close-menu');
-    const mobileMenu = document.querySelector('.mobile-menu');
-    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-
-    if (mobileMenuBtn) {
-      mobileMenuBtn.addEventListener('click', () => {
-        mobileMenu.classList.add('active');
-        document.documentElement.style.overflow = 'hidden';
-        document.body.style.overflow = 'hidden';
-      });
-    }
-
-    if (closeMenuBtn) {
-      closeMenuBtn.addEventListener('click', () => {
-        mobileMenu.classList.remove('active');
-        document.documentElement.style.overflow = '';
-        document.body.style.overflow = '';
-      });
-    }
-
-    mobileNavLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.remove('active');
-        document.documentElement.style.overflow = '';
-        document.body.style.overflow = '';
-      });
-    });
-
     // Fade-in animation on scroll
     const fadeElements = document.querySelectorAll('.fade-in');
     
@@ -966,15 +775,23 @@
     window.addEventListener('load', fadeInOnScroll);
     fadeInOnScroll();
 
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', (e) => {
-      if (mobileMenu.classList.contains('active') && 
-          !e.target.closest('.mobile-menu') && 
-          !e.target.closest('.mobile-menu-btn')) {
-        mobileMenu.classList.remove('active');
-        document.documentElement.style.overflow = '';
-        document.body.style.overflow = '';
-      }
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const target = document.querySelector(targetId);
+        if (target) {
+          const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
+          
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
     });
   </script>
 </body>
