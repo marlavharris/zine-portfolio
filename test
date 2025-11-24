@@ -1,0 +1,792 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-869S7ZPXQH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-869S7ZPXQH');
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Marla Harris - Growth engineer building marketing systems for millions of subscribers and $2M+ partnerships.">
+  <title>Marla V. Harris — Strategic Marketing & Systems Architecture</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --ink: #0b0b0b;
+      --paper: #fefafc;
+      --accent: #990049;
+      --accent-light: #b2005f;
+      --accent-lighter: rgba(178,0,95,0.08);
+      --neutral-200: #e5e5e5;
+      --neutral-600: #666666;
+      --neutral-700: #404040;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.5;
+    }
+    
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 400;
+      line-height: 1.2;
+    }
+    
+    .bar {
+      width: 60px;
+      height: 2px;
+      background: var(--accent);
+      margin: 1rem 0;
+    }
+    
+    .star-decoration {
+      text-align: center;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+      color: var(--ink);
+      letter-spacing: 0.3em;
+    }
+    
+    /* Header */
+    header {
+      border-bottom: 1px solid var(--neutral-200);
+      background: var(--paper);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+    
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+    
+    .nav-link {
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--neutral-600);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    
+    .nav-link:hover {
+      color: var(--accent);
+    }
+    
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--ink);
+      cursor: pointer;
+    }
+    
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 4rem 0 2rem;
+    }
+    
+    .hero h1 {
+      font-size: clamp(2.5rem, 8vw, 4rem);
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+    }
+    
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--neutral-700);
+      max-width: 500px;
+      margin: 0 auto 2rem;
+    }
+    
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .btn {
+      padding: 0.875rem 1.75rem;
+      border-radius: 999px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background: var(--accent-light);
+    }
+    
+    .btn-secondary {
+      border: 1px solid var(--neutral-200);
+      color: var(--ink);
+    }
+    
+    .btn-secondary:hover {
+      border-color: var(--neutral-600);
+    }
+    
+    /* Work */
+    .work {
+      padding: 3rem 0;
+    }
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    
+    .section-header h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    
+    .work-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    .work-card {
+      background: white;
+      border: 1px solid var(--neutral-200);
+      border-radius: 0.5rem;
+      padding: 1.5rem;
+    }
+    
+    .work-category {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    
+    .work-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .work-card p {
+      color: var(--neutral-700);
+      margin-bottom: 1.5rem;
+    }
+    
+    .work-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    
+    .stat {
+      text-align: center;
+    }
+    
+    .stat-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--accent);
+      margin-bottom: 0.25rem;
+    }
+    
+    .stat-label {
+      color: var(--neutral-600);
+      font-size: 0.9rem;
+    }
+    
+    /* Services */
+    .services {
+      padding: 3rem 0;
+      background: white;
+    }
+    
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    
+    .service-card {
+      background: var(--paper);
+      border: 1px solid var(--neutral-200);
+      border-radius: 0.5rem;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    
+    .service-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+    
+    .service-card p {
+      color: var(--neutral-700);
+      margin-bottom: 1rem;
+    }
+    
+    .service-features {
+      list-style: none;
+    }
+    
+    .service-features li {
+      padding: 0.25rem 0;
+      color: var(--neutral-700);
+      font-size: 0.9rem;
+    }
+    
+    /* Tech & Tools */
+    .tech {
+      padding: 3rem 0;
+    }
+    
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+    
+    .tech-category {
+      text-align: center;
+    }
+    
+    .tech-category h3 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    
+    .tech-items {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    
+    .tech-item {
+      background: white;
+      border: 1px solid var(--neutral-200);
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--ink);
+    }
+    
+    /* Brands */
+    .brands {
+      padding: 3rem 0;
+      background: white;
+    }
+    
+    .brand-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    
+    .brand-item {
+      text-align: center;
+      padding: 1.25rem 1rem;
+      font-weight: 600;
+      color: var(--ink);
+      opacity: 0.8;
+      transition: opacity 0.3s ease;
+    }
+    
+    .brand-item:hover {
+      opacity: 1;
+    }
+    
+    .brand-name {
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .brand-metric {
+      font-size: 0.75rem;
+      color: var(--accent);
+    }
+    
+    /* About */
+    .about {
+      padding: 3rem 0;
+      text-align: center;
+    }
+    
+    .about-content {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .bra-quote {
+      font-size: 2rem;
+      color: var(--accent);
+      font-style: italic;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+    
+    .about p {
+      font-size: 1.125rem;
+      color: var(--neutral-700);
+      margin-bottom: 1.5rem;
+    }
+    
+    /* Contact */
+    .contact {
+      padding: 3rem 0;
+      text-align: center;
+      background: white;
+    }
+    
+    .contact h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    
+    .contact p {
+      font-size: 1.125rem;
+      color: var(--neutral-700);
+      max-width: 500px;
+      margin: 0 auto 2rem;
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--accent-lighter);
+      color: var(--accent);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .social-link:hover {
+      background: var(--accent);
+      color: white;
+    }
+    
+    .contact-info {
+      color: var(--neutral-600);
+    }
+    
+    .contact-info p {
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .tech-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .brand-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .work-stats {
+        grid-template-columns: 1fr;
+      }
+      
+      .btn-group {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .btn {
+        width: 100%;
+        max-width: 250px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#" class="logo">Marla V. Harris</a>
+        <div class="nav-links">
+          <a href="#work" class="nav-link">Work</a>
+          <a href="#services" class="nav-link">Services</a>
+          <a href="#tech" class="nav-link">Tech Stack</a>
+          <a href="#brands" class="nav-link">Brands</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </div>
+        <button class="mobile-menu-btn">
+          <i class="fas fa-bars"></i>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="star-decoration">✦ ✦ ✦</div>
+      <h1>Where <span style="font-style: italic; color: var(--accent);">Storytelling</span><br>Meets Systems.</h1>
+      <div class="bar" style="margin: 0 auto 2rem;"></div>
+      <p>Growth engineer building marketing systems for millions of subscribers and $2M+ partnerships.</p>
+      <div class="btn-group">
+        <a href="#work" class="btn btn-primary">View Work</a>
+        <a href="#contact" class="btn btn-secondary">Let's Talk</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Work -->
+  <section id="work" class="work">
+    <div class="container">
+      <div class="section-header">
+        <div class="star-decoration">✦ ✦ ✦</div>
+        <h2>Selected Work</h2>
+        <p>Technical systems driving marketing growth</p>
+        <div class="bar" style="margin: 1rem auto;"></div>
+      </div>
+
+      <div class="work-grid">
+        <div class="work-card">
+          <div class="work-category">Subscription & Email Marketing</div>
+          <h3>Penske Media Corporation</h3>
+          <p>Led subscription email marketing for Rolling Stone, Billboard, and WWD - crafting customer journeys, creative ideation, and copy that maintained editorial excellence while driving conversions.</p>
+          <div class="work-stats">
+            <div class="stat">
+              <div class="stat-value">Multi-Million</div>
+              <div class="stat-label">Subscriber Base</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value">Editorial</div>
+              <div class="stat-label">Brand Integrity</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value">Email Journey</div>
+              <div class="stat-label">Architecture</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="work-card">
+          <div class="work-category">Complex Markets</div>
+          <h3>Museum of Sex</h3>
+          <p>Navigated complex platform compliance while driving 59% of all web sales through strategic campaign management in restricted advertising environments.</p>
+          <div class="work-stats">
+            <div class="stat">
+              <div class="stat-value">59%</div>
+              <div class="stat-label">Of all web sales</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value">69%</div>
+              <div class="stat-label">Campaign ROI</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value">Platform</div>
+              <div class="stat-label">Compliance</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="work-card">
+          <div class="work-category">Luxury & Data-Driven Creative</div>
+          <h3>Bao Bao Issey Miyake</h3>
+          <p>Optimized email creative strategy through rigorous A/B testing, proving minimalist product visuals drive the highest engagement. Combined data analysis with luxury brand sensibilities.</p>
+          <div class="work-stats">
+            <div class="stat">
+              <div class="stat-value">21.46%</div>
+              <div class="stat-label">Open Rate</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value">18%</div>
+              <div class="stat-label">Peak CTR</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value">Data-Driven</div>
+              <div class="stat-label">Creative</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="services">
+    <div class="container">
+      <div class="section-header">
+        <div class="star-decoration">✦ ✦ ✦</div>
+        <h2>Strategic Services</h2>
+        <p>Where technical architecture meets marketing strategy</p>
+        <div class="bar" style="margin: 1rem auto;"></div>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="star-decoration">✦</div>
+          <h3>Marketing Systems</h3>
+          <p>Technical infrastructure that powers growth</p>
+          <ul class="service-features">
+            <li>CRM & Automation Architecture</li>
+            <li>API & Data Integrations</li>
+            <li>System Implementation</li>
+          </ul>
+        </div>
+        
+        <div class="service-card">
+          <div class="star-decoration">✦</div>
+          <h3>Growth Strategy</h3>
+          <p>Data-driven customer journey design</p>
+          <ul class="service-features">
+            <li>Lifecycle Marketing</li>
+            <li>Paid Media & Compliance</li>
+            <li>Performance Optimization</li>
+          </ul>
+        </div>
+        
+        <div class="service-card">
+          <div class="star-decoration">✦</div>
+          <h3>Creative & Content</h3>
+          <p>Bridging creative vision with technical execution</p>
+          <ul class="service-features">
+            <li>Email & Journey Copywriting</li>
+            <li>Creative Ideation & Testing</li>
+            <li>Brand Voice Development</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack -->
+  <section id="tech" class="tech">
+    <div class="container">
+      <div class="section-header">
+        <div class="star-decoration">✦ ✦ ✦</div>
+        <h2>Technical Toolkit</h2>
+        <p>Platforms and systems I architect and scale with</p>
+        <div class="bar" style="margin: 1rem auto;"></div>
+      </div>
+      
+      <div class="tech-grid">
+        <div class="tech-category">
+          <h3>Marketing Technology</h3>
+          <div class="tech-items">
+            <span class="tech-item">Salesforce</span>
+            <span class="tech-item">Listrak</span>
+            <span class="tech-item">Klaviyo</span>
+            <span class="tech-item">Mailchimp</span>
+          </div>
+        </div>
+        
+        <div class="tech-category">
+          <h3>Analytics & Data</h3>
+          <div class="tech-items">
+            <span class="tech-item">Looker</span>
+            <span class="tech-item">Google Analytics</span>
+            <span class="tech-item">Zuora</span>
+            <span class="tech-item">Piano</span>
+          </div>
+        </div>
+        
+        <div class="tech-category">
+          <h3>Platform & E-commerce</h3>
+          <div class="tech-items">
+            <span class="tech-item">Shopify</span>
+            <span class="tech-item">WordPress</span>
+            <span class="tech-item">Drupal</span>
+            <span class="tech-item">Contentful</span>
+          </div>
+        </div>
+        
+        <div class="tech-category">
+          <h3>Operations</h3>
+          <div class="tech-items">
+            <span class="tech-item">Monday.com</span>
+            <span class="tech-item">Jira</span>
+            <span class="tech-item">Project Management</span>
+            <span class="tech-item">Workflow Design</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Brands -->
+  <section id="brands" class="brands">
+    <div class="container">
+      <div class="section-header">
+        <div class="star-decoration">✦ ✦ ✦</div>
+        <h2>Selected Collaborations</h2>
+        <p>Building systems for media empires, luxury brands, and complex markets</p>
+        <div class="bar" style="margin: 1rem auto;"></div>
+      </div>
+      <div class="brand-grid">
+        <div class="brand-item">
+          <div class="brand-name">ROLLING STONE</div>
+          <div class="brand-metric">Subscription Marketing</div>
+        </div>
+        <div class="brand-item">
+          <div class="brand-name">BILLBOARD PRO</div>
+          <div class="brand-metric">Trade Marketing</div>
+        </div>
+        <div class="brand-item">
+          <div class="brand-name">WOMEN'S WEAR DAILY</div>
+          <div class="brand-metric">Creative & Copy</div>
+        </div>
+        <div class="brand-item">
+          <div class="brand-name">BAO BAO ISSEY MIYAKE</div>
+          <div class="brand-metric">E-Commerce Management</div>
+        </div>
+        <div class="brand-item">
+          <div class="brand-name">AJ MADISON</div>
+          <div class="brand-metric">Trade Marketing</div>
+        </div>
+        <div class="brand-item">
+          <div class="brand-name">MUSEUM OF SEX</div>
+          <div class="brand-metric">Growth Marketing</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="about">
+    <div class="container">
+      <div class="about-content">
+        <div class="star-decoration">✦ ✦ ✦</div>
+        <h2>About Me</h2>
+        <div class="bar" style="margin: 1rem auto 2rem;"></div>
+        
+        <p>I understand both the logistics that make systems work and the creative that makes them connect.</p>
+        
+        <h3 class="bra-quote">"If I can sell a $300 bra,<br>I can sell anything."</h3>
+        
+        <p>Now I bridge marketing vision with technical execution - building the infrastructure that turns creative strategy into measurable growth.</p>
+        
+        <a href="mailto:va.mvharris@gmail.com?subject=The $300 Bra Story" class="btn btn-primary">Ask Me How</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="star-decoration">✦ ✦ ✦</div>
+      <h2>Let's Build Systems That Scale</h2>
+      <p>I understand both the technical architecture and the creative execution that drives growth.</p>
+      <div class="btn-group">
+        <a href="mailto:va.mvharris@gmail.com" class="btn btn-primary">Get in Touch</a>
+      </div>
+      
+      <div class="social-links">
+        <a href="https://linkedin.com/in/marla-harris-047b2946" class="social-link">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://www.instagram.com/marlavharris/" class="social-link">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+      
+      <div class="contact-info">
+        <p>Marla V. Harris</p>
+        <p><a href="mailto:va.mvharris@gmail.com" style="color: var(--accent);">va.mvharris@gmail.com</a></p>
+        <p>Brooklyn, NY</p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Simple smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
