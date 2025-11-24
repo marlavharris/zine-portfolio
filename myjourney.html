@@ -12,10 +12,10 @@
 <!-- End Google Analytics -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Marla Harris - My Journey from marketing to public service">
-  <meta property="og:title" content="Marla Harris - My Journey">
-  <meta property="og:description" content="From marketing leadership to public service through Master of Public Administration">
-  <title>My Journey | Marla Harris</title>
+  <meta name="description" content="Marla Harris - Corporate Social Responsibility: Building meaningful social impact programs">
+  <meta property="og:title" content="Marla Harris - CSR Portfolio">
+  <meta property="og:description" content="Building meaningful corporate social responsibility programs that create lasting impact">
+  <title>CSR Portfolio | Marla Harris</title>
   
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -58,7 +58,7 @@
     }
     
     .container {
-      max-width: 800px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 0 1.5rem;
     }
@@ -84,6 +84,7 @@
       letter-spacing: 0.3em;
     }
     
+    /* Fixed Navigation */
     header {
       background: rgba(255, 255, 255, 0.98);
       backdrop-filter: blur(10px);
@@ -138,6 +139,10 @@
       color: var(--accent);
     }
     
+    .nav-link.active {
+      color: var(--accent);
+    }
+    
     .nav-link:after {
       content: '';
       position: absolute;
@@ -149,7 +154,8 @@
       transition: width 0.3s ease;
     }
     
-    .nav-link:hover:after {
+    .nav-link:hover:after,
+    .nav-link.active:after {
       width: 100%;
     }
     
@@ -212,7 +218,8 @@
       justify-content: center;
     }
     
-    .mobile-nav-link:hover {
+    .mobile-nav-link:hover,
+    .mobile-nav-link.active {
       color: var(--accent);
     }
     
@@ -231,21 +238,22 @@
     }
     
     .page-hero {
-      padding: 10rem 0 4rem;
+      padding: 12rem 0 6rem;
       min-height: 100vh;
       display: flex;
       align-items: center;
       position: relative;
       text-align: center;
+      background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.98) 100%);
     }
     
     .page-hero-content {
-      max-width: 700px;
+      max-width: 800px;
       margin: 0 auto;
     }
     
     .page-hero h1 {
-      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
       margin-bottom: 1rem;
       font-weight: 300;
       line-height: 1.1;
@@ -260,94 +268,311 @@
       font-style: italic;
       font-size: 2rem;
       line-height: 1.4;
-      color: var(--accent);
+      color: var(--ink);
       text-align: center;
       margin-bottom: 1rem;
     }
     
-    .journey-content {
-      padding: 4rem 0;
+    .quote-author {
+      font-weight: 500;
+      color: var(--ink);
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+      text-align: center;
+    }
+    
+    /* FLIP CARD SECTION */
+    .flip-cards-section {
+      padding: 6rem 0;
       background: var(--paper);
     }
     
-    .journey-text {
-      font-size: 1.125rem;
-      color: var(--neutral-700);
-      margin-bottom: 2rem;
+    .flip-cards-grid {
+      display: grid;
+      gap: 3rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .flip-card {
+      height: 500px;
+      perspective: 1000px;
+    }
+    
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+    
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+    
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border: 1px solid var(--neutral-200);
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    
+    .flip-card-front {
+      background: white;
+    }
+    
+    .flip-card-back {
+      background: var(--paper);
+      transform: rotateY(180deg);
+      padding: 2.5rem;
+      overflow-y: auto;
+    }
+    
+    /* Pink Scrollbar for Card Copy */
+    .flip-card-back::-webkit-scrollbar {
+      width: 8px;
+    }
+    
+    .flip-card-back::-webkit-scrollbar-track {
+      background: var(--accent-lighter);
+      border-radius: 4px;
+    }
+    
+    .flip-card-back::-webkit-scrollbar-thumb {
+      background: var(--accent);
+      border-radius: 4px;
+    }
+    
+    .flip-card-back::-webkit-scrollbar-thumb:hover {
+      background: var(--accent-light);
+    }
+    
+    .card-image {
+      height: 350px;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+      padding: 1rem;
+    }
+    
+    .card-image img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+    
+    .image-placeholder {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--neutral-600);
+      background: var(--neutral-200);
+    }
+    
+    .image-placeholder i {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+    
+    .card-brand {
+      padding: 1.5rem;
+      background: var(--charcoal);
+      color: white;
+      text-align: center;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .card-brand h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .card-brand .initiative-org {
+      background: var(--gold-light);
+      color: var(--gold);
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      display: inline-block;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin: 0 auto;
+    }
+    
+    .card-content {
+      text-align: left;
       line-height: 1.7;
     }
     
-    .journey-text:last-child {
-      margin-bottom: 0;
+    .card-content p {
+      margin-bottom: 1.25rem;
     }
     
-    .journey-highlight {
+    .initiative-impact {
       background: var(--accent-lighter);
-      padding: 2rem;
+      padding: 1.5rem;
       border-radius: 8px;
-      border-left: 3px solid var(--accent);
-      margin: 3rem 0;
+      margin: 1.5rem 0;
+      position: relative;
+      overflow: hidden;
     }
     
-    .journey-highlight h3 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
+    .initiative-impact:before {
+      content: '✦';
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      font-size: 1.2rem;
       color: var(--accent);
+      opacity: 0.1;
     }
     
-    .skills-section {
-      margin: 3rem 0;
-    }
-    
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-    
-    .skill-category {
-      background: white;
-      border: 1px solid var(--neutral-200);
-      padding: 2rem;
-      border-radius: 8px;
-    }
-    
-    .skill-category h4 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.25rem;
-      margin-bottom: 1rem;
+    .impact-title {
+      font-weight: 600;
       color: var(--accent);
+      margin-bottom: 0.75rem;
+      font-size: 1rem;
     }
     
-    .skill-list {
+    .impact-list {
       list-style: none;
       padding: 0;
     }
     
-    .skill-list li {
+    .impact-list li {
       margin-bottom: 0.5rem;
-      padding-left: 1rem;
+      padding-left: 1.25rem;
       position: relative;
+      font-size: 0.9rem;
     }
     
-    .skill-list li:before {
-      content: '•';
+    .impact-list li:before {
+      content: '✦';
       color: var(--accent);
       position: absolute;
       left: 0;
+      font-size: 0.7rem;
     }
     
-    .btn-group {
+    .initiative-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      color: var(--neutral-600);
+      border-top: 1px solid var(--neutral-200);
+      padding-top: 1.5rem;
+      margin-top: auto;
+    }
+    
+    .initiative-role {
+      font-weight: 500;
+      color: var(--accent);
+    }
+    
+    /* Regular Initiatives for non-flip items */
+    .initiatives-section {
+      padding: 6rem 0;
+      background: #f8f8f8;
+    }
+    
+    .initiatives-grid {
+      display: grid;
+      gap: 3rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .initiative-item {
+      background: white;
+      border: 1px solid var(--neutral-200);
+      padding: 2.5rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .initiative-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+    
+    .initiative-item:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+    
+    .initiative-item:hover:before {
+      transform: scaleX(1);
+    }
+    
+    .initiative-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
+    .initiative-header h3 {
+      font-size: 1.75rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .initiative-org {
+      background: var(--gold-light);
+      color: var(--gold);
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      display: inline-block;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .initiative-content {
+      color: var(--neutral-700);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    
+    .initiative-buttons {
       display: flex;
       gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 3rem;
+      margin-top: 1rem;
     }
     
     .btn {
-      padding: 1rem 2rem;
+      padding: 0.75rem 1.5rem;
       border-radius: 999px;
       font-weight: 500;
       text-decoration: none;
@@ -375,20 +600,19 @@
       box-shadow: 0 6px 20px rgba(153, 0, 73, 0.3);
     }
     
-    .btn-secondary {
-      border: 1px solid var(--neutral-200);
-      color: var(--ink);
+    .btn-outline {
+      border: 1px solid var(--accent);
+      color: var(--accent);
       background: transparent;
     }
     
-    .btn-secondary:hover {
-      border-color: var(--accent);
-      color: var(--accent);
+    .btn-outline:hover {
+      background: var(--accent-lighter);
       transform: translateY(-2px);
     }
     
     .contact {
-      padding: 4rem 0;
+      padding: 6rem 0;
       text-align: center;
       background: #f8f8f8;
     }
@@ -477,7 +701,7 @@
         min-height: auto;
       }
       
-      .journey-content, .contact {
+      .flip-cards-section, .initiatives-section, .contact {
         padding: 2rem 0;
       }
     }
@@ -498,18 +722,12 @@
       }
       
       .page-hero {
-        padding: 8rem 0 3rem;
+        padding: 10rem 0 4rem;
       }
       
       .quote-text {
         font-size: 1.6rem;
         padding: 0 1rem;
-      }
-      
-      .btn-group {
-        flex-direction: column;
-        align-items: center;
-        gap: 0.75rem;
       }
       
       .btn {
@@ -519,22 +737,49 @@
         padding: 0.875rem 1.5rem;
       }
       
-      .journey-content {
-        padding: 3rem 0;
+      .flip-card {
+        height: 450px;
       }
       
-      .journey-highlight {
-        padding: 1.5rem;
-        margin: 2rem 0;
+      .card-image {
+        height: 300px;
       }
       
-      .skills-grid {
-        grid-template-columns: 1fr;
+      .flip-card-back {
+        padding: 2rem;
+      }
+      
+      .initiative-item {
+        padding: 2rem;
+      }
+      
+      .initiative-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .initiative-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: flex-start;
+      }
+      
+      .initiative-buttons {
+        flex-direction: column;
+        width: 100%;
       }
       
       .mobile-nav-link {
         font-size: 1.1rem;
         padding: 0.875rem 1.5rem;
+      }
+      
+      .flip-cards-section {
+        padding: 4rem 0;
+      }
+      
+      .initiatives-section {
+        padding: 4rem 0;
       }
     }
     
@@ -544,10 +789,34 @@
       }
       
       .page-hero {
-        padding: 7rem 0 2rem;
+        padding: 8rem 0 3rem;
       }
       
       .contact {
+        padding: 4rem 0;
+      }
+      
+      .flip-card {
+        height: 400px;
+      }
+      
+      .card-image {
+        height: 250px;
+      }
+      
+      .flip-card-back {
+        padding: 1.5rem;
+      }
+      
+      .initiative-item {
+        padding: 1.5rem;
+      }
+      
+      .flip-cards-section {
+        padding: 3rem 0;
+      }
+      
+      .initiatives-section {
         padding: 3rem 0;
       }
       
@@ -566,7 +835,7 @@
           <a href="index.html" class="nav-link">Home</a>
           <a href="creative.html" class="nav-link">Creative</a>
           <a href="copywriting.html" class="nav-link">Copywriting</a>
-          <a href="csr.html" class="nav-link">CSR</a>
+          <a href="csr.html" class="nav-link active">CSR</a>
           <a href="myjourney.html" class="nav-link">My Journey</a>
           <a href="index.html#contact" class="nav-link">Contact</a>
         </div>
@@ -583,7 +852,7 @@
         <a href="index.html" class="mobile-nav-link">Home</a>
         <a href="creative.html" class="mobile-nav-link">Creative</a>
         <a href="copywriting.html" class="mobile-nav-link">Copywriting</a>
-        <a href="csr.html" class="mobile-nav-link">CSR</a>
+        <a href="csr.html" class="mobile-nav-link active">CSR</a>
         <a href="myjourney.html" class="mobile-nav-link">My Journey</a>
         <a href="index.html#contact" class="mobile-nav-link">Contact</a>
       </div>
@@ -593,69 +862,133 @@
   <section class="page-hero">
     <div class="container">
       <div class="page-hero-content">
-        <div class="star-decoration">✦</div>
-        <h1>My Journey</h1>
+        <h1>Corporate Social<br><span style="font-style: italic; color: var(--accent);">Responsibility</span></h1>
         <div class="bar"></div>
         
         <div class="quote-section">
-          <div class="quote-text">"If I can sell a $300 bra, I can sell anything."</div>
+          <div class="quote-text">"The AjMadison Community Fridge Initiative seeks to bring more visibility to food insecurity and celebrate these grassroots groups' amazing work."</div>
+          <div class="quote-author">— Marla Harris, Operations Manager at AjMadison</div>
+        </div>
+        
+        <div class="btn-group">
+          <a href="#flip-cards" class="btn btn-primary">View CSR Initiatives</a>
+          <a href="index.html#contact" class="btn btn-outline">Contact Me</a>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="journey-content">
+  <!-- Flip Cards Section -->
+  <section id="flip-cards" class="flip-cards-section">
     <div class="container">
-      <p class="journey-text fade-in">Five years of working retail, selling lingerie, taught me how to speak to the customer, and what gets them to buy. Lessons that I take with me in every project or job I take on.</p>
+      <div class="star-decoration">✦</div>
+      <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2.25rem; font-weight: 300;">CSR Impact Initiatives</h2>
       
-      <p class="journey-text fade-in">From covering fashion shows at Mercedes Benz Fashion Week to subscription marketing for media empires, I bridge the gap between human desire and technical execution—creating systems that honor complexity while driving measurable growth.</p>
-      
-      <div class="skills-section fade-in">
-        <h3 style="text-align: center; margin-bottom: 2rem; font-size: 2rem;">Core Competencies</h3>
-        <div class="skills-grid">
-          <div class="skill-category">
-            <h4>Marketing Strategy</h4>
-            <ul class="skill-list">
-              <li>Subscription Marketing</li>
-              <li>Audience Development</li>
-              <li>Brand Positioning</li>
-              <li>Growth Strategy</li>
-            </ul>
-          </div>
-          <div class="skill-category">
-            <h4>Creative Execution</h4>
-            <ul class="skill-list">
-              <li>Email Campaign Design</li>
-              <li>Visual Identity Systems</li>
-              <li>Content Strategy</li>
-              <li>Brand Storytelling</li>
-            </ul>
-          </div>
-          <div class="skill-category">
-            <h4>Technical Skills</h4>
-            <ul class="skill-list">
-              <li>Marketing Automation</li>
-              <li>Analytics & Reporting</li>
-              <li>CRM Management</li>
-              <li>Project Management</li>
-            </ul>
+      <div class="flip-cards-grid">
+        <!-- Community Fridge Flip Card -->
+        <div class="flip-card fade-in">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="card-image">
+                <img src="20201019_154551-scaled.jpg" alt="Community Fridge Volunteers in Harlem">
+              </div>
+              <div class="card-brand">
+                <h3>Community Fridge Initiative</h3>
+                <div class="initiative-org">AJ Madison</div>
+              </div>
+            </div>
+            <div class="flip-card-back">
+              <div class="card-content">
+                <p>Spearheaded corporate partnership program to support community refrigerators across New York City, addressing food insecurity at the neighborhood level while building meaningful brand connections.</p>
+                
+                <div class="initiative-impact">
+                  <div class="impact-title">Key Achievements:</div>
+                  <ul class="impact-list">
+                    <li>Partnered with 12 community fridge organizations across 5 boroughs</li>
+                    <li>Featured in Modern Luxury Magazine for community leadership</li>
+                    <li>Developed sustainable partnership model that continues to operate today</li>
+                    <li>Increased brand visibility while addressing critical community needs</li>
+                  </ul>
+                </div>
+                
+                <p><strong>Approach:</strong> Built bridges between corporate resources and grassroots organizations, creating mutual value while maintaining the authenticity of community-led initiatives.</p>
+              </div>
+              <div class="initiative-meta">
+                <span class="initiative-role">Program Lead</span>
+                <span>2020-2021</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      
-      <div class="journey-highlight fade-in">
-        <h3>Next Chapter: Public Service</h3>
-        <p class="journey-text">I'm starting my Master of Public Administration this fall at Baruch College's Marxe School of Public and International Affairs, and I'm currently seeking marketing or communications roles—especially in mission-driven spaces.</p>
-        <p class="journey-text">With a strong background in storytelling, strategy, and audience engagement, I'm looking to bring that experience to a team that values impact and clarity. If you know of any roles in nonprofit, public sector, or purpose-led marketing, I'd love to connect.</p>
-      </div>
-      
-      <div class="content-request fade-in">
-        <p style="text-align: center;"><small>Want to learn more about my transition to public service? <a href="mailto:va.mvharris@gmail.com?subject=Public%20Service%20Transition">Let's discuss</a></small></p>
-      </div>
-      
-      <div class="btn-group">
-        <a href="index.html#contact" class="btn btn-primary">Connect With Me</a>
-        <a href="creative.html" class="btn btn-secondary">View My Work</a>
+    </div>
+  </section>
+
+  <!-- Regular Initiatives Section -->
+  <section class="initiatives-section">
+    <div class="container">
+      <div class="initiatives-grid">
+        <!-- Royal Chances Reentry Foundation -->
+        <div class="initiative-item fade-in">
+          <div class="initiative-header">
+            <div>
+              <h3>Royal Chances Reentry Foundation</h3>
+              <div class="initiative-org">Nonprofit Marketing & Branding</div>
+            </div>
+          </div>
+          <div class="initiative-content">
+            <p>Leading marketing and branding initiatives for a nonprofit dedicated to supporting individuals transitioning back into society after incarceration.</p>
+            
+            <div class="initiative-impact">
+              <div class="impact-title">Services Provided:</div>
+              <ul class="impact-list">
+                <li>Job readiness & mock interviews</li>
+                <li>Felony explanation letter guidance</li>
+                <li>Peer mentorship & life-skills training</li>
+                <li>Support navigating housing & resources</li>
+              </ul>
+            </div>
+            
+            <p><strong>Mission:</strong> "You Don't Have to Be Ashamed — We're Here to Help. We believe in second chances, not second-guessing your worth. Your story isn't over; it's just being rewritten."</p>
+            
+            <p>Unlocking Second Chances, Restoring Dignity.</p>
+          </div>
+          <div class="initiative-meta">
+            <div>
+              <span class="initiative-role">Marketing & Branding Lead</span>
+              <span>2023-Present</span>
+            </div>
+            <div class="initiative-buttons">
+              <a href="mailto:royalchances.reentry.inc@gmail.com" class="btn btn-primary">Contact Royal Chances</a>
+              <a href="#contact" class="btn btn-outline">Learn More</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Adult Literacy Tutoring at Imani House -->
+        <div class="initiative-item fade-in">
+          <div class="initiative-header">
+            <div>
+              <h3>Adult Literacy Tutoring</h3>
+              <div class="initiative-org">Imani House</div>
+            </div>
+          </div>
+          <div class="initiative-content">
+            <p>Provided one-on-one and small group literacy tutoring for adults, helping them develop essential reading and writing skills for personal growth and professional advancement.</p>
+            
+            <div class="initiative-impact">
+              <div class="impact-title">The Imani House Mission:</div>
+              <p>"To Assist Marginalized Youth, Families & Immigrants to Create Vibrant Neighborhoods Where Residents Are Decision Makers who Take Responsibility for the Improvement of their Lives and Surroundings."</p>
+              <p>We Believe that Everyone Can Succeed if They Are Motivated and Have Access to Appropriate Skills, Information and Opportunities.</p>
+            </div>
+            
+            <p><strong>Approach:</strong> Created personalized learning plans based on individual needs and goals, focusing on practical literacy skills that could be immediately applied to daily life and employment situations.</p>
+          </div>
+          <div class="initiative-meta">
+            <span class="initiative-role">Adult Literacy Tutor</span>
+            <span>2018-2019</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -664,15 +997,15 @@
     <div class="container">
       <div class="star-decoration">✦</div>
       <h2>Let's Create Impact Together</h2>
-      <p>Ready to bring strategic marketing to mission-driven work?</p>
+      <p>Ready to build meaningful corporate social responsibility programs?</p>
       
       <div class="content-request">
-        <p><small>Looking for marketing leadership in the public or nonprofit sector? <a href="mailto:va.mvharris@gmail.com?subject=Public%20Service%20Opportunity">Let's connect</a></small></p>
+        <p><small>Interested in detailed case studies or partnership opportunities? <a href="mailto:va.mvharris@gmail.com?subject=CSR%20Initiative%20Inquiry">Get in touch</a></small></p>
       </div>
       
       <div class="btn-group">
         <a href="mailto:va.mvharris@gmail.com" class="btn btn-primary">Email Me</a>
-        <a href="https://linkedin.com/in/marla-harris-047b2946" class="btn btn-secondary" target="_blank">LinkedIn</a>
+        <a href="myjourney.html" class="btn btn-outline">My Journey</a>
       </div>
       
       <div class="social-links">
@@ -712,7 +1045,6 @@
     if (mobileMenuBtn) {
       mobileMenuBtn.addEventListener('click', () => {
         mobileMenu.classList.add('active');
-        document.documentElement.style.overflow = 'hidden';
         document.body.style.overflow = 'hidden';
         
         // Track GA event
@@ -727,7 +1059,6 @@
     if (closeMenuBtn) {
       closeMenuBtn.addEventListener('click', () => {
         mobileMenu.classList.remove('active');
-        document.documentElement.style.overflow = '';
         document.body.style.overflow = '';
       });
     }
@@ -735,7 +1066,6 @@
     mobileNavLinks.forEach(link => {
       link.addEventListener('click', () => {
         mobileMenu.classList.remove('active');
-        document.documentElement.style.overflow = '';
         document.body.style.overflow = '';
         
         // Track GA event
@@ -800,7 +1130,6 @@
           !e.target.closest('.mobile-menu') && 
           !e.target.closest('.mobile-menu-btn')) {
         mobileMenu.classList.remove('active');
-        document.documentElement.style.overflow = '';
         document.body.style.overflow = '';
       }
     });
@@ -827,6 +1156,23 @@
             'event_category': 'Contact'
           });
         }
+      });
+    });
+
+    // Image fallback handling
+    document.addEventListener('DOMContentLoaded', function() {
+      const images = document.querySelectorAll('.card-image img');
+      images.forEach(img => {
+        img.addEventListener('error', function() {
+          // If image fails to load, show placeholder
+          const placeholder = document.createElement('div');
+          placeholder.className = 'image-placeholder';
+          placeholder.innerHTML = `
+            <i class="fas fa-image"></i>
+            <p>Image not available</p>
+          `;
+          this.parentNode.appendChild(placeholder);
+        });
       });
     });
   </script>
