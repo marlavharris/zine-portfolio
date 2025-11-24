@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-869S7ZPXQH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-869S7ZPXQH');
+</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Marla Harris - Marketing Leader: Where Storytelling Meets Scalable Systems">
-  <title>Marla Harris — Marketing Leader</title>
+  <meta name="description" content="Marla Harris - Where storytelling meets systems. Marketing leader bridging creative vision with technical execution.">
+  <title>Marla Harris — Marketing Leader: Where Storytelling Meets Scalable Systems</title>
   
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -32,7 +39,6 @@
     
     html {
       scroll-behavior: smooth;
-      overflow-x: hidden;
     }
     
     body {
@@ -46,7 +52,7 @@
     .container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 1.5rem;
+      padding: 0 2rem;
     }
     
     h1, h2, h3 {
@@ -70,11 +76,10 @@
       letter-spacing: 0.3em;
     }
     
-    /* Header & Navigation */
+    /* Header - Luxury Style */
     header {
-      background: rgba(255, 255, 255, 0.98);
+      background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
       position: fixed;
       top: 0;
       width: 100%;
@@ -92,7 +97,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.25rem 0;
+      padding: 1.5rem 0;
     }
     
     .logo {
@@ -148,9 +153,6 @@
       color: var(--ink);
       cursor: pointer;
       z-index: 1001;
-      padding: 0.5rem;
-      min-height: 44px;
-      min-width: 44px;
     }
     
     .mobile-menu {
@@ -191,11 +193,6 @@
       text-decoration: none;
       font-weight: 400;
       transition: color 0.3s ease;
-      padding: 1rem 2rem;
-      min-height: 44px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
     
     .mobile-nav-link:hover {
@@ -204,21 +201,18 @@
     
     .close-menu {
       position: absolute;
-      top: 1.5rem;
-      right: 1.5rem;
+      top: 2rem;
+      right: 2rem;
       background: none;
       border: none;
       font-size: 1.5rem;
       color: var(--ink);
       cursor: pointer;
-      padding: 0.5rem;
-      min-height: 44px;
-      min-width: 44px;
     }
     
-    /* Hero Section */
+    /* Hero - Editorial Style */
     .hero {
-      padding: 10rem 0 4rem;
+      padding: 12rem 0 6rem;
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -232,14 +226,14 @@
     }
     
     .hero h1 {
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-size: clamp(2.8rem, 6vw, 5rem);
       margin-bottom: 2rem;
       font-weight: 300;
       line-height: 1.1;
     }
     
     .hero p {
-      font-size: 1.125rem;
+      font-size: 1.25rem;
       color: var(--neutral-700);
       max-width: 500px;
       margin: 0 auto 3rem;
@@ -253,20 +247,14 @@
     }
     
     .btn {
-      padding: 1rem 2rem;
+      padding: 1rem 2.25rem;
       border-radius: 999px;
       font-weight: 500;
       text-decoration: none;
       font-size: 0.875rem;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.3s ease;
       letter-spacing: 0.05em;
-      display: inline-flex;
-      border: none;
-      cursor: pointer;
-      text-align: center;
-      align-items: center;
-      justify-content: center;
-      min-height: 44px;
+      display: inline-block;
     }
     
     .btn-primary {
@@ -284,7 +272,6 @@
     .btn-secondary {
       border: 1px solid var(--neutral-200);
       color: var(--ink);
-      background: transparent;
     }
     
     .btn-secondary:hover {
@@ -293,59 +280,277 @@
       transform: translateY(-2px);
     }
     
-    /* Performance Metrics */
-    .performance-metrics {
+    /* Results Banner - More Integrated */
+    .results-banner {
+      background: var(--accent-lighter);
       padding: 4rem 0;
+      border-top: 1px solid var(--neutral-200);
+      border-bottom: 1px solid var(--neutral-200);
+    }
+    
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+    
+    .result-item {
+      text-align: center;
+    }
+    
+    .result-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    
+    .result-label {
+      color: var(--neutral-700);
+      font-size: 0.9rem;
+      letter-spacing: 0.02em;
+      line-height: 1.4;
+    }
+    
+    .result-label em {
+      font-style: italic;
+      color: var(--neutral-600);
+      font-size: 0.8rem;
+    }
+    
+    /* Methodology - Combined Approach & Capabilities */
+    .methodology {
+      padding: 6rem 0;
       background: var(--paper);
+    }
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    
+    .section-header h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      font-weight: 300;
+      color: var(--charcoal);
+    }
+    
+    .section-header p {
+      color: var(--neutral-600);
+      font-size: 1.125rem;
+    }
+    
+    .methodology-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    
+    .methodology-card {
+      background: white;
+      border: none;
+      border-radius: 0;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-top: 3px solid var(--accent-lighter);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    
+    .methodology-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      border-top-color: var(--accent);
+    }
+    
+    .methodology-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+    }
+    
+    .methodology-card p {
+      color: var(--neutral-700);
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+    
+    .methodology-features {
+      list-style: none;
+      text-align: left;
+      margin-top: auto;
+    }
+    
+    .methodology-features li {
+      padding: 0.5rem 0;
+      color: var(--neutral-700);
+      font-size: 0.9rem;
+      border-bottom: 1px solid var(--neutral-200);
+      position: relative;
+      padding-left: 1.5rem;
+    }
+    
+    .methodology-features li:before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+    
+    .methodology-features li:last-child {
+      border-bottom: none;
+    }
+    
+    /* Work - Enhanced with Alternating Layout */
+    .work {
+      padding: 6rem 0;
+      background: #fafafa;
+    }
+    
+    .work-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+    }
+    
+    .work-item {
+      background: white;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 400px;
+    }
+    
+    .work-item.reverse {
+      grid-template-columns: 1fr 1fr;
+      direction: rtl;
+    }
+    
+    .work-item.reverse > * {
+      direction: ltr;
+    }
+    
+    .work-content {
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .work-meta {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    
+    .work-item h3 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+    }
+    
+    .work-quote {
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--neutral-700);
+      margin: 1.5rem 0;
+      line-height: 1.4;
+    }
+    
+    .work-stats {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin: 1.5rem 0;
+    }
+    
+    .work-stats .stat {
+      font-size: 0.9rem;
+      color: var(--neutral-600);
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--neutral-200);
+      border-radius: 4px;
+      background: var(--accent-lighter);
+      white-space: nowrap;
+    }
+    
+    .work-systems {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
       border-top: 1px solid var(--neutral-200);
     }
     
-    .metrics-elegant {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
-      max-width: 900px;
-      margin: 0 auto;
+    .systems-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
     }
     
-    .metric-elegant {
-      text-align: center;
-      padding: 2.5rem 1.5rem;
+    .systems-list {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    
+    .system-tag {
+      font-size: 0.8rem;
+      color: var(--neutral-700);
+      padding: 0.25rem 0.75rem;
+      background: var(--neutral-200);
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+    
+    .work-visual {
+      background: var(--accent-lighter);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
       position: relative;
     }
     
-    .metric-elegant:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    .work-visual.reverse {
+      background: white;
+      border-left: 1px solid var(--neutral-200);
     }
     
-    .metric-value-elegant {
-      font-family: 'Playfair Display', serif;
-      font-size: 3rem;
+    .work-visual-content {
+      text-align: center;
       color: var(--accent);
-      margin-bottom: 1rem;
-      line-height: 1;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+    }
+    
+    .work-visual-large {
+      font-size: 4rem;
       font-weight: 300;
+      line-height: 1;
+      margin-bottom: 1rem;
     }
     
-    .metric-story {
+    .work-visual-small {
       font-size: 1rem;
-      color: var(--neutral-700);
-      line-height: 1.6;
+      opacity: 0.8;
     }
     
-    /* Brands */
+    /* Brands - Logo Style */
     .brands {
       padding: 4rem 0;
-      background: #f8f8f8;
+      background: var(--paper);
     }
     
-    .brands-grid {
+    .brand-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1rem;
@@ -353,15 +558,17 @@
     
     .brand-item {
       text-align: center;
-      padding: 2.5rem 1rem;
+      padding: 2rem 1rem;
       font-weight: 500;
       color: var(--ink);
-      background: white;
-      border: 1px solid var(--neutral-200);
+      opacity: 0.9;
       transition: all 0.3s ease;
+      border: 1px solid var(--neutral-200);
+      background: white;
+      font-size: 1rem;
+      letter-spacing: 0.05em;
       position: relative;
       overflow: hidden;
-      font-size: 0.9rem;
     }
     
     .brand-item:before {
@@ -380,173 +587,104 @@
     }
     
     .brand-item:hover {
+      opacity: 1;
       border-color: var(--accent);
       transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(153, 0, 73, 0.1);
     }
     
-    /* Portfolio - Flip Cards */
-    .portfolio {
-      padding: 4rem 0;
+    /* Philosophy - Cleaned Up Bra Quote */
+    .philosophy {
+      padding: 6rem 0;
+      text-align: center;
       background: #fafafa;
-    }
-    
-    .portfolio-flip {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-    
-    .flip-card {
-      background-color: transparent;
-      perspective: 1000px;
-      height: 400px;
-    }
-    
-    .flip-card-inner {
       position: relative;
-      width: 100%;
-      height: 100%;
-      text-align: center;
-      transition: transform 0.8s;
-      transform-style: preserve-3d;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      border-radius: 8px;
     }
     
-    .flip-card:hover .flip-card-inner {
-      transform: rotateY(180deg);
-    }
-    
-    .flip-card-front, .flip-card-back {
+    .philosophy:before {
+      content: '';
       position: absolute;
-      width: 100%;
-      height: 100%;
-      -webkit-backface-visibility: hidden;
-      backface-visibility: hidden;
-      border-radius: 8px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
     }
     
-    .flip-card-front {
-      background-color: white;
-      color: var(--ink);
-      border: 1px solid var(--neutral-200);
-    }
-    
-    .flip-card-back {
-      background-color: white;
-      color: var(--ink);
-      transform: rotateY(180deg);
-      border: 1px solid var(--accent);
-      overflow: hidden;
-    }
-    
-    .flip-card h3 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      font-weight: 400;
-    }
-    
-    .flip-card p {
-      color: var(--neutral-700);
-      line-height: 1.6;
-      font-size: 0.95rem;
-    }
-    
-    .flip-card-image {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 4px;
-      margin-bottom: 1rem;
-    }
-    
-    .flip-card-text {
-      max-height: 300px;
-      overflow-y: auto;
-      padding-right: 5px;
-      text-align: left;
-      width: 100%;
-    }
-    
-    .flip-card-text::-webkit-scrollbar {
-      width: 4px;
-    }
-    
-    .flip-card-text::-webkit-scrollbar-track {
-      background: var(--neutral-200);
-      border-radius: 10px;
-    }
-    
-    .flip-card-text::-webkit-scrollbar-thumb {
-      background: var(--accent);
-      border-radius: 10px;
-    }
-    
-    /* Testimonial Section */
-    .testimonial-section {
-      padding: 4rem 0;
-      background: var(--paper);
-      border-top: 1px solid var(--neutral-200);
-    }
-    
-    .testimonial-content {
-      max-width: 600px;
+    .philosophy-content {
+      max-width: 700px;
       margin: 0 auto;
-      text-align: center;
     }
     
-    .testimonial-text {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-size: 1.5rem;
-      line-height: 1.5;
-      color: var(--accent);
-      margin-bottom: 2rem;
-    }
-    
-    .testimonial-author {
-      font-weight: 600;
-      color: var(--ink);
-    }
-    
-    .testimonial-role {
-      color: var(--neutral-600);
-      font-size: 0.9rem;
-    }
-    
-    /* Section Header */
-    .section-header {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-    
-    .section-header h2 {
-      font-size: 2.25rem;
+    .philosophy-content h2 {
+      font-size: 2.5rem;
       margin-bottom: 1rem;
       font-weight: 300;
       color: var(--charcoal);
     }
     
-    .section-header p {
-      color: var(--neutral-600);
+    .bra-quote-hero {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 3.5rem;
+      color: var(--accent);
+      margin: 3.5rem 0;
+      line-height: 1.1;
+      font-weight: 700;
+      text-align: center;
+      letter-spacing: -0.02em;
+      position: relative;
+      padding: 2rem 0;
+    }
+    
+    .philosophy p {
       font-size: 1.125rem;
+      color: var(--neutral-700);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    
+    /* Leadership - Enhanced */
+    .leadership {
+      padding: 6rem 0;
+      background: var(--paper);
+    }
+    
+    .leadership-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .leadership-item {
+      background: white;
+      padding: 3rem;
+      border-radius: 4px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      margin-bottom: 2rem;
+      border-left: 3px solid var(--accent);
+    }
+    
+    .leadership-item:last-child {
+      margin-bottom: 0;
+    }
+    
+    .leadership-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+      justify-content: center;
     }
     
     /* Contact */
     .contact {
-      padding: 4rem 0;
+      padding: 6rem 0;
       text-align: center;
-      background: #f8f8f8;
+      background: #fafafa;
     }
     
     .contact h2 {
-      font-size: 2.25rem;
+      font-size: 2.5rem;
       margin-bottom: 1rem;
       font-weight: 300;
       color: var(--charcoal);
@@ -557,19 +695,6 @@
       color: var(--neutral-700);
       max-width: 500px;
       margin: 0 auto 2rem;
-    }
-    
-    .content-request {
-      margin: 1.5rem 0;
-    }
-    
-    .content-request a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-    
-    .content-request a:hover {
-      text-decoration: underline;
     }
     
     .social-links {
@@ -583,19 +708,19 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 44px;
-      height: 44px;
+      width: 42px;
+      height: 42px;
       border-radius: 50%;
       background: var(--accent-lighter);
       color: var(--accent);
       text-decoration: none;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.3s ease;
     }
     
     .social-link:hover {
       background: var(--accent);
       color: white;
-      transform: translateY(-2px) scale(1.05);
+      transform: translateY(-2px);
     }
     
     .contact-info {
@@ -621,157 +746,140 @@
     
     /* Responsive */
     @media (max-width: 768px) {
-      .container {
-        padding: 0 1.25rem;
-      }
-      
       .nav-links {
         display: none;
       }
       
       .mobile-menu-btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        display: block;
       }
       
-      .metrics-elegant {
+      .methodology-grid {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
       }
       
-      .portfolio-flip {
+      .work-item, .work-item.reverse {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        direction: ltr;
       }
       
-      .brands-grid {
+      .work-item.reverse > * {
+        direction: ltr;
+      }
+      
+      .work-visual {
+        min-height: 200px;
+        order: -1;
+      }
+      
+      .work-visual.reverse {
+        order: -1;
+        border-left: none;
+        border-bottom: 1px solid var(--neutral-200);
+      }
+      
+      .brand-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .results-grid {
         grid-template-columns: repeat(2, 1fr);
       }
       
       .btn-group {
         flex-direction: column;
         align-items: center;
-        gap: 0.75rem;
       }
       
       .btn {
         width: 100%;
-        max-width: 280px;
+        max-width: 250px;
         text-align: center;
-        padding: 0.875rem 1.5rem;
+      }
+      
+      .work-stats {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+      }
+      
+      .work-stats .stat {
+        text-align: center;
+        width: auto;
       }
       
       .hero {
-        padding: 8rem 0 3rem;
-        min-height: 90vh;
+        padding: 10rem 0 4rem;
       }
       
-      .hero h1 {
-        font-size: clamp(2.25rem, 8vw, 3.5rem);
-      }
-      
-      .hero p {
-        font-size: 1rem;
-        padding: 0 1rem;
-      }
-      
-      .metric-value-elegant {
-        font-size: 2.5rem;
-      }
-      
-      .metric-elegant {
-        padding: 2rem 1rem;
-      }
-      
-      .flip-card {
-        height: 350px;
-      }
-      
-      .brand-item {
-        padding: 2rem 1rem;
+      .result-label {
         font-size: 0.85rem;
       }
       
-      .section-header h2 {
-        font-size: 2rem;
+      .result-label em {
+        font-size: 0.75rem;
       }
       
-      .testimonial-text {
-        font-size: 1.25rem;
-        padding: 0 1rem;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      .container {
-        padding: 0 1rem;
+      .bra-quote-hero {
+        font-size: 2.8rem;
+        margin: 3rem 0;
+        padding: 1.5rem 0;
       }
       
-      .brands-grid {
-        grid-template-columns: 1fr;
+      .philosophy p {
+        text-align: center;
       }
       
-      .hero {
-        padding: 7rem 0 2rem;
-        min-height: 80vh;
+      .leadership-item {
+        padding: 2rem 1.5rem;
       }
       
-      .performance-metrics,
-      .portfolio,
-      .brands,
-      .testimonial-section,
-      .contact {
-        padding: 3rem 0;
+      .leadership-links {
+        flex-direction: column;
+        align-items: center;
       }
       
-      .mobile-nav-link {
-        font-size: 1.1rem;
-        padding: 0.875rem 1.5rem;
-      }
-    }
-    
-    @media (max-width: 360px) {
-      .hero h1 {
-        font-size: 2rem;
+      .leadership-links .btn {
+        max-width: 100%;
       }
       
-      .hero p {
-        font-size: 0.9rem;
+      .systems-list {
+        justify-content: center;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Header with Navigation -->
+  <!-- Header -->
   <header>
     <div class="container">
       <nav>
-        <a href="#home" class="logo">Marla Harris</a>
+        <a href="#" class="logo">Marla Harris</a>
         <div class="nav-links">
-          <a href="#home" class="nav-link">Home</a>
-          <a href="#performance" class="nav-link">Performance</a>
-          <a href="#testimonials" class="nav-link">Testimonials</a>
+          <a href="#" class="nav-link">Home</a>
+          <a href="#work" class="nav-link">Work</a>
+          <a href="#methodology" class="nav-link">Methodology</a>
+          <a href="creative.html" class="nav-link">Creative</a>
           <a href="#brands" class="nav-link">Brands</a>
-          <a href="#portfolio" class="nav-link">Portfolio</a>
+          <a href="#philosophy" class="nav-link">Philosophy</a>
           <a href="#contact" class="nav-link">Contact</a>
         </div>
-        <button class="mobile-menu-btn" aria-label="Toggle menu">
+        <button class="mobile-menu-btn">
           <i class="fas fa-bars"></i>
         </button>
       </nav>
     </div>
-    <!-- Mobile Menu -->
     <div class="mobile-menu">
-      <button class="close-menu" aria-label="Close menu">
+      <button class="close-menu">
         <i class="fas fa-times"></i>
       </button>
       <div class="mobile-nav-links">
-        <a href="#home" class="mobile-nav-link">Home</a>
-        <a href="#performance" class="mobile-nav-link">Performance</a>
-        <a href="#testimonials" class="mobile-nav-link">Testimonials</a>
+        <a href="#" class="mobile-nav-link">Home</a>
+        <a href="#work" class="mobile-nav-link">Work</a>
+        <a href="#methodology" class="mobile-nav-link">Methodology</a>
+        <a href="creative.html" class="mobile-nav-link">Creative</a>
         <a href="#brands" class="mobile-nav-link">Brands</a>
-        <a href="#portfolio" class="mobile-nav-link">Portfolio</a>
+        <a href="#philosophy" class="mobile-nav-link">Philosophy</a>
         <a href="#contact" class="mobile-nav-link">Contact</a>
       </div>
     </div>
@@ -786,68 +894,189 @@
         <div class="bar"></div>
         <p>Marketing leader bridging creative vision with technical execution for multi-million dollar brands.</p>
         <div class="btn-group">
-          <a href="#portfolio" class="btn btn-primary">View Portfolio</a>
+          <a href="#work" class="btn btn-primary">View Work</a>
           <a href="#contact" class="btn btn-secondary">Let's Talk</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Performance Metrics -->
-  <section class="performance-metrics" id="performance">
+  <!-- Results Banner -->
+  <section class="results-banner">
     <div class="container">
-      <div class="section-header">
-        <div class="star-decoration">✦</div>
-        <h2>Performance Excellence</h2>
-        <p>Delivering exceptional results in challenging market conditions</p>
-      </div>
-      
-      <div class="metrics-elegant">
-        <div class="metric-elegant fade-in">
-          <div class="metric-value-elegant">2.5M+</div>
-          <div class="metric-story">Subscribers engaged through strategic email systems in a declining media landscape</div>
+      <div class="results-grid">
+        <div class="result-item">
+          <div class="result-value">2.5M+</div>
+          <div class="result-label">Subscribers Engaged<br><em>in a difficult media landscape</em></div>
         </div>
-        
-        <div class="metric-elegant fade-in">
-          <div class="metric-value-elegant">59%</div>
-          <div class="metric-story">Of all web sales driven despite industry-wide platform bans and restrictions</div>
+        <div class="result-item">
+          <div class="result-value">59%</div>
+          <div class="result-label">Of All Web Sales<br><em>despite industry-wide platform bans</em></div>
         </div>
-        
-        <div class="metric-elegant fade-in">
-          <div class="metric-value-elegant">69%</div>
-          <div class="metric-story">Campaign ROI achieved navigating complex, restricted advertising markets</div>
+        <div class="result-item">
+          <div class="result-value">69%</div>
+          <div class="result-label">Campaign ROI<br><em>in restricted advertising markets</em></div>
         </div>
-        
-        <div class="metric-elegant fade-in">
-          <div class="metric-value-elegant">17%</div>
-          <div class="metric-story">Year-over-year sales lift during Black Friday, driven by strategic send cadence</div>
+        <div class="result-item">
+          <div class="result-value">+14%</div>
+          <div class="result-label">Conversions<br><em>surpassing previous years sales</em></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Testimonial Section -->
-  <section class="testimonial-section" id="testimonials">
+  <!-- Methodology - Combined Approach & Capabilities -->
+  <section id="methodology" class="methodology">
     <div class="container">
-      <div class="testimonial-content fade-in">
+      <div class="section-header">
         <div class="star-decoration">✦</div>
-        <div class="testimonial-text">"Marla writes all promotional copy... consistently producing content that is not only flawless in grammar but perfectly aligned with the refined editorial voice. Given this flair for the written word, she is an excellent choice..."</div>
-        <div class="testimonial-author">Andrew</div>
-        <div class="testimonial-role">Senior Marketing Director</div>
+        <h2>My Methodology</h2>
+        <p>Bridging human insight with technical execution</p>
+      </div>
+      <div class="methodology-grid">
+        <div class="methodology-card fade-in">
+          <h3>Start with Human Truth</h3>
+          <p>Understanding what drives real behavior—whether it's a $300 bra or a subscription</p>
+          <ul class="methodology-features">
+            <li>Consumer Psychology</li>
+            <li>Behavioral Insights</li>
+            <li>Identity & Desire Mapping</li>
+            <li>Luxury Positioning</li>
+          </ul>
+        </div>
+        
+        <div class="methodology-card fade-in">
+          <h3>Build Scalable Systems</h3>
+          <p>Technical infrastructure that connects insight to execution across platforms</p>
+          <ul class="methodology-features">
+            <li>Marketing Automation</li>
+            <li>Data Integration</li>
+            <li>Journey Architecture</li>
+            <li>Platform Ecosystems</li>
+          </ul>
+        </div>
+        
+        <div class="methodology-card fade-in">
+          <h3>Drive Business Results</h3>
+          <p>Connecting creative vision to measurable revenue and growth</p>
+          <ul class="methodology-features">
+            <li>Performance Optimization</li>
+            <li>ROI Measurement</li>
+            <li>Growth Strategy</li>
+            <li>Revenue Optimization</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Work - Enhanced with Alternating Layout -->
+  <section id="work" class="work">
+    <div class="container">
+      <div class="section-header">
+        <div class="star-decoration">✦</div>
+        <h2>Editorial & Brand Partnerships</h2>
+        <p>Strategic marketing systems for premium brands</p>
+      </div>
+
+      <div class="work-grid">
+        <!-- First item - standard layout -->
+        <div class="work-item fade-in">
+          <div class="work-content">
+            <div class="work-meta">Media Empire Strategy</div>
+            <h3>Penske Media Corporation</h3>
+            <p class="work-quote">"Architected subscription email marketing systems for Rolling Stone, Billboard, and WWD—crafting customer journeys that maintained editorial voice while driving conversions"</p>
+            <div class="work-stats">
+              <div class="stat">Copywriting</div>
+              <div class="stat">Email Journey Architecture</div>
+              <div class="stat">Editorial Brand Integrity</div>
+            </div>
+            <div class="work-systems">
+              <div class="systems-label">Systems & Platforms</div>
+              <div class="systems-list">
+                <div class="system-tag">Enterprise Marketing Automation</div>
+                <div class="system-tag">Salesforce</div>
+                <div class="system-tag">Data Analytics</div>
+              </div>
+            </div>
+          </div>
+          <div class="work-visual">
+            <div class="work-visual-content">
+              <div class="work-visual-large">2.5M+</div>
+              <div class="work-visual-small">Subscribers Engaged</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Second item - reversed layout with pink background -->
+        <div class="work-item reverse fade-in">
+          <div class="work-content">
+            <div class="work-meta">Complex Market Navigation</div>
+            <h3>Museum of Sex</h3>
+            <p class="work-quote">"Navigated platform compliance restrictions while driving 59% of all web sales through strategic campaign management in challenging advertising environments"</p>
+            <div class="work-stats">
+              <div class="stat">Primary Driver of DTC Revenue</div>
+              <div class="stat">High-Return Campaign Strategy</div>
+              <div class="stat">Platform Compliance Mastery</div>
+            </div>
+            <div class="work-systems">
+              <div class="systems-label">Systems & Platforms</div>
+              <div class="systems-list">
+                <div class="system-tag">Compliance Systems</div>
+                <div class="system-tag">Campaign Analytics</div>
+                <div class="system-tag">Revenue Tracking</div>
+              </div>
+            </div>
+          </div>
+          <div class="work-visual">
+            <div class="work-visual-content">
+              <div class="work-visual-large">59%</div>
+              <div class="work-visual-small">Of All Web Sales</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Third item - standard layout again -->
+        <div class="work-item fade-in">
+          <div class="work-content">
+            <div class="work-meta">Luxury E-commerce</div>
+            <h3>Bao Bao Issey Miyake</h3>
+            <p class="work-quote">"Optimized luxury email creative through rigorous A/B testing, proving minimalist product visuals drive highest engagement while maintaining brand prestige"</p>
+            <div class="work-stats">
+              <div class="stat">Luxury Industry-Leading Engagement</div>
+              <div class="stat">Peak Performance CTR</div>
+              <div class="stat">Data-Driven Luxury Creative</div>
+            </div>
+            <div class="work-systems">
+              <div class="systems-label">Systems & Platforms</div>
+              <div class="systems-list">
+                <div class="system-tag">A/B Testing</div>
+                <div class="system-tag">Luxury CRM</div>
+                <div class="system-tag">Creative Analytics</div>
+              </div>
+            </div>
+          </div>
+          <div class="work-visual">
+            <div class="work-visual-content">
+              <div class="work-visual-large">+14%</div>
+              <div class="work-visual-small">YoY Conversions</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Brands -->
-  <section class="brands" id="brands">
+  <section id="brands" class="brands">
     <div class="container">
       <div class="section-header">
-        <h2>Brands I've Worked With</h2>
-        <p>Collaborating with premium brands across media, luxury, and complex markets</p>
+        <h2>Selected Collaborations</h2>
+        <p>Building systems for media empires, luxury brands, and complex markets</p>
       </div>
-      <div class="brands-grid">
-        <div class="brand-item fade-in">ROLLING STONE</div>
-        <div class="brand-item fade-in">BILLBOARD PRO</div>
+      <div class="brand-grid">
+        <div class="brand-item fade-in">ROLLING STONE MAGAZINE</div>
+        <div class="brand-item fade-in">BILLBOARD PRO MAGAZINE</div>
         <div class="brand-item fade-in">WOMEN'S WEAR DAILY</div>
         <div class="brand-item fade-in">BAO BAO ISSEY MIYAKE</div>
         <div class="brand-item fade-in">AJ MADISON</div>
@@ -856,63 +1085,42 @@
     </div>
   </section>
 
-  <!-- Portfolio -->
-  <section id="portfolio" class="portfolio">
+  <!-- Philosophy - Cleaned Up Bra Quote -->
+  <section id="philosophy" class="philosophy">
+    <div class="container">
+      <div class="philosophy-content">
+        <h2>My Journey</h2>
+        <div class="bar"></div>
+        
+        <p>Five years of working luxury retail, selling lingerie, taught me how to speak to the customer, and what gets them to buy. Lessons that I take with me in every project or job I take on.</p>
+        
+        <p>From covering fashion shows at Mercedes Benz Fashion Week to subscription marketing for media empires, I bridge the gap between human desire and technical execution—creating systems that honor complexity while driving measurable growth.</p>
+        
+        <p class="bra-quote-hero">If I can sell a $300 bra, I can sell anything.</p>
+        
+        <a href="mailto:va.mvharris@gmail.com" class="btn btn-primary" style="margin-top: 2rem;">Prove It To Me</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Leadership -->
+  <section id="leadership" class="leadership">
     <div class="container">
       <div class="section-header">
         <div class="star-decoration">✦</div>
-        <h2>Portfolio</h2>
-        <p>Strategic work across creative, content, and community initiatives</p>
+        <h2>Leadership & Impact</h2>
+        <p>Beyond commercial success</p>
       </div>
       
-      <div class="portfolio-flip">
-        <!-- Creative Flip Card -->
-        <div class="flip-card fade-in">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <h3>Creative</h3>
-              <p>Strategic email marketing and visual campaigns that drive engagement and conversion for luxury brands and media empires.</p>
-              <p><small>Hover to see examples</small></p>
-            </div>
-            <div class="flip-card-back">
-              <img src="Ends Today - Ilhan Omar 3.21 RS Sale - 25% (3).gif" alt="Creative Work Example" class="flip-card-image">
-              <p>Email campaigns, visual branding, and marketing collateral for luxury and media clients.</p>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Copywriting Flip Card -->
-        <div class="flip-card fade-in">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <h3>Copywriting</h3>
-              <p>Editorial-quality copy that maintains brand voice while driving conversions for premium publications and luxury brands.</p>
-              <p><small>Hover to see samples</small></p>
-            </div>
-            <div class="flip-card-back">
-              <div class="flip-card-text">
-                <h4>Copywriting Samples</h4>
-                <p>Stay ahead of textiles and materials news with WWD's daily reporting.</p>
-                <p>Learn how bloggers are using Tik Tok to inform the public about the dangers of toxic chemicals in fast fashion. Discover which designers are creating innovative textiles from recycled plastic and what this means for the future.</p>
-                <p>And get an early look at which fabrics will appear on the fall catwalks this year.</p>
-                <p>It's all available with a subscription to WWD. Subscribe at this unprecedented rate, and get unlimited access to daily textiles and materials coverage, as well as the full range of industry reporting on WWD.com and in the Digital Daily.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- CSR Flip Card -->
-        <div class="flip-card fade-in">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <h3>CSR</h3>
-              <p>Building meaningful corporate social responsibility programs that create lasting community impact and brand value.</p>
-              <p><small>Hover to see initiatives</small></p>
-            </div>
-            <div class="flip-card-back">
-              <img src="Image_from_iOS_6.jpg" alt="CSR Initiatives" class="flip-card-image">
-              <p>Community engagement programs, sustainability initiatives, and corporate responsibility campaigns.</p>
-            </div>
+      <div class="leadership-content">
+        <div class="leadership-item fade-in">
+          <div class="work-meta">Social Impact & Brand Leadership</div>
+          <h3>Community Fridge Project</h3>
+          <p class="work-quote">"Built a national circular-economy initiative from scratch—convincing skeptical executives, negotiating vendor partnerships, and mobilizing cross-functional teams to establish the company's first CSR program"</p>
+          <div class="leadership-links">
+            <a href="https://true-residential.com/the-art-of-cold/true-manufacturing-in-partnership-with-aj-madison-donates-commercial-refrigerator-to-community-free-food-fridge-project/" class="btn btn-secondary" target="_blank">True Manufacturing Partnership</a>
+            <a href="https://patch.com/new-york/bed-stuy/bed-stuy-get-free-community-fridge-earth-day-campaign" class="btn btn-secondary" target="_blank">Patch</a>
+            <a href="https://communitynewspapers.com/coral-gables-news/jennair-and-ajmadison-host-an-evening-at-the-museum-of-graffiti-art-gallery-and-donate-a-new-community-fridge-painted-by-artist-cale-k25/" class="btn btn-secondary" target="_blank">DC Modern</a>
           </div>
         </div>
       </div>
@@ -925,20 +1133,15 @@
       <div class="star-decoration">✦</div>
       <h2>Let's Build Systems That Scale</h2>
       <p>I understand both the technical architecture and the creative execution that drives growth.</p>
-      
-      <div class="content-request">
-        <p><small>Want to see more specific examples? <a href="mailto:va.mvharris@gmail.com?subject=Portfolio%20Case%20Study%20Request">Request detailed case studies</a></small></p>
-      </div>
-      
       <div class="btn-group">
         <a href="mailto:va.mvharris@gmail.com" class="btn btn-primary">Get in Touch</a>
       </div>
       
       <div class="social-links">
-        <a href="https://linkedin.com/in/marla-harris-047b2946" class="social-link" aria-label="LinkedIn">
+        <a href="https://linkedin.com/in/marla-harris-047b2946" class="social-link">
           <i class="fab fa-linkedin-in"></i>
         </a>
-        <a href="https://www.instagram.com/marlavharris/" class="social-link" aria-label="Instagram">
+        <a href="https://www.instagram.com/marlavharris/" class="social-link">
           <i class="fab fa-instagram"></i>
         </a>
       </div>
@@ -991,7 +1194,6 @@
     if (mobileMenuBtn) {
       mobileMenuBtn.addEventListener('click', () => {
         mobileMenu.classList.add('active');
-        document.documentElement.style.overflow = 'hidden';
         document.body.style.overflow = 'hidden';
       });
     }
@@ -999,7 +1201,6 @@
     if (closeMenuBtn) {
       closeMenuBtn.addEventListener('click', () => {
         mobileMenu.classList.remove('active');
-        document.documentElement.style.overflow = '';
         document.body.style.overflow = '';
       });
     }
@@ -1007,7 +1208,6 @@
     mobileNavLinks.forEach(link => {
       link.addEventListener('click', () => {
         mobileMenu.classList.remove('active');
-        document.documentElement.style.overflow = '';
         document.body.style.overflow = '';
       });
     });
@@ -1018,7 +1218,7 @@
     const fadeInOnScroll = () => {
       fadeElements.forEach(element => {
         const elementTop = element.getBoundingClientRect().top;
-        const elementVisible = 100;
+        const elementVisible = 150;
         
         if (elementTop < window.innerHeight - elementVisible) {
           element.classList.add('visible');
@@ -1027,7 +1227,7 @@
     };
     
     window.addEventListener('scroll', fadeInOnScroll);
-    window.addEventListener('load', fadeInOnScroll);
+    // Initial check in case elements are already in view
     fadeInOnScroll();
 
     // Close mobile menu when clicking outside
@@ -1036,7 +1236,6 @@
           !e.target.closest('.mobile-menu') && 
           !e.target.closest('.mobile-menu-btn')) {
         mobileMenu.classList.remove('active');
-        document.documentElement.style.overflow = '';
         document.body.style.overflow = '';
       }
     });
